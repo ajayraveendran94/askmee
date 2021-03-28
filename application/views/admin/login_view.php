@@ -4,13 +4,14 @@
     <section class="section">
       <div class="container mt-5">
         <div class="row">
+        <?php $out_put = isset($error) ? $error : ''; ?>
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="card card-primary">
               <div class="card-header">
                 <h4>Login</h4>
               </div>
               <div class="card-body">
-                <form action="./dashboard.php" class="needs-validation" novalidate="">
+                <form method="post" action="<?php echo site_url('admin/login/process'); ?>" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
@@ -28,6 +29,7 @@
                       </div>
                     </div>
                     <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <input id="output" type="hidden" class="form-control" name="output" tabindex="2" value="<?php echo $out_put; ?>">
                     <div class="invalid-feedback">
                       please fill in your password
                     </div>
@@ -70,16 +72,28 @@
     </section>
   </div>
   <!-- General JS Scripts -->
-  
   <script src="<?php echo base_url("assets/js/app.min.js"); ?>"></script>
-  <script src="<?php echo base_url("assets/js/jquery.min.js"); ?>"></script>
+  <script src="<?php echo base_url("assets/bundles/izitoast/js/iziToast.min.js"); ?>"></script>
+  <!-- Page Specific JS File -->
+  <script src="<?php echo base_url("assets/js/page/toastr.js"); ?>"></script>
+  
   <!-- JS Libraies -->
   <!-- Page Specific JS File -->
   <!-- Template JS File -->
   <script src="<?php echo base_url("assets/js/scripts.js"); ?>"></script>
   <!-- Custom JS File -->
   <script src="<?php echo base_url("assets/js/custom.js"); ?>"></script>
-  
+  <script>
+    $( document ).ready(function() {
+    if($('#output').val() == 'error'){
+      iziToast.error({
+        title: 'Invalid!',
+        message: 'Your login details are invalid',
+        position: 'topRight'
+      });
+    }
+    });
+  </script>
 </body>
 
 </html>

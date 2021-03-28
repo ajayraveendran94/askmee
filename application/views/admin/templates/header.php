@@ -18,4 +18,12 @@
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?php echo base_url("assets/css/custom.css"); ?>">
   <link rel="stylesheet" href="<?php echo base_url("assets/img/favicon.ico"); ?>">
+  <?php 
+    $controller = $this->router->fetch_class();
+
+    if ($controller == 'login' || $controller == 'addproduct' || $controller == 'upload_image'){
+      echo('<link rel="stylesheet" href='.base_url("assets/bundles/izitoast/css/iziToast.min.css").'>');
+      //echo('<link rel="stylesheet" href="<?php echo base_url("assets/bundles/izitoast/css/iziToast.min.css");
+    }
+  ?>
 </head>
