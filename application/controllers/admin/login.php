@@ -33,7 +33,7 @@ class Login extends CI_Controller {
     {  
         //removing session  
         $this->session->unset_userdata('user');  
-        redirect("Login");  
+        redirect("admin/login");  
     }  
   
 }  

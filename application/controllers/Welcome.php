@@ -20,6 +20,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->model('admin/addproduct_model');
+		$category_name = $this->addproduct_model->get_category();
+		$products = $this->addproduct_model->get_product();
+        $data['category'] = $category_name;
+        $data['products'] = $products;
+		$this->load->view('templates/header');
+		$this->load->view('welcome_message', $data);
+		$this->load->view('templates/footer');
 	}
 }
