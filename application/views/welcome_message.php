@@ -147,7 +147,7 @@ else{
     echo('<li class="product-category product">');
 }
 ?>
-	<a href="product_cat_food.html"><img src="<?php echo base_url('assets/images/'.$row->category_url); ?>" alt="Fruits &amp; Vegetables" width="300" height="300" />		
+	<a href="product_cat_food.html"><img src="<?php echo base_url('assets/images/categories/'.$row->category_url); ?>" alt="Fruits &amp; Vegetables" width="300" height="300" />		
 	<h2 class="woocommerce-loop-category__title">
 			<?php echo $row->category_name; ?> <mark class="count">(3)</mark>		</h2>
 		</a></li>

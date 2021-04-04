@@ -55,8 +55,20 @@
                       <input type="number" class="form-control" name="quantity">
                     </div>
                     <div class="form-group">
-                      <label>Image</label>
-                      <input type="file" class="form-control" name="file">
+                      <label>Image 1</label>
+                      <input type="file" class="form-control" name="files[]">
+                    </div>
+                    <div class="form-group">
+                      <label>Image 2</label>
+                      <input type="file" class="form-control" name="files[]">
+                    </div>
+                    <div class="form-group">
+                      <label>Image 3</label>
+                      <input type="file" class="form-control" name="files[]">
+                    </div>
+                    <div class="form-group">
+                      <label>Image 4</label>
+                      <input type="file" class="form-control" name="files[]">
                     </div>
                   </div>
                   <div class="card-footer text-right">

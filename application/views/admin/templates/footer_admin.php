@@ -1,6 +1,6 @@
 <footer class="main-footer">
         <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a></a>
+          <a href="#">AR Designs</a></a>
         </div>
         <div class="footer-right">
         </div>
@@ -17,6 +17,12 @@
      echo('<script src="'.base_url("assets/js/apexcharts.min.js").'"></script>'); 
      echo('<script src="'.base_url("assets/js/index.js").'"></script>'); 
    }
+   elseif($controller == 'productlist'){
+    echo('<script src="'.base_url("assets/bundles/datatables/datatables.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/jquery-ui/jquery-ui.min.js").'"></script>');
+    echo('<script src="'.base_url("assets/js/page/datatables.js").'"></script>'); 
+  }
   ?>
   <!-- JS Libraies -->
   <!-- Page Specific JS File -->

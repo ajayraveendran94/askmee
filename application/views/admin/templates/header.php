@@ -9,6 +9,13 @@
   <title>Askmee - Admin</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url("assets/css/app.min.css");?>"> 
+  <?php
+   $controller = $this->router->fetch_class();
+  if($controller == 'productlist'){
+    echo('<link rel="stylesheet" href='.base_url("assets/bundles/datatables/datatables.min.css").'>');
+    echo('<link rel="stylesheet" href='.base_url("assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css").'>');
+  }
+  ?>
   <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css");?>"> 
   <!-- app.min.css -->
   <link rel="stylesheet" href="">
@@ -19,8 +26,6 @@
   <link rel="stylesheet" href="<?php echo base_url("assets/css/custom.css"); ?>">
   <link rel="stylesheet" href="<?php echo base_url("assets/img/favicon.ico"); ?>">
   <?php 
-    $controller = $this->router->fetch_class();
-
     if ($controller == 'login' || $controller == 'addproduct' || $controller == 'upload_image'){
       echo('<link rel="stylesheet" href='.base_url("assets/bundles/izitoast/css/iziToast.min.css").'>');
       //echo('<link rel="stylesheet" href="<?php echo base_url("assets/bundles/izitoast/css/iziToast.min.css");

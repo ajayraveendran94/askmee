@@ -12,8 +12,8 @@ class Upload_image extends CI_Controller {
    */
     public function __construct() {
         parent::__construct();
-        $this->load->model('admin/upload_model');
-        $this->load->model('admin/addproduct_model');
+        $this->load->model('upload_model');
+        $this->load->model('addproduct_model');
     }
  
     function image_upload()  
@@ -26,7 +26,7 @@ class Upload_image extends CI_Controller {
         //print_r($_POST['file']);
       //if(isset($_FILES["file"]["name"]))  
       //{  
-        $config['upload_path'] = './assets/images';  
+        $config['upload_path'] = './assets/images/categories';  
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
         $this->load->library('upload', $config);
         $category_name = $this->addproduct_model->get_category();

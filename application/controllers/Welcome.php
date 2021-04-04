@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	function __construct()
+    {
+        parent::__construct();
+        $this->load->model('addproduct_model');
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,7 +25,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('admin/addproduct_model');
 		$category_name = $this->addproduct_model->get_category();
 		$products = $this->addproduct_model->get_product();
         $data['category'] = $category_name;
