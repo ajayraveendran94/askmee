@@ -9,20 +9,32 @@ class Addproduct_model extends CI_Model{
     
     function get_category(){  
         $this->db->order_by('category_name', 'asc');
-        $query= $this->db->query('SELECT id, category_name, category_url FROM as_categories');
+        $query= $this->db->query('SELECT c_id, category_name, category_url FROM as_categories');
         $result = $query->result();
         return $result;
     }  
     
     function get_product(){  
-        $this->db->reset_query();
-        $this->db->select("*");
-        $this->db->from("as_products");
+        // $this->db->reset_query();
+        // $this->db->select("*");
+        // $this->db->from("as_products");
+        // $this->db->limit(4);
+        // $this->db->order_by('p_id',"DESC");
+        // $query = $this->db->get();
+        // $result = $query->result();
+        // return $result;
+
+        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, description, quantity, product_status, category_name');
+        $this->db->join('as_categories', 'c_id = category_id');
         $this->db->limit(4);
-        $this->db->order_by('id',"DESC");
-        $query = $this->db->get();
-        $result = $query->result();
-        return $result;
+        //$this->db->join('brands', 'brand_id = prod_brand');
+        $query = $this->db->get('as_products')->result_array();
+        foreach($query as $i=>$product) {
+          $this->db->where('product_id', $product['p_id']);
+          $images_query = $this->db->get('as_product_images')->result_array();
+          $query[$i]['product_images'] = $images_query;
+        }
+        return $query;
     } 
 
     function save_upload($data, $image_data){  

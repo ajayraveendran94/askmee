@@ -20,7 +20,7 @@ $("#swal-5").click(function () {
   swal('Good Job', 'You clicked the button!', 'error');
 });
 
-$("#swal-6").click(function () {
+$(".swal-6").click(function () {
   swal({
     title: 'Are you sure?',
     text: 'Once deleted, you will not be able to recover this imaginary file!',
@@ -30,12 +30,24 @@ $("#swal-6").click(function () {
   })
     .then((willDelete) => {
       if (willDelete) {
-        swal('Poof! Your imaginary file has been deleted!', {
-          icon: 'success',
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editproduct/delete',
+          success: function(response){
+            swal('Done! Product Successfully deleted!', {
+              icon: 'success',
+            });
+          }
         });
-      } else {
-        swal('Your imaginary file is safe!');
+      } 
+      else {
+        swal('No problem Product is safe!');
       }
+    window.location.href = window.location.href;
+    //e.preventDefault();
     });
 });
 

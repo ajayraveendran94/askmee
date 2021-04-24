@@ -22,7 +22,7 @@
                         <?php 
                           foreach($category_name as $row)
                           {
-                              echo('<option value ="'.$row->id.'">'.$row->category_name.'</option>');
+                              echo('<option value ="'.$row->c_id.'">'.$row->category_name.'</option>');
                           }
                         ?>
                       </select>

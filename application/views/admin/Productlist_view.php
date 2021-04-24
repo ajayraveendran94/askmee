@@ -36,21 +36,27 @@
                             <td class="text-center pt-2">
                               <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-<?php echo $row->id?>">
-                                <label for="checkbox-<?php echo $row->id?>" class="custom-control-label">&nbsp;</label>
+                                  id="checkbox-<?php echo $row['p_id'] ?>">
+                                <label for="checkbox-<?php echo $row['p_id'] ?>" class="custom-control-label">&nbsp;</label>
                               </div>
                             </td>
-                            <td><?php echo $row->product_name; ?></td>
-                            <td><?php echo $row->category_name; ?></td>
+                            <td><?php echo $row['product_name']; ?></td>
+                            <td><?php echo $row['category_name']; ?></td>
                             <td>
-                              <img alt="image" src="" width="35">
+                            <?php 
+                            foreach($row['product_images'] as $image){
+                            ?>
+                              <img alt="image" src="<?php echo base_url('./assets/images/newproducts/'.$row['p_id'].'/'.$image['image_url']); ?>" width="35">
+                            <?php 
+                            }
+                            ?>
                             </td>
-                            <td><?php echo $row->offer_price; ?></td>
-                            <td><?php echo $row->quantity; ?></td>
+                            <td><?php echo $row['offer_price']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
                             <td>
-                              <a href="#" class="btn btn-primary">Details</a>
-                              <a href="<?php echo base_url('admin/editproduct/view/'.$row->id); ?>" class="btn btn-warning">Edit</a>
-                              <a href="#" class="btn btn-danger">Delete</a>
+                              <!-- <a href="#" class="btn btn-primary">Details</a> -->
+                              <a href="<?php echo base_url('admin/editproduct/view/'.$row['p_id']); ?>" class="btn btn-warning">Edit</a>
+                              <a href="#"  dataSet="<?php echo $row['p_id'] ?>" class="btn btn-danger swal-6">Delete</a>
                             </td>
                           </tr>
                           <?php } ?>

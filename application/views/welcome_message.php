@@ -180,10 +180,10 @@ else{
 		?>
 		<li class="wc-block-grid__product">
 				<a href="#" class="wc-block-grid__product-link">
-					<div class="wc-block-grid__product-image"><img width="300" height="300" src="<?php echo base_url('assets/images/products/'.$val->image_url); ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" /></div>
-					<div class="wc-block-grid__product-title"><?php echo $val->product_name; ?></div>
+					<div class="wc-block-grid__product-image"><img width="300" height="300" src="<?php echo base_url('assets/images/newproducts/'.$val['p_id'].'/'.$val['product_images'][0]['image_url']); ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" /></div>
+					<div class="wc-block-grid__product-title"><?php echo $val['product_name']; ?></div>
 				</a>
-				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#8377;</span><?php echo $val->offer_price; ?></span></div>
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#8377;</span><?php echo $val['offer_price']; ?></span></div>
 				<div class="wp-block-button wc-block-grid__product-add-to-cart">
 				<button type="button" class="btn btn-outline-primary">Add to cart</button></a></div>
 			</li>

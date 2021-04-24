@@ -16,7 +16,7 @@ class Productlist extends CI_Controller {
     public function index()  
     {  
         $product_data = $this->productlist_model->get_products();
-        //print_r($product_data);
+        //print_r($product_data[0]['p_id']);
         $data['products'] = $product_data;
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');

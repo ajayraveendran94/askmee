@@ -35,7 +35,7 @@ $("#table-1").dataTable({
 });
 $("#table-2").dataTable({
   "columnDefs": [
-    { "sortable": false, "targets": [0, 2, 3] }
+    { "sortable": false, "targets": [0, 3, 6] }
   ],
   order: [[1, "asc"]] //column indexes is zero based
 
