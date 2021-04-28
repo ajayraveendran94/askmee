@@ -78,6 +78,9 @@
                     </div> -->
                   </div>
                   <div class="card-footer text-right">
+                    <button class="btn btn-dark mr-1">
+                    <a href="<?php echo base_url('admin/productlist');?>">Back</a>
+                    </button>
                     <button class="btn btn-primary mr-1" type="submit">Submit</button>
                     <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
                   </div>

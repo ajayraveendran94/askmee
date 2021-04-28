@@ -178,7 +178,7 @@
               <a href="<?php echo base_url('admin/dashboard');?>" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <?php
-              $product_controllers = ['addproduct', 'productlist'];
+              $product_controllers = ['addproduct', 'productlist', 'categorylist'];
               if(in_array($controller, $product_controllers)){
                 echo '<li class="dropdown active">';
               }
@@ -187,10 +187,11 @@
               }
             ?>
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Product</span></a>
+                  data-feather="briefcase"></i><span>Product & Categories</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="<?php echo base_url('admin/addproduct');?>">Add Product</a></li>
                 <li><a class="nav-link" href="<?php echo base_url('admin/productlist');?>">Product List</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/categorylist');?>">Category List</a></li>
               </ul>
             </li>
             <!-- <li class="dropdown">
