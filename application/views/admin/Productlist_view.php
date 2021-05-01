@@ -46,7 +46,7 @@
                             <?php 
                             foreach($row['product_images'] as $image){
                             ?>
-                              <img alt="image" src="<?php echo base_url('./assets/images/newproducts/'.$row['p_id'].'/'.$image['image_url']); ?>" width="35">
+                              <img alt="image" src="<?php echo base_url('./assets/images/newproducts/'.$row['p_id'].'/'.$image['image_url']); ?>" width="35" height="25">
                             <?php 
                             }
                             ?>

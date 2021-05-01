@@ -27,35 +27,44 @@ class Editcategory extends CI_Controller {
     public function delete()
     {
         $id = trim($this->input->post('id'));
-        $delete_data = $this->productlist_model->delete_product($id);
-        if (is_dir('./assets/images/newproducts/'.$id)) {
-            delete_files('./assets/images/newproducts/'.$id, TRUE);
-            rmdir('./assets/images/newproducts/'.$id);
-            echo 'Hello';
-        }
-        else{
-            echo 'HI';
+        $category_product = $this->category_model->get_category_products($id);
+        $delete_data = $this->category_model->delete_category($id, $category_product);
+        foreach($category_product as $row){
+          if (is_dir('./assets/images/newproducts/'.$row->id)) {
+            delete_files('./assets/images/newproducts/'.$row->id, TRUE);
+            rmdir('./assets/images/newproducts/'.$row->id);
+            //echo 'Hello';
+          }
         }
     }
     public function edit_category()
     {
-        $product_data = array(
-            'category_name' => $this->input->post('category_name'),
-            'category_url' => $this->input->post('category_url'),
-            'description' => $this->input->post('product_description'),
-            'offer_price' => $this->input->post('offer_price'),
-            'actual_price' => $this->input->post('actual_price'),
-            'quantity' => $this->input->post('quantity')
-        );
-        $id = $this->input->post('product_id');
-        $update_data = $this->productlist_model->update_product($product_data, $id);
-        $product_data = $this->productlist_model->get_products();
-        //print_r($product_data[0]['p_id']);
-        $data['products'] = $product_data;
+        $id = $this->input->post('category_id');
+        $config['upload_path'] = './assets/images/categories';  
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->load->library('upload', $config);
+        if(!$this->upload->do_upload('file'))  
+        {  
+            $category_data =  array(
+                'category_name' => $this->input->post('category_name')
+            ); 
+        }  
+        else  
+        {  
+            $image_data = array('upload_data' => $this->upload->data());
+            $image= $image_data['upload_data']['file_name']; 
+            $category_data =  array(
+                'category_name' => $this->input->post('category_name'),
+                'category_url' => $image
+            ); 
+        }
+        $update_data = $this->category_model->update_category($category_data, $id);
+        $category_data = $this->category_model->get_categories();
+        $data['categories'] = $category_data;
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
-        $this->load->view('admin/productlist_view', $data);
-        $this->load->view('admin/templates/footer_admin'); 
+        $this->load->view('admin/categorylist_view', $data);
+        $this->load->view('admin/templates/footer_admin');  
     }
 
 }

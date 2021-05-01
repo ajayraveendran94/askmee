@@ -72,3 +72,34 @@ $("#swal-8").click(function () {
     timer: 3000,
   });
 });
+
+$(".swal-9").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'Once deleted, you will not be able to recover this imaginary file!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editcategory/delete',
+          success: function(response){
+            swal('Done! Category Successfully deleted!', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem Category is safe!');
+      }
+    window.location.href = window.location.href;
+    //e.preventDefault();
+    });
+});

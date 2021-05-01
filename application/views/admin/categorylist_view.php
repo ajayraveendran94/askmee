@@ -48,7 +48,7 @@
                             <td>
                               <!-- <a href="#" class="btn btn-primary">Details</a> -->
                               <a href="<?php echo base_url('admin/editcategory/view/'.$row['c_id']); ?>" class="btn btn-warning">Edit</a>
-                              <a href="#"  dataSet="<?php echo $row['c_id'] ?>" class="btn btn-danger swal-6">Delete</a>
+                              <a href="#"  dataSet="<?php echo $row['c_id'] ?>" class="btn btn-danger swal-9">Delete</a>
                             </td>
                           </tr>
                           <?php } ?>

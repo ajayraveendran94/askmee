@@ -16,6 +16,10 @@
     
     if($controller == 'addproduct' || $controller == 'upload_image'){ 
       echo('<script src="'.base_url("assets/bundles/izitoast/js/iziToast.min.js").'"></script>');
+      echo('<script src="'.base_url("assets/js/add_product.js").'"></script>');
+   }
+   elseif($controller == 'editproduct'){ 
+    echo('<script src="'.base_url("assets/js/edit_product.js").'"></script>');
    }
    elseif($controller == 'dashboard'){
      echo('<script src="'.base_url("assets/js/apexcharts.min.js").'"></script>'); 
@@ -29,6 +33,7 @@
     echo('<script src="'.base_url("assets/js/page/datatables.js").'"></script>'); 
     echo('<script src="'.base_url("assets/bundles/sweetalert/sweetalert.min.js").'"></script>');
     echo('<script src="'.base_url("assets/js/page/sweetalert.js").'"></script>');
+    echo('<script src="'.base_url("assets/bundles/dropzonejs/min/dropzone.min.js").'"></script>');
   }
   ?>
   <!-- JS Libraies -->

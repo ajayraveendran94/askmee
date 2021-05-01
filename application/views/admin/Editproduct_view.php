@@ -58,8 +58,25 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="form-row">
-                      <div class="form-group col-md-3">
+                    <?php  
+                    $count = 1;
+                    foreach($product as $row){?>
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input"  id="<?php echo('imag'.$count);?>">
+                            <label class="custom-file-label" for="customFile">Choose image</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <img id="<?php echo('ImgPreview'.$count);?>" src="<?php echo base_url('./assets/images/newproducts/'.$row->p_id.'/'.$row->image_url); ?>" class="preview2" width="50" height="50"/>
+                          <input type="button" id="<?php echo('removeImage'.$count);?>" value="x" class="btn-rmv2" />
+                        </div>
+                      </div>
+                    <?php 
+                     $count++;
+                    } ?>
+                      <!-- <div class="form-group col-md-3">
                         <label>Image</label>
                         <input type="file" class="form-control">
                       </div>
@@ -74,8 +91,7 @@
                       <div class="form-group col-md-3">
                         <label>Image</label>
                         <input type="file" class="form-control">
-                      </div>
-                    </div> -->
+                      </div> -->
                   </div>
                   <div class="card-footer text-right">
                     <button class="btn btn-dark mr-1">

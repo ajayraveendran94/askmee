@@ -21,7 +21,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-3">
                         <label>Category Image</label>
-                        <input type="file" class="form-control">
+                        <input type="file" name="file" class="form-control">
                       </div>
                       <!-- <div class="form-group col-md-3">
                         <label>Image</label>

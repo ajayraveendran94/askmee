@@ -55,10 +55,11 @@
                       <input type="number" class="form-control" name="quantity">
                     </div>
                     <div class="form-group">
-                      <label>Image 1</label>
-                      <input type="file" class="form-control" name="files[]">
+                      <label>Images (Add 4 images)</label>
+                      <input type="file" class="form-control" id="files" name="files[]" multiple>
                     </div>
-                    <div class="form-group">
+                    <output id="list"></output>
+                    <!-- <div class="form-group">
                       <label>Image 2</label>
                       <input type="file" class="form-control" name="files[]">
                     </div>
@@ -69,7 +70,7 @@
                     <div class="form-group">
                       <label>Image 4</label>
                       <input type="file" class="form-control" name="files[]">
-                    </div>
+                    </div> -->
                   </div>
                   <div class="card-footer text-right">
                   <input type="submit" id="productSubmit" class="btn btn-primary">
