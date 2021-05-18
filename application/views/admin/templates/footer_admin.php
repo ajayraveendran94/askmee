@@ -13,8 +13,9 @@
     //print_r($controller);
     // echo(str_replace(' ', '', $controller));
     // echo('<br>');
-    
-    if($controller == 'addproduct' || $controller == 'upload_image'){ 
+    $toazt_controllers = ['login', 'addproduct', 'upload_image', 'adduser'];
+    $data_table_controller = ['userlist', 'categorylist', 'productlist', 'vendorlist'];
+    if(in_array($controller, $toazt_controllers)){ 
       echo('<script src="'.base_url("assets/bundles/izitoast/js/iziToast.min.js").'"></script>');
       echo('<script src="'.base_url("assets/js/add_product.js").'"></script>');
    }
@@ -25,8 +26,8 @@
      echo('<script src="'.base_url("assets/js/apexcharts.min.js").'"></script>'); 
      echo('<script src="'.base_url("assets/js/index.js").'"></script>'); 
    }
-   elseif($controller == 'productlist' || $controller == 'categorylist'){
-    echo($controller);
+   elseif(in_array($controller, $data_table_controller)){
+    //echo($controller);
     echo('<script src="'.base_url("assets/bundles/datatables/datatables.min.js").'"></script>'); 
     echo('<script src="'.base_url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js").'"></script>'); 
     echo('<script src="'.base_url("assets/bundles/jquery-ui/jquery-ui.min.js").'"></script>');
@@ -44,7 +45,6 @@
   <script src="<?php echo base_url("assets/js/custom.js"); ?>"></script>
   <script>
   $( document ).ready(function() {
-      debugger;
     if($('#outputCategory').val() == "success"){
       iziToast.success({
         title: 'Success!',
@@ -63,6 +63,20 @@
       iziToast.error({
         title: 'Error!',
         message: 'Please Select Valid Inputs',
+        position: 'topCenter'
+      });
+    }
+    else if($('#outputCategory').val() == "email_exist"){
+      iziToast.error({
+        title: 'Error!',
+        message: 'Email id already exist',
+        position: 'topCenter'
+      });
+    }
+    else if($('#outputCategory').val() == "user_success"){
+      iziToast.success({
+        title: 'Success!',
+        message: 'User Added Succesfully',
         position: 'topCenter'
       });
     }

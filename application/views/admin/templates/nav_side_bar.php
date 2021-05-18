@@ -194,6 +194,32 @@
                 <li><a class="nav-link" href="<?php echo base_url('admin/categorylist');?>">Category List</a></li>
               </ul>
             </li>
+           <?php 
+            $user_controllers = ['adduser', 'userlist', 'vendorlist']; 
+            if(in_array($controller, $user_controllers)){
+              echo '<li class="dropdown active">';
+            }
+            else{
+              echo '<li class="dropdown">';
+            }
+           ?>
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                  data-feather="user"></i><span>Manage Users</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="<?php echo base_url('admin/adduser');?>">Add New User / Vendor</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/userlist');?>">User List</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/vendorlist');?>">Vendor List</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                  data-feather="shopping-bag"></i><span>Orders</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="#">New Order</a></li>
+                <li><a class="nav-link" href="#">Order Details</a></li>
+                <li><a class="nav-link" href="#">Vendor List</a></li>
+              </ul>
+            </li>
             <!-- <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Apps</span></a>
               <ul class="dropdown-menu">

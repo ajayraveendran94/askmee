@@ -1,76 +1,72 @@
-<footer id="colophon" role="contentinfo" class="site-footer   footer-foreground" style="background:#fff;">
-  <div class="footer-section  footer-foreground" >
-    <div class="container">
-	<!--widgets area-->
-	<aside class="widget-area" role="complementary" aria-label="Footer">
-			</aside><!-- .widget-area -->
-	<div class="row">
-      <div class="col-md-12">
-        <center>
-          <ul id="footer-social" class="header-social-icon animate fadeInRight" >
-          </ul>
-        </center>
-      </div>
-	  </div> 
-	  <div class="row">	  
-	  <div class="vertical-center footer-bottom-section">
-		<!-- bottom footer -->
-		<div class="col-md-6 site-info">
-		  <p align="center" style="color:#fff;" > <a href="#"> www.askmee.in </a> </p>
-		</div>
-		<!-- end of bottom footer -->
-		  <div class="col-md-12 bottom-menu">
-			<center>         
-				<div id="footer-menu" class="menu"><ul>
-<li class="page_item page-item-29"><a href="index.html">Blog</a></li>
-<li class="page_item page-item-7"><a href="page_id_7.html">Cart</a></li>
-<li class="page_item page-item-8"><a href="index.html">Checkout</a></li>
-<li class="page_item page-item-30 current_page_item"><a href="index.html" aria-current="page">Homepage</a></li>
-<li class="page_item page-item-9"><a href="index.html">My account</a></li>
-<li class="page_item page-item-2"><a href="index.html">Sample Page</a></li>
-<li class="page_item page-item-6"><a href="index.html">Shop</a></li>
-</ul></div>
-			</center>
-		  </div>
-		</div>
-	</div>			
-	</div><!-- .container -->
+<div class="container-fluid pb-0 mb-0 justify-content-center text-light  foote">
+      <footer>
+        <div class="row my-5 justify-content-center py-5">
+          <div class="col-11">
+            <div class="row ">
+              <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
+                <h3 class="text-muted mb-md-0 mb-5 bold-text">Askmee.</h3>
+              </div>
+              <div class="col-xl-2 col-md-4 col-sm-4 col-12">
+                <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
+                <ul class="list-unstyled">
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Blog</li>
+                  <li>Portfolio</li>
+                </ul>
+              </div>
+              <div class="col-xl-2 col-md-4 col-sm-4 col-12">
+                <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                <p class="mb-1">605, RATAN ICON BUILDING</p>
+                <p>SEAWOODS SECTOR</p>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
+                <p class="social text-muted mb-0 pb-0 bold-text"> <span class="mx-2"><i class="fa fa-facebook"
+                      aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-linkedin-square"
+                      aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-twitter"
+                      aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-instagram"
+                      aria-hidden="true"></i></span> </p><small class="rights"><span>&#174;</span> Askmee All Rights
+                  Reserved.</small>
+              </div>
+              <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
+                <h6 class="mt-55 mt-2 text-muted bold-text"><b>ANIRUDH SINGLA</b></h6><small> <span><i
+                      class="fa fa-envelope" aria-hidden="true"></i></span> ajayreavennder@gmail.com</small>
+              </div>
+              <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
+                <h6 class="text-muted bold-text"><b>RISHABH SHEKHAR</b></h6><small><span><i class="fa fa-envelope"
+                      aria-hidden="true"></i></span> akhilbabu868@gmail.com</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!--------------Footer-->
+
+
+
   </div>
-  <a id="scroll-btn" href="#" class="scroll-top"><i class="fa fa-angle-double-up"></i></a>
-</footer>
-<!-- #colophon -->
-	<script type="text/javascript">
-		var c = document.body.className;
-		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-		document.body.className = c;
-	</script>
-	<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockui.min.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"index.html","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/askmee.in\/?page_id=7","is_cart":"","cart_redirect_after_add":"no"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js'></script>
-<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"index.html","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"index.html","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_7b058a617d9691594b85f4a078f20914","fragment_name":"wc_fragments_7b058a617d9691594b85f4a078f20914","request_timeout":"5000"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var newYorkBusinessScreenReaderText = {"quote":"<span class=\"fa icon fa-quote-right\" aria-hidden=\"true\" role=\"img\"> <use href=\"#icon-quote-right\" xlink:href=\"#icon-quote-right\"><\/use> <\/span>"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='wp-content/themes/new-york-business/js/skip-link-focus-fix.js'></script>
-<script type='text/javascript' src='wp-content/themes/new-york-business/js/bootstrap.min.js'></script>
-<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+  </div>
+  </div>
+
+
+
+
+
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src='<?php echo base_url("assets/assets/js/searchbar.js");?>'></script>
+
+
+
 </body>
+
 </html>

@@ -6,7 +6,7 @@
               <form method="post" action="<?php echo site_url('admin/editcategory/edit_category'); ?>" enctype="multipart/form-data">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Edit Category</h4>
+                    <h4>Edit User</h4>
                   </div>
                   <div class="card-body">
                     <div class="form-row">

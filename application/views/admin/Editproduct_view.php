@@ -64,18 +64,35 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input"  id="<?php echo('imag'.$count);?>">
-                            <label class="custom-file-label" for="customFile">Choose image</label>
+                            <input type="file" class="custom-file-input" name="files[]" id="<?php echo('imag'.$count);?>" disabled>
+                            <label class="custom-file-label" for="customFile">Delete Image To Enable</label>
                           </div>
                         </div>
                         <div class="form-group col-md-4">
-                          <img id="<?php echo('ImgPreview'.$count);?>" src="<?php echo base_url('./assets/images/newproducts/'.$row->p_id.'/'.$row->image_url); ?>" class="preview2" width="50" height="50"/>
-                          <input type="button" id="<?php echo('removeImage'.$count);?>" value="x" class="btn-rmv2" />
+                          <img id="<?php echo('ImgPreview'.$count);?>" src="<?php echo base_url('/assets/images/newproducts/'.$row->p_id.'/'.$row->image_url); ?>" class="preview2" width="50" height="50"/>
+                          <input type="button" id="<?php echo('removeImage'.$count);?>" value="Delete" class="btn btn-danger btn-rmv2" />
                         </div>
                       </div>
                     <?php 
                      $count++;
-                    } ?>
+                    } 
+                    if($count < 5){
+                      for($i = $count; $i < 5; $i++){ ?>
+                        <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="files[]" id="<?php echo('imag'.$i);?>">
+                            <label class="custom-file-label" for="customFile">Choose image</label>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <img id="<?php echo('ImgPreview'.$i);?>" src="" class="preview2" width="50" height="50"/>
+                          <input type="button" id="<?php echo('removeImage'.$i);?>" value="Delete" class="btn btn-danger btn-rmv2" />
+                        </div>
+                      </div>
+                     <?php }
+                    }
+                    ?>
                       <!-- <div class="form-group col-md-3">
                         <label>Image</label>
                         <input type="file" class="form-control">
@@ -94,9 +111,7 @@
                       </div> -->
                   </div>
                   <div class="card-footer text-right">
-                    <button class="btn btn-dark mr-1">
-                    <a href="<?php echo base_url('admin/productlist');?>">Back</a>
-                    </button>
+                    <a class="btn btn-dark mr-1" href="<?php echo base_url('admin/productlist');?>">Back</a>
                     <button class="btn btn-primary mr-1" type="submit">Submit</button>
                     <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
                   </div>

@@ -45,32 +45,81 @@ function readURL(input, imgControlName) {
 //   });
   
   $("#removeImage1").click(function(e) {
-    e.preventDefault();
-    $("#imag1").val("");
-    $("#ImgPreview1").attr("src", "");
-    $('.preview1').removeClass('it');
-    $('.btn-rmv1').removeClass('rmv');
+    var productImage = {};
+    productImage['img'] = $("#ImgPreview1").attr('src').split('/').pop();
+    productImage['id'] = parseInt($("#ImgPreview1").attr('src').split('/').slice(-2, -1)[0]);
+    $.ajax({
+      data: productImage, 
+      type: 'POST',
+      url: '../delete_image',
+      success: function(response){
+        //debugger;
+        e.preventDefault();
+        $("#imag1").prop("disabled", false);
+        $("#imag1").parent().children('.custom-file-label').text("Choose image");
+        $("#imag1").val("");
+        $("#ImgPreview1").attr("src", "");
+        $('.preview1').removeClass('it');
+        $('.btn-rmv1').removeClass('rmv');
+      }
+    });
   });
   $("#removeImage2").click(function(e) {
-    e.preventDefault();
-    $("#imag2").val("");
-    $("#ImgPreview2").attr("src", "");
-    $('.preview2').removeClass('it');
-    $('.btn-rmv2').removeClass('rmv');
+    var productImage = {};
+    productImage['img'] = $("#ImgPreview2").attr('src').split('/').pop();
+    productImage['id'] = parseInt($("#ImgPreview2").attr('src').split('/').slice(-2, -1)[0]);
+    $.ajax({
+      data: productImage, 
+      type: 'POST',
+      url: '../delete_image',
+      success: function(response){
+        e.preventDefault();
+        $("#imag2").prop("disabled", false);
+        $("#imag2").parent().children('.custom-file-label').text("Choose image");
+        $("#imag2").val("");
+        $("#ImgPreview2").attr("src", "");
+        $('.preview2').removeClass('it');
+        $('.btn-rmv2').removeClass('rmv');
+      }
+    });
   });
   $("#removeImage3").click(function(e) {
-    e.preventDefault();
-    $("#imag3").val("");
-    $("#ImgPreview3").attr("src", "");
-    $('.preview3').removeClass('it');
-    $('.btn-rmv3').removeClass('rmv');
+    var productImage = {};
+    productImage['img'] = $("#ImgPreview3").attr('src').split('/').pop();
+    productImage['id'] = parseInt($("#ImgPreview3").attr('src').split('/').slice(-2, -1)[0]);
+    $.ajax({
+      data: productImage, 
+      type: 'POST',
+      url: '../delete_image',
+      success: function(response){
+        e.preventDefault();
+        $("#imag3").prop("disabled", false);
+        $("#imag3").parent().children('.custom-file-label').text("Choose image");
+        $("#imag3").val("");
+        $("#ImgPreview3").attr("src", "");
+        $('.preview3').removeClass('it');
+        $('.btn-rmv3').removeClass('rmv');
+      }
+    });
   });
   $("#removeImage4").click(function(e) {
-    e.preventDefault();
-    $("#imag4").val("");
-    $("#ImgPreview4").attr("src", "");
-    $('.preview4').removeClass('it');
-    $('.btn-rmv4').removeClass('rmv');
+    var productImage = {};
+    productImage['img'] = $("#ImgPreview4").attr('src').split('/').pop();
+    productImage['id'] = parseInt($("#ImgPreview4").attr('src').split('/').slice(-2, -1)[0]);
+    $.ajax({
+      data: productImage, 
+      type: 'POST',
+      url: '../delete_image',
+      success: function(response){
+        e.preventDefault();
+        $("#imag4").prop("disabled", false);
+        $("#imag4").parent().children('.custom-file-label').text("Choose image");
+        $("#imag4").val("");
+        $("#ImgPreview4").attr("src", "");
+        $('.preview4').removeClass('it');
+        $('.btn-rmv4').removeClass('rmv');
+      }
+    });
   });
 //   $("#removeImage5").click(function(e) {
 //     e.preventDefault();

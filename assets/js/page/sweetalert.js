@@ -103,3 +103,65 @@ $(".swal-9").click(function () {
     //e.preventDefault();
     });
 });
+
+$(".swal-10").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'User will not able to login after this',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './userlist/change_status',
+          success: function(response){
+            swal('Done! User Successfully Inactivated! Please refresh the page', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem User is safe!');
+      }
+    window.location.href = window.location.href;
+    //e.preventDefault();
+    });
+});
+
+$(".swal-11").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'User Able To Login After This',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './userlist/change_status_active',
+          success: function(response){
+            swal('Done! User Successfully Activated! Please refresh the page', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem User is safe!');
+      }
+    window.location.href = window.location.href;
+    //e.preventDefault();
+    });
+});
