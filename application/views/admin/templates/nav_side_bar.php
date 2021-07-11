@@ -216,16 +216,25 @@
                   <li><a class="nav-link" href="<?php echo base_url('admin/vendorlist');?>">Vendor List</a></li>
                 </ul>
               </li>
-            <?php  } ?>
-            <li class="dropdown">
+            <?php  } 
+            if($user_type == 'A'){
+              $user_controllers = ['order']; 
+              if(in_array($controller, $user_controllers)){
+                echo '<li class="dropdown active">';
+              }
+              else{
+                echo '<li class="dropdown">';
+              }
+            ?>
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="shopping-bag"></i><span>Orders</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="#">New Order</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/order');?>">New Order</a></li>
                 <li><a class="nav-link" href="#">Order Details</a></li>
                 <li><a class="nav-link" href="#">Vendor List</a></li>
               </ul>
             </li>
+             <?php  } ?>
             <!-- <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Apps</span></a>
               <ul class="dropdown-menu">
