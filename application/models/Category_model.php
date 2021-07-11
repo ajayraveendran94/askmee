@@ -44,10 +44,26 @@ class Category_model extends CI_Model{
     {
         $this->db->reset_query();
         $this->db->select('*');
+        $this->db->from('as_product_master');
+        $this->db->where('as_product_master.category_id', $id);
+        $master_product_data = $this->db->get();
+        $master_products = $master_product_data->result_array();
+        $pro_id = array();  
+        foreach ($master_products as $row)
+        {    
+            $pro_id[] = $row['id'];           
+        }
+        $this->db->reset_query();
+        $this->db->select('*');
         $this->db->from('as_products');
-        $this->db->where('as_products.category_id', $id);
-        $query = $this->db->get();
-        $result = $query->result();
+        if(!empty($pro_id)){
+            $this->db->where_in('as_products.master_product_id', $pro_id);
+            $query = $this->db->get();
+            $result = $query->result();
+        }
+        else{
+            $result = null;
+        }
         return $result;
     }
 }

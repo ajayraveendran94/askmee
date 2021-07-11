@@ -164,6 +164,7 @@
           </div>
           <?php 
             $controller = $this->router->fetch_class();
+            $user_type = $this->session->userdata('user_type');
           ?>
           <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
@@ -189,28 +190,33 @@
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="briefcase"></i><span>Product & Categories</span></a>
               <ul class="dropdown-menu">
+              <?php if($user_type == 'A'){ ?>
                 <li><a class="nav-link" href="<?php echo base_url('admin/addproduct');?>">Add Product</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('admin/productlist');?>">Product List</a></li>
                 <li><a class="nav-link" href="<?php echo base_url('admin/categorylist');?>">Category List</a></li>
+             <?php } ?>
+                <li><a class="nav-link" href="<?php echo base_url('admin/addproduct/vendor_product');?>">Add Vendor Product</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/productlist');?>">Product List</a></li>
               </ul>
             </li>
            <?php 
-            $user_controllers = ['adduser', 'userlist', 'vendorlist']; 
-            if(in_array($controller, $user_controllers)){
-              echo '<li class="dropdown active">';
-            }
-            else{
-              echo '<li class="dropdown">';
-            }
-           ?>
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="user"></i><span>Manage Users</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="<?php echo base_url('admin/adduser');?>">Add New User / Vendor</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('admin/userlist');?>">User List</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('admin/vendorlist');?>">Vendor List</a></li>
-              </ul>
-            </li>
+           if($user_type == 'A'){
+              $user_controllers = ['adduser', 'userlist', 'vendorlist']; 
+              if(in_array($controller, $user_controllers)){
+                echo '<li class="dropdown active">';
+              }
+              else{
+                echo '<li class="dropdown">';
+              }
+            ?>
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                    data-feather="user"></i><span>Manage Users</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="<?php echo base_url('admin/adduser');?>">Add New User / Vendor</a></li>
+                  <li><a class="nav-link" href="<?php echo base_url('admin/userlist');?>">User List</a></li>
+                  <li><a class="nav-link" href="<?php echo base_url('admin/vendorlist');?>">Vendor List</a></li>
+                </ul>
+              </li>
+            <?php  } ?>
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="shopping-bag"></i><span>Orders</span></a>

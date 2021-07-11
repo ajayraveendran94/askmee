@@ -24,6 +24,7 @@
                             <th>Category</th>
                             <th>Image</th>
                             <th>Price</th>
+                            <th>Vendor</th>
                             <th>Quantity</th>
                             <th>Action</th>
                           </tr>
@@ -52,6 +53,7 @@
                             ?>
                             </td>
                             <td><?php echo $row['offer_price']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['quantity']; ?></td>
                             <td>
                               <!-- <a href="#" class="btn btn-primary">Details</a> -->

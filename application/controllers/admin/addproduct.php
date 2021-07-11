@@ -1,5 +1,5 @@
 <?php  
-//defined('BASEPATH') OR exit('No direct script access allowed');  
+defined('BASEPATH') OR exit('No direct script access allowed');  
   
 class Addproduct extends CI_Controller {
 
@@ -15,12 +15,32 @@ class Addproduct extends CI_Controller {
 
     public function index()  
     {  
+        if($this->session->userdata('user_type') == 'A'){
+            $category_name = $this->addproduct_model->get_category();
+            $data['category_name'] = $category_name;
+            $this->load->view('admin/templates/header');
+            $this->load->view('admin/templates/nav_side_bar');
+            $this->load->view('admin/add_product_view', $data);
+            $this->load->view('admin/templates/footer_admin'); 
+        }
+        else{
+            $this->load->view('admin/templates/header');
+            $this->load->view('admin/templates/nav_side_bar');
+            $this->load->view('admin/templates/footer_admin'); 
+        } 
+    }
+
+    public function vendor_product()
+    {
+        $this->load->model('masterproduct_model');
         $category_name = $this->addproduct_model->get_category();
+        $product_list = $this->masterproduct_model->get_all_vendor_products();
         $data['category_name'] = $category_name;
+        $data['product_list'] = $product_list;
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
-        $this->load->view('admin/add_product_view', $data);
-        $this->load->view('admin/templates/footer_admin');  
+        $this->load->view('admin/vendor_add_product_view', $data);
+        $this->load->view('admin/templates/footer_admin');
     }
 
     public function new_product()
@@ -54,9 +74,9 @@ class Addproduct extends CI_Controller {
             $data = array('upload_data' => $this->upload->data());
  
             $product_data = array(
-                'product_name' => $this->input->post('product_name'),
-                'category_id' => $this->input->post('product_category'),
+                'master_product_id' => $this->input->post('product_name'),
                 'description' => $this->input->post('product_description'),
+                'vendor_id' => $this->session->userdata('user_id'),
                 'offer_price' => $this->input->post('offer_price'),
                 'actual_price' => $this->input->post('actual_price'),
                 'quantity' => $this->input->post('quantity')
@@ -74,6 +94,29 @@ class Addproduct extends CI_Controller {
             $this->load->view('admin/templates/nav_side_bar');
             $this->load->view('admin/add_product_view', $value);
             $this->load->view('admin/templates/footer_admin');   
+    }
+
+    public function new_product_master()
+    {
+        $this->load->model('masterproduct_model');
+        $pr_id = $this->masterproduct_model->last_insert();
+        $category_name = $this->masterproduct_model->get_category();
+        $value['category_name'] = $category_name;
+        $product_data = array(
+            'product_name' => $this->input->post('product_name'),
+            'category_id' => $this->input->post('product_category')
+        );
+        $result= $this->masterproduct_model->save_product($product_data);
+        if($result == 1){
+            $value['result'] = 'product success';
+        }
+        else{
+            $value['result'] = 'error';
+        }
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        $this->load->view('admin/add_product_view', $value);
+        $this->load->view('admin/templates/footer_admin');
     }
 }
 ?>

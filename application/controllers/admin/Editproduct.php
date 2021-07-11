@@ -39,31 +39,39 @@ class Editproduct extends CI_Controller {
     }
     public function edit_product()
     {
+        $this->load->model('masterproduct_model');
         $pr_id = $this->input->post('product_id');
-        $count = count($_FILES['files']['name']);
+        if(!empty($_FILES['files']['name'])){
+            $count = count($_FILES['files']['name']);
+        }
+        else{
+            $count = 0;
+        }
         $image_exist = false;
-        for($i=0;$i<$count;$i++){
-            if(!empty($_FILES['files']['name'][$i])){
-                $image_exist = true;
-                $_FILES['file']['name'] = $_FILES['files']['name'][$i];
-                $_FILES['file']['type'] = $_FILES['files']['type'][$i];
-                $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
-                $_FILES['file']['error'] = $_FILES['files']['error'][$i];
-                $_FILES['file']['size'] = $_FILES['files']['size'][$i];
-                if (!is_dir('./assets/images/newproducts/'.$pr_id)) {
-                    mkdir('./assets/images/newproducts/'.$pr_id, 0777, true);
-                }
-                $config['upload_path'] = './assets/images/newproducts/'.$pr_id;  
-                $config['allowed_types'] = 'jpg|jpeg|png|gif';  
-                $this->load->library('upload', $config);
-                if(!$this->upload->do_upload('file')) {
-                    $value['result'] = 'error';
-                    $product_data = $this->productlist_model->get_products();
-                    $data['products'] = $product_data;
-                    $this->load->view('admin/templates/header');
-                    $this->load->view('admin/templates/nav_side_bar');
-                    $this->load->view('admin/productlist_view', $data);
-                    $this->load->view('admin/templates/footer_admin');
+        if($count != 0){
+            for($i=0;$i<$count;$i++){
+                if(!empty($_FILES['files']['name'][$i])){
+                    $image_exist = true;
+                    $_FILES['file']['name'] = $_FILES['files']['name'][$i];
+                    $_FILES['file']['type'] = $_FILES['files']['type'][$i];
+                    $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+                    $_FILES['file']['error'] = $_FILES['files']['error'][$i];
+                    $_FILES['file']['size'] = $_FILES['files']['size'][$i];
+                    if (!is_dir('./assets/images/newproducts/'.$pr_id)) {
+                        mkdir('./assets/images/newproducts/'.$pr_id, 0777, true);
+                    }
+                    $config['upload_path'] = './assets/images/newproducts/'.$pr_id;  
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+                    $this->load->library('upload', $config);
+                    if(!$this->upload->do_upload('file')) {
+                        $value['result'] = 'error';
+                        $product_data = $this->productlist_model->get_products();
+                        $data['products'] = $product_data;
+                        $this->load->view('admin/templates/header');
+                        $this->load->view('admin/templates/nav_side_bar');
+                        $this->load->view('admin/productlist_view', $data);
+                        $this->load->view('admin/templates/footer_admin');
+                    }
                 }
             }
         }
@@ -71,17 +79,26 @@ class Editproduct extends CI_Controller {
             $data = array('upload_data' => $this->upload->data());
         }
         $product_data = array(
-            'product_name' => $this->input->post('product_name'),
-            'category_id' => $this->input->post('product_category'),
             'description' => $this->input->post('product_description'),
             'offer_price' => $this->input->post('offer_price'),
             'actual_price' => $this->input->post('actual_price'),
             'quantity' => $this->input->post('quantity')
         );
-        $image_data = $_FILES['files']['name'];
-        $this->productlist_model->update_image_upload($pr_id, $image_data);
+        $m_id = $this->input->post('master_product_id');
+        $master_product_data = array(
+            'product_name' => $this->input->post('product_name'),
+            'category_id' => $this->input->post('product_category')
+        );
+        if(!empty($_FILES['files']['name'])){
+            $image_data = $_FILES['files']['name'];
+            $this->productlist_model->update_image_upload($pr_id, $image_data);
+        }
         //print_r($id);
         $update_data = $this->productlist_model->update_product($product_data, $pr_id);
+        $current_user = $this->session->userdata();
+        if ($current_user['user_type'] == 'A') {
+            $update_master_data = $this->masterproduct_model->update_product($master_product_data, $m_id);
+        }
         $product_data = $this->productlist_model->get_products();
         // //print_r($product_data[0]['p_id']);
         $data['products'] = $product_data;

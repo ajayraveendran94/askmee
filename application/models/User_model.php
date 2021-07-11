@@ -72,7 +72,7 @@ class User_model extends CI_Model{
 	{
 		$query = $this->db->get_where('as_user', array('email' => $data['email']));
 		if ($query->num_rows() == 0){
-            $this->db->delete('as_user', array('user_id' => 1));
+            //$this->db->delete('as_user', array('user_id' => 1));
 			return false;
 		}
 		else{

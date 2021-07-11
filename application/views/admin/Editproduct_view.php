@@ -13,13 +13,24 @@
                       <div class="col-6">
                         <div class="form-group">
                           <label>Product Name</label>
-                          <input type="text" class="form-control" name="product_name" value="<?php echo($product[0]->product_name); ?>">
+                          <input type="hidden" class="form-control" name="master_product_id" value="<?php echo($product[0]->master_product_id); ?>">
                           <input type="hidden" class="form-control" name="product_id" value="<?php echo($product[0]->p_id); ?>">
+                          <?php $current_user = $this->session->userdata();
+                            if ($current_user['user_type'] == 'V') { ?>
+                              <input type="text" class="form-control" name="product_name" value="<?php echo($product[0]->product_name); ?>" readonly>
+                          <?php } 
+                          else {?>
+                           <input type="text" class="form-control" name="product_name" value="<?php echo($product[0]->product_name); ?>">
+                        <?php } ?>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-group">
                           <label>Category</label>
+                         <?php if ($current_user['user_type'] == 'V') { ?>
+                              <input type="text" class="form-control" name="product_category" value="<?php echo($product[0]->category_name); ?>" readonly>
+                          <?php } 
+                          else {?>
                           <select class="form-control" name="product_category">
                             <option value="<?php echo $product[0]->category_id; ?>"><?php echo($product[0]->category_name); ?></option>
                             <?php 
@@ -31,6 +42,7 @@
                           }
                         ?>
                           </select>
+                          <?php } ?>
                         </div>
                       </div>
                     </div>

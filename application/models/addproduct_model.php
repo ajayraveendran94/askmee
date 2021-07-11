@@ -49,6 +49,7 @@ class Addproduct_model extends CI_Model{
         }
         return $result;
     } 
+    
     function last_insert(){
         $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_products'");
         $next = $next->row(0);

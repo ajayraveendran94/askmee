@@ -47,7 +47,7 @@
             <span class="text" style="display: inline;">Cart</span>
           </div>
 
-          <div class="col-md-6 col-xs-offset-2">
+          <div class="col-md-5 col-xs-offset-2">
             <div class="col-md-8 serach-bar">
               <div class="input-group mb-3"> <input type="text" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
                   <div class="input-group-append"> <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button> </div>
@@ -55,11 +55,18 @@
           </div>
           </div>
           <!--------------------------------------->
-          <div class="col-md-2 col-sm-2  cart-web" style="margin-top: 50px;">
+          <div class="col-md-3 col-sm-3  cart-web" style="margin-top: 50px;">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
             <span class="text" style="display: inline;">Cart</span>
-            <img src='<?php echo base_url("assets/assets/img/PNG_ICON_5.png");?>' style="width: 50px;display: inline;">
+          <img src='<?php echo base_url("assets/assets/img/PNG_ICON_5.png");?>' style="width: 50px;display: inline;">
+            <?php
+             if (isset($_SESSION['user'])) { ?>
+            <span class="text" style="display: inline;"><a href="<?php echo base_url('login/logout'); ?>">Logout</a></span>
+             <?php }
+             else{
+              ?>
             <span class="text" style="display: inline;"><a href="<?php echo base_url('/login'); ?>">Login</a></span> 
+          <?php } ?>
           </div>
 
         </div>

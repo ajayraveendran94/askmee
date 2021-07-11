@@ -5,7 +5,7 @@
           <div class="section-body">
             <div class="row">
               <div class="col-12 col-md-6 col-lg-6">
-              <form method="post" action="<?php echo site_url('admin/addproduct/new_product'); ?>" enctype="multipart/form-data">
+              <form method="post" action="<?php echo site_url('admin/addproduct/new_product_master'); ?>" enctype="multipart/form-data">
                 <div class="card">
                   <div class="card-header">
                     <h4>Add New Product</h4>
@@ -36,7 +36,9 @@
                         <option>Option 3</option>
                       </select>
                     </div> -->
-                    <div class="form-group">
+
+
+                    <!-- <div class="form-group">
                       <label>Description</label>
                       <textarea class="form-control" name="product_description"></textarea>
                     </div>
@@ -58,7 +60,9 @@
                       <label>Images (Add 4 images)</label>
                       <input type="file" class="form-control" id="files" name="files[]" multiple>
                     </div>
-                    <output id="list"></output>
+                    <output id="list"></output> -->
+
+
                     <!-- <div class="form-group">
                       <label>Image 2</label>
                       <input type="file" class="form-control" name="files[]">
