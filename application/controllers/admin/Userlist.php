@@ -11,6 +11,8 @@ class Userlist extends CI_Controller {
             redirect('admin/login');
         }
         $this->load->model('user_model');
+        $this->load->model('address_model');
+
     }
 
     public function index()  
@@ -26,10 +28,13 @@ class Userlist extends CI_Controller {
 
     public function view($page)
     {
+        $this->load->model('address_model');
         $user_data = $this->user_model->get_user_data($page);
+        $user_address = $this->address_model->get_user_address($page);
         $data['user'] = $user_data;
-        //print_r($data);
-        $this->load->view('admin/templates/header');
+        $data['address'] = $user_address;
+
+         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
         $this->load->view('admin/edituser_view', $data);
         $this->load->view('admin/templates/footer_admin');

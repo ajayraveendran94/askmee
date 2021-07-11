@@ -12,5 +12,13 @@ class Address_model extends CI_Model{
         $result= $this->db->insert('as_address',$data);
         return $result;
     }
+    public function get_user_address($data)
+    {
+    	
+        $this->db->from('as_address');
+    	$this->db->where('user_id',$data);
+        $query =$this->db->get();
+   		return $query->result();
+    }
 
 }

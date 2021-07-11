@@ -1,3 +1,4 @@
+
 <div class="main-content">
         <section class="section">
           <div class="section-body">
@@ -74,22 +75,26 @@
                   <div class="card-body">
                     <div id="accordion">
                       <div class="accordion">
-                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-1"
+                      <?php
+                          $count =1;
+                         foreach ($address as $value) { ?>
+
+                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-<?php echo($count)?>"
                           aria-expanded="true">
-                          <h4>Address 1</h4>
+                          <h4><?php print_r("Address".$count);?></h4>
                         </div>
-                        <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion">
+                        <div class="accordion-body collapse" id="panel-body-<?php echo($count)?>" data-parent="#accordion">
                         <div class="form-row">
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" >
+                                <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value->ad_title) ?>" >
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Address Line 1</label>
-                                <input type="text" class="form-control" name="line_1" value="">
+                                <input type="text" class="form-control" name="line_1" value="<?php echo($value->line_1) ?>">
                               </div>
                             </div>
                           </div>
@@ -97,13 +102,13 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Address Line 2</label>
-                                <input type="text" class="form-control" name="line_2" >
+                                <input type="text" class="form-control" name="line_2" value="<?php echo($value->line_2) ?>" >
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Address Line 3</label>
-                                <input type="text" class="form-control" name="line_3" value="">
+                                <input type="text" class="form-control" name="line_3" value="<?php echo($value->line_3) ?>">
                                 </div>
                             </div>
                           </div>
@@ -111,13 +116,13 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Post Office</label>
-                                <input type="text" class="form-control" name="post" >
+                                <input type="text" class="form-control" name="post" value="<?php echo($value->post) ?>">
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Pincode</label>
-                                <input type="number" class="form-control" name="pin" value="">
+                                <input type="number" class="form-control" name="pin" value="<?php echo($value->pin) ?>">
                                 </div>
                               </div>
                           </div>
@@ -125,13 +130,13 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>District</label>
-                                <input type="text" class="form-control" name="district" >
+                                <input type="text" class="form-control" name="district" value="<?php echo($value->district) ?>">
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="form-group">
                                 <label>State</label>
-                                <input type="text" class="form-control" name="state" value="">
+                                <input type="text" class="form-control" name="state" value="<?php echo($value->state) ?>">
                               </div>
                           </div>
                           </div>
@@ -139,26 +144,30 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Contact Number 1</label>
-                                <input type="number" class="form-control" name="contact_number_1" >
+                                <input type="number" class="form-control" name="contact_number_1" value="<?php echo($value->contact_number_1) ?>" >
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Contact Number 2</label>
-                                <input type="number" class="form-control" name="contact_number_2" value="">
+                                <input type="number" class="form-control" name="contact_number_2" value="<?php echo($value->contact_number_2) ?>">
                               </div>
                             </div>
                           </div>
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
                             <button class="btn btn-danger mr-1" type="submit">Delete</button>
                         </div>
+
+
+
+                        <?php $count++; } ?>
                       </div>
                       <form method="post" action="<?php echo site_url('admin/address/add_new'); ?>" enctype="multipart/form-data">
                       <div class="accordion">
-                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-3">
+                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body">
                           <h4>Add New Address</h4>
                         </div>
-                        <div class="accordion-body collapse" id="panel-body-3" data-parent="#accordion">
+                        <div class="accordion-body collapse" id="panel-body" data-parent="#accordion">
                           <div class="form-row">
                             <div class="col-6">
                               <div class="form-group">

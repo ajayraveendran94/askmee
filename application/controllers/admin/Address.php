@@ -39,7 +39,11 @@ class Address extends CI_Controller {
             $result= $this->address_model->save_address($address_data);
             $this->load->model('user_model');
             $user_data = $this->user_model->get_user_data($this->input->post('user_id'));
+           $user_address = $this->address_model->get_user_address($this->input->post('user_id'));
+
             $data['user'] = $user_data;
+            $data['address'] = $user_address;
+
             //print_r($data);
             $this->load->view('admin/templates/header');
             $this->load->view('admin/templates/nav_side_bar');
