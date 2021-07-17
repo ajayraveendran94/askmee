@@ -22,6 +22,9 @@
    elseif($controller == 'editproduct'){ 
     echo('<script src="'.base_url("assets/js/edit_product.js").'"></script>');
    }
+   elseif($controller == 'order'){
+    echo('<script src="'.base_url("assets/js/order.js").'"></script>');
+   }
    elseif($controller == 'dashboard'){
      echo('<script src="'.base_url("assets/js/apexcharts.min.js").'"></script>'); 
      echo('<script src="'.base_url("assets/js/index.js").'"></script>'); 

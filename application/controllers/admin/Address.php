@@ -24,7 +24,7 @@ class Address extends CI_Controller {
     public function add_new()
     {
             $address_data = array(
-                'user_id' => $this->input->post('user_id'),
+                'ad_user_id' => $this->input->post('user_id'),
                 'ad_title' => $this->input->post('ad_title'),
                 'line_1' => $this->input->post('line_1'),
                 'line_2' => $this->input->post('line_2'),
@@ -56,7 +56,7 @@ class Address extends CI_Controller {
     {
         $this->load->model('user_model');
         $edited_address_data = array(
-            'user_id' => $this->input->post('users_id'),
+            'ad_user_id' => $this->input->post('users_id'),
             'ad_title' => $this->input->post('ad_title'),
             'line_1' => $this->input->post('line_1'),
             'line_2' => $this->input->post('line_2'),

@@ -18,19 +18,7 @@ class Order_model extends CI_Model{
         $this->db->where('product_status', 1);
         $query = $this->db->get('as_products')->result_array();
         return $query;
-    }  
-
-    // function get_products(){  
-    //     $this->db->reset_query();
-    //     $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name, name, vendor_id');
-    //     $this->db->join('as_product_master', 'id = master_product_id');
-    //     $this->db->join('as_categories', 'c_id = category_id');
-    //     $this->db->join('as_user', 'user_id = vendor_id');
-    //     //$this->db->join('brands', 'brand_id = prod_brand');
-    //     //print_r($query);
-    //     $query = $this->db->get('as_products')->result_array();
-    //     return $query;
-    // } 
+    }   
     
     function get_product(){  
         $this->db->select('id, product_name, category_id, category_name');
@@ -79,6 +67,13 @@ class Order_model extends CI_Model{
     {
         $this->db->reset_query();
         $this->db->update('as_product_master', $data, array('id' => $id));
+    }
+    public function get_all_address()
+    {
+        $this->db->from('as_address');
+        $this->db->join('as_user', 'user_id = ad_user_id');
+        $query =$this->db->get();
+        return $query->result();
     }
 }
 ?>

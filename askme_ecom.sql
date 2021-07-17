@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2021 at 10:08 PM
+-- Generation Time: Jul 17, 2021 at 10:02 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `as_address` (
   `ad_id` bigint(20) NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `ad_user_id` bigint(20) UNSIGNED NOT NULL,
   `ad_title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `line_1` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `line_2` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -47,8 +47,9 @@ CREATE TABLE `as_address` (
 -- Dumping data for table `as_address`
 --
 
-INSERT INTO `as_address` (`ad_id`, `user_id`, `ad_title`, `line_1`, `line_2`, `line_3`, `post`, `pin`, `district`, `state`, `contact_number_1`, `contact_number_2`, `ad_status`) VALUES
-(1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', 685454, 'Kollam', 'Kerala', 2147483647, 0, 1);
+INSERT INTO `as_address` (`ad_id`, `ad_user_id`, `ad_title`, `line_1`, `line_2`, `line_3`, `post`, `pin`, `district`, `state`, `contact_number_1`, `contact_number_2`, `ad_status`) VALUES
+(1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', 685454, 'Kollam', 'Kerala', 2147483647, 0, 1),
+(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 2147483647, 2147483647, 1);
 
 -- --------------------------------------------------------
 
@@ -232,7 +233,7 @@ INSERT INTO `as_user` (`user_id`, `name`, `email`, `password`, `user_type`, `use
 ALTER TABLE `as_address`
   ADD PRIMARY KEY (`ad_id`),
   ADD UNIQUE KEY `ad_id` (`ad_id`),
-  ADD KEY `user_in_address` (`user_id`);
+  ADD KEY `user_in_address` (`ad_user_id`);
 
 --
 -- Indexes for table `as_categories`
@@ -301,7 +302,7 @@ ALTER TABLE `as_user`
 -- AUTO_INCREMENT for table `as_address`
 --
 ALTER TABLE `as_address`
-  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `as_categories`
@@ -359,7 +360,7 @@ ALTER TABLE `as_user`
 -- Constraints for table `as_address`
 --
 ALTER TABLE `as_address`
-  ADD CONSTRAINT `user_in_address` FOREIGN KEY (`user_id`) REFERENCES `as_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_in_address` FOREIGN KEY (`ad_user_id`) REFERENCES `as_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `as_orders`

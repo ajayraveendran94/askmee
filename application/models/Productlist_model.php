@@ -58,6 +58,7 @@ class Productlist_model extends CI_Model{
         $this->db->from('as_products');
         $this->db->where('as_products.p_id', $id);
         $this->db->join('as_product_master', 'id = master_product_id', 'left');
+        $this->db->join('as_user', 'user_id = vendor_id', 'left');
         $this->db->join('as_categories', 'as_categories.c_id = as_product_master.category_id', 'left');
         $this->db->join('as_product_images', 'as_product_images.product_id = as_products.p_id', 'left');
         $query = $this->db->get();
