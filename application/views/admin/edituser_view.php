@@ -78,16 +78,24 @@
                       <?php
                           $count =1;
                          foreach ($address as $value) { ?>
+                            <?php
+                $attributes = array('class' => 'form-horizontal', 'id' => 'form-detail-edit', 'action' => '#');
+
+                echo form_open('admin/Address/ajax_detail_update', $attributes);
+                ?>
+                                <input type="hidden" name="users_id" id ="users_id" value="<?php echo $value->user_id ?>">
 
                         <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-<?php echo($count)?>"
                           aria-expanded="true">
-                          <h4><?php print_r("Address".$count);?></h4>
+                          <h4><?php print_r("Address".$count);print_r($value->ad_id)?></h4>
                         </div>
+
                         <div class="accordion-body collapse" id="panel-body-<?php echo($count)?>" data-parent="#accordion">
                         <div class="form-row">
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Title</label>
+                                <input type="hidden" name="address_id" id ="address_id" value="<?php echo $value->ad_id ?>">
                                 <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value->ad_title) ?>" >
                               </div>
                             </div>
@@ -153,6 +161,7 @@
                                 <input type="number" class="form-control" name="contact_number_2" value="<?php echo($value->contact_number_2) ?>">
                               </div>
                             </div>
+                            <?php echo form_close(); ?>
                           </div>
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
                             <button class="btn btn-danger mr-1" type="submit">Delete</button>

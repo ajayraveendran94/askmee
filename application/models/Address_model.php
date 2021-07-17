@@ -20,5 +20,9 @@ class Address_model extends CI_Model{
         $query =$this->db->get();
    		return $query->result();
     }
+    public function update_address($where, $data) {
+        $this->db->update('as_address', $data, $where);
+        return $this->db->affected_rows();
+    }
 
 }
