@@ -71,14 +71,14 @@
                          ?>
                        </select>
                       </div>
-                      <!-- <div class="form-group col-md-8">
-                        <label>Address</label>
-                        <input type="number" class="form-control" name="net_amount">
-                      </div> -->
+                      <div class="form-group col-md-4">
+                        <label>Total Amount</label>
+                        <input type="number" class="form-control" name="net_amount" id="totalAmount" readonly="">
+                      </div>
                     </div>
                   </div>
                   <div class="card-footer text-right d-none">
-                    <input type="submit" id="productSubmit" class="btn btn-primary">
+                    <input type="submit" id="productSubmit" class="btn btn-primary" value="Proceed">
                   </div>
                 </form>
               </div>
