@@ -30,12 +30,11 @@ class Order extends CI_Controller {
     {
         $order_data = $this->order_model->get_orders();
         //print_r($product_data[0]['p_id']);
-        //$data['orders'] = $order_data;
-        print_r($order_data);
-        // $this->load->view('admin/templates/header');
-        // $this->load->view('admin/templates/nav_side_bar');
-        // $this->load->view('admin/orderlist_view', $data);
-        // $this->load->view('admin/templates/footer_admin');
+        $data['orders'] = $order_data;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        $this->load->view('admin/orderlist_view', $data);
+        $this->load->view('admin/templates/footer_admin');
     }
 
     public function get_product_data()  

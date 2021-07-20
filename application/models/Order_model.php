@@ -63,9 +63,12 @@ class Order_model extends CI_Model{
 
     function get_orders(){
         $this->db->reset_query();
-        $this->db->select('or_id, total_amount, order_from_admin, order_date');
+        $this->db->select('or_id, total_amount, order_from_admin, order_date, name, status_name');
         $this->db->join('as_order_status', 'ors_id = status_id ');
         $this->db->join('as_address', 'ad_id = address_id');
+        $this->db->join('as_user', 'user_id = ad_user_id');
+        $query = $this->db->get('as_orders')->result_array();
+        return $query;
     }
     // function last_insert(){
     //     $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_product_master'");

@@ -6,7 +6,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>User List</h4>
+                    <h4>Order List</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -31,41 +31,36 @@
                           </tr>
                         </thead>
                         <tbody>
-                        <!-- <?php 
-                          foreach($users as $row){
-                        ?> -->
+                        <?php 
+                          foreach($orders as $row){
+                        ?>
                           <tr>
                             <td class="text-center pt-2">
-                              <!-- <div class="custom-checkbox custom-control">
+                              <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-<?php echo $row['user_id'] ?>">
-                                <label for="checkbox-<?php echo $row['user_id'] ?>" class="custom-control-label">&nbsp;</label>
-                              </div> -->
+                                  id="checkbox-<?php echo $row['or_id'] ?>">
+                                <label for="checkbox-<?php echo $row['or_id'] ?>" class="custom-control-label">&nbsp;</label>
+                              </div>
                             </td>
                             <td>
-                              <!-- <?php echo $row['name']; ?> -->
+                              <?php echo $row['or_id']; ?>
                                 
                             </td>
                             <td>
-                            <!-- <?php echo $row['email']; ?> -->
+                              <?php echo $row['name']; ?>
                             </td> 
                             <td>
-                            
+                              <?php echo $row['total_amount']; ?>
                             </td>
                             <td>
-                              
+                              <?php echo $row['order_date']; ?>
                             </td>
                             <td>
-                              <!-- <a href="#" class="btn btn-primary">Details</a> -->
-                              <a href="<?php echo base_url('admin/userlist/view/'.$row['user_id']); ?>" class="btn btn-warning">Edit</a>
-                              <!-- <?php 
-                               if($row['user_status'] == 1){ ?>
-                                  <a href="#"  dataSet="<?php echo $row['user_id'] ?>" class="btn btn-danger swal-10">Set Inactive</a>
-                              <?php }
-                              else{ ?>
-                                  <a href="#"  dataSet="<?php echo $row['user_id'] ?>" class="btn btn-success swal-11">Set Active</a>
-                              <?php }
-                               ?> -->
+                               <?php echo $row['status_name']; ?>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-primary">Details</a>
+                              <a href="<?php echo base_url('admin/userlist/view/'.$row['or_id']); ?>" class="btn btn-warning">Edit</a>
                             </td>
                           </tr>
                           <?php } ?>
