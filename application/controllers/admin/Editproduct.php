@@ -37,6 +37,20 @@ class Editproduct extends CI_Controller {
             echo 'HI';
         }
     }
+
+    public function disableprod()
+    {
+        $id = trim($this->input->post('id'));
+        $delete_data = $this->productlist_model->disable_product($id);
+    }
+
+    public function enableprod()
+    {
+        $id = trim($this->input->post('id'));
+        $delete_data = $this->productlist_model->enable_prod($id);
+    }
+
+    
     public function edit_product()
     {
         $this->load->model('masterproduct_model');

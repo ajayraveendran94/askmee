@@ -104,6 +104,42 @@ class Productlist_model extends CI_Model{
         // return $result; 
     }
 
+    function disable_product($id)
+    {
+        $this->db->reset_query();
+        // $this->db->delete('as_product_images', array('product_id' => $id)); 
+        $this->db->set('product_status','0');
+        $this->db->where('p_id',$id);
+        $this->db->update('as_products');
+        // $this->db->update('as_products', $data, array('p_id' => $id));
+        // $this->db->delete('as_products', array('p_id' => $id));
+        // $this->db->select('*');
+        // $this->db->where('as_product_images.product_id', $id);
+        // $this->db->where('as_products.p_id', $id);
+        // $query = $this->db->delete('as_product_images');
+        // $query = $this->db->delete('as_products');
+        // $result = $query->result();
+        // return $result; 
+    }
+
+    function enable_prod($id)
+    {
+        $this->db->reset_query();
+        // $this->db->delete('as_product_images', array('product_id' => $id)); 
+        $this->db->set('product_status','1');
+        $this->db->where('p_id',$id);
+        $this->db->update('as_products');
+        // $this->db->update('as_products', $data, array('p_id' => $id));
+        // $this->db->delete('as_products', array('p_id' => $id));
+        // $this->db->select('*');
+        // $this->db->where('as_product_images.product_id', $id);
+        // $this->db->where('as_products.p_id', $id);
+        // $query = $this->db->delete('as_product_images');
+        // $query = $this->db->delete('as_products');
+        // $result = $query->result();
+        // return $result; 
+    }
+
     function update_product($data, $id)
     {
         $this->db->reset_query();

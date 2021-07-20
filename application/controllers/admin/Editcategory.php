@@ -37,6 +37,19 @@ class Editcategory extends CI_Controller {
           }
         }
     }
+
+    public function disablecat()
+    {
+        $id = trim($this->input->post('id'));
+        $delete_data = $this->category_model->disablecat($id);
+    }
+
+    public function enablecat()
+    {
+        $id = trim($this->input->post('id'));
+        $delete_data = $this->category_model->enablecat($id);
+    }
+
     public function edit_category()
     {
         $id = $this->input->post('category_id');

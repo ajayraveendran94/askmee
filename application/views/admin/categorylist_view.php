@@ -24,6 +24,7 @@
                             <!-- <th>Category</th> -->
                             <th>Category Image</th>
                             <th>Product Count</th>
+                            <th>Status</th>
                             <!-- <th>Quantity</th> -->
                             <th>Action</th> 
                           </tr>
@@ -45,10 +46,15 @@
                               <img alt="image" src="<?php echo base_url('./assets/images/categories/'.$row['category_url']); ?>" width="35">
                             </td>
                             <td></td>
+                            <td> <?php if( $row['c_status'] == 1){ echo "Active"; } else { echo "InActive"; }  ?></td>
                             <td>
                               <!-- <a href="#" class="btn btn-primary">Details</a> -->
                               <a href="<?php echo base_url('admin/editcategory/view/'.$row['c_id']); ?>" class="btn btn-warning">Edit</a>
-                              <a href="#"  dataSet="<?php echo $row['c_id'] ?>" class="btn btn-danger swal-9">Delete</a>
+                              <?php if( $row['c_status'] == 1){ ?>
+                                <a href="#"  dataSet="<?php echo $row['c_id'] ?>" class="btn btn-danger disablecat">Disable</a>
+                              <?php } else if( $row['c_status'] == 0){ ?>
+                                <a href="#"  dataSet="<?php echo $row['c_id'] ?>" class=" btn btn-success enablecat">Enable</a>
+                              <?php } ?>
                             </td>
                           </tr>
                           <?php } ?>

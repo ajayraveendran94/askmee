@@ -40,6 +40,23 @@ class Category_model extends CI_Model{
         $this->db->delete('as_categories', array('c_id' => $id));
     }
 
+    function disablecat($id)
+    {
+        $this->db->reset_query();
+        $this->db->set('c_status','0');
+        $this->db->where('c_id',$id);
+        $this->db->update('as_categories');
+    }
+
+    function enablecat($id)
+    {
+        $this->db->reset_query();
+        $this->db->set('c_status','1');
+        $this->db->where('c_id',$id);
+        $this->db->update('as_categories');
+     
+    }
+
     function get_category_products($id)
     {
         $this->db->reset_query();

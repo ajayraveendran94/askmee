@@ -26,6 +26,7 @@
                             <th>Price</th>
                             <th>Vendor</th>
                             <th>Quantity</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -56,9 +57,17 @@
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['quantity']; ?></td>
                             <td>
+                                <?php if( $row['product_status'] == 1){ echo "Active"; } else { echo "InActive"; }  ?>
+                            </td>
+
+                            <td>
                               <!-- <a href="#" class="btn btn-primary">Details</a> -->
                               <a href="<?php echo base_url('admin/editproduct/view/'.$row['p_id']); ?>" class="btn btn-warning">Edit</a>
-                              <a href="#"  dataSet="<?php echo $row['p_id'] ?>" class="btn btn-danger swal-6">Delete</a>
+                              <?php if( $row['product_status'] == 1){ ?>
+                                <a href="#"  dataSet="<?php echo $row['p_id'] ?>" class="btn btn-danger disable-prod">Disable</a>
+                              <?php } else if( $row['product_status'] == 0){ ?>
+                                <a href="#"  dataSet="<?php echo $row['p_id'] ?>" class="enable btn btn-success">Enable</a>
+                              <?php } ?>
                             </td>
                           </tr>
                           <?php } ?>

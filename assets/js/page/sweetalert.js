@@ -51,6 +51,72 @@ $(".swal-6").click(function () {
     });
 });
 
+$(".disable-prod").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'Do you want to disable the product!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editproduct/disableprod',
+          success: function(response){
+            swal('Done! Product Successfully disabled!', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem Product is safe!');
+      }
+    // window.location.href = window.location.href;
+    location.reload();
+    e.preventDefault();
+    });
+});
+
+
+$(".enable").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'Do you want to disable the product!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editproduct/enableprod',
+          success: function(response){
+            swal('Done! Product Successfully enabled!', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem Product is safe!');
+      }
+      location.reload();
+    e.preventDefault();
+    });
+});
+
+
+
 $("#swal-7").click(function () {
   swal({
     title: 'What is your name?',
@@ -103,6 +169,70 @@ $(".swal-9").click(function () {
     //e.preventDefault();
     });
 });
+
+
+$(".disablecat").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'Do you like to disable!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editcategory/disablecat',
+          success: function(response){
+            swal('Done! Category Successfully Disabled!', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem Category is safe!');
+      }
+      location.reload();
+    e.preventDefault();
+    });
+});
+
+$(".enablecat").click(function () {
+  swal({
+    title: 'Are you sure?',
+    text: 'Do you want to enable category!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        var productId = {};
+        productId['id'] = $(this).attr('dataSet');
+        $.ajax({
+          data: productId,
+          type: 'POST',
+          url: './editcategory/enablecat',
+          success: function(response){
+            swal('Done! Category Successfully Enabled!', {
+              icon: 'success',
+            });
+          }
+        });
+      } 
+      else {
+        swal('No problem Category is safe!');
+      }
+      location.reload();
+      e.preventDefault();
+    });
+});
+
 
 $(".swal-10").click(function () {
   swal({
