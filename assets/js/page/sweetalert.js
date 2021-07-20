@@ -87,8 +87,8 @@ $(".disable-prod").click(function () {
 $(".enable").click(function () {
   swal({
     title: 'Are you sure?',
-    text: 'Do you want to disable the product!',
-    icon: 'warning',
+    text: 'Do you want to enable the product!',
+    icon: 'success',
     buttons: true,
     dangerMode: true,
   })
@@ -206,7 +206,7 @@ $(".enablecat").click(function () {
   swal({
     title: 'Are you sure?',
     text: 'Do you want to enable category!',
-    icon: 'warning',
+    icon: 'success',
     buttons: true,
     dangerMode: true,
   })
@@ -260,8 +260,8 @@ $(".swal-10").click(function () {
       else {
         swal('No problem User is safe!');
       }
-    window.location.href = window.location.href;
-    //e.preventDefault();
+      location.reload();
+      e.preventDefault();
     });
 });
 
@@ -291,7 +291,7 @@ $(".swal-11").click(function () {
       else {
         swal('No problem User is safe!');
       }
-    window.location.href = window.location.href;
-    //e.preventDefault();
+      location.reload();
+      e.preventDefault();
     });
 });
