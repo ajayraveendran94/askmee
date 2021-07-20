@@ -51,23 +51,42 @@ class Order_model extends CI_Model{
         return $query;
     }
 
-    function save_product($data){  
-        $result= $this->db->insert('as_product_master ',$data);
+    function save_order($data){  
+        $result= $this->db->insert('as_orders ',$data);
         $product_id = $this->db->insert_id();
         return $result;
     } 
-
-    function last_insert(){
-        $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_product_master'");
-        $next = $next->row(0);
-        return $next->Auto_increment;
+    
+    function save_order_details($data){
+        $result= $this->db->insert('as_order_detail ',$data);
     }
 
-    function update_product($data, $id)
-    {
+    function get_orders(){
         $this->db->reset_query();
-        $this->db->update('as_product_master', $data, array('id' => $id));
+        $this->db->select('or_id, total_amount, order_from_admin, order_date, name, status_name, ors_id');
+        $this->db->join('as_order_status', 'ors_id = status_id ');
+        $this->db->join('as_address', 'ad_id = address_id');
+        $this->db->join('as_user', 'user_id = ad_user_id');
+        $query = $this->db->get('as_orders')->result_array();
+        return $query;
     }
+
+    function get_all_status(){
+        $this->db->reset_query();
+        $query = $this->db->get('as_order_status')->result_array();
+        return $query;
+    }
+    // function last_insert(){
+    //     $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_product_master'");
+    //     $next = $next->row(0);
+    //     return $next->Auto_increment;
+    // }
+
+    // function update_product($data, $id)
+    // {
+    //     $this->db->reset_query();
+    //     $this->db->update('as_product_master', $data, array('id' => $id));
+    // }
     public function get_all_address()
     {
         $this->db->from('as_address');

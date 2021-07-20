@@ -1,3 +1,5 @@
+var totalAmount = 0;
+var singlePrice = 0;
 $("#selectProduct").click(function () {
 	var product = {};
 	product['id'] = $("#productName").val();
@@ -21,14 +23,17 @@ $("#selectProduct").click(function () {
 					 <div class="form-group col-md-2"> <label>Total</label> 
 					 <input type="number" class="form-control totalPrice" id="totalPrice_`+placedProductData['p_id']+`" name="total_price[]" value=`+placedProductData['offer_price']+`> </div> </div>`;
     	   $("#addedProduct").append(productData);
+    	   singlePrice = parseFloat(placedProductData['offer_price']);
        }
        else{
        	var singlePrice = parseFloat(placedProductData['offer_price']);
        	var quantity = $('#'+placedProductData['p_id']+' .orderQuantity').val();
        	$('#'+placedProductData['p_id']+' .orderQuantity').val(parseInt(quantity)+1);
-       	var price = singlePrice * $('#'+placedProductData['p_id']+' .orderQuantity').val();
+       	price = singlePrice * $('#'+placedProductData['p_id']+' .orderQuantity').val();
        	$('#'+placedProductData['p_id']+' .totalPrice').val(parseFloat(price));
        }
+       totalAmount = totalAmount + parseFloat(singlePrice);
+       $('#totalAmount').val(parseFloat(totalAmount));
        $('.card-footer').removeClass('d-none');
        $('#addedAddress').removeClass('d-none');
       }

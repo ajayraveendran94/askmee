@@ -26,7 +26,20 @@ class Order extends CI_Controller {
         $this->load->view('admin/templates/footer_admin');  
     }
 
-     public function get_product_data()  
+    public function list()
+    {
+        $order_data = $this->order_model->get_orders();
+        $order_status = $this->order_model->get_all_status();
+        //print_r($product_data[0]['p_id']);
+        $data['orders'] = $order_data;
+        $data['status'] = $order_status;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        $this->load->view('admin/orderlist_view', $data);
+        $this->load->view('admin/templates/footer_admin');
+    }
+
+    public function get_product_data()  
     {  
         $this->load->model('productlist_model');
         $id = trim($this->input->post('id'));
@@ -37,7 +50,28 @@ class Order extends CI_Controller {
     
     public function place_order()
     {
-        print_r($this->input->post());
+        $order_array = array();
+        $placed_order = $this->input->post();
+        $max_index = count($placed_order['order_product_id']);
+        $order_data = array(
+                'address_id' => $placed_order['address'],
+                'total_amount' => $placed_order['net_amount'],
+                'status_id' => 1,
+                'order_from_admin' => true,
+                'order_date' => date("Y-m-d H:i:s")
+        );
+        $order_id =$this->order_model->save_order($order_data);
+        for ($i=0; $i < $max_index; $i++){
+            //$individual_price = 201;
+                $data = array(
+                    'order_id' => $order_id,
+                    'product_id' => $placed_order['order_product_id'][$i],
+                    'quantity' => $placed_order['quantity'][$i],
+                    'individual_price' => $placed_order['offer_price'][$i],
+                    'total_price' => $placed_order['offer_price'][$i] * $placed_order['quantity'][$i]
+                );
+            $this->order_model->save_order_details($data);
+        }  
     }
     
 }

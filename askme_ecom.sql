@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2021 at 10:02 PM
+-- Generation Time: Jul 18, 2021 at 04:04 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -86,9 +86,17 @@ CREATE TABLE `as_orders` (
   `or_id` bigint(20) NOT NULL,
   `address_id` bigint(20) NOT NULL,
   `total_amount` float NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `status_id` bigint(20) NOT NULL
+  `status_id` bigint(20) NOT NULL,
+  `order_from_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `order_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `as_orders`
+--
+
+INSERT INTO `as_orders` (`or_id`, `address_id`, `total_amount`, `status_id`, `order_from_admin`, `order_date`) VALUES
+(1, 1, 828, 1, 1, '2021-07-18 13:29:44');
 
 -- --------------------------------------------------------
 
@@ -104,6 +112,14 @@ CREATE TABLE `as_order_detail` (
   `individual_price` float NOT NULL,
   `total_price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `as_order_detail`
+--
+
+INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `product_id`, `quantity`, `individual_price`, `total_price`) VALUES
+(1, 1, 1, 2, 254, 508),
+(2, 1, 3, 1, 320, 320);
 
 -- --------------------------------------------------------
 
@@ -247,7 +263,6 @@ ALTER TABLE `as_categories`
 ALTER TABLE `as_orders`
   ADD PRIMARY KEY (`or_id`),
   ADD KEY `address_to_order` (`address_id`),
-  ADD KEY `user_id_to_orders` (`user_id`),
   ADD KEY `status_to_order` (`status_id`);
 
 --
@@ -314,13 +329,13 @@ ALTER TABLE `as_categories`
 -- AUTO_INCREMENT for table `as_orders`
 --
 ALTER TABLE `as_orders`
-  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `as_order_detail`
 --
 ALTER TABLE `as_order_detail`
-  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `as_order_status`
@@ -367,8 +382,7 @@ ALTER TABLE `as_address`
 --
 ALTER TABLE `as_orders`
   ADD CONSTRAINT `address_to_order` FOREIGN KEY (`address_id`) REFERENCES `as_address` (`ad_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `status_to_order` FOREIGN KEY (`status_id`) REFERENCES `as_order_status` (`ors_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_id_to_orders` FOREIGN KEY (`user_id`) REFERENCES `as_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `status_to_order` FOREIGN KEY (`status_id`) REFERENCES `as_order_status` (`ors_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `as_order_detail`
