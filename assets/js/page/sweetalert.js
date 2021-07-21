@@ -46,6 +46,7 @@ $(".swal-6").click(function () {
       else {
         swal('No problem Product is safe!');
       }
+      
     window.location.href = window.location.href;
     //e.preventDefault();
     });
@@ -77,9 +78,10 @@ $(".disable-prod").click(function () {
       else {
         swal('No problem Product is safe!');
       }
+      setTimeout(function(){ location.reload(); }, 3000); 
     // window.location.href = window.location.href;
-    location.reload();
-    e.preventDefault();
+    // window.location.reload(true);
+    // e.preventDefault();
     });
 });
 
@@ -110,8 +112,9 @@ $(".enable").click(function () {
       else {
         swal('No problem Product is safe!');
       }
-      location.reload();
-    e.preventDefault();
+      setTimeout(function(){ location.reload(); }, 3000); 
+    //   window.location.reload(true);
+    // e.preventDefault();
     });
 });
 
@@ -165,7 +168,7 @@ $(".swal-9").click(function () {
       else {
         swal('No problem Category is safe!');
       }
-    window.location.href = window.location.href;
+      setTimeout(function(){ location.reload(); }, 3000); 
     //e.preventDefault();
     });
 });
@@ -197,8 +200,9 @@ $(".disablecat").click(function () {
       else {
         swal('No problem Category is safe!');
       }
-      location.reload();
-    e.preventDefault();
+      setTimeout(function(){ location.reload(); }, 3000); 
+    //   window.location.reload(true);
+    // e.preventDefault();
     });
 });
 
@@ -228,8 +232,9 @@ $(".enablecat").click(function () {
       else {
         swal('No problem Category is safe!');
       }
-      location.reload();
-      e.preventDefault();
+      setTimeout(function(){ location.reload(); }, 3000); 
+      // window.location.reload(true);
+      // e.preventDefault();
     });
 });
 
@@ -260,8 +265,9 @@ $(".swal-10").click(function () {
       else {
         swal('No problem User is safe!');
       }
-      location.reload();
-      e.preventDefault();
+      setTimeout(function(){ location.reload(); }, 3000); 
+      // window.location.reload(true);
+      // e.preventDefault();
     });
 });
 
@@ -291,7 +297,8 @@ $(".swal-11").click(function () {
       else {
         swal('No problem User is safe!');
       }
-      location.reload();
-      e.preventDefault();
+      setTimeout(function(){ location.reload(); }, 3000); 
+      // window.location.reload(true);
+      // e.preventDefault();
     });
 });
