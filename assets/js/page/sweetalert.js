@@ -256,16 +256,16 @@ $(".swal-10").click(function () {
           type: 'POST',
           url: './userlist/change_status',
           success: function(response){
-            swal('Done! User Successfully Inactivated! Please refresh the page', {
+            swal('Done! User Successfully Inactivated!', {
               icon: 'success',
             });
-          }
+          setTimeout(function(){ location.reload(); }, 1500);}
         });
       } 
       else {
         swal('No problem User is safe!');
       }
-      setTimeout(function(){ location.reload(); }, 3000); 
+      //setTimeout(function(){ location.reload(); }, 3000); 
       // window.location.reload(true);
       // e.preventDefault();
     });
@@ -288,16 +288,16 @@ $(".swal-11").click(function () {
           type: 'POST',
           url: './userlist/change_status_active',
           success: function(response){
-            swal('Done! User Successfully Activated! Please refresh the page', {
+            swal('Done! User Successfully Activated!', {
               icon: 'success',
             });
-          }
+         setTimeout(function(){ location.reload(); }, 1500);}
         });
       } 
       else {
         swal('No problem User is safe!');
       }
-      setTimeout(function(){ location.reload(); }, 3000); 
+      // setTimeout(function(){ location.reload(); }, 3000); 
       // window.location.reload(true);
       // e.preventDefault();
     });
