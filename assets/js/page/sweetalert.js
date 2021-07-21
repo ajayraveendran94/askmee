@@ -40,14 +40,13 @@ $(".swal-6").click(function () {
             swal('Done! Product Successfully deleted!', {
               icon: 'success',
             });
+         setTimeout(function(){ location.reload(); }, 1500);
           }
         });
       } 
       else {
         swal('No problem Product is safe!');
       }
-      
-    window.location.href = window.location.href;
     //e.preventDefault();
     });
 });
@@ -72,13 +71,13 @@ $(".disable-prod").click(function () {
             swal('Done! Product Successfully disabled!', {
               icon: 'success',
             });
+          setTimeout(function(){ location.reload(); }, 1500);
           }
         });
       } 
       else {
         swal('No problem Product is safe!');
       }
-      setTimeout(function(){ location.reload(); }, 3000); 
     // window.location.href = window.location.href;
     // window.location.reload(true);
     // e.preventDefault();
@@ -106,13 +105,13 @@ $(".enable").click(function () {
             swal('Done! Product Successfully enabled!', {
               icon: 'success',
             });
+          setTimeout(function(){ location.reload(); }, 1500);
           }
         });
       } 
       else {
         swal('No problem Product is safe!');
-      }
-      setTimeout(function(){ location.reload(); }, 3000); 
+      } 
     //   window.location.reload(true);
     // e.preventDefault();
     });
@@ -162,13 +161,13 @@ $(".swal-9").click(function () {
             swal('Done! Category Successfully deleted!', {
               icon: 'success',
             });
+          setTimeout(function(){ location.reload(); }, 1500);
           }
         });
       } 
       else {
         swal('No problem Category is safe!');
-      }
-      setTimeout(function(){ location.reload(); }, 3000); 
+      } 
     //e.preventDefault();
     });
 });
@@ -194,13 +193,13 @@ $(".disablecat").click(function () {
             swal('Done! Category Successfully Disabled!', {
               icon: 'success',
             });
+          setTimeout(function(){ location.reload(); }, 1500);
           }
         });
       } 
       else {
         swal('No problem Category is safe!');
       }
-      setTimeout(function(){ location.reload(); }, 3000); 
     //   window.location.reload(true);
     // e.preventDefault();
     });
@@ -226,13 +225,14 @@ $(".enablecat").click(function () {
             swal('Done! Category Successfully Enabled!', {
               icon: 'success',
             });
-          }
+          setTimeout(function(){ location.reload(); }, 1500); 
+        }
         });
       } 
       else {
         swal('No problem Category is safe!');
       }
-      setTimeout(function(){ location.reload(); }, 3000); 
+      
       // window.location.reload(true);
       // e.preventDefault();
     });
