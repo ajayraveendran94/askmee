@@ -193,7 +193,7 @@ $(".disablecat").click(function () {
             swal('Done! Category Successfully Disabled!', {
               icon: 'success',
             });
-          setTimeout(function(){ location.reload(); }, 1500);
+          setTimeout(function(){ location.reload(); }, 1000);
           }
         });
       } 

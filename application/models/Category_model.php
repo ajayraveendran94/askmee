@@ -46,6 +46,26 @@ class Category_model extends CI_Model{
         $this->db->set('c_status','0');
         $this->db->where('c_id',$id);
         $this->db->update('as_categories');
+
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_product_master');
+        $this->db->where('as_product_master.category_id', $id);
+        $master_product_data = $this->db->get();
+        $master_products = $master_product_data->result_array();
+        $pro_id = array();  
+        foreach ($master_products as $row)
+        {    
+            $pro_id[] = $row['id'];           
+        }
+        $this->db->reset_query();
+       
+        if(!empty($pro_id)){
+            $this->db->set('product_status','0');
+            $this->db->where_in('as_products.master_product_id', $pro_id);
+            $this->db->update('as_products');
+       
+        }
     }
 
     function enablecat($id)
@@ -54,6 +74,27 @@ class Category_model extends CI_Model{
         $this->db->set('c_status','1');
         $this->db->where('c_id',$id);
         $this->db->update('as_categories');
+
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_product_master');
+        $this->db->where('as_product_master.category_id', $id);
+        $master_product_data = $this->db->get();
+        $master_products = $master_product_data->result_array();
+        $pro_id = array();  
+        foreach ($master_products as $row)
+        {    
+            $pro_id[] = $row['id'];           
+        }
+        $this->db->reset_query();
+       
+        if(!empty($pro_id)){
+            $this->db->set('product_status','1');
+            $this->db->where_in('as_products.master_product_id', $pro_id);
+            $this->db->update('as_products');
+       
+        }
+
      
     }
 
