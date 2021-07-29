@@ -86,8 +86,8 @@
                                 <input type="hidden" name="users_id" id ="users_id" value="<?php echo $value->ad_user_id ?>">
 
                         <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-<?php echo($count)?>"
-                          aria-expanded="true">
-                          <h4><?php echo($value->ad_title) ?></h4>
+                          aria-expanded="false">
+                          <h4><?php echo("Address ".$count); ?></h4>
                         </div>
 
                         <div class="accordion-body collapse" id="panel-body-<?php echo($count)?>" data-parent="#accordion">
@@ -173,7 +173,7 @@
                       </div>
                       <form method="post" action="<?php echo site_url('admin/address/add_new'); ?>" enctype="multipart/form-data">
                       <div class="accordion">
-                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body">
+                        <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body"  aria-expanded="true">
                           <h4>Add New Address</h4>
                         </div>
                         <div class="accordion-body collapse" id="panel-body" data-parent="#accordion">

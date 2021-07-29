@@ -45,11 +45,11 @@ class Address extends CI_Controller {
             $data['address'] = $user_address;
 
             //print_r($data);
-            $this->load->view('admin/templates/header');
-            $this->load->view('admin/templates/nav_side_bar');
-            $this->load->view('admin/edituser_view', $data);
-            $this->load->view('admin/templates/footer_admin');
-        //redirect('admin/adduser');
+            // $this->load->view('admin/templates/header');
+            // $this->load->view('admin/templates/nav_side_bar');
+            // $this->load->view('admin/edituser_view', $data);
+            // $this->load->view('admin/templates/footer_admin');
+        redirect('admin/userlist/view/'.$this->input->post('user_id'));
     }
 
     public function ajax_detail_update()
