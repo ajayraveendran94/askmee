@@ -22,7 +22,7 @@ class Productlist_model extends CI_Model{
         if ($current_user['user_type'] == 'V') {
             $this->db->where('as_products.vendor_id', $current_user['user_id']);
         }
-        $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name, name, vendor_id');
+        $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name, name, vendor_id,as_categories.c_status');
         $this->db->join('as_product_master', 'id = master_product_id');
         $this->db->join('as_categories', 'c_id = category_id');
         $this->db->join('as_user', 'user_id = vendor_id');
