@@ -29,8 +29,8 @@
 
 
 
-    <div class="container text-center ">
-      <div class="row">
+    <div class="container">
+      <div class="row category-grid">
 	<?php foreach($category as $row) { ?>
         <div class="col-sm-3 col-xs-12 ">
 		  <a href="<?php echo base_url('category/view/'.$row->c_id); ?>">
@@ -40,11 +40,12 @@
         </div>
     <?php } ?>
 
-        <a><h4>MORE...</h4></a>
       </div>
+      <center> <a href="#" class="btn btn-theme btn-md">MORE</a></center>
     </div>
 
-
+<div class="container">
+      <div class="row category-grid">
     <div class="col-sm-12">
 
       <div class="row text-center" style="margin-top: 25px;">
@@ -79,4 +80,6 @@
           <a href="#" class="btn btn-light">Add to cart</a>
         </div> -->
       </div>
-    </div>     
+    </div> 
+    </div>
+    </div>    

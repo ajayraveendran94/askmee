@@ -7,9 +7,9 @@ class Addproduct_model extends CI_Model{
         parent::__construct();
     }
     
-    function get_category(){  
+    function get_category(){
         $this->db->order_by('category_name', 'asc');
-        $query= $this->db->query('SELECT c_id, category_name, category_url FROM as_categories');
+        $query= $this->db->query('SELECT c_id, category_name, category_url FROM as_categories WHERE c_status=1');
         $result = $query->result();
         return $result;
     }  

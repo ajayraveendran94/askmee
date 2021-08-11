@@ -19,7 +19,13 @@
   <title>askmee.in</title>
 </head>
 <body>
-
+<?php
+   $controller = $this->router->fetch_class();
+   $method = 'method';
+   if($controller == 'login'){
+     $method = $this->router->fetch_method();
+   } ?>
+  
   <div class="container-fluid">
     <header id="masthead" class="site-header site-header-background " role="banner">
 
@@ -42,17 +48,42 @@
               </h1>
             </div>
           </div>
+          <?php 
+          if($method != 'index'){ ?>
           <div class="col-sm-2 cart-mob">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
             <span class="text" style="display: inline;">Cart</span>
           </div>
 
           <div class="col-md-5 col-xs-offset-2">
-            <div class="col-md-8 serach-bar">
-              <div class="input-group mb-3"> <input type="text" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <div class="input-group-append"> <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button> </div>
-              </div>
-          </div>
+          <div class="header_search">
+                            <div class="header_search_content">
+                                <div class="header_search_form_container">
+                                    <form name="searchfrm" action="search.php" autocomplete="off" method="GET" class="header_search_form clearfix" style="display: inline-flex;height: 100%;position: absolute;width:100%;" title="">
+                                        <div class="nvleft">
+                                            <select id="catSelect" class="catselect-css" style="width: 141.2px;">
+                                  <option value="0">All Categories</option>
+                                  <option value="1">Fruits & Vegetables</option>
+                                  <option value="2">Meat</option>
+                                  <option value="4">Nadan Fish</option>
+                                  <option value="3">Homely & Handmade Products</option>
+              
+                              </select>
+                                        </div>
+
+                                        <div class="nvfill" style="width: calc(100% - 50px);">
+                                            <input class="header_search_input" type="search" style="height: 35px;width:100%;font-weight:lighter;color:#444;" id="search-box" name="q" placeholder="Search for products" title="Search for products" required="">
+                                            <div id="suggesstion-box"></div>
+                                        </div>
+
+                                        <div class="nvright">
+                                            <button type="submit" class="header_search_button trans_300" value="Submit" style="height:  35px"><img class="s-icon" src='<?php echo base_url("assets/img/search.png");?>'
+                                      alt=""></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
           </div>
           <!--------------------------------------->
           <div class="col-md-3 col-sm-3  cart-web" style="margin-top: 50px;">
@@ -68,7 +99,7 @@
             <span class="text" style="display: inline;"><a href="<?php echo base_url('/login'); ?>">Login</a></span> 
           <?php } ?>
           </div>
-
+       <?php } ?>
         </div>
         <!-- .end of site-branding -->
       </div>

@@ -14,7 +14,9 @@ $count = 0;
 ?>
 
         <div class="row product-list">
-        <?php foreach($products as $product) {
+        <?php 
+        if(isset($products[0]['p_id'])){
+        foreach($products as $product) {
             if($count % 4 == 0){
                 echo('<div class="row product-list">');
             }
@@ -57,6 +59,7 @@ $count = 0;
             }
             $count++;
         }
-            ?>
+        }
+        ?>
     </div>
     </div>

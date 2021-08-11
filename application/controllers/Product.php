@@ -6,10 +6,6 @@ class Product extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        if ( ! $this->session->userdata('user'))
-        { 
-            redirect('admin/login');
-        }
         $this->load->model('productlist_model');
     }
 

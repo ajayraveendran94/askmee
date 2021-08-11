@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
         <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -20,7 +20,6 @@
                     <div class="carousel-inner">
                     <?php 
                     $count = 1;
-                    echo(count($product_data));
                     foreach($product_data as $row){ 
                        $val = $count * 1000;
                        if($count == count($product_data)){
@@ -38,12 +37,6 @@
                     <?php 
                     $count++;
                     } ?>
-                      <!-- <div class="carousel-item" data-bs-interval="2000">
-                        <img src="http://askmee.in/wp-content/uploads/2020/06/long-sleeve-tee-300x300.jpg" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="http://askmee.in/wp-content/uploads/2020/06/long-sleeve-tee-300x300.jpg" class="d-block w-100" alt="...">
-                      </div> -->
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,14 +54,9 @@
 
                
                   <div class="col-md-4">
-                    <a href="#" class="btn btn-light">Add to cart</a>
-                    <input type="number" class="form-control quantity" id="inputQty">
+                    <input type="number" class="form-control quantity" id="inputQty" max= <?php echo($product_data[0]->quantity); ?>>
+                    <input type="submit" class="btn btn-light" value="Add to cart">
                   </div>
-
-                 
-    
-
-
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -97,4 +85,65 @@
              </div>
 
              </div>
+            </div> -->
+
+    <div class="container-fluid">
+        <!----Bredsrump-->
+        <div class="container-fluid">
+            <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo($product_data[0]->product_name); ?></li>
+                    </ol>
+                </nav>
+                <hr>
             </div>
+        </div>
+        <!------------>
+
+
+        <!-------------Product Section-->
+
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img id="main-image" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" width="250" /> </div>
+                                    <div class="thumbnail text-center"> <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" width="70"> <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>" width="70"> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                    </div>
+                                    <div class="mt-4 mb-3">
+                                        <h5 class="text-uppercase"><?php echo($product_data[0]->product_name); ?></h5>
+                                        <div class="price d-flex flex-row align-items-center"> <span class="act-price"> M.R.P ₹ <?php echo($product_data[0]->offer_price); ?></span>
+                                            <div class="ml-2"> <small class="dis-price"><del><?php echo($product_data[0]->actual_price); ?><del></small> <span>
+                                            <?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>% OFF</span> </div>
+                                        </div>
+                                    </div>
+                                    <p class="about"><?php echo($product_data[0]->description); ?></p>
+                                    <!-- <div class="sizes mt-5">
+                                        <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label>                                        <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                                    </div> -->
+                                    <div class="cart mt-4 align-items-center">
+                                    <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
+                                    <input type="hidden" id="product_id" value=<?php echo $product_data[0]->p_id; ?>>
+                                    <input type="number" id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?> > <button id="addToCart" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> 
+                                    <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none">Go To Cart</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------------------------------------->
+    </div>
