@@ -2,7 +2,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Cart</li>
                 </ol>
             </nav>
@@ -75,7 +75,7 @@
                         <?php } ?>
                             <div class="ibox-content">
                                 <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
-                                <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                                <a href="<?php echo base_url(''); ?>"> <i class="fa fa-arrow-left"></i> Continue shopping</a>
 
                             </div>
                         </div>

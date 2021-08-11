@@ -6,6 +6,10 @@ class Cart extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        if ( ! $this->session->userdata('user'))
+        { 
+            redirect('/login');
+        }
         $this->load->model('cart_model');
     }
 

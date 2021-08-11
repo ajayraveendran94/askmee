@@ -1,11 +1,11 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 18, 2021 at 04:04 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Host: localhost
+-- Generation Time: Aug 11, 2021 at 03:09 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,7 +74,7 @@ INSERT INTO `as_categories` (`c_id`, `category_name`, `category_url`, `c_status`
 (5, 'Used Products', 'PNG-7-300x300.png', 1),
 (6, 'Fruits and Vegitables', 'PNG-3-300x3002.png', 1),
 (8, 'Egg', 'PNG_10.png', 1),
-(9, 'Fresh Meat', 'PNG_4.png', 1);
+(9, 'Fresh Meat', 'PNG_4.png', 0);
 
 -- --------------------------------------------------------
 
@@ -162,8 +162,8 @@ CREATE TABLE `as_products` (
 --
 
 INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_price`, `offer_price`, `description`, `quantity`, `product_status`) VALUES
-(1, 1, 3, 204, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 10, 1),
-(3, 1, 12, 175, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1);
+(1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 10, 1),
+(3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1);
 
 -- --------------------------------------------------------
 
@@ -239,6 +239,28 @@ INSERT INTO `as_user` (`user_id`, `name`, `email`, `password`, `user_type`, `use
 (11, 'Ajay R', 'ar@gmail.com', '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
 (12, 'Arun', 'arun@gmail.com', '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `as_user_cart`
+--
+
+CREATE TABLE `as_user_cart` (
+  `car_id` bigint(20) NOT NULL,
+  `car_pr_id` bigint(20) NOT NULL,
+  `car_user_id` bigint(20) UNSIGNED NOT NULL,
+  `car_quantity` bigint(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `as_user_cart`
+--
+
+INSERT INTO `as_user_cart` (`car_id`, `car_pr_id`, `car_user_id`, `car_quantity`) VALUES
+(1, 1, 2, 5),
+(2, 3, 2, 3),
+(3, 1, 11, 4);
+
 --
 -- Indexes for dumped tables
 --
@@ -310,6 +332,14 @@ ALTER TABLE `as_user`
   ADD UNIQUE KEY `id` (`user_id`);
 
 --
+-- Indexes for table `as_user_cart`
+--
+ALTER TABLE `as_user_cart`
+  ADD PRIMARY KEY (`car_id`),
+  ADD KEY `user_to_cart` (`car_user_id`),
+  ADD KEY `product_to_cart` (`car_pr_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -359,13 +389,19 @@ ALTER TABLE `as_product_images`
 -- AUTO_INCREMENT for table `as_product_master`
 --
 ALTER TABLE `as_product_master`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `as_user`
 --
 ALTER TABLE `as_user`
   MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `as_user_cart`
+--
+ALTER TABLE `as_user_cart`
+  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -409,6 +445,13 @@ ALTER TABLE `as_product_images`
 --
 ALTER TABLE `as_product_master`
   ADD CONSTRAINT `category_to_product` FOREIGN KEY (`category_id`) REFERENCES `as_categories` (`c_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `as_user_cart`
+--
+ALTER TABLE `as_user_cart`
+  ADD CONSTRAINT `product_to_cart` FOREIGN KEY (`car_pr_id`) REFERENCES `as_products` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_to_cart` FOREIGN KEY (`car_user_id`) REFERENCES `as_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

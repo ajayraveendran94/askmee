@@ -52,7 +52,9 @@
           if($method != 'index'){ ?>
           <div class="col-sm-2 cart-mob">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
+          <a href="<?php echo base_url('/cart'); ?>">
             <span class="text" style="display: inline;">Cart</span>
+          </a>
           </div>
 
           <div class="col-md-5 col-xs-offset-2">
@@ -88,7 +90,9 @@
           <!--------------------------------------->
           <div class="col-md-3 col-sm-3  cart-web" style="margin-top: 50px;">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
+            <a href="<?php echo base_url('/cart'); ?>">
             <span class="text" style="display: inline;">Cart</span>
+          </a>
           <img src='<?php echo base_url("assets/assets/img/PNG_ICON_5.png");?>' style="width: 50px;display: inline;">
             <?php
              if (isset($_SESSION['user'])) { ?>

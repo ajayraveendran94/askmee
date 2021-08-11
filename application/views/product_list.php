@@ -2,7 +2,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?php echo $products[0]['category_name'];  ?></li>
                 </ol>
             </nav>
