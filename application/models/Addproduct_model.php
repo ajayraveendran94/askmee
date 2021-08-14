@@ -14,16 +14,9 @@ class Addproduct_model extends CI_Model{
         return $result;
     }  
     
-    function get_product(){  
-        // $this->db->reset_query();
-        // $this->db->select("*");
-        // $this->db->from("as_products");
-        // $this->db->limit(4);
-        // $this->db->order_by('p_id',"DESC");
-        // $query = $this->db->get();
-        // $result = $query->result();
-        // return $result;
+    function get_product(){ 
 
+       $this->db->where('product_status', 1);
        $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name');
         $this->db->join('as_product_master', 'id = master_product_id');
         $this->db->join('as_categories', 'c_id = category_id');

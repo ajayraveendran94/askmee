@@ -37,26 +37,26 @@
       <div class="container-fluid ">
         <div class="row">
 
-          <div class="col-md-4 logo-container">
+          <div class="col-md-3 logo-container">
 
-            <a href="#" class="custom-logo-link" rel="home">
+            <a href="<?php echo base_url(''); ?>" class="custom-logo-link" rel="home">
               <img src='<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>' class="custom-logo" alt="">
             </a>
             <div class="site-branding-text">
               <h1 class="site-title">
-                <a href="#" rel="home"></a>
+                <a href="<?php echo base_url(''); ?>" rel="home"></a>
               </h1>
             </div>
           </div>
           <?php 
           if($method != 'index'){ ?>
-          <div class="col-sm-2 cart-mob">
+          <!-- <div class="col-sm-2 cart-mob">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
           <a href="<?php echo base_url('/cart'); ?>">
             <span class="text" style="display: inline;">Cart</span>
           </a>
-          </div>
-
+          </div> -->
+          <?php if($controller != 'profile' && $controller != 'cart' && $controller != 'order') { ?>
           <div class="col-md-5 col-xs-offset-2">
           <div class="header_search">
                             <div class="header_search_content">
@@ -87,13 +87,22 @@
                             </div>
                         </div>
           </div>
+        <?php } 
+        else{
+          echo('<div class="col-md-5 col-xs-offset-2"> </div>');
+        }
+        ?>
           <!--------------------------------------->
-          <div class="col-md-3 col-sm-3  cart-web" style="margin-top: 50px;">
+          <div class="col-md-4 col-sm-3  cart-web" style="margin-top: 50px;">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
             <a href="<?php echo base_url('/cart'); ?>">
             <span class="text" style="display: inline;">Cart</span>
           </a>
           <img src='<?php echo base_url("assets/assets/img/PNG_ICON_5.png");?>' style="width: 50px;display: inline;">
+            <a href="<?php echo base_url('/profile'); ?>">
+            <span class="text" style="display: inline;">Profile</span>
+          </a>
+          <img src='<?php echo base_url("assets/assets/img/PNG_ICON_6.png");?>' style="width: 50px;display: inline;">
             <?php
              if (isset($_SESSION['user'])) { ?>
             <span class="text" style="display: inline;"><a href="<?php echo base_url('login/logout'); ?>">Logout</a></span>
