@@ -51,12 +51,18 @@
       <div class="row text-center" style="margin-top: 25px;">
 
         <h4>New in</h4>
+      <?php if(isset($_SESSION['user'])){?>
+      <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
+      <?php }?>
       <?php foreach($products as $product){ ?>
         <div class="col-sm-3 col-xs-12">
           <img src="<?php echo base_url('./assets/images/newproducts/'.$product['p_id'].'/'.$product['product_images'][0]['image_url']); ?>" width="70%"  height="70%" style="margin-top: 8%;"  alt="..."><br>
           <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="btn btn-link"><?php echo $product['product_name']; ?></a><br>
           <p class="card-text">₹ <?php echo $product['offer_price']; ?></p>
-          <a href="#" class="btn btn-light">Add to cart</a>
+          <button  id="addToCart_<?php echo($product['p_id']); ?>" class="addToCartBtn btn btn-light" productId=<?php echo($product['p_id']); ?>>Add to cart</button>
+          <button class="btn btn-light">
+          <a href="<?php echo base_url('/cart');?>" id="goToCart_<?php echo($product['p_id']); ?>" class="d-none">Go To Cart</a>
+        </button>
         </div>
       <?php } ?>
         <!-- <div class="col-sm-3 col-xs-12">

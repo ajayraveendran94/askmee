@@ -21,12 +21,14 @@ class Cart_model extends CI_Model{
     
     function add_to_cart($data){  
         $this->db->reset_query();
-        $query = $this->db->get_where("as_user_cart", array('car_pr_id'=> $data['car_pr_id'], 'car_user_id'=> $data['car_user_id']));
-        $p = $query->row_array();
-        if($query->num_rows() == 1){
-           $result =  $this->db->update('as_user_cart ', $data);
+        $this->db->where(array('car_pr_id'=> $data['car_pr_id'], 'car_user_id'=> $data['car_user_id']));
+        $query = $this->db->get('as_user_cart');
+        if($query->num_rows() > 0){
+           $this->db->where('car_id', $query->row()->car_id);
+           $result =  $this->db->update('as_user_cart', $data);
         }
         else{
+            $this->db->reset_query();
             $result = $this->db->insert('as_user_cart',$data);
         }
         return $result;
