@@ -43,13 +43,15 @@ class Address extends CI_Controller {
 
             $data['user'] = $user_data;
             $data['address'] = $user_address;
-
-            //print_r($data);
-            // $this->load->view('admin/templates/header');
-            // $this->load->view('admin/templates/nav_side_bar');
-            // $this->load->view('admin/edituser_view', $data);
-            // $this->load->view('admin/templates/footer_admin');
-        redirect('admin/userlist/view/'.$this->input->post('user_id'));
+               if($this->session->userdata('user_type') == 'A')
+        {
+             redirect('admin/userlist/view/'.$this->input->post('user_id'));
+        }
+        else
+        {
+            redirect('Profile/index');
+        }
+           
     }
 
     public function ajax_detail_update()
@@ -73,6 +75,13 @@ class Address extends CI_Controller {
         $this->address_model->update_address(array('ad_id' => $this->input->post('address_id')), $edited_address_data);
         $user_data = $this->user_model->get_user_data( $this->input->post('users_id'));
         $user_address = $this->address_model->get_user_address( $this->input->post('users_id'));
-        redirect('admin/Userlist/view/'.$users_id);
+        if($this->session->userdata('user_type') == 'A')
+        {
+            redirect('admin/Userlist/view/'.$users_id);
+        }
+        else
+        {
+            redirect('Profile/index');
+        }
     }
 }
