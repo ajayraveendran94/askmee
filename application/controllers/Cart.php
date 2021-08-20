@@ -29,6 +29,6 @@ class Cart extends CI_Controller {
                 'car_quantity' => trim($this->input->post('quantity'))
         );
         $category_products = $this->cart_model->add_to_cart($cart_data);
-        echo 'Done';
+        echo $category_products;
     }
 }

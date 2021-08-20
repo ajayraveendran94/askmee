@@ -19,19 +19,36 @@ class Cart_model extends CI_Model{
         return $query;
     }   
     
+    public function get_maximum_limit($product_id){
+        $this->db->reset_query();
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_products');
+        $this->db->where('as_products.p_id', $product_id);
+        $query = $this->db->get();
+        $result_value = $query->row_array();
+        return $result_value['quantity'];
+    }
+    
     function add_to_cart($data){  
         $this->db->reset_query();
-        $this->db->where(array('car_pr_id'=> $data['car_pr_id'], 'car_user_id'=> $data['car_user_id']));
-        $query = $this->db->get('as_user_cart');
-        if($query->num_rows() > 0){
-           $this->db->where('car_id', $query->row()->car_id);
-           $result =  $this->db->update('as_user_cart', $data);
+        $max_product_id = $this->get_maximum_limit($data['car_pr_id']);
+        if($max_product_id < $data['car_quantity']){
+            return $max_product_id;
         }
         else{
-            $this->db->reset_query();
-            $result = $this->db->insert('as_user_cart',$data);
+            $this->db->where(array('car_pr_id'=> $data['car_pr_id'], 'car_user_id'=> $data['car_user_id']));
+            $query = $this->db->get('as_user_cart');
+            if($query->num_rows() > 0){
+              $this->db->where('car_id', $query->row()->car_id);
+              $result =  $this->db->update('as_user_cart', $data);
+            }
+            else{
+              $this->db->reset_query();
+              $result = $this->db->insert('as_user_cart',$data);
+            }
+            return $result;
         }
-        return $result;
     } 
     
 }

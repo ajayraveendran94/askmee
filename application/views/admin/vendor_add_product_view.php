@@ -51,11 +51,11 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label>Actual Price</label>
-                        <input type="number" class="form-control" name="offer_price">
+                        <input type="number" class="form-control" name="actual_price">
                       </div>
                       <div class="form-group col-md-6">
                         <label>Offer Price</label>
-                        <input type="number" class="form-control" name="actual_price">
+                        <input type="number" class="form-control" name="offer_price">
                       </div>
                     </div>
                     <div class="form-group">

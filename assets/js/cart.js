@@ -10,7 +10,12 @@ $("#addToCart").click(function(e) {
         type: 'POST',
         url: '../../cart/add_to_cart',
         success: function(response){
-          $("#goToCart").removeClass('d-none');
+          if(response == "1"){ 
+            $("#goToCart").removeClass('d-none');
+          }
+          else{
+            alert("Maximum Quantity Available is "+ response);
+          }
         }
       });
     }
@@ -37,12 +42,13 @@ $('.addToCartBtn').click(function(){
         type: 'POST',
         url: 'cart/add_to_cart',
         success: function(response){
+          debugger;
           $("#addToCart_"+cartData['product_id']).addClass('d-none');
           $("#goToCart_"+cartData['product_id']).removeClass('d-none');
         }
     });
   }
 });
-$("#cartQuantity").on('input',function(e) { 
+$(".cartQuantity").on('input',function(e) { 
   debugger;
 });

@@ -56,7 +56,7 @@
                                                     <s class="small text-muted">₹ <?php echo $cart['actual_price']; ?></s>
                                                 </td>
                                                 <td width="65">
-                                                    <input type="text" id="cartQuantity" min=1 class="form-control" value="<?php echo $cart['car_quantity']; ?>">
+                                                    <input type="text" min=1 id="<?php echo $cart['p_id']; ?>" class="cartQuantity form-control" value="<?php echo $cart['car_quantity']; ?>">
                                                 </td>
                                                 <td>
                                                     <h4>
