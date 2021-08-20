@@ -113,7 +113,14 @@
                             <div class="col-md-6">
                                 <div class="images p-3">
                                     <div class="text-center p-4"> <img id="main-image" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" width="250" /> </div>
-                                    <div class="thumbnail text-center"> <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" width="70"> <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>" width="70"> </div>
+                                    <div class="thumbnail text-center"> 
+                                        <?php if(isset($product_data[1])){?>
+                                        <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" width="70"> 
+                                        <?php } 
+                                        if(isset($product_data[2])){?>
+                                        <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>" width="70"> 
+                                    <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -133,7 +140,9 @@
                                         <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label>                                        <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
                                     </div> -->
                                     <div class="cart mt-4 align-items-center">
+                                    <?php if(isset($_SESSION['user'])){?>
                                     <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
+                                <?php } ?>
                                     <input type="hidden" id="product_id" value=<?php echo $product_data[0]->p_id; ?>>
                                     <input type="number" id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?> > <button id="addToCart" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> 
                                     <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none">Go To Cart</a>

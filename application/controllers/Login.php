@@ -42,9 +42,10 @@ class Login extends CI_Controller {
                     $data['category'] = $category_name;
                     $data['products'] = $products;
 		            //print_r($data);
-		            $this->load->view('templates/header');
-		            $this->load->view('welcome_message', $data);
-		            $this->load->view('templates/footer');
+		            // $this->load->view('templates/header');
+		            // $this->load->view('welcome_message', $data);
+		            // $this->load->view('templates/footer');
+                    redirect(base_url(), 'refresh');
                 }
                 else{
                     $result['message'] = "Your Account is blocked please contact admin";
