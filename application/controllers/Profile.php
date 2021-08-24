@@ -12,6 +12,8 @@ class Profile extends CI_Controller {
         }
         $this->load->model('cart_model');
         $this->load->model('address_model');
+        $this->load->model('user_model');
+
 
     }
 
@@ -19,6 +21,7 @@ class Profile extends CI_Controller {
         $id = $_SESSION['user']['user_id'];
         $cart_data = $this->cart_model->get_cart($id);
         $data['user_id'] = $id;
+        $data['user_data'] =$this->user_model->get_user_data($id);
         $data['cart_data'] = $cart_data;
         $data['address'] = $this->address_model->get_user_address( $id);
         // print_r( $data['address']);exit();
