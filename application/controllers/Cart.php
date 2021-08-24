@@ -31,4 +31,14 @@ class Cart extends CI_Controller {
         $category_products = $this->cart_model->add_to_cart($cart_data);
         echo $category_products;
     }
+    public function delete_cart(){
+        $cart_id = trim($this->input->post('cart_id'));
+        $delete_cart = $this->cart_model->delete_cart($cart_id);
+        echo $delete_cart;
+    }
+    public function delete_user_cart(){
+        $user_id = trim($this->input->post('user_id'));
+        $delete_cart = $this->cart_model->delete_user_cart($user_id);
+        echo $delete_cart;
+    }
 }

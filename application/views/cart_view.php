@@ -19,6 +19,7 @@
                                 <span class="pull-right">(<strong><?php echo count($cart_data); ?></strong>) items</span>
                                 <h5>Items in your cart</h5>
                             </div>
+                            <input type="hidden" id="userId" value='<?php echo $_SESSION['user']['user_id'];?>'>
                             <?php 
                             $total_amount = 0;
                             foreach($cart_data as $cart) {?>
@@ -33,7 +34,7 @@
                                                 </td>
                                                 <td class="desc">
                                                     <h4>
-                                                        <a href="#" class="text-navy">
+                                                        <a href="<?php echo base_url('product/view/'.$cart['p_id']); ?>" class="text-navy">
                                           <?php echo $cart['product_name']; ?>
                                       </a>
                                                     </h4>
@@ -47,7 +48,7 @@
 
                                                     <div class="m-t-sm">
                                                         <a href="#" class="btn btn-success btn-sm"><i class="fa fa-gift"></i> Add gift package</a> |
-                                                        <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Remove item</a>
+                                                        <button id="<?php echo $cart['car_id']; ?>" class="btn btn-danger btn-sm removeCart"><i class="fa fa-trash"></i> Remove item</button>
                                                     </div>
                                                 </td>
 
@@ -55,8 +56,8 @@
                                                     ₹ <?php echo $cart['offer_price']; ?>
                                                     <s class="small text-muted">₹ <?php echo $cart['actual_price']; ?></s>
                                                 </td>
-                                                <td width="65">
-                                                    <input type="text" min=1 id="<?php echo $cart['p_id']; ?>" class="cartQuantity form-control" value="<?php echo $cart['car_quantity']; ?>">
+                                                <td width="90">
+                                                    <input type="number" min=1 id="<?php echo $cart['p_id']; ?>" class="cartQuantity form-control" value="<?php echo $cart['car_quantity']; ?>">
                                                 </td>
                                                 <td>
                                                     <h4>
@@ -101,7 +102,7 @@
                                 <div class="m-t-sm">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                                        <a href="#" class="btn btn-white btn-sm"> Cancel</a>
+                                        <button id="clearCart" dataTarget="<?php echo $_SESSION['user']['user_id'];?>" class="btn btn-white btn-sm"> Clear Cart</button>
                                     </div>
                                 </div>
                             </div>

@@ -50,6 +50,17 @@ class Cart_model extends CI_Model{
             return $result;
         }
     } 
+    function delete_cart($id){
+        $this->db->reset_query();
+        $result = $this->db->delete('as_user_cart', array('car_id' => $id));
+        return $result;
+    }
+
+    function delete_user_cart($user_id){
+        $this->db->reset_query();
+        $result = $this->db->delete('as_user_cart', array('car_user_id' => $user_id));
+        return $result;
+    }
     
 }
 ?>

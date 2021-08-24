@@ -49,6 +49,59 @@ $('.addToCartBtn').click(function(){
     });
   }
 });
-$(".cartQuantity").on('input',function(e) { 
-  debugger;
+
+$(".removeCart").click(function() { 
+  var cartData = {};
+  cartData['cart_id'] = $(this).attr('Id');
+  $.ajax({
+        data: cartData, 
+        type: 'POST',
+        url: 'cart/delete_cart',
+        success: function(response){
+          location.reload();
+        }
+      });
+});
+
+$(".cartQuantity").on('change',function(e) { 
+  var cartData = {};
+  var productId = $(this).attr('Id');
+  cartData['product_id'] = productId;
+  cartData['user_id'] = $('#userId').val();
+  cartData['quantity'] = $('#'+productId).val();
+  if(cartData['user_id'] > 0){
+    if(cartData['quantity'] <= 0){
+      cartData['quantity'] = 1;
+    }
+    $.ajax({
+        data: cartData, 
+        type: 'POST',
+        url: 'cart/add_to_cart',
+        success: function(response){
+          if(response == "1"){ 
+             location.reload();
+          }
+          else{
+            alert("Maximum Quantity Available is "+ response);
+            location.reload();
+          }
+        }
+      });
+  }
+  else{
+    alert("Please Login or Signup First");
+  }
+});
+
+$("#clearCart").click(function() { 
+  var cartData = {};
+  cartData['user_id'] = $(this).attr('dataTarget');
+  $.ajax({
+        data: cartData, 
+        type: 'POST',
+        url: 'cart/delete_user_cart',
+        success: function(response){
+          location.reload();
+        }
+      });
 });
