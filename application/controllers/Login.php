@@ -62,6 +62,13 @@ class Login extends CI_Controller {
             }
         } 
     }
+
+    public function registration()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('registration_view');
+        $this->load->view('templates/footer');  
+    } 
     
     public function logout()
 	{

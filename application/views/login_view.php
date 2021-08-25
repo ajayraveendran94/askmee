@@ -19,6 +19,7 @@
                         <div class="col">  
                         </div>
                         <button type="submit" class="form-control btn btn-light mt-4 signup">Login</button>
+                        <div class="text-center mt-4"> <span>Not a member?</span> <a href="<?php echo base_url('login/registration'); ?>" class="text-decoration-none">Sign Up</a> </div>
                     </form>
                 </div>
             </div>

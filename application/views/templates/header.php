@@ -49,7 +49,7 @@
             </div>
           </div>
           <?php 
-          if($method != 'index' && $method != 'process'){ ?>
+          if($method != 'index' &&   $method != 'process' && $method != 'registration'){ ?>
           <!-- <div class="col-sm-2 cart-mob">
             <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
           <a href="<?php echo base_url('/cart'); ?>">

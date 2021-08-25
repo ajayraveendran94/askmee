@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2021 at 03:09 PM
+-- Generation Time: Aug 25, 2021 at 03:53 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -49,7 +49,9 @@ CREATE TABLE `as_address` (
 
 INSERT INTO `as_address` (`ad_id`, `ad_user_id`, `ad_title`, `line_1`, `line_2`, `line_3`, `post`, `pin`, `district`, `state`, `contact_number_1`, `contact_number_2`, `ad_status`) VALUES
 (1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', 685454, 'Kollam', 'Kerala', 2147483647, 0, 1),
-(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 2147483647, 2147483647, 1);
+(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 78978787, 2147483647, 1),
+(3, 2, 'Home', 'House 4', 'Posy P O', '', '', 686556, 'Kottayam', 'Kerala', 952645399, 45323232, 1),
+(4, 2, 'Home', 'Pavamkottu', 'Aruvikuzhy P O', '', '', 686503, '', 'Kerala', 2147483647, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +165,9 @@ CREATE TABLE `as_products` (
 
 INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_price`, `offer_price`, `description`, `quantity`, `product_status`) VALUES
 (1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 10, 1),
-(3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1);
+(3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1),
+(4, 2, 10, 74567, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 5, 1),
+(5, 5, 6, 78, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 60, 1);
 
 -- --------------------------------------------------------
 
@@ -187,8 +191,12 @@ INSERT INTO `as_product_images` (`id`, `product_id`, `image_url`) VALUES
 (4, 1, 'Karimeen_EPS1234.jpg'),
 (9, 3, 'Karimeen.jpg'),
 (10, 3, 'Karimeen_1.jpg'),
-(11, 3, 'Karimeen_2.jpg'),
-(12, 3, 'Karimeen_89.jpg');
+(12, 3, 'Karimeen_89.jpg'),
+(14, 4, 'Img_Lap2.jpg'),
+(17, 4, 'Img_Lap1.jpg'),
+(18, 5, 'apple_2.jpg'),
+(19, 5, 'apple_1.jpg'),
+(20, 5, 'apple.jpg');
 
 -- --------------------------------------------------------
 
@@ -208,7 +216,8 @@ CREATE TABLE `as_product_master` (
 
 INSERT INTO `as_product_master` (`id`, `product_name`, `category_id`) VALUES
 (1, 'കരിമീൻ ', 3),
-(2, 'Laptop', 5);
+(2, 'Laptop', 5),
+(5, 'Apple', 6);
 
 -- --------------------------------------------------------
 
@@ -234,7 +243,7 @@ CREATE TABLE `as_user` (
 INSERT INTO `as_user` (`user_id`, `name`, `email`, `password`, `user_type`, `user_status`, `created_date`, `updated_date`) VALUES
 (2, 'Ajay Raveendran', 'ajay.r@gmail.com', '$2y$10$dsqrWGuL9ZSG1DPNpS1QXu6PeJ3Y6zLBu1v8wOMwtbCiNuYZuDB7K', 'U', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (3, 'Akhil', 'akhil@gmail.com', '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
-(6, 'Ajay', 'ajay@gmail.com', '$2y$10$ltiub9LL0huIKywgsKXp3eNzIau0zq9AlzoLXQPyLm8EXf0ShVwmO', 'V', 0, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
+(6, 'Ajay', 'ajay@gmail.com', '$2y$10$ltiub9LL0huIKywgsKXp3eNzIau0zq9AlzoLXQPyLm8EXf0ShVwmO', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (10, 'Ajay', 'admin@gmail.com', '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'A', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (11, 'Ajay R', 'ar@gmail.com', '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
 (12, 'Arun', 'arun@gmail.com', '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00');
@@ -257,9 +266,8 @@ CREATE TABLE `as_user_cart` (
 --
 
 INSERT INTO `as_user_cart` (`car_id`, `car_pr_id`, `car_user_id`, `car_quantity`) VALUES
-(1, 1, 2, 5),
-(2, 3, 2, 3),
-(3, 1, 11, 4);
+(32, 1, 2, 3),
+(33, 3, 2, 7);
 
 --
 -- Indexes for dumped tables
@@ -347,7 +355,7 @@ ALTER TABLE `as_user_cart`
 -- AUTO_INCREMENT for table `as_address`
 --
 ALTER TABLE `as_address`
-  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `as_categories`
@@ -377,19 +385,19 @@ ALTER TABLE `as_order_status`
 -- AUTO_INCREMENT for table `as_products`
 --
 ALTER TABLE `as_products`
-  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `as_product_images`
 --
 ALTER TABLE `as_product_images`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `as_product_master`
 --
 ALTER TABLE `as_product_master`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `as_user`
@@ -401,7 +409,7 @@ ALTER TABLE `as_user`
 -- AUTO_INCREMENT for table `as_user_cart`
 --
 ALTER TABLE `as_user_cart`
-  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
