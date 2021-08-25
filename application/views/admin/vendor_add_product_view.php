@@ -46,25 +46,25 @@
 
                     <div class="form-group">
                       <label>Description</label>
-                      <textarea class="form-control" name="product_description"></textarea>
+                      <textarea class="form-control" name="product_description" required></textarea>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label>Actual Price</label>
-                        <input type="number" class="form-control" name="actual_price">
+                        <input type="number" class="form-control" name="actual_price" required>
                       </div>
                       <div class="form-group col-md-6">
                         <label>Offer Price</label>
-                        <input type="number" class="form-control" name="offer_price">
+                        <input type="number" class="form-control" name="offer_price" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <label>Stock Quantity</label>
-                      <input type="number" class="form-control" name="quantity">
+                      <input type="number" class="form-control" name="quantity" required>
                     </div>
                     <div class="form-group">
                       <label>Images (Add 4 images)</label>
-                      <input type="file" class="form-control" id="files" name="files[]" multiple>
+                      <input type="file" class="form-control" id="files" name="files[]" multiple required>
                     </div>
                     <output id="list"></output>
 

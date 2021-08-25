@@ -15,8 +15,8 @@
                   <div class="d-flex flex-column align-items-center text-center">
                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                      <div class="mt-3">
-                        <h4>John Doe</h4>
-                        <p class="text-secondary mb-1">johndoe@gmail.com</p>
+                        <h4><?php echo $user_data[0]->name ?></h4>
+                        <p class="text-secondary mb-1">Email: <?php echo $user_data[0]->email ?></p>
                         <!-- <p class="text-muted font-size-sm"></p> -->
                      </div>
                   </div>
@@ -47,7 +47,7 @@
                <div class="accordion-item">
                   <h2 class="accordion-header" id="heading<?php echo($count)?>">
                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo($count)?>" aria-expanded="false" aria-controls="collapse<?php echo($count)?>">
-                    <?php echo("Address ".$count); ?>
+                     <input type="text" class="form-control addresstitle" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value->ad_title) ?>" disable="disabled">
                      </button>
                   </h2>
                   <div id="collapse<?php echo($count)?>" class="accordion-collapse collapse" aria-labelledby="collapse<?php echo($count)?>" data-bs-parent="#accordionExample">
@@ -60,7 +60,6 @@
                                  </div>
                                  <div class="col-sm-3 text-secondary">
                                  <input type="hidden" name="address_id" id ="address_id" value="<?php echo $value->ad_id ?>">
-                                <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value->ad_title) ?>" >
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">Address Line 1</h6>
