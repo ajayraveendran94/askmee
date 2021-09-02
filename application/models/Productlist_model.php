@@ -63,7 +63,12 @@ class Productlist_model extends CI_Model{
         $this->db->join('as_product_images', 'as_product_images.product_id = as_products.p_id', 'left');
         $query = $this->db->get();
         $result = $query->result();
-        return $result;
+        if($result[0]->product_status == 1){
+            return $result;
+        }
+        else{
+            return false;
+        }
     }
 
     function get_category_data($c_id){

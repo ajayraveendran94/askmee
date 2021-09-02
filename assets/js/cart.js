@@ -12,6 +12,8 @@ $("#addToCart").click(function(e) {
         success: function(response){
           if(response == "1"){ 
             $("#goToCart").removeClass('d-none');
+            $("#addToCart").addClass('d-none');
+            $("#buyNow").addClass('d-none');
           }
           else{
             alert("Maximum Quantity Available is "+ response);
@@ -105,3 +107,35 @@ $("#clearCart").click(function() {
         }
       });
 });
+
+// $("#buyNow").click(function(){
+//   var orderData = {};
+//   orderData['product_id'] = $("#product_id").val();
+//   orderData['user_id'] = $("#user_id").val();
+//   orderData['quantity'] = 1;
+//   if(orderData['user_id'] > 0){
+//     if(orderData['quantity'] > 0){
+//       $.ajax({
+//         data: orderData, 
+//         type: 'POST',
+//         url: '../../cart/buy_now',
+//         success: function(response){
+//           if(response == "1"){ 
+//             $("#goToCart").removeClass('d-none');
+//             $("#addToCart").addClass('d-none');
+//             $("#buyNow").addClass('d-none');
+//           }
+//           else{
+//             alert("Maximum Quantity Available is "+ response);
+//           }
+//         }
+//       });
+//     }
+//     else{
+//       alert("Quantity Should Select");
+//     }
+//   }
+//   else{
+//     alert("Please Login or Signup First");
+//   }
+// });

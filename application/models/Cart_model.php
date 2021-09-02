@@ -17,7 +17,18 @@ class Cart_model extends CI_Model{
         $this->db->where('car_user_id', $id);
         $query = $this->db->get('as_user_cart')->result_array();
         return $query;
-    }   
+    }  
+
+    function get_product_data($id){ 
+        $this->db->reset_query();
+        $this->db->select('p_id, product_name, offer_price, actual_price, name, vendor_id, quantity, description');
+        $this->db->join('as_product_master', 'id = master_product_id');
+        $this->db->join('as_categories', 'c_id = category_id');
+        $this->db->join('as_user', 'user_id = vendor_id');
+        $this->db->where('p_id', $id);
+        $query = $this->db->get('as_products')->result_array();
+        return $query;
+    } 
     
     public function get_maximum_limit($product_id){
         $this->db->reset_query();
