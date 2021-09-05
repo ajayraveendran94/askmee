@@ -26,6 +26,19 @@ class User_model extends CI_Model{
         }
     }
 
+    public function check_user_mob($email, $mobile)
+    {
+        $this->db->reset_query();
+        $this->db->where(array('email' => $email, 'mobile_number' => $mobile));
+        $result = $this->db->get('as_user');
+        if($result->num_rows() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function get_users()
     {
         $this->db->reset_query();

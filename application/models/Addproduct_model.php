@@ -6,6 +6,12 @@ class Addproduct_model extends CI_Model{
     {
         parent::__construct();
     }
+
+    public function search_prod ($title){
+        $this->db->select('*');
+        $this->db->like('product_name', $title);
+        return $this->db->get('as_product_master');
+    }
     
     function get_category(){
         $this->db->order_by('category_name', 'asc');
@@ -30,6 +36,27 @@ class Addproduct_model extends CI_Model{
         }
         return $query;
     } 
+
+    function get_cat_product(){ 
+       
+        $this->db->where('product_status', 1);
+       
+        $this->db->select('category_id, category_name');
+        $this->db->distinct();
+        $this->db->distinct('category_id'); 
+        $this->db->join('as_product_master', 'id = master_product_id');
+         $this->db->join('as_categories', 'c_id = category_id');
+         $this->db->group_by('category_id');
+        //  $this->db->limit(4);
+         //$this->db->join('brands', 'brand_id = prod_brand');
+         $query = $this->db->get('as_products')->result_array();
+        //  foreach($query as $i=>$product) {
+        //    $this->db->where('product_id', $product['p_id']);
+        //    $images_query = $this->db->get('as_product_images')->result_array();
+        //    $query[$i]['product_images'] = $images_query;
+        //  }
+         return $query;
+     } 
 
     function save_upload($data, $image_data){  
         $result= $this->db->insert('as_products ',$data);
