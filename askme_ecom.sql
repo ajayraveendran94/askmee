@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 25, 2021 at 03:53 PM
+-- Generation Time: Sep 05, 2021 at 10:27 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -49,9 +49,10 @@ CREATE TABLE `as_address` (
 
 INSERT INTO `as_address` (`ad_id`, `ad_user_id`, `ad_title`, `line_1`, `line_2`, `line_3`, `post`, `pin`, `district`, `state`, `contact_number_1`, `contact_number_2`, `ad_status`) VALUES
 (1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', 685454, 'Kollam', 'Kerala', 2147483647, 0, 1),
-(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 78978787, 2147483647, 1),
-(3, 2, 'Home', 'House 4', 'Posy P O', '', '', 686556, 'Kottayam', 'Kerala', 952645399, 45323232, 1),
-(4, 2, 'Home', 'Pavamkottu', 'Aruvikuzhy P O', '', '', 686503, '', 'Kerala', 2147483647, 0, 1);
+(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 8989898, 2147483647, 1),
+(3, 2, 'Home', 'House 4', 'Posy P O', '', '', 686556, 'Kottayam', 'Kerala', 952645399, 2147483647, 1),
+(4, 2, 'Home', 'Pavamkottu', 'Aruvikuzhy P O', '', '', 686503, '', 'Kerala', 2147483647, 0, 1),
+(5, 13, 'Home', 'Kill bill P', 'Huila PO', '', 'Kottayam', 686500, 'Kottayam', 'Kerala', 2147483647, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,19 @@ INSERT INTO `as_categories` (`c_id`, `category_name`, `category_url`, `c_status`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `as_checkout`
+--
+
+CREATE TABLE `as_checkout` (
+  `ch_id` bigint(20) NOT NULL,
+  `ch_pr_id` bigint(20) NOT NULL,
+  `ch_user_id` bigint(20) UNSIGNED NOT NULL,
+  `ch_quantity` bigint(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `as_orders`
 --
 
@@ -98,7 +112,11 @@ CREATE TABLE `as_orders` (
 --
 
 INSERT INTO `as_orders` (`or_id`, `address_id`, `total_amount`, `status_id`, `order_from_admin`, `order_date`) VALUES
-(1, 1, 828, 1, 1, '2021-07-18 13:29:44');
+(1, 1, 828, 1, 1, '2021-07-18 13:29:44'),
+(7, 4, 422, 1, 0, '2021-09-05 18:26:28'),
+(9, 3, 194361, 1, 0, '2021-09-05 22:09:48'),
+(10, 4, 280, 1, 0, '2021-09-05 22:13:40'),
+(11, 5, 676, 1, 0, '2021-09-05 22:26:31');
 
 -- --------------------------------------------------------
 
@@ -121,7 +139,13 @@ CREATE TABLE `as_order_detail` (
 
 INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `product_id`, `quantity`, `individual_price`, `total_price`) VALUES
 (1, 1, 1, 2, 254, 508),
-(2, 1, 3, 1, 320, 320);
+(2, 1, 3, 1, 320, 320),
+(8, 7, 5, 3, 56, 168),
+(9, 7, 1, 1, 254, 254),
+(10, 9, 4, 3, 64787, 194361),
+(11, 10, 5, 5, 56, 280),
+(12, 11, 5, 3, 56, 168),
+(13, 11, 1, 2, 254, 508);
 
 -- --------------------------------------------------------
 
@@ -164,10 +188,10 @@ CREATE TABLE `as_products` (
 --
 
 INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_price`, `offer_price`, `description`, `quantity`, `product_status`) VALUES
-(1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 10, 1),
+(1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 6, 1),
 (3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1),
-(4, 2, 10, 74567, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 5, 1),
-(5, 5, 6, 78, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 60, 1);
+(4, 2, 10, 74567, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 2, 1),
+(5, 5, 6, 78, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 46, 1);
 
 -- --------------------------------------------------------
 
@@ -229,6 +253,7 @@ CREATE TABLE `as_user` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile_number` int(15) NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'U' COMMENT 'U= User, A= Admin, V= Vendor',
   `user_status` int(1) NOT NULL DEFAULT 1 COMMENT '1= Active, 0= Inactive',
@@ -240,13 +265,14 @@ CREATE TABLE `as_user` (
 -- Dumping data for table `as_user`
 --
 
-INSERT INTO `as_user` (`user_id`, `name`, `email`, `password`, `user_type`, `user_status`, `created_date`, `updated_date`) VALUES
-(2, 'Ajay Raveendran', 'ajay.r@gmail.com', '$2y$10$dsqrWGuL9ZSG1DPNpS1QXu6PeJ3Y6zLBu1v8wOMwtbCiNuYZuDB7K', 'U', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
-(3, 'Akhil', 'akhil@gmail.com', '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
-(6, 'Ajay', 'ajay@gmail.com', '$2y$10$ltiub9LL0huIKywgsKXp3eNzIau0zq9AlzoLXQPyLm8EXf0ShVwmO', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
-(10, 'Ajay', 'admin@gmail.com', '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'A', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
-(11, 'Ajay R', 'ar@gmail.com', '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
-(12, 'Arun', 'arun@gmail.com', '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00');
+INSERT INTO `as_user` (`user_id`, `name`, `email`, `mobile_number`, `password`, `user_type`, `user_status`, `created_date`, `updated_date`) VALUES
+(2, 'Ajay Raveendran', 'ajay.r@gmail.com', 0, '$2y$10$dsqrWGuL9ZSG1DPNpS1QXu6PeJ3Y6zLBu1v8wOMwtbCiNuYZuDB7K', 'U', 1, '2021-05-16 00:00:00', '2021-08-26 00:00:00'),
+(3, 'Akhil', 'akhil@gmail.com', 0, '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
+(6, 'Ajay', 'ajay@gmail.com', 0, '$2y$10$ltiub9LL0huIKywgsKXp3eNzIau0zq9AlzoLXQPyLm8EXf0ShVwmO', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
+(10, 'Ajay', 'admin@gmail.com', 0, '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'A', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
+(11, 'Ajay R', 'ar@gmail.com', 0, '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
+(12, 'Arun', 'arun@gmail.com', 0, '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00'),
+(13, 'Ajay', 'ajay.raveendran@gmail.com', 2147483647, '$2y$10$wDexFCCeyx.T0HYKHEgGV.gQ2A8MkH.MURWATJf4MUZDSmL0Qsps.', 'U', 1, '2021-09-05 00:00:00', '2021-09-05 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -260,14 +286,6 @@ CREATE TABLE `as_user_cart` (
   `car_user_id` bigint(20) UNSIGNED NOT NULL,
   `car_quantity` bigint(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `as_user_cart`
---
-
-INSERT INTO `as_user_cart` (`car_id`, `car_pr_id`, `car_user_id`, `car_quantity`) VALUES
-(32, 1, 2, 3),
-(33, 3, 2, 7);
 
 --
 -- Indexes for dumped tables
@@ -286,6 +304,12 @@ ALTER TABLE `as_address`
 --
 ALTER TABLE `as_categories`
   ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `as_checkout`
+--
+ALTER TABLE `as_checkout`
+  ADD PRIMARY KEY (`ch_id`);
 
 --
 -- Indexes for table `as_orders`
@@ -355,7 +379,7 @@ ALTER TABLE `as_user_cart`
 -- AUTO_INCREMENT for table `as_address`
 --
 ALTER TABLE `as_address`
-  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `as_categories`
@@ -364,16 +388,22 @@ ALTER TABLE `as_categories`
   MODIFY `c_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `as_checkout`
+--
+ALTER TABLE `as_checkout`
+  MODIFY `ch_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `as_orders`
 --
 ALTER TABLE `as_orders`
-  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `as_order_detail`
 --
 ALTER TABLE `as_order_detail`
-  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `as_order_status`
@@ -403,13 +433,13 @@ ALTER TABLE `as_product_master`
 -- AUTO_INCREMENT for table `as_user`
 --
 ALTER TABLE `as_user`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `as_user_cart`
 --
 ALTER TABLE `as_user_cart`
-  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Constraints for dumped tables
