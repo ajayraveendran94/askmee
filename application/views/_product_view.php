@@ -104,58 +104,49 @@
 
 
         <!-------------Product Section-->
-        <div class="container-fluid mt-1 mb-1">
-            <div class="">
-                <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
-                    <div class="">
+
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="image-gallery">
-                                <?php if(isset($product_data[0])){?>   
-                                    <main class="primary" style="background-image: url('<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>');"></main>
-                                    <aside class="thumbnails">
-                                        <a href="#" class="selected thumbnail" data-big="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>">
-                                          <div class="thumbnail-image" style="background-image: url(<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>); margin-top: 0;"></div>
-                                        </a>
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img id="main-image" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" width="250" /> </div>
+                                    <div class="thumbnail text-center"> 
+                                        <?php if(isset($product_data[1])){?>
+                                        <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" width="70"> 
+                                        <?php } 
+                                        if(isset($product_data[2])){?>
+                                        <img onclick="change_image(this)" src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>" width="70"> 
                                     <?php } ?>
-                                    <?php if(isset($product_data[1])){?>
-                                        <a href="#" class="thumbnail" data-big="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>">
-                                          <div class="thumbnail-image" style="background-image: url(<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>)"></div>
-                                        </a>
-                                    <?php } ?>
-                                    <?php if(isset($product_data[2])){?>
-                                        <a href="#" class="thumbnail" data-big="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>">
-                                          <div class="thumbnail-image" style="background-image: url(<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[2]->image_url); ?>)"></div>
-                                        </a>
-                                    <?php } ?>
-                                      </aside>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="product p-1">
-                                    <div class="mb-3">
-                                        <h3 class="/text-uppercase mb-3"><?php echo($product_data[0]->product_name); ?> </h3>
-                                        <div class="price d-flex flex-row align-items-center"> 
-                                            <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span class="act-price">₹<?php echo($product_data[0]->actual_price); ?></span></h5>
-                                            <div class="ml-2"> 
-                                                <small class="dis-price">₹<?php echo($product_data[0]->offer_price); ?></small> <span class="dis-label"><?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>% OFF</span> 
-                                            </div>
+                                <div class="product p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                    </div>
+                                    <div class="mt-4 mb-3">
+                                        <h5 class="text-uppercase"><?php echo($product_data[0]->product_name); ?></h5>
+                                        <div class="price d-flex flex-row align-items-center"> <span class="act-price"> M.R.P ₹ <?php echo($product_data[0]->offer_price); ?></span>
+                                            <div class="ml-2"> <small class="dis-price"><del><?php echo($product_data[0]->actual_price); ?><del></small> <span>
+                                            <?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>% OFF</span> </div>
                                         </div>
                                     </div>
                                     <p class="about"><?php echo($product_data[0]->description); ?></p>
-                                    <div class="d-flex">
-                                        <?php if(isset($_SESSION['user'])){?>
+                                    <!-- <div class="sizes mt-5">
+                                        <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label>                                        <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                                    </div> -->
+                                    <div class="cart mt-4 align-items-center">
+                                    <?php if(isset($_SESSION['user'])){?>
                                     <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
                                 <?php } ?>
-                                        <div class="cart mt-4 align-items-center buy-btn-container"> 
-                                            <input type="hidden" id="product_id" value=<?php echo $product_data[0]->p_id; ?>>
-                                    <input type="number" class="d-none" id="quantity" placeholder="Quantity" style="width: 90px" value=1 min= 1 max= <?php echo($product_data[0]->quantity); ?> >
-                                            <button id="addToCart" class="btn btn-warning text-uppercase mr-2 px-4">Add to cart</button>
-                                            <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none btn bg-theme text-uppercase mr-2 px-4">Go To Cart</a>
-                                            <a id="buyNow" href="<?php echo base_url('/buynow/view/'.$product_data[0]->p_id);?>" class="btn bg-theme text-uppercase mr-2 px-4">Buy Now</a> 
-                                        </div>
-                                    </div>
-                                        
+                                    <input type="hidden" id="product_id" value=<?php echo $product_data[0]->p_id; ?>>
+                                    <input type="number" id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?> > <button id="addToCart" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> 
+                                    <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none">Go To Cart</a>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -163,39 +154,5 @@
                 </div>
             </div>
         </div>
-        <div class="container product-slider ">
-
-        <div class="row category-grid" style="margin-top: 61px;">
-
-            <h4 class="title-sub">Related Products</h4>
-            <div class="col-sm-3 col-xs-12">
-                <img src="assets/img/Kalanji.png" width="70%" style="margin-top: 8%;" alt="..."><br>
-                <a href="#" class="btn btn-link">Kalanji</a><br>
-                <p class="card-text">330</p>
-                <a href="#" class="btn btn-light">Add to cart</a>
-            </div>
-
-            <div class="col-sm-3 col-xs-12">
-                <img src="assets/img/Kalanji.png" width="70%" style="margin-top: 8%;" alt="..."><br>
-                <a href="#" class="btn btn-link">Kalanji</a><br>
-                <p class="card-text">330</p>
-                <a href="#" class="btn btn-light">Add to cart</a>
-            </div>
-
-            <div class="col-sm-3 col-xs-12">
-                <img src="assets/img/Kalanji.png" width="70%" style="margin-top: 8%;" alt="..."><br>
-                <a href="#" class="btn btn-link">Kalanji</a><br>
-                <p class="card-text">330</p>
-                <a href="#" class="btn btn-light">Add to cart</a>
-            </div>
-
-            <div class="col-sm-3 col-xs-12">
-                <img src="assets/img/Kalanji.png" width="70%" style="margin-top: 8%;" alt="..."><br>
-                <a href="#" class="btn btn-link">Kalanji</a><br>
-                <p class="card-text">330</p>
-                <a href="#" class="btn btn-light">Add to cart</a>
-            </div>
-        </div>
-    </div>
         <!------------------------------------------->
     </div>

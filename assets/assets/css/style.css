@@ -25,6 +25,10 @@
     .cart-mob {
         display: block;
         width: 35%;
+        padding-top: 24px;
+    }
+    .header_search{
+        height: auto;
     }
     .cat-dropdown {
         width: 150px
@@ -329,7 +333,7 @@ div {
 }
 
 .bbb_deals_item_price {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 500;
     color: #6d6e73
 }
@@ -392,7 +396,7 @@ div {
 }
 
 .bg-grey {
-    background: #f4f4f4;
+    background: #f4f4f475;
 }
 
 a {
@@ -404,10 +408,22 @@ a {
     text-align: center;
 }
 
-.category-grid div {
+.product-slider .category-grid div {
     margin-bottom: 26px;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 11%);
+    margin: 16px;
+    max-width: 292px;
+    padding: 10px 0 25px;
+    border-radius: 5px;
 }
-
+.product-slider .category-grid .btn-link{
+    font-weight: 600;
+    color: #ff8d2d;
+    font-size: 19px;
+}
+.category-grid .btn-link:hover{
+    color: #000000;
+}
 .btn-theme {
     background-color: #ea8a27;
     color: #fff !important;
@@ -417,8 +433,83 @@ a {
     background-color: #f47421;
 }
 
+.title-sub {
+    text-align: left;
+    border-bottom: 5px solid #f2f2f2;
+    padding: 0 0 9px;
+}
+.title-sub::before{
+    content: "";
+    height: 4px;
+    width: 190px;
+    background-color: #fda536;
+    position: absolute;
+    top: 38px;
+}
+
+.user-btn{
+    background-color: #fff;
+    border: none ;
+    color: #000;
+}
+.user-btn:hover{
+    background-color: #fda332;
+    color: #fff;
+}   
+.container-fluid{
+    padding: 0;
+}
+.bg-theme{
+    background-color: #fda332 !important; 
+}
+.navbar-nav{
+    margin-left: 44px;
+}
+.navbar-nav li a{
+    color: #ffffffc2 !important;
+    font-size: 17px;
+    font-weight: 500;
+}
+.navbar-nav li a:hover, .navbar-nav li a.active {
+    color: #fff !important;
+}
+.buy-btn-container button{
+    font-size: 16px;
+    font-weight: 600;
+}
+.dis-label {
+    padding: 1px 9px;
+    background: #4fbc17;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+.dis-price{
+    text-decoration: line-through;
+    margin-left: 8px;
+}
+
 @media only screen and (max-width: 600px) {
     .content-area {
         padding: 15px 10px;
+    }
+    .product-list{
+        margin: 0;
+    }
+    .navbar-web{
+        display: none;
+    }
+    .image-gallery{
+        display: block !important;
+    }
+    .thumbnails{
+        width: auto;
+         display: inline-flex !important;
+    }
+    .thumbnail-image{
+        margin-top: 20px !important
+    }
+    .title-sub::before{
+        top: 35px;
     }
 }

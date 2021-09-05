@@ -113,6 +113,7 @@ else if (checkBox.checked != true){
 
 }
 </script>
+  <script src='<?php echo base_url("assets/assets/js/thumbnail.js");?>'></script>
 
   <?php echo('<script src="'.base_url("assets/js/cart.js").'"></script>'); ?>
 
