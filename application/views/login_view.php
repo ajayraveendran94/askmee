@@ -10,6 +10,11 @@
                         <?php echo($message); ?>
                     </div>
                     <?php } ?>
+                    <?php if(isset($success)){ ?>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo($success); ?>
+                    </div>
+                    <?php } ?>
                     <h5 class="text-center">Login  Here !</h5> <hr>
                     <form method="post" action="<?php echo site_url('login/process'); ?>" class="needs-validation" novalidate="">
                         <div class="form-input"> <i class="fa fa-user"></i> <input type="text" name="email" class="form-control" placeholder="Email">

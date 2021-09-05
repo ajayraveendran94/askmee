@@ -27,11 +27,21 @@ class Welcome extends CI_Controller {
 	{
 		$category_name = $this->addproduct_model->get_category();
 		$products = $this->addproduct_model->get_product();
+		$cat_products = $this->addproduct_model->get_cat_product();
+
         $data['category'] = $category_name;
         $data['products'] = $products;
-		//print_r($data);
-		$this->load->view('templates/header');
+        $data['cat_products'] = $products;
+
+		$this->load->view('templates/header',$data);
 		$this->load->view('welcome_message', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function getdata($param)
+	{
+		$data['ajaxdata'] = $this->addproduct_model->search_prod($param);
+		$data['ajaxdata'] = json_encode($data['ajaxdata']);
+		echo $data['ajaxdata'];
 	}
 }

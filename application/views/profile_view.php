@@ -47,7 +47,7 @@
                <div class="accordion-item">
                   <h2 class="accordion-header" id="heading<?php echo($count)?>">
                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo($count)?>" aria-expanded="false" aria-controls="collapse<?php echo($count)?>">
-                     <input type="text" class="form-control addresstitle" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value->ad_title) ?>" disable="disabled">
+                     <?php echo($value->ad_title) ?>
                      </button>
                   </h2>
                   <div id="collapse<?php echo($count)?>" class="accordion-collapse collapse" aria-labelledby="collapse<?php echo($count)?>" data-bs-parent="#accordionExample">
@@ -59,13 +59,14 @@
                                     <h6 class="mb-0">Title</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
+                                 <input type="text" class="form-control editable" name="ad_title" value="<?php echo($value->ad_title) ?>" >
                                  <input type="hidden" name="address_id" id ="address_id" value="<?php echo $value->ad_id ?>">
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">Address Line 1</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_1" value="<?php echo($value->line_1) ?>" >
+                                    <input type="text" class="form-control editable" name="line_1" value="<?php echo($value->line_1) ?>" >
                                  </div>
                               </div>
                               <hr>
@@ -74,13 +75,13 @@
                                     <h6 class="mb-0">Address Line 2</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_2" value="<?php echo($value->line_2) ?>" >
+                                    <input type="text" class="form-control editable" name="line_2" value="<?php echo($value->line_2) ?>" >
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">Address Line 3</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_3" value="<?php echo($value->line_3) ?>">
+                                    <input type="text" class="form-control editable" name="line_3" value="<?php echo($value->line_3) ?>">
                                  </div>
                               </div>
                               <hr>
@@ -89,13 +90,13 @@
                                     <h6 class="mb-0">State</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="state" value="<?php echo($value->state) ?>">
+                                    <input type="text" class="form-control editable" name="state" value="<?php echo($value->state) ?>">
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">District</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                 <input type="text" class="form-control" name="district" value="<?php echo($value->district) ?>">
+                                 <input type="text" class="form-control editable" name="district" value="<?php echo($value->district) ?>">
                                  </div>
                               </div>
                               <hr>
@@ -104,13 +105,13 @@
                                     <h6 class="mb-0">Post Office</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                     <input type="text" class="form-control" name="post" value="<?php echo($value->post) ?>">
+                                     <input type="text" class="form-control editable" name="post" value="<?php echo($value->post) ?>">
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">Pincode</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control" name="pin" value="<?php echo($value->pin) ?>">
+                                    <input type="number" class="form-control editable" name="pin" value="<?php echo($value->pin) ?>">
                                  </div>
                               </div>
                               <hr>
@@ -119,13 +120,13 @@
                                     <h6 class="mb-0">Primary Contact Number</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control" name="contact_number_1" value="<?php echo($value->contact_number_1) ?>" >
+                                    <input type="number" class="form-control editable" name="contact_number_1" value="<?php echo($value->contact_number_1) ?>" >
                                  </div>
                                  <div class="col-sm-3">
                                     <h6 class="mb-0">Secondary Contact Number</h6>
                                  </div>
                                  <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control" name="contact_number_2" value="<?php echo($value->contact_number_2) ?>">
+                                    <input type="number" class="form-control editable" name="contact_number_2" value="<?php echo($value->contact_number_2) ?>">
                                  </div>
                               </div>
                               <hr>
@@ -133,6 +134,8 @@
                                   <?php echo form_close(); ?>
                                  <div class="col-sm-12">
                                      <button class="btn btn-info" type="submit">Update</button>
+                                     <button class="btn btn-info" id="edit" type="button">Edit</button>
+
                                   <!--   <a class="btn btn-info " target="__blank" href="#">Update</a> -->
                                  </div>
                               </div>

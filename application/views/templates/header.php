@@ -31,7 +31,6 @@
   
   <div class="container-fluid">
     <header id="masthead" class="site-header site-header-background " role="banner">
-
       <!-- start of mini header -->
 
       <!-- .end of contacts mini header -->
@@ -67,13 +66,13 @@
                                     <form name="searchfrm" action="search.php" autocomplete="off" method="GET" class="header_search_form clearfix" style="display: inline-flex;height: 100%;position: absolute;width:100%;" title="">
                                         <div class="nvleft">
                                             <select id="catSelect" class="catselect-css" style="width: 141.2px;">
-                                  <option value="0">All Categories</option>
-                                  <option value="1">Fruits & Vegetables</option>
-                                  <option value="2">Meat</option>
-                                  <option value="4">Nadan Fish</option>
-                                  <option value="3">Homely & Handmade Products</option>
-              
-                              </select>
+                                            <option value="0">Select Option</option>
+                                            <?php foreach($category as $value){ ?>
+                                              <option value="<?php print_r($value->c_id); ?>">
+                                              <?php print_r($value->category_name); ?>
+                                            </option>
+                                            <?php } ?>
+                                            </select>
                                         </div>
 
                                         <div class="nvfill" style="width: calc(100% - 50px);">

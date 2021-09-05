@@ -69,6 +69,36 @@ class Login extends CI_Controller {
         $this->load->view('registration_view');
         $this->load->view('templates/footer');  
     } 
+
+    public function register()
+    {
+        $this->load->model('user_model');
+        $check_user = $this->user_model->check_user_mob($this->input->post('email_id'), $this->input->post('mobile_number'));
+        if($check_user == false)
+        {
+            $data = array(
+                'name' => $this->input->post('name'),
+                'email' => $this->input->post('email_id'),
+                'mobile_number' => $this->input->post('mobile_number'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                'user_status' => 1,
+                'user_type' => "U",
+                'created_date' => date('Y-m-d : h:m:s'),
+                'updated_date' => date('Y-m-d : h:m:s')
+            );
+            $result= $this->user_model->save_user($data);
+            $value['success'] = 'User successfully Registered';
+            $this->load->view('templates/header');
+            $this->load->view('login_view', $value);
+            $this->load->view('templates/footer');
+        }
+        else{
+            $value['error'] = 'email or mobile number already exists';
+            $this->load->view('templates/header');
+            $this->load->view('registration_view',$value);
+            $this->load->view('templates/footer');  
+        }
+    } 
     
     public function logout()
 	{

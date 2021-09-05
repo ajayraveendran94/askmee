@@ -64,6 +64,55 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   <script src='<?php echo base_url("assets/assets/js/searchbar.js");?>'></script>
+  <script>
+
+
+$("#edit").click( function()
+   {
+     $(".editable").css("border", "1px solid black");
+     $(".editable").css("border", "1px solid black");
+     $(".editable").css("border", "1px solid black");
+
+   }
+);
+</script>
+
+<script>
+function filterFunction() {
+      $.ajax({
+         type: "GET",
+         dataType:"html",
+         url:"welcome/getdata/" + $("#search-box").val(),
+         success:function(result){
+        //  $("#suggesstion-box").html(result);
+      }});
+  
+}
+
+function validate(){
+var pass = document.getElementById("password").value;
+var pass_confirm = document.getElementById("confirm_password").value;
+var message = document.getElementById('errMsg');
+var checkBox = document.getElementById("flexCheckChecked");
+
+var goodColor = "#66cc66";
+var badColor = "#ff6666";
+
+if(pass.length < 6){
+  alert("minimum 6 character required for password")
+        return false;
+ }
+else if (pass!=pass_confirm) {
+   alert("Passwords do not match");
+   return false;
+}
+else if (checkBox.checked != true){
+  alert("Please click the checkbox to register");
+  return false;
+  }
+
+}
+</script>
   <script src='<?php echo base_url("assets/assets/js/thumbnail.js");?>'></script>
   <script src='<?php echo base_url("assets/assets/js/checkout.js");?>'></script>
   <script src='<?php echo base_url("assets/assets/js/plusminus.js");?>'></script>
@@ -71,5 +120,23 @@
   <?php echo('<script src="'.base_url("assets/js/cart.js").'"></script>'); ?>
 
 </body>
+<style>
+.editable
+{
+  border:none;
+}
+.editable:hover
+{
+  pointer-events: none;
 
+}
+.editable:focus {
+        outline: none;
+        box-shadow: none;
+}
+#errMsg
+{
+  color:red;
+}
+</style>
 </html>
