@@ -75,7 +75,9 @@
                             </div>
                         <?php } ?>
                             <div class="ibox-content">
-                                <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+                                <?php if($total_amount != 0){?>
+                                <a href="<?php echo base_url('order/checkout'); ?>" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</a>
+                            <?php } ?>
                                 <a href="<?php echo base_url(''); ?>"> <i class="fa fa-arrow-left"></i> Continue shopping</a>
 
                             </div>
@@ -99,26 +101,18 @@
                                 <span class="text-muted small">
                           *GST included
                       </span>
+                                <?php if($total_amount != 0){?>
                                 <div class="m-t-sm">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                                        <a href="<?php echo base_url('order/checkout'); ?>" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
                                         <button id="clearCart" dataTarget="<?php echo $_SESSION['user']['user_id'];?>" class="btn btn-white btn-sm"> Clear Cart</button>
                                     </div>
                                 </div>
+                            <?php } ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-    </div>
+</div>

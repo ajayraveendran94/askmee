@@ -65,6 +65,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   <script src='<?php echo base_url("assets/assets/js/searchbar.js");?>'></script>
   <script src='<?php echo base_url("assets/assets/js/thumbnail.js");?>'></script>
+  <script src='<?php echo base_url("assets/assets/js/checkout.js");?>'></script>
+  <script src='<?php echo base_url("assets/assets/js/plusminus.js");?>'></script>
 
   <?php echo('<script src="'.base_url("assets/js/cart.js").'"></script>'); ?>
 

@@ -54,11 +54,15 @@ class Order_model extends CI_Model{
     function save_order($data){  
         $result= $this->db->insert('as_orders ',$data);
         $product_id = $this->db->insert_id();
-        return $result;
+        return $product_id;
     } 
     
     function save_order_details($data){
-        $result= $this->db->insert('as_order_detail ',$data);
+        $result= $this->db->insert("as_order_detail", $data);
+        $quantity = $data['quantity'];
+        $this->db->set("quantity", "quantity - $quantity", false);
+        $this->db->where("p_id" , $data['product_id']);
+        $this->db->update("as_products");
     }
 
     function get_orders(){

@@ -108,34 +108,64 @@ $("#clearCart").click(function() {
       });
 });
 
-// $("#buyNow").click(function(){
-//   var orderData = {};
-//   orderData['product_id'] = $("#product_id").val();
-//   orderData['user_id'] = $("#user_id").val();
-//   orderData['quantity'] = 1;
-//   if(orderData['user_id'] > 0){
-//     if(orderData['quantity'] > 0){
-//       $.ajax({
-//         data: orderData, 
-//         type: 'POST',
-//         url: '../../cart/buy_now',
-//         success: function(response){
-//           if(response == "1"){ 
-//             $("#goToCart").removeClass('d-none');
-//             $("#addToCart").addClass('d-none');
-//             $("#buyNow").addClass('d-none');
-//           }
-//           else{
-//             alert("Maximum Quantity Available is "+ response);
-//           }
-//         }
-//       });
-//     }
-//     else{
-//       alert("Quantity Should Select");
-//     }
-//   }
-//   else{
-//     alert("Please Login or Signup First");
-//   }
-// });
+$(".buyQuantity").on('change',function(e) { 
+  var cartData = {};
+  var productId = $(this).attr('Id');
+  var quantity = $('#'+productId).val();
+  var user_id = $('#userId').val();
+  var productPrice = $("#actualPrice").val();
+
+  if(user_id > 0){
+    if(quantity <= 0){
+      quantity = 1;
+      $('#'+productId).val('1');
+    }
+    var totalAmount = productPrice * quantity;
+    $('#totalAmount').html('₹ '+totalAmount);
+  }
+  else{
+    alert("Please Login or Signup First");
+  }
+});
+
+$('#checkout_1').click(function() {
+  var cartData = {};
+  cartData['product_id'] = $("#productId").val();
+  cartData['user_id'] = $("#userId").val();
+  cartData['quantity'] = $("#quantity").val();
+  if(cartData['user_id'] > 0){
+    if(cartData['quantity'] > 0){
+      $.ajax({
+        data: cartData, 
+        type: 'POST',
+        url: '../../buynow/checkout_now',
+        success: function(response){
+          if(response == "1"){ 
+            $(location).attr('href', '../../order/quick_order');
+          }
+          else{
+            alert("Maximum Quantity Available is "+ response);
+          }
+        }
+      });
+    }
+    else{
+      alert("Quantity Should Select");
+    }
+  }
+  else{
+    alert("Please Login or Signup First");
+  }
+});
+
+$('#toggle').click(function() {
+  $('.circle-loader').toggleClass('load-complete');
+  $('.checkmark').toggle();
+});
+setTimeout(function() {
+  $('#toggle').trigger('click');
+  var today=new Date(); //Today's Date
+  var requiredDate = new Date(today.getFullYear(),today.getMonth(),today.getDate()+7)
+  $('#orderPlaced').html("<b style='color: #5cb85c;'>Congratulations!! </b> <br>Your Order Placed Successfully <br> <b>Expected Delivery: "+requiredDate.toDateString()+"</b> <br>");
+  $('#backHome').removeClass('checkmark');
+}, 5000);

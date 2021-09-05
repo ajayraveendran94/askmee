@@ -16,7 +16,9 @@
   <link href='<?php echo base_url("assets/assets/css/font-awesome.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/searchbar.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
+  <link href='<?php echo base_url("assets/assets/css/checkout.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/thumbanil.css");?>' rel="stylesheet">
+  <link rel="icon" href="<?php echo base_url("assets/img/askmee.ico");?>" type="image/png">
   <title>askmee.in</title>
 </head>
 <body>

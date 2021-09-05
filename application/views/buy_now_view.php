@@ -3,7 +3,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                    <li class="breadcrumb-item active" aria-current="page">quick order</li>
                 </ol>
             </nav>
             <hr>
@@ -17,7 +17,7 @@
                         <div class="ibox">
                             <div class="ibox-title">
                                 <span class="pull-right">(<strong><?php echo count($cart_data); ?></strong>) items</span>
-                                <h5>Items in your cart</h5>
+                                <h5>Quick Order </h5>
                             </div>
                             <input type="hidden" id="userId" value='<?php echo $_SESSION['user']['user_id'];?>'>
                             <?php 
@@ -32,6 +32,7 @@
                                                     <div class="cart-product-imitation">
                                                     </div>
                                                 </td>
+                                                <input type="hidden" id="productId" value="<?php echo $cart['p_id']; ?>">
                                                 <td class="desc">
                                                     <h4>
                                                         <a href="<?php echo base_url('product/view/'.$cart['p_id']); ?>" class="text-navy">
@@ -48,7 +49,7 @@
 
                                                     <div class="m-t-sm">
                                                         <a href="#" class="btn btn-success btn-sm"><i class="fa fa-gift"></i> Add gift package</a> |
-                                                        <button id="" class="btn btn-danger btn-sm removeCart"><i class="fa fa-trash"></i> Remove item</button>
+                                                        
                                                     </div>
                                                 </td>
 
@@ -56,8 +57,9 @@
                                                     ₹ <?php echo $cart['offer_price']; ?>
                                                     <s class="small text-muted">₹ <?php echo $cart['actual_price']; ?></s>
                                                 </td>
+                                                <input type="hidden" id="actualPrice" value="<?php echo $cart['offer_price']; ?>">
                                                 <td width="90">
-                                                    <input type="number" min=1 id="<?php echo $cart['p_id']; ?>" class="cartQuantity form-control" value="1">
+                                                    <input id="quantity" type="number" min=1 id="<?php echo $cart['p_id']; ?>" class="buyQuantity form-control" value="1">
                                                 </td>
                                                 <td>
                                                     <h4>
@@ -75,7 +77,7 @@
                             </div>
                         <?php } ?>
                             <div class="ibox-content">
-                                <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+                                <button id="checkout_1" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
                                 <a href="<?php echo base_url(''); ?>"> <i class="fa fa-arrow-left"></i> Continue shopping</a>
 
                             </div>
@@ -91,7 +93,7 @@
                                 <span>
                           Total
                       </span>
-                                <h2 class="font-bold">
+                                <h2 id="totalAmount" class="font-bold">
                                     ₹ <?php echo $total_amount; ?>
                                 </h2>
 
@@ -101,8 +103,8 @@
                       </span>
                                 <div class="m-t-sm">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                                        <button id="clearCart" dataTarget="<?php echo $_SESSION['user']['user_id'];?>" class="btn btn-white btn-sm"> Clear Cart</button>
+                                        <button id="checkout_2" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</button>
+                                        <a href="<?php echo base_url(''); ?>" dataTarget="<?php echo $_SESSION['user']['user_id'];?>" class="btn btn-white btn-sm"> Back</a>
                                     </div>
                                 </div>
                             </div>

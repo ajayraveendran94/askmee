@@ -136,9 +136,9 @@
                                     <div class="mb-3">
                                         <h3 class="/text-uppercase mb-3"><?php echo($product_data[0]->product_name); ?> </h3>
                                         <div class="price d-flex flex-row align-items-center"> 
-                                            <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span class="act-price">₹<?php echo($product_data[0]->actual_price); ?></span></h5>
+                                            <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span class="act-price">₹<?php echo($product_data[0]->offer_price); ?></span></h5>
                                             <div class="ml-2"> 
-                                                <small class="dis-price">₹<?php echo($product_data[0]->offer_price); ?></small> <span class="dis-label"><?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>% OFF</span> 
+                                                <small class="dis-price">₹<?php echo($product_data[0]->actual_price); ?></small> <span class="dis-label"><?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>% OFF</span> 
                                             </div>
                                         </div>
                                     </div>

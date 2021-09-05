@@ -20,5 +20,16 @@ class Buynow extends CI_Controller {
         $this->load->view('buy_now_view', $data);
         $this->load->view('templates/footer');
     }
+
+    public function checkout_now(){
+        $this->load->model('checkout_model');
+        $checkout_data = array(
+                'ch_pr_id' => trim($this->input->post('product_id')),
+                'ch_user_id' => trim($this->input->post('user_id')),
+                'ch_quantity' => trim($this->input->post('quantity'))
+        );
+        $checkout_products = $this->checkout_model->add_to_checkout($checkout_data);
+        echo $checkout_products;
+    }
     
 }
