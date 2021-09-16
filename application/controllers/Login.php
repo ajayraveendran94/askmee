@@ -41,10 +41,6 @@ class Login extends CI_Controller {
 		            $products = $this->addproduct_model->get_product();
                     $data['category'] = $category_name;
                     $data['products'] = $products;
-		            //print_r($data);
-		            // $this->load->view('templates/header');
-		            // $this->load->view('welcome_message', $data);
-		            // $this->load->view('templates/footer');
                     redirect(base_url(), 'refresh');
                 }
                 else{
@@ -63,41 +59,47 @@ class Login extends CI_Controller {
         } 
     }
 
-    public function registration()
+    public function registration($value = null)
     {
+        print_r($value);
         $this->load->view('templates/header');
-        $this->load->view('registration_view');
+        $this->load->view('registration_view',$value);
         $this->load->view('templates/footer');  
     } 
 
     public function register()
     {
+        $this->load->helper(array('form', 'url'));
+        $value = null;
+        $this->load->library('form_validation');
         $this->load->model('user_model');
-        $check_user = $this->user_model->check_user_mob($this->input->post('email_id'), $this->input->post('mobile_number'));
-        if($check_user == false)
-        {
-            $data = array(
-                'name' => $this->input->post('name'),
-                'email' => $this->input->post('email_id'),
-                'mobile_number' => $this->input->post('mobile_number'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'user_status' => 1,
-                'user_type' => "U",
-                'created_date' => date('Y-m-d : h:m:s'),
-                'updated_date' => date('Y-m-d : h:m:s')
-            );
-            $result= $this->user_model->save_user($data);
-            $value['success'] = 'User successfully Registered';
-            $this->load->view('templates/header');
-            $this->load->view('login_view', $value);
-            $this->load->view('templates/footer');
+        $this->form_validation->set_rules('name', 'Name', 'required|min_length[3]');
+        $this->form_validation->set_message('is_unique', 'Email already exists.');
+        $this->form_validation->set_rules('email_id', 'Email', 'required|valid_email|is_unique[as_user.email]');
+        $this->form_validation->set_message('is_unique_mobile', 'Mobile already exists.');
+        $this->form_validation->set_rules('mobile_num', 'Mobile', 'required|min_length[10]|is_unique_mobile[as_user.mobile_number]');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('errors', validation_errors());
+            redirect(base_url() . 'login/registration');
         }
-        else{
-            $value['error'] = 'email or mobile number already exists';
-            $this->load->view('templates/header');
-            $this->load->view('registration_view',$value);
-            $this->load->view('templates/footer');  
-        }
+        else {
+                     $data = array(
+                        'name' => $this->input->post('name'),
+                        'email' => $this->input->post('email_id'),
+                        'mobile_number' => $this->input->post('mobile_num'),
+                        'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                        'user_status' => 1,
+                        'user_type' => "U",
+                        'created_date' => date('Y-m-d : h:m:s'),
+                        'updated_date' => date('Y-m-d : h:m:s')
+                    );
+                    $result= $this->user_model->save_user($data);
+                    if ($result) {
+                        $this->session->set_flashdata('msg', 'Successfully Register, Login now!');
+                        redirect(base_url() . 'login');
+                    }
+             }
     } 
     
     public function logout()

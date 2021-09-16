@@ -77,6 +77,8 @@ $("#edit").click( function()
 );
 </script>
 
+
+
 <script>
 function filterFunction() {
       $.ajax({
@@ -89,28 +91,34 @@ function filterFunction() {
   
 }
 
-function validate(){
+function validate()
+{
+var mobile_num = document.getElementById("mobile_num").value;
 var pass = document.getElementById("password").value;
 var pass_confirm = document.getElementById("confirm_password").value;
 var message = document.getElementById('errMsg');
 var checkBox = document.getElementById("flexCheckChecked");
-
 var goodColor = "#66cc66";
 var badColor = "#ff6666";
-
 if(pass.length < 6){
   alert("minimum 6 character required for password")
         return false;
  }
-else if (pass!=pass_confirm) {
+if(pass!=pass_confirm) 
+{
    alert("Passwords do not match");
    return false;
 }
-else if (checkBox.checked != true){
-  alert("Please click the checkbox to register");
+if(mobile_num.length < 9)
+{
+  alert("Please enter the correct mobile number");
   return false;
   }
-
+if(checkBox.checked != true)
+{
+  alert("Please accept terms and Condition");
+  return false;
+  }
 }
 </script>
   <script src='<?php echo base_url("assets/assets/js/thumbnail.js");?>'></script>

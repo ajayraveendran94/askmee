@@ -9,8 +9,8 @@ class User_model extends CI_Model{
 
     public function save_user($data)
     {
-        $result= $this->db->insert('as_user',$data);
-        return $result;
+        return $this->db->insert('as_user',$data);
+        
     }
 
     public function check_user($email, $user_type)
@@ -26,10 +26,23 @@ class User_model extends CI_Model{
         }
     }
 
-    public function check_user_mob($email, $mobile)
+    public function check_user_mob($mobile)
     {
         $this->db->reset_query();
-        $this->db->where(array('email' => $email, 'mobile_number' => $mobile));
+        $this->db->where(array('mobile_number' => $mobile));
+        $result = $this->db->get('as_user');
+        if($result->num_rows() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function check_user_email($email)
+    {
+        $this->db->reset_query();
+        $this->db->where(array('email' => $email));
         $result = $this->db->get('as_user');
         if($result->num_rows() > 0){
             return true;
