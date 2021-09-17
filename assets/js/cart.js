@@ -166,6 +166,6 @@ setTimeout(function() {
   $('#toggle').trigger('click');
   var today=new Date(); //Today's Date
   var requiredDate = new Date(today.getFullYear(),today.getMonth(),today.getDate()+7)
-  $('#orderPlaced').html("<b style='color: #5cb85c;'>Congratulations!! </b> <br>Your Order Placed Successfully <br> <b>Expected Delivery: "+requiredDate.toDateString()+"</b> <br>");
+  $('#orderPlaced').html("<b style='color: #ea8a27;'>Congratulations!! </b> <br>Your Order Placed Successfully <br> <b>Expected Delivery: "+requiredDate.toDateString()+"</b> <br>");
   $('#backHome').removeClass('checkmark');
 }, 5000);

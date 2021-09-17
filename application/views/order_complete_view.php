@@ -19,7 +19,7 @@
                     </div>
                     <div id="orderPlaced" style="text-align: center"></div>
                     <button id="toggle" type="button" class="btn btn-success" hidden>Toggle Completed</button>
-                    <a id="backHome" href="<?php echo base_url(''); ?>" type="button" class="btn btn-success checkmark"> Back To Home </a>
+                    <a id="backHome" href="<?php echo base_url(''); ?>" type="button" class="btn btn-theme checkmark"> Back To Home </a>
                 </div>
             </div>
         </div>

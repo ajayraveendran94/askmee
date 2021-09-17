@@ -9,7 +9,6 @@
             <hr>
         </div>
         <!------------>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <div class="content-area" style="padding-top: 0;">
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
@@ -17,7 +16,7 @@
                         <div class="ibox">
                             <div class="ibox-title">
                                 <span class="pull-right">(<strong><?php echo count($cart_data); ?></strong>) items</span>
-                                <h5>Items in your cart</h5>
+                                <h4>Items in your cart</h4>
                             </div>
                             <input type="hidden" id="userId" value='<?php echo $_SESSION['user']['user_id'];?>'>
                             <?php 
@@ -30,6 +29,7 @@
                                             <tr>
                                                 <td width="90">
                                                     <div class="cart-product-imitation">
+                                                        <img src="<?php echo base_url('/assets/images/newproducts/'.$cart['p_id'].'/'.$cart['product_images'][0]['image_url']); ?>" style="width: 100%; height: 100%;">
                                                     </div>
                                                 </td>
                                                 <td class="desc">
