@@ -516,7 +516,7 @@ a {
 .circle-loader {
   margin-bottom: 3.5em;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-left-color: #5cb85c;
+  border-left-color: #ea8a27;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
   display: inline-block;
@@ -529,7 +529,7 @@ a {
 .load-complete {
   -webkit-animation: none;
   animation: none;
-  border-color: #5cb85c;
+  border-color: #ea8a27;
   transition: border 500ms ease-out;
 }
 
@@ -547,8 +547,8 @@ a {
   height: 3.5em;
   width: 1.75em;
   transform-origin: left top;
-  border-right: 3px solid #5cb85c;
-  border-top: 3px solid #5cb85c;
+  border-right: 3px solid #ea8a27;
+  border-top: 3px solid #ea8a27;
   content: "";
   left: 1.75em;
   top: 3.5em;

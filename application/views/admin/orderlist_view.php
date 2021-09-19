@@ -59,13 +59,8 @@
                                <?php echo $row['status_name']; ?>
                             </td>
                             <td>
-                              <?php 
-                              if($row['ors_id'] < sizeof($status)){ 
-                                $next_status = $status[$row['ors_id']]; ?>
-                                <a href="#" class="btn btn-primary">Change To <?php echo($next_status['status_name']); ?></a>
-                            <?php } 
-                            ?>
-                              <a href="<?php echo base_url('admin/userlist/view/'.$row['or_id']); ?>" class="btn btn-warning">View Details</a>
+                              <a href="<?php echo base_url('admin/userlist/view/'.$row['or_id']); ?>" class="btn btn-warning">Details</a>
+                              <button id="statusChange" class="btn btn-danger">Change Status</button>
                             </td>
                           </tr>
                           <?php } ?>
