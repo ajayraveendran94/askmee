@@ -13,7 +13,7 @@
             <div class="card">
                <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                     <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" alt="Admin" class="" width="250">
                      <div class="mt-3">
                         <h4><?php echo $user_data[0]->name ?></h4>
                         <p class="text-secondary mb-1">Email: <?php echo $user_data[0]->email ?></p>
@@ -22,7 +22,7 @@
                   </div>
                   <div class="row">
                      <div class="col-sm-12 align-items-center text-center">
-                        <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                     <p class="text-secondary mb-1">Mobile: <?php echo $user_data[0]->mobile_number ?></p>
                      </div>
                   </div>
                </div>
