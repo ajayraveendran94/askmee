@@ -109,7 +109,7 @@ if(pass!=pass_confirm)
    alert("Passwords do not match");
    return false;
 }
-if(mobile_num.length < 9)
+if(mobile_num.length != 10)
 {
   alert("Please enter the correct mobile number");
   return false;
