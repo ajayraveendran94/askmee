@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-12 mt-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" style="padding: 0.5em;">
                                     <label class="form-check-label" for="rememberMe"> Remember me</label>
                                 </div>
                             </div>
