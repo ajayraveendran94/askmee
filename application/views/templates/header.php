@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <?php 
+$controller = $this->router->fetch_class();
+    ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +21,13 @@
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/checkout.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/thumbanil.css");?>' rel="stylesheet">
-  <link href='<?php echo base_url("assets/assets/css/headersearch.css");?>' rel="stylesheet">
-  <link href='<?php echo base_url("assets/assets/css/order.css");?>' rel="stylesheet">
+  <!-- header serach css removed -->
+  <?php if($controller == 'order'){?>
+    <link href='<?php echo base_url("assets/assets/css/order.css");?>' rel="stylesheet">
+  <?php } ?>
+  <?php if($controller == 'cart'){?>
   <link href='<?php echo base_url("assets/assets/css/cart.css");?>' rel="stylesheet">
+  <?php } ?>
   <link rel="icon" href="<?php echo base_url("assets/img/askmee.ico");?>" type="image/png">
   <title>askmee.in</title>
 </head>
@@ -32,95 +39,125 @@
      $method = $this->router->fetch_method();
    } ?>
   
-  <div class="container-fluid">
+  <div class="container-fluid header-new">
     <header id="masthead" class="site-header site-header-background " role="banner">
-      <!-- start of mini header -->
+            <!-- start of mini header -->
+            <!-- .end of contacts mini header -->
+            <!--start of site branding search-->
+            <div class="container-fluid bg-white">
+                <div class="row">
 
-      <!-- .end of contacts mini header -->
+                    <div class="col-md-4 logo-container">
 
-      <!--start of site branding search-->
-      <div class="container-fluid ">
-        <div class="row">
+                        <a href="<?php echo base_url(''); ?>" class="custom-logo-link" rel="home">
+                            <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" class="custom-logo" alt="">
+                        </a>
+                        <div class="site-branding-text">
+                            <h1 class="site-title">
+                                <a href="<?php echo base_url(''); ?>" rel="home"></a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 cart-mob">
+                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;">
+                        <span class="text" style="display: inline;">Cart</span>
+                    </div>
 
-          <div class="col-md-3 logo-container">
-
-            <a href="<?php echo base_url(''); ?>" class="custom-logo-link" rel="home">
-              <img src='<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>' class="custom-logo" alt="">
-            </a>
-            <div class="site-branding-text">
-              <h1 class="site-title">
-                <a href="<?php echo base_url(''); ?>" rel="home"></a>
-              </h1>
+                    <div class="col-md-5 col-xs-offset-2">
+                        <!-- <div class="col-md-8 serach-bar">
+            <div class="input-group mb-3"> <input type="text" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append"> <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button> </div>
             </div>
-          </div>
-          <?php 
-          if($method != 'index' &&   $method != 'process' && $method != 'registration'){ ?>
-          <!-- <div class="col-sm-2 cart-mob">
-            <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
-          <a href="<?php echo base_url('/cart'); ?>">
-            <span class="text" style="display: inline;">Cart</span>
-          </a>
-          </div> -->
-          <?php if($controller != 'profile' && $controller != 'cart' && $controller != 'order') { ?>
-          <div class="col-md-5 col-xs-offset-2">
-          <div class="header_search">
+        </div> -->
+                        <div class="header_search">
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
-                                    <form name="searchfrm" action="search.php" autocomplete="off" method="GET" class="header_search_form clearfix" style="display: inline-flex;height: 100%;position: absolute;width:100%;" title="">
+                                    <form name="searchfrm" action="search.php" autocomplete="off" method="GET"
+                                        class="header_search_form clearfix"
+                                        style="display: inline-flex;height: 100%;position: absolute;width:100%;"
+                                        title="">
                                         <div class="nvleft">
                                             <select id="catSelect" class="catselect-css" style="width: 141.2px;">
-                                            <option value="0">Select Option</option>
-                                            <?php foreach($category as $value){ ?>
-                                              <option value="<?php print_r($value->c_id); ?>">
-                                              <?php print_r($value->category_name); ?>
-                                            </option>
-                                            <?php } ?>
+                                                <option value="0">All Categories</option>
+                                                <option value="1">Fruits & Vegetables</option>
+                                                <option value="2">Meat</option>
+                                                <option value="4">Nadan Fish</option>
+                                                <option value="3">Homely & Handmade Products</option>
+
                                             </select>
                                         </div>
 
                                         <div class="nvfill" style="width: calc(100% - 50px);">
-                                            <input class="header_search_input" type="search" style="height: 35px;width:100%;font-weight:lighter;color:#444;" id="search-box" name="q" placeholder="Search for products" title="Search for products" required="">
+                                            <input class="header_search_input" type="search"
+                                                style="height: 35px;width:100%;font-weight:lighter;color:#444;"
+                                                id="search-box" name="q" placeholder="Search for products"
+                                                title="Search for products" required="">
                                             <div id="suggesstion-box"></div>
                                         </div>
 
                                         <div class="nvright">
-                                            <button type="submit" class="header_search_button trans_300" value="Submit" style="height:  35px"><img class="s-icon" src='<?php echo base_url("assets/img/search.png");?>'
-                                      alt=""></button>
+                                            <button type="submit" class="header_search_button trans_300" value="Submit"
+                                                style="height:  35px"><img class="s-icon" src="assets/img/search.png"
+                                                    alt=""></button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-          </div>
-        <?php } 
-        else{
-          echo('<div class="col-md-5 col-xs-offset-2"> </div>');
-        }
-        ?>
-          <!--------------------------------------->
-          <div class="col-md-4 col-sm-3  cart-web" style="margin-top: 50px;">
-            <img src='<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>' style="width: 50px;display: inline;">
-            <a href="<?php echo base_url('/cart'); ?>">
-            <span class="text" style="display: inline;">Cart</span>
-          </a>
-          <img src='<?php echo base_url("assets/assets/img/PNG_ICON_5.png");?>' style="width: 50px;display: inline;">
-            <a href="<?php echo base_url('/profile'); ?>">
-            <span class="text" style="display: inline;">Profile</span>
-          </a>
-          <img src='<?php echo base_url("assets/assets/img/PNG_ICON_6.png");?>' style="width: 50px;display: inline;">
-            <?php
-             if (isset($_SESSION['user'])) { ?>
-            <span class="text" style="display: inline;"><a href="<?php echo base_url('login/logout'); ?>">Logout</a></span>
-             <?php }
-             else{
-              ?>
-            <span class="text" style="display: inline;"><a href="<?php echo base_url('/login'); ?>">Login</a></span> 
-          <?php } ?>
-          </div>
-       <?php } ?>
-        </div>
-        <!-- .end of site-branding -->
-      </div>
-  </div>
-  <!-- .end of site-branding, search -->
-  </header>
+
+
+                    </div>
+                    <!--------------------------------------->
+                    <div class="col-md-3 col-sm-12  cart-web">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <a href="<?php echo base_url('/cart'); ?>">
+                                    <div class="text-center" style="margin: 0 auto; margin-top: 7px;">
+                                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;">
+                                        <span class="text" style="display: inline;margin-left: -9px;">Cart</span>
+                                    </div>
+                                </a> 
+                            </div>
+                        <?php if (isset($_SESSION['user'])) { ?>
+                            <div class="col-md-3  col-sm-4">
+                                <a href="<?php echo base_url('login/logout'); ?>">
+                                    <div class="text-center" style="margin: 0 auto; margin-top: 16px;">
+                                        <span class="text" style="display: inline;">Logout</span>
+                                    </div>
+                                </a> 
+                            </div>
+                        <?php
+                        } 
+                        else{ ?>
+                            <div class="col-md-3  col-sm-4">
+                                <a href="<?php echo base_url('/login'); ?>">
+                                    <div class="text-center" style="margin: 0 auto; margin-top: 16px;">
+                                        <span class="text" style="display: inline;">Login</span>
+                                    </div>
+                                </a> 
+                            </div>
+                        <?php } ?>
+                            <div class="col-md-3 col-sm-4">
+                                <a href="<?php echo base_url('/profile'); ?>">
+                                    <div class="text-center" style="margin: 0 auto; margin-top: 16px;">
+                                        <span class="text" style="display: inline;">Profile</span>
+                                    </div>
+                                </a>
+                                <!-- <div class="dropdown" style="margin-top: 10px;">
+                                    <button class="btn btn-secondary dropdown-toggle user-btn" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        User
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="userprofile.html">Profile</a></li>
+                                        <li><a class="dropdown-item" href="order.html">Orders</a></li>
+                                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .end of site-branding -->
+            </div>
+        </header>

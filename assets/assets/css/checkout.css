@@ -1,158 +1,181 @@
-body {
-    color: #000;
-    overflow-x: hidden;
-    height: 100%;
-    background-color: #fff;
+
+.card {
+    max-width: 1000px;
+    margin: 2vh
+}
+
+.card-top {
+    padding: 0.7rem 5rem
+}
+
+.card-top a {
+    float: left;
+    margin-top: 0.7rem
+}
+
+#logo {
+    font-family: 'Dancing Script';
+    font-weight: bold;
+    font-size: 1.6rem
+}
+
+/*.card-body {
+    padding: 0 5rem 5rem 5rem;
+    background-image: url("https://i.imgur.com/4bg1e6u.jpg");
+    background-size: cover;
     background-repeat: no-repeat
 }
 
-.plus-minus {
-    position: relative
+@media(max-width:768px) {
+    .card-body {
+        padding: 0 1rem 1rem 1rem;
+        background-image: url("https://i.imgur.com/4bg1e6u.jpg");
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+
+    .card-top {
+        padding: 0.7rem 1rem
+    }
+}
+*/
+.row {
+    margin: 0
 }
 
-.plus {
-    position: absolute;
-    top: -4px;
-    left: 2px;
-    cursor: pointer
+.upper {
+    padding: 1rem 0;
+    justify-content: space-evenly
 }
 
-.minus {
-    position: absolute;
-    top: 8px;
-    left: 5px;
-    cursor: pointer
+#three {
+    border-radius: 1rem;
+    width: 22px;
+    height: 22px;
+    margin-right: 3px;
+    border: 1px solid blue;
+    text-align: center;
+    display: inline-block
 }
 
-.vsm-text:hover {
-    color: #FF5252
+#payment {
+    margin: 0;
+    color: blue
 }
 
-.book,
-.book-img {
-    width: 120px;
-    height: 180px;
-    border-radius: 5px
+.icons {
+    margin-left: auto
 }
 
-.book {
-    margin: 20px 15px 5px 15px
+form span {
+    color: rgb(179, 179, 179)
 }
 
-.border-top {
-    border-top: 1px solid #EEEEEE !important;
-    margin-top: 20px;
-    padding-top: 15px
+form {
+    padding: 2vh 0
 }
 
-.card {
-    margin: 40px 0px;
-    padding: 40px 50px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2)
-}
-
-input,
-textarea {
-    background-color: #F3E5F5;
-    padding: 8px 15px 8px 15px;
+input {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
     width: 100%;
-    border-radius: 5px !important;
-    box-sizing: border-box;
-    border: 1px solid #F3E5F5;
-    font-size: 15px !important;
-    color: #000 !important;
-    font-weight: 300
+    background-color: rgb(247, 247, 247)
 }
 
-input:focus,
-textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #9FA8DA;
-    outline-width: 0;
-    font-weight: 400
+input:focus::-webkit-input-placeholder {
+    color: transparent
 }
 
-button:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    outline-width: 0
+.header {
+    font-size: 1.5rem
 }
 
-.pay {
-    width: 80px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #673AB7;
-    margin: 10px 20px 10px 0px;
-    cursor: pointer;
-    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2)
+.left {
+    background-color: #ffffff;
+    padding: 2vh
 }
 
-.gray {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    filter: grayscale(100%);
-    color: #E0E0E0
+.left img {
+    width: 2rem
 }
 
-.gray .pay {
-    box-shadow: none
+.left .col-4 {
+    padding-left: 0
 }
 
-#tax {
-    border-top: 1px lightgray solid;
-    margin-top: 10px;
-    padding-top: 10px
+.right .item {
+    padding: 0.3rem 0
 }
 
-.btn-blue {
-    border: none;
-    border-radius: 10px;
-    background-color: #673AB7;
+.right {
+    background-color: #ffffff;
+    padding: 2vh
+}
+
+.col-8 {
+    padding: 0 1vh
+}
+
+.lower {
+    line-height: 2
+}
+
+
+
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none
+}
+
+.btn:hover {
+    color: white
+}
+
+a {
+    color: black
+}
+
+a:hover {
+    color: black;
+    text-decoration: none
+}
+
+input[type=checkbox] {
+    width: unset;
+    margin-bottom: unset
+}
+
+#cvv {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.575), rgba(255, 255, 255, 0.541)), url("https://img.icons8.com/material-outlined/24/000000/help.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center
+}
+
+#cvv:hover {}
+
+.add-address-btn .add-plus{
+    font-size: 69px;
+}
+.add-address-btn {
+    background: #f9c27d;
+    color: #ffffffa8;
+}
+.add-address-btn:hover{
+    background-color: #fda332;
     color: #fff;
-    padding: 8px 15px;
-    margin: 20px 0px;
-    cursor: pointer
+    cursor: pointer;
+}
+.checkoutbx-floating{
+    border: 1px solid #dfdfdf;
+    position: sticky;
+    top: 0;
 }
 
-.btn-blue:hover {
-    background-color: #311B92;
-    color: #fff
-}
-
-#checkout {
-    float: left
-}
-
-#check-amt {
-    float: right
-}
-
-@media screen and (max-width: 768px) {
-
-    .book,
-    .book-img {
-        width: 100px;
-        height: 150px
-    }
-
-    .card {
-        padding-left: 15px;
-        padding-right: 15px
-    }
-
-    .mob-text {
-        font-size: 13px
-    }
-
-    .pad-left {
-        padding-left: 20px
-    }
-}

@@ -67,7 +67,7 @@ table.shoping-cart-table tr td:last-child {
   border-color: #e7eaec;
   border-image: none;
   border-style: solid solid none;
-  border-width: 3px 0 0;
+  border-width: 0px 0 0;
   color: inherit;
   margin-bottom: 0;
   padding: 14px 15px 7px;
@@ -82,6 +82,9 @@ table.shoping-cart-table tr td:last-child {
   border-style: solid solid none;
   border-width: 1px 0;
 }
+.ibox-content:nth-child(1){
+  border: none !important;
+}
 .ibox-footer {
   color: inherit;
   border-top: 1px solid #e7eaec;
@@ -89,3 +92,14 @@ table.shoping-cart-table tr td:last-child {
   background: #ffffff;
   padding: 10px 15px;
 }
+
+
+
+
+.qty {
+  width: 35px;
+  height: 29px;
+  text-align: center;
+}
+input.qtyplus { width:24px; height:27px; color: #000000;}
+input.qtyminus { width:4; height:27px;}

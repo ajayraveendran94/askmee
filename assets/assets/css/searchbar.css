@@ -7,6 +7,18 @@
     color: #fff;
 }
 
+.btn-cart:hover{
+    background-color: #ee610f;
+    color: #fff;
+
+}
+
+.btn-cart {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
 .input-text:focus {
     box-shadow: 0px 0px 0px;
     border-color: #f8c146;
