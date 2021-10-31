@@ -21,6 +21,7 @@ $controller = $this->router->fetch_class();
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/checkout.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/thumbanil.css");?>' rel="stylesheet">
+  <link href='<?php echo base_url("assets/assets/css/headersearch.css");?>' rel="stylesheet">
   <!-- header serach css removed -->
   <?php if($controller == 'order'){?>
     <link href='<?php echo base_url("assets/assets/css/order.css");?>' rel="stylesheet">
@@ -40,6 +41,7 @@ $controller = $this->router->fetch_class();
    } ?>
   
   <div class="container-fluid header-new">
+    <input type="hidden" id="baseUrl" value="<?php echo base_url(''); ?>">
     <header id="masthead" class="site-header site-header-background " role="banner">
             <!-- start of mini header -->
             <!-- .end of contacts mini header -->
@@ -69,29 +71,26 @@ $controller = $this->router->fetch_class();
                 <div class="input-group-append"> <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button> </div>
             </div>
         </div> -->
-                        <div class="header_search">
-                            <div class="header_search_content">
-                                <div class="header_search_form_container">
-                                    <form name="searchfrm" action="search.php" autocomplete="off" method="GET"
-                                        class="header_search_form clearfix"
-                                        style="display: inline-flex;height: 100%;position: absolute;width:100%;"
-                                        title="">
+                        <div class="header_search height_full">
+                            <div class="header_search_content height_full">
+                                <div class="header_search_form_container height_full">
                                         <div class="nvleft">
                                             <select id="catSelect" class="catselect-css" style="width: 141.2px;">
                                                 <option value="0">All Categories</option>
-                                                <option value="1">Fruits & Vegetables</option>
-                                                <option value="2">Meat</option>
-                                                <option value="4">Nadan Fish</option>
-                                                <option value="3">Homely & Handmade Products</option>
+                                                <?php 
+                                                foreach ($category as $row) {
+                                                    echo("<option value='".$row->c_id."'>".$row->category_name."</option>");
+                                                }?> 
 
                                             </select>
                                         </div>
 
-                                        <div class="nvfill" style="width: calc(100% - 50px);">
+                                        <div class="nvfill height_full" style="width: calc(100% - 50px);">
                                             <input class="header_search_input" type="search"
                                                 style="height: 35px;width:100%;font-weight:lighter;color:#444;"
                                                 id="search-box" name="q" placeholder="Search for products"
-                                                title="Search for products" required="">
+                                                title="Search for products" required="" autocomplete="off">
+                                                <ul class="output" style="display:none;"></ul>
                                             <div id="suggesstion-box"></div>
                                         </div>
 
@@ -100,7 +99,6 @@ $controller = $this->router->fetch_class();
                                                 style="height:  35px"><img class="s-icon" src="assets/img/search.png"
                                                     alt=""></button>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>

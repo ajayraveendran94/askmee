@@ -97,6 +97,33 @@ class Productlist_model extends CI_Model{
         }
         return $query;
     }
+    
+    function get_category_product_data($id){
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_product_master');
+        $this->db->where('as_product_master.id', $id);
+        $this->db->join('as_products', 'master_product_id = id AND product_status = 1', 'left');
+        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, description, quantity, product_status, category_name');
+        $this->db->join('as_categories', 'c_id = category_id');
+        //$this->db->join('brands', 'brand_id = prod_brand');
+        $query = $this->db->get()->result_array();
+        if(count($query) > 0){ 
+          foreach($query as $i=>$product) {
+            $this->db->where('product_id', $product['p_id']);
+            $images_query = $this->db->get('as_product_images')->result_array();
+            $query[$i]['product_images'] = $images_query;
+          }
+        }
+        else{
+           $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->where('c_id', $c_id);
+        $query_1 = $this->db->get('as_categories')->result_array();
+           $query[0]['category_name'] = $query_1[0]['category_name']; 
+        }
+        return $query;
+    }
 
     function delete_product($id)
     {
@@ -163,6 +190,22 @@ class Productlist_model extends CI_Model{
         $query = $this->db->get();
         $result = $query->result();
         return $result;
+    }
+
+    function get_product_and_id($c_id){
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_product_master');
+        if($c_id == 0){
+          $this->db->select('id, product_name');
+        }
+        else{
+          $this->db->where('as_product_master.category_id', $c_id);
+          $this->db->join('as_products', 'master_product_id = id AND product_status = 1', 'left');
+          $this->db->select('p_id, product_name');
+        }
+        $query = $this->db->get()->result();
+        return $query;
     }
 }
 

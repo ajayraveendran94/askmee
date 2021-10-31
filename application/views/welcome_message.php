@@ -10,22 +10,16 @@
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="productlisting.html">All</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="productlisting.html">Vegetable</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Fruits</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Meats</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Fish</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Egg</a>
-                            </li>
-                           
+                            <?php 
+                            $count = 0;
+                            foreach ($category as $row) {
+                                if($count < 7){
+                                    echo("<li class='nav-item'>
+                                        <a class='nav-link' aria-current='page' href='".base_url('category/view/'.$row->c_id)."'>".$row->category_name."</a>
+                                         </li>");
+                                }
+                                $count++;
+                            }?>          
                         </ul>
                 </div>
             </div>

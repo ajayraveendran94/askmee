@@ -42,11 +42,11 @@ $('.addToCartBtn').click(function(){
     $.ajax({
         data: cartData, 
         type: 'POST',
-        url: 'cart/add_to_cart',
+        url: $('#baseUrl').val()+'cart/add_to_cart',
         success: function(response){
           debugger;
-          $("#addToCart_"+cartData['product_id']).addClass('d-none');
-          $("#goToCart_"+cartData['product_id']).removeClass('d-none');
+          $("#addToCart"+cartData['product_id']).addClass('d-none');
+          $("#goToCart"+cartData['product_id']).removeClass('d-none');
         }
     });
   }
