@@ -52,7 +52,7 @@
                                     <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" alt="Admin"
                                         class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4>John Doe</h4>
+                                        <h4><?php echo $user_data[0]->name ?></h4>
 
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        fip@jukmuh.al
+                                       <?php echo $user_data[0]->email ?>
                                     </div>
                                 </div>
                                 <hr>

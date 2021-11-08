@@ -10,12 +10,16 @@ class Product extends CI_Controller {
     }
 
     public function view($page){
-        //$this->load->model('addproduct_model');
+        $this->load->model('addproduct_model');
         //$product_data = $this->productlist_model->get_product_data($page);
         $product_data = $this->productlist_model->get_product_data($page);
+        $category_name = $this->addproduct_model->get_category();
+        $category_products = $this->productlist_model->get_category_data($product_data[0]->c_id);
+        $data['products'] = $category_products;
+        $data['category'] = $category_name;
         $data['product_data'] = $product_data;
-        //print_r($data);
         $this->load->view('templates/header');
+        $this->load->view('templates/navbar',$data);
 		$this->load->view('product_view', $data);
 		$this->load->view('templates/footer');
     }

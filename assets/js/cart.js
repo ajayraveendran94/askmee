@@ -1,4 +1,5 @@
 $("#addToCart").click(function(e) {
+  debugger;
   var cartData = {};
   cartData['product_id'] = $("#product_id").val();
   cartData['user_id'] = $("#user_id").val();

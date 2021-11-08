@@ -74,8 +74,8 @@
                                 <input type="hidden" id="product_id" value=<?php echo $product_data[0]->p_id; ?>>
                                     <div class="d-flex">
                                         <div class="cart mt-4 align-items-center buy-btn-container">
-                                            <input type="number" id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?>>
-                                            <button id="addToCart" class="btn btn-warning text-uppercase mr-2 px-4">Add to cart</button>
+                                            <input type="hidden" value=1 id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?>>
+                                            <button id="addToCart" class="addToCartBtn btn btn-warning text-uppercase mr-2 px-4">Add to cart</button>
                                             <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none">Go To Cart</a>
                                            <a href="<?php echo base_url('/buynow/view/'.$product_data[0]->p_id);?>" ><button class="btn bg-theme text-uppercase mr-2 px-4">Buy Now</button></a>
                                         </div>
@@ -123,31 +123,41 @@
         <div class="row " style="margin-top: 61px;padding-left:10px;padding-right:10px;">
 
             <h4 class="title-sub">Related Products</h4>
+    <?php 
+    foreach($products as $key=>$product){
+        if($product['p_id'] != $product_data[0]->p_id && $key<4){
+            ?>
             <div class="col-sm-3 col-6">
                <div class="bbb_deals">
                     <div class="ribbon ribbon-top-right"></div>
                     <div class="bbb_deals_slider_container">
                         <div class=" bbb_deals_item">
                             <div class="bbb_deals_image">
-                                <a href="product.html"><img src="assets/img/Kalanji.png" alt=""></a>
+                                <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>"><img src="<?php echo base_url('./assets/images/newproducts/'.$product['p_id'].'/'.$product['product_images'][0]['image_url']); ?>" alt=""></a>
                             </div>
                             <div class="bbb_deals_content">
                                 <div class="text-center">
                                     <div class="bbb_deals_item_name">
-                                        <a href="product.html" class="product-link"> Carrot(1 kg)</a>
+                                        <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="product-link"> <?php echo $product['product_name']; ?></a>
                                     </div>
                                     <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <div class="bbb_deals_item_price ml-auto">₹25</div>
+                                        <div class="bbb_deals_item_price ml-auto"><?php echo $product['offer_price']; ?></div>
                                     </div><br>
-                                    <a href="product.html" class="btn btn-theme mb-1">Buy Now</a>
-                                    <a href="#" class="btn btn-cart mb-1">Add to Cart</a>
+                                    <!-- <a href="" class="btn btn-theme mb-1">Buy Now</a>
+                                    <a href="#" class="btn btn-cart mb-1">Add to Cart</a> -->
+                                    <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="btn btn-theme mb-1">Buy Now</a>
+                                    <button id="addToCart<?php echo($product['p_id']); ?>" class="addToCartBtn btn btn-cart mb-1" productId=<?php echo($product['p_id']); ?>>Add to Cart</button>
+                                    <a href="<?php echo base_url('/cart');?>" id="goToCart<?php echo($product['p_id']); ?>" class="d-none btn-cart mb-1">Go To Cart</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="col-sm-3 col-6">
+        <?php 
+        } 
+    }?>
+        <!-- <div class="col-sm-3 col-6">
                <div class="bbb_deals">
                     <div class="ribbon ribbon-top-right"></div>
                     <div class="bbb_deals_slider_container">
@@ -218,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         
 
         </div>

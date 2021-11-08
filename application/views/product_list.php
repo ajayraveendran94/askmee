@@ -29,7 +29,7 @@ $count = 0;
                     <div class="bbb_deals_slider_container">
                         <div class=" bbb_deals_item">
                             <div class="bbb_deals_image">
-                                <a href="#"><img
+                                <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>"><img
                                         src="<?php echo base_url('./assets/images/newproducts/'.$product['p_id'].'/'.$product['product_images'][0]['image_url']); ?>"
                                         alt=""></a>
                             </div>
