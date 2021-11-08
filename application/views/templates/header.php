@@ -19,22 +19,26 @@ $controller = $this->router->fetch_class();
   <link href='<?php echo base_url("assets/assets/css/font-awesome.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/searchbar.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
+  <?php if(in_array($controller, ['cart', 'profile'])){?>
+  <link href='<?php echo base_url("assets/assets/css/cart.css");?>' rel="stylesheet">
+  <?php } ?>
+  <?php if($controller == 'order'){?>
   <link href='<?php echo base_url("assets/assets/css/checkout.css");?>' rel="stylesheet">
+  <?php } ?>
+  <?php if($controller == 'product'){?>
   <link href='<?php echo base_url("assets/assets/css/thumbanil.css");?>' rel="stylesheet">
-  <link href='<?php echo base_url("assets/assets/css/headersearch.css");?>' rel="stylesheet">
+  <?php } ?>
+  <!-- <link href='<?php echo base_url("assets/assets/css/headersearch.css");?>' rel="stylesheet"> -->
   <!-- header serach css removed -->
   <?php if($controller == 'order'){?>
     <link href='<?php echo base_url("assets/assets/css/order.css");?>' rel="stylesheet">
   <?php } ?>
-  <?php if($controller == 'cart'){?>
-  <link href='<?php echo base_url("assets/assets/css/cart.css");?>' rel="stylesheet">
-  <?php } ?>
+  <link href='<?php echo base_url("assets/assets/css/navbar.css");?>' rel="stylesheet">
   <link rel="icon" href="<?php echo base_url("assets/img/askmee.ico");?>" type="image/png">
   <title>askmee.in</title>
 </head>
 <body>
 <?php
-   $controller = $this->router->fetch_class();
    $method = 'method';
    if($controller == 'login'){
      $method = $this->router->fetch_method();
@@ -71,9 +75,10 @@ $controller = $this->router->fetch_class();
                 <div class="input-group-append"> <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button> </div>
             </div>
         </div> -->
-                        <div class="header_search height_full">
-                            <div class="header_search_content height_full">
-                                <div class="header_search_form_container height_full">
+                        <?php if($controller != 'login'){ ?>
+                        <div class="header_search">
+                            <div class="header_search_content">
+                                <div class="header_search_form_container">
                                         <div class="nvleft">
                                             <select id="catSelect" class="catselect-css" style="width: 141.2px;">
                                                 <option value="0">All Categories</option>
@@ -102,7 +107,7 @@ $controller = $this->router->fetch_class();
                                 </div>
                             </div>
                         </div>
-
+                    <?php } ?>
 
                     </div>
                     <!--------------------------------------->

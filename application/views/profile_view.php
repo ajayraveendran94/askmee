@@ -1,351 +1,190 @@
-<div class="container">
-   <div class="main-body">
-      <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="main-breadcrumb">
-         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-         </ol>
-      </nav>
-      <!-- /Breadcrumb -->
-      <div class="row gutters-sm">
-         <div class="col-md-4 mb-3">
-            <div class="card">
-               <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                     <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" alt="Admin" class="" width="250">
-                     <div class="mt-3">
-                        <h4><?php echo $user_data[0]->name ?></h4>
-                        <p class="text-secondary mb-1">Email: <?php echo $user_data[0]->email ?></p>
-                        <!-- <p class="text-muted font-size-sm"></p> -->
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-12 align-items-center text-center">
-                     <p class="text-secondary mb-1">Mobile: <?php echo $user_data[0]->mobile_number ?></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="mt-3 align-items-center text-center">
-               <a class="btn btn-danger" href="<?php echo base_url('/order'); ?>">Your Orders</a>
-            </div>
-         </div>
-         <div class="col-md-8">
-                    <h4>Address</h4>
+<div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-theme navbar-web shift">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="productlisting.html">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="productlisting.html">Vegetable</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productlisting.html">Fruits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productlisting.html">Meats</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productlisting.html">Fish</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productlisting.html">Egg</a>
+                            </li>
 
-            <div class="accordion" id="accordionExample">
-                 <?php
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Userprofile</li>
+                    </ol>
+                </nav>
+                <hr>
+            </div>
+        </div>
+        <!------------>
+        <div class="content-area pt-0">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" alt="Admin"
+                                        class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        <h4>John Doe</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-2">
+                            <div class="ibox">
+                                <div class="ibox-title">
+                                    <h5>Account</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <ul class="list-group list-group-flush">
+                                        <!-- <li class="list-group-item"><a href="userprofile.html"><i
+                                                    class="fa fa-user mx-2" aria-hidden="true"></i> Profile</a></li> -->
+                                        <li class="list-group-item"><a href="<?php echo base_url('/order'); ?>"><i class="fa fa-cart-plus mx-2"
+                                                    aria-hidden="true"></i> Orders</a></li>
+                                        <li class="list-group-item"><a href="<?php echo base_url('/cart'); ?>"><i
+                                                    class="fa fa-shopping-cart mx-2" aria-hidden="true"></i> Cart</a>
+                                        </li>
+                                        <li class="list-group-item"><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out  mx-2"
+                                                    aria-hidden="true"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Full Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <?php echo $user_data[0]->name ?>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        fip@jukmuh.al
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mobile</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <?php echo $user_data[0]->mobile_number ?>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                 <?php
                           $count =1;
-                         foreach ($address as $value) { ?>
-                            <?php
-                $attributes = array('class' => 'form-horizontal', 'id' => 'form-detail-edit', 'action' => '#');
-
-                echo form_open('admin/Address/ajax_detail_update', $attributes);
-                ?>
-               <input type="hidden" name="users_id" id ="users_id" value="<?php echo $value->ad_user_id ?>">
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading<?php echo($count)?>">
-                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo($count)?>" aria-expanded="false" aria-controls="collapse<?php echo($count)?>">
-                     <?php echo($value->ad_title) ?>
-                     </button>
-                  </h2>
-                  <div id="collapse<?php echo($count)?>" class="accordion-collapse collapse" aria-labelledby="collapse<?php echo($count)?>" data-bs-parent="#accordionExample">
-                     <div class="accordion-body">
-                        <div class="card mb-3">
-                           <div class="card-body">
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Title</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                 <input type="text" class="form-control editable" name="ad_title" value="<?php echo($value->ad_title) ?>" >
-                                 <input type="hidden" name="address_id" id ="address_id" value="<?php echo $value->ad_id ?>">
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 1</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control editable" name="line_1" value="<?php echo($value->line_1) ?>" >
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 2</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control editable" name="line_2" value="<?php echo($value->line_2) ?>" >
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 3</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control editable" name="line_3" value="<?php echo($value->line_3) ?>">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">State</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control editable" name="state" value="<?php echo($value->state) ?>">
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">District</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                 <input type="text" class="form-control editable" name="district" value="<?php echo($value->district) ?>">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Post Office</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                     <input type="text" class="form-control editable" name="post" value="<?php echo($value->post) ?>">
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Pincode</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control editable" name="pin" value="<?php echo($value->pin) ?>">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Primary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control editable" name="contact_number_1" value="<?php echo($value->contact_number_1) ?>" >
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Secondary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control editable" name="contact_number_2" value="<?php echo($value->contact_number_2) ?>">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                  <?php echo form_close(); ?>
-                                 <div class="col-sm-12">
-                                     <button class="btn btn-info" type="submit">Update</button>
-                                     <button class="btn btn-info" id="edit" type="button">Edit</button>
-
-                                  <!--   <a class="btn btn-info " target="__blank" href="#">Update</a> -->
-                                 </div>
-                              </div>
-                           </div>
+                         foreach ($address as $key => $value) { ?>
+                                    <div class="col-sm-3">
+                                       <?php if($key == 0){ ?>
+                                        <h6 class="mb-0">Address</h6>
+                                     <?php }
+                                     else {?>
+                                       <h6 class="mb-0"></h6>
+                                    <?php } ?>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <?php echo('<b>'.($key+1).'</b>. '.$value->line_1.','.$value->line_2.','.$value->line_3.','.$value->district.','.$value->state) ?>
+                                    </div>
+                                    <!-- <div class="col-sm-3">
+                                        <h6 class="mb-0"></h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        Bay Area, San Francisco, CA
+                                    </div> -->
+                                 <?php } ?>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button type="button" class="btn btn-theme" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            Edit
+                                        </button>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">User Profile</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Email address</label>
+                                                            <input type="email" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Email Address">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Mobile</label>
+                                                            <input type="number" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Mobile Number">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Address</label>
+                                                            <textarea class="form-control"
+                                                                placeholder="Address with pincode"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-theme">Save
+                                                            changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
+                    </div>
+                </div>
 
-               </div>
-                 <?php $count++; } ?>
-            
-               <form method="post" action="<?php echo site_url('admin/address/add_new'); ?>" enctype="multipart/form-data">
-               <!-- <div class=" accordion" id="accordionExample2"> -->
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                     Add New Address
-                     </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                     <div class="accordion-body">
-                        <div class="card mb-3">
-                           <div class="card-body">
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Title</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                 <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" >
-                                 <input type="hidden" class="form-control" name="user_id" value="<?php echo $user_id; ?>">
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 1</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_1" value="">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 2</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_2" >
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 3</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="line_3" value="">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">State</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="state" value=""> 
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">District</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="text" class="form-control" name="district" >
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Post Office</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                 <input type="text" class="form-control" name="post" >
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Pincode</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control" name="pin" value="">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Primary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    <input type="number" class="form-control" name="contact_number_1" >
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Secondary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                 <input type="number" class="form-control" name="contact_number_2" value="">
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-12">
-                                    <button class="btn btn-info" type="submit">Submit</button>
-                                    <!-- <a class="btn btn-info " target="__blank" href="#">Edit</a> -->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               </div>
-               </form>
-
-       <!--         <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                     Accordion Item #3
-                     </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                     <div class="accordion-body">
-                        <div class="card mb-3">
-                           <div class="card-body">
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Title</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Home
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 1</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 2</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Address Line 3</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">State</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez 
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">District</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Post Office</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    KennethValdezKennethValdezKenneth
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Pincode</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    Kenneth Valdez
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Primary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    887657800
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Secondary Contact Number</h6>
-                                 </div>
-                                 <div class="col-sm-3 text-secondary">
-                                    6657678922
-                                 </div>
-                              </div>
-                              <hr>
-                              <div class="row">
-                                 <div class="col-sm-12">
-                                    <a class="btn btn-info " target="__blank" href="#">Edit</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div> -->
             </div>
-         </div>
-      </div>
-   </div>
-</div>
+        </div>

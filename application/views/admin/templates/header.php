@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="<?php echo base_url("assets/css/app.min.css");?>"> 
   <?php
    $controller = $this->router->fetch_class();
-   $data_table_controller = ['userlist', 'categorylist', 'productlist', 'vendorlist'];
+   $data_table_controller = ['userlist', 'categorylist', 'productlist', 'vendorlist', 'orderlist'];
   if(in_array($controller, $data_table_controller)){
     echo('<link rel="stylesheet" href='.base_url("assets/bundles/datatables/datatables.min.css").'>');
     echo('<link rel="stylesheet" href='.base_url("assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css").'>');

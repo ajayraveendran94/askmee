@@ -10,11 +10,11 @@
   <script src="<?php echo base_url("assets/js/app.min.js"); ?>"></script>
   <?php 
     $controller = $this->router->fetch_class();
-    //print_r($controller);
+    print_r($controller);
     // echo(str_replace(' ', '', $controller));
     // echo('<br>');
     $toazt_controllers = ['login', 'addproduct', 'upload_image', 'adduser'];
-    $data_table_controller = ['userlist', 'categorylist', 'productlist', 'vendorlist'];
+    $data_table_controller = ['userlist', 'categorylist', 'productlist', 'vendorlist', 'orderlist'];
     if(in_array($controller, $toazt_controllers)){ 
       echo('<script src="'.base_url("assets/bundles/izitoast/js/iziToast.min.js").'"></script>');
       echo('<script src="'.base_url("assets/js/add_product.js").'"></script>');

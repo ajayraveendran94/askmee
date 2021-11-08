@@ -100,7 +100,7 @@
                                 <div class="bbb_deals_content">
                                     <div class="text-center">
                                         <div class="bbb_deals_item_name">
-                                            <a href="product.html" class="product-link"> <?php echo $product['product_name']; ?></a>
+                                            <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="product-link"> <?php echo $product['product_name']; ?></a>
                                         </div>
                                         <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                             <div class="bbb_deals_item_price ml-auto">₹ <?php echo $product['offer_price']; ?></div>

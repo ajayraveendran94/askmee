@@ -229,8 +229,8 @@
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="shopping-bag"></i><span>Orders</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="<?php echo base_url('admin/order');?>">New Order</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('admin/order/list');?>">Order Details</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/orderlist');?>">New Order</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/orderlist/list');?>">Order Details</a></li>
                 <li><a class="nav-link" href="#">Vendor List</a></li>
               </ul>
             </li>

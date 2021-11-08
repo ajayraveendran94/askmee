@@ -1,7 +1,7 @@
 <?php  
 //defined('BASEPATH') OR exit('No direct script access allowed');  
   
-class Order extends CI_Controller {
+class Orderlist extends CI_Controller {
 
     function __construct()
     {
