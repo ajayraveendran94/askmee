@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    $("#addresForm").hide();
     $('.radio-group .radio').click(function(){
     $('.radio').addClass('gray');
     $(this).removeClass('gray');
@@ -16,3 +16,15 @@ $(document).ready(function(){
     });
     
     });
+$("#btn-address").click(function(){
+
+    $("#addresForm").show();
+
+  });
+
+
+  $("#btn-cancel").click(function(){
+
+    $("#addresForm").hide();
+
+  });

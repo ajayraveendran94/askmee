@@ -132,7 +132,7 @@ $controller = $this->router->fetch_class();
 <?php } ?>
   <script src='<?php echo base_url("assets/assets/js/sweetalert.min.js");?>'></script>
   <?php 
-  if (in_array($controller, ['cart', 'product'])){
+  if (in_array($controller, ['cart', 'product','category','buynow'])){
   echo('<script src="'.base_url("assets/js/cart.js").'"></script>'); 
   }
   if($controller == 'product'){

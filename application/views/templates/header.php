@@ -19,7 +19,7 @@ $controller = $this->router->fetch_class();
   <link href='<?php echo base_url("assets/assets/css/font-awesome.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/searchbar.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
-  <?php if(in_array($controller, ['cart', 'profile'])){?>
+  <?php if(in_array($controller, ['cart', 'profile','category'])){?>
   <link href='<?php echo base_url("assets/assets/css/cart.css");?>' rel="stylesheet">
   <?php } ?>
   <?php if($controller == 'order'){?>

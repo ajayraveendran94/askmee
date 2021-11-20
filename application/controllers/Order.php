@@ -23,11 +23,15 @@ class Order extends CI_Controller {
     }
 
     public function checkout(){
+        $this->load->model('addproduct_model');
         $this->load->model('address_model');
         $id = $_SESSION['user']['user_id'];
+        $category_name = $this->addproduct_model->get_category();
+        $data['category'] = $category_name;
         $data['cart_data'] = $this->cart_model->get_cart($id);
         $data['address'] = $this->address_model->get_user_address($id);
         $this->load->view('templates/header');
+        $this->load->view('templates/navbar',$data);
         $this->load->view('checkout_view', $data);
         $this->load->view('templates/footer');
     }
