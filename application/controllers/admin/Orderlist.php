@@ -65,8 +65,8 @@ class Orderlist extends CI_Controller {
             //$individual_price = 201;
                 $data = array(
                     'order_id' => $order_id,
-                    'product_id' => $placed_order['order_product_id'][$i],
-                    'quantity' => $placed_order['quantity'][$i],
+                    'or_product_id' => $placed_order['order_product_id'][$i],
+                    'or_quantity' => $placed_order['quantity'][$i],
                     'individual_price' => $placed_order['offer_price'][$i],
                     'total_price' => $placed_order['offer_price'][$i] * $placed_order['quantity'][$i]
                 );

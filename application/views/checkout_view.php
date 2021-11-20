@@ -31,43 +31,57 @@
                </div>
             <?php } ?>
                <div class="row">
-                  <a href="#" id="btn-address" class="btn btn-light btn-sm" style="padding:7px 0; font-size:19px"><i class="fa fa-plus mx-2"></i>Add New Address</a>
+                  <button type="button" id="btn-address" class="btn btn-dark btn-sm" style="padding:7px 0; font-size:19px"><i class="fa fa-plus mx-2"></i>Add New Address</button>
                </div>
                <br>
                <hr>
-               <form id="addresForm">
-                  <h5 class="mb-4"><strong>Add Delivery Address</strong></h5>
+               <div id="addresForm" class="d-none">
+                  <h5 class="mb-4"><strong>Add New Delivery Address</strong></h5>
                   <div class="form-group ">
                      <div class="col">
-                        <input type="text" class="form-control" id="" placeholder="Full Name">
+                        <input type="text" class="form-control" id="fullName" placeholder="Full Name">
                      </div>
                   </div>
                   <div class="form-group ">
                      <div class="col">
-                        <input type="text" class="form-control" id="" placeholder="Mobile Number">
+                        <input type="text" class="form-control" id="primaryMobile" placeholder="Mobile Number">
+                     </div>
+                  </div>
+                  <div class="form-row  row mt-3">
+                     <div class="col-6 px-0 pr-1" style="padding-right:10px !important;">
+                        <input type="text" id ="pinCode" class="form-control" placeholder="PIN Code">
+                     </div>
+                     <div class="col-6 px-0">
+                        <input type="text" id="district" class="form-control" placeholder="District">
+                     </div>
+                  </div>
+                  <div class="form-row  row mt-3">
+                     <div class="col-6 px-0 pr-1" style="padding-right:10px !important;">
+                        <input type="text" id ="state" class="form-control" placeholder="State">
+                     </div>
+                     <div class="col-6 px-0">
+                        <input type="text" id="location" class="form-control" placeholder="Nearest Location">
+                        <input type="hidden" id="userId" value='<?php echo $_SESSION['user']['user_id'];?>'>
+                     </div>
+                  </div>
+                  <div class="form-group ">
+                     <div class="col">
+                        <input type="text" class="form-control" id="SecondMobile" placeholder="Alternate Mobile Number (Optional)">
                      </div>
                   </div>
                   <div class="form-group ">
                      <div class="col">
                         <label for="exampleFormControlTextarea1">Address</label>
-                        <textarea class="form-control" id="" rows="3"></textarea>
-                     </div>
-                  </div>
-                  <div class="form-row  row mt-3">
-                     <div class="col-6 px-0 pr-1" style="padding-right:10px !important;">
-                        <input type="text" class="form-control" placeholder="City">
-                     </div>
-                     <div class="col-6 px-0">
-                        <input type="text" class="form-control" placeholder="PIN Code">
+                        <textarea class="form-control" id="completeAddress" rows="3"></textarea>
                      </div>
                   </div>
                   <div class="m-t-sm text-right">
                      <div class="btn-group">
-                        <a href="#" class="btn btn-theme btn-md">Add Address</a>&nbsp;&nbsp;
+                        <button id="saveAddress" type="button" class="btn btn-theme btn-md">Add Address</button>&nbsp;&nbsp;
                         <a href="#" id="btn-cancel" class="btn btn-danger btn-md ">Cancel</a>
                      </div>
                   </div>
-               </form>
+               </div>
             </div>
          </div>
       </div>

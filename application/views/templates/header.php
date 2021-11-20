@@ -101,7 +101,7 @@ $controller = $this->router->fetch_class();
 
                                         <div class="nvright">
                                             <button type="submit" class="header_search_button trans_300" value="Submit"
-                                                style="height:  35px"><img class="s-icon" src="assets/img/search.png"
+                                                style="height:  35px"><img class="s-icon" src="<?php echo base_url('assets/img/search.png'); ?>"
                                                     alt=""></button>
                                         </div>
                                 </div>

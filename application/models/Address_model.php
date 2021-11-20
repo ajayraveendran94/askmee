@@ -16,6 +16,7 @@ class Address_model extends CI_Model{
     {
     	
         $this->db->from('as_address');
+        $this->db->order_by("ad_id", "desc");
     	$this->db->where('ad_user_id',$data);
         $query =$this->db->get();
    		return $query->result();
