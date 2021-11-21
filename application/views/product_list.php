@@ -44,7 +44,7 @@ $count = 0;
                                             class="fa fa-star"></i> <i class="fa fa-star"></i>
                                         <div class="bbb_deals_item_price ml-auto">₹<?php echo $product['offer_price']; ?></div>
                                     </div><br>
-                                    <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="btn btn-theme mb-1">Buy Now</a>
+                                    <a href="<?php echo base_url('/buynow/view/'.$product['p_id']);?>" class="btn btn-theme mb-1">Buy Now</a>
                                     <button id="addToCart<?php echo($product['p_id']); ?>" class="addToCartBtn btn btn-cart mb-1" productId=<?php echo($product['p_id']); ?>>Add to Cart</button>
                                     <a href="<?php echo base_url('/cart');?>" id="goToCart<?php echo($product['p_id']); ?>" class="d-none btn-cart mb-1">Go To Cart</a>
                                 </div>

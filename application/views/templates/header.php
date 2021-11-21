@@ -19,7 +19,7 @@ $controller = $this->router->fetch_class();
   <link href='<?php echo base_url("assets/assets/css/font-awesome.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/searchbar.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">
-  <?php if(in_array($controller, ['cart', 'profile'])){?>
+  <?php if(in_array($controller, ['cart', 'profile','category'])){?>
   <link href='<?php echo base_url("assets/assets/css/cart.css");?>' rel="stylesheet">
   <?php } ?>
   <?php if($controller == 'order'){?>
@@ -101,7 +101,7 @@ $controller = $this->router->fetch_class();
 
                                         <div class="nvright">
                                             <button type="submit" class="header_search_button trans_300" value="Submit"
-                                                style="height:  35px"><img class="s-icon" src="assets/img/search.png"
+                                                style="height:  35px"><img class="s-icon" src="<?php echo base_url('assets/img/search.png'); ?>"
                                                     alt=""></button>
                                         </div>
                                 </div>

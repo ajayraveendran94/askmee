@@ -29,5 +29,23 @@ class Profile extends CI_Controller {
         $this->load->view('profile_view', $data);
         $this->load->view('templates/footer');
     }
+
+    public function add_new_address(){
+        $address_data = array(
+                'ad_user_id' => trim($this->input->post('user_id')),
+                //'ad_title' => trim($this->input->post('ad_title')),
+                'line_1' => trim($this->input->post('line_1')),
+                'line_2' => trim($this->input->post('line_2')),
+                'line_3' => trim($this->input->post('line_3')),
+                //'post' => trim($this->input->post('post')),
+                'pin' => trim($this->input->post('pin')),
+                'district' => trim($this->input->post('district')),
+                'state' => trim($this->input->post('state')),
+                'contact_number_1' => trim($this->input->post('contact_number_1')),
+                'contact_number_2' => trim($this->input->post('contact_number_2'))
+            );
+            $result= $this->address_model->save_address($address_data);
+            echo($result);
+    }
     
 }
