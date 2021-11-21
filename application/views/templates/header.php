@@ -15,7 +15,7 @@ $controller = $this->router->fetch_class();
 
   <!-- Bootstrap CSS -->
   <link href='<?php echo base_url("assets/assets/css/bootstrap.min.css");?>' rel="stylesheet">
-  <!-- <link href="assets/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+  <link href="assets/assets/css/bootstrap.css" rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/font-awesome.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/searchbar.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/style.css");?>' rel="stylesheet">

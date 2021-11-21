@@ -123,6 +123,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php echo('<b>'.($key+1).'</b>. '.$value->line_1.','.$value->line_2.','.$value->line_3.','.$value->district.','.$value->state) ?>
+                                        <i class="fas fa-edit" onClick="myfunction();"></i>  
                                     </div>
                                     <!-- <div class="col-sm-3">
                                         <h6 class="mb-0"></h6>
@@ -139,7 +140,53 @@
                                             data-bs-target="#exampleModal">
                                             Edit
                                         </button>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+
+                                        
+
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Address</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Email address</label>
+                                                            <input type="email" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Email Address" value = " <?php echo $user_data[0]->email ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Mobile</label>
+                                                            <input type="number" class="form-control"
+                                                                id="exampleFormControlInput1"
+                                                                placeholder="Mobile Number" value ="<?php echo $user_data[0]->mobile_number ?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Address</label>
+                                                                <div class="accordion" id="accordionExample">
+            
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-theme">Save
+                                                            changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -154,20 +201,20 @@
                                                                 class="form-label">Email address</label>
                                                             <input type="email" class="form-control"
                                                                 id="exampleFormControlInput1"
-                                                                placeholder="Email Address">
+                                                                placeholder="Email Address" value = " <?php echo $user_data[0]->email ?>">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
                                                                 class="form-label">Mobile</label>
                                                             <input type="number" class="form-control"
                                                                 id="exampleFormControlInput1"
-                                                                placeholder="Mobile Number">
+                                                                placeholder="Mobile Number" value ="<?php echo $user_data[0]->mobile_number ?>">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1"
                                                                 class="form-label">Address</label>
-                                                            <textarea class="form-control"
-                                                                placeholder="Address with pincode"></textarea>
+                                                                <div class="accordion" id="accordionExample">
+            
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -179,7 +226,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -188,3 +238,18 @@
 
             </div>
         </div>
+        <script>
+            function myfunction()
+                {
+       
+                $('#exampleModal1').modal({backdrop: 'static', keyboard: false});
+                $('#exampleModal1').modal('show'); // show bootstrap modal
+                $('.modal-title').text('Add Quote Detail'); // Set Title to Bootstrap modal title
+
+      
+    
+            }
+            
+        </script>
+
+
