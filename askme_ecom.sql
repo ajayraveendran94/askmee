@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2021 at 10:27 PM
+-- Generation Time: Nov 22, 2021 at 08:22 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -35,11 +35,11 @@ CREATE TABLE `as_address` (
   `line_2` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `line_3` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `post` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pin` int(10) NOT NULL,
+  `pin` varchar(10) NOT NULL,
   `district` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact_number_1` int(15) NOT NULL,
-  `contact_number_2` int(15) NOT NULL,
+  `contact_number_1` varchar(15) NOT NULL,
+  `contact_number_2` varchar(15) NOT NULL,
   `ad_status` int(1) NOT NULL DEFAULT 1 COMMENT '1= Active, 0= Inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -48,11 +48,13 @@ CREATE TABLE `as_address` (
 --
 
 INSERT INTO `as_address` (`ad_id`, `ad_user_id`, `ad_title`, `line_1`, `line_2`, `line_3`, `post`, `pin`, `district`, `state`, `contact_number_1`, `contact_number_2`, `ad_status`) VALUES
-(1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', 685454, 'Kollam', 'Kerala', 2147483647, 0, 1),
-(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', 686502, 'Kottayam', 'Kerala', 8989898, 2147483647, 1),
-(3, 2, 'Home', 'House 4', 'Posy P O', '', '', 686556, 'Kottayam', 'Kerala', 952645399, 2147483647, 1),
-(4, 2, 'Home', 'Pavamkottu', 'Aruvikuzhy P O', '', '', 686503, '', 'Kerala', 2147483647, 0, 1),
-(5, 13, 'Home', 'Kill bill P', 'Huila PO', '', 'Kottayam', 686500, 'Kottayam', 'Kerala', 2147483647, 0, 1);
+(1, 11, 'Home', 'House number 2', 'Street 1', '', 'Post 2', '685454', 'Kollam', 'Kerala', '2147483647', '0', 1),
+(2, 2, 'Home ', 'Laughing villa', 'Kattayikkonam', 'Pampady', 'Orvayil', '686502', 'Kottayam', 'Kerala', '8989898', '2147483647', 1),
+(3, 2, 'Home', 'House 4', 'Posy P O', '', '', '686556', 'Kottayam', 'Kerala', '952645399', '2147483647', 1),
+(5, 13, 'Home', 'Kill bill P', 'Huila PO', '', 'Kottayam', '686500', 'Kottayam', 'Kerala', '2147483647', '0', 1),
+(7, 2, '', 'Nikhil M', 'Nikhil Nivas\nMannaradi', 'Valiyangadi', '', '676502', 'Malappuram', 'Kerala', '2147483647', '2147483647', 1),
+(8, 2, '', 'Ajay Raveendran', 'Vallari\nHauilai P O', '', '', '686001', 'Kottayam', 'Kerala', '09526032395', '2147483647', 1),
+(9, 2, '', 'Vishnu A', 'NEDUMATTATHIL (H)\nMaradu (P O)', 'Maronnu', '', '676504', 'Malappuram', 'Kerala', '9856453267', '9878675645', 1);
 
 -- --------------------------------------------------------
 
@@ -92,6 +94,13 @@ CREATE TABLE `as_checkout` (
   `ch_quantity` bigint(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `as_checkout`
+--
+
+INSERT INTO `as_checkout` (`ch_id`, `ch_pr_id`, `ch_user_id`, `ch_quantity`) VALUES
+(9, 5, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -113,10 +122,17 @@ CREATE TABLE `as_orders` (
 
 INSERT INTO `as_orders` (`or_id`, `address_id`, `total_amount`, `status_id`, `order_from_admin`, `order_date`) VALUES
 (1, 1, 828, 1, 1, '2021-07-18 13:29:44'),
-(7, 4, 422, 1, 0, '2021-09-05 18:26:28'),
 (9, 3, 194361, 1, 0, '2021-09-05 22:09:48'),
-(10, 4, 280, 1, 0, '2021-09-05 22:13:40'),
-(11, 5, 676, 1, 0, '2021-09-05 22:26:31');
+(11, 5, 676, 1, 0, '2021-09-05 22:26:31'),
+(12, 2, 224, 1, 0, '2021-09-17 21:00:37'),
+(14, 2, 254, 1, 0, '2021-09-17 21:03:41'),
+(16, 3, 254, 1, 0, '2021-09-17 21:10:21'),
+(18, 2, 1042, 1, 0, '2021-10-31 09:46:56'),
+(20, 2, 696, 1, 0, '2021-11-20 12:53:58'),
+(21, 2, 56, 1, 0, '2021-11-20 12:54:19'),
+(22, 2, 56, 1, 0, '2021-11-20 19:06:10'),
+(23, 8, 56, 1, 0, '2021-11-20 19:22:53'),
+(24, 9, 129940, 1, 0, '2021-11-20 19:26:17');
 
 -- --------------------------------------------------------
 
@@ -127,25 +143,36 @@ INSERT INTO `as_orders` (`or_id`, `address_id`, `total_amount`, `status_id`, `or
 CREATE TABLE `as_order_detail` (
   `or_detail_id` bigint(20) NOT NULL,
   `order_id` bigint(20) NOT NULL,
-  `product_id` bigint(20) NOT NULL,
-  `quantity` bigint(10) NOT NULL,
+  `or_product_id` bigint(20) NOT NULL,
+  `or_quantity` bigint(10) NOT NULL,
   `individual_price` float NOT NULL,
-  `total_price` float NOT NULL
+  `total_price` float NOT NULL,
+  `delivery_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `as_order_detail`
 --
 
-INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `product_id`, `quantity`, `individual_price`, `total_price`) VALUES
-(1, 1, 1, 2, 254, 508),
-(2, 1, 3, 1, 320, 320),
-(8, 7, 5, 3, 56, 168),
-(9, 7, 1, 1, 254, 254),
-(10, 9, 4, 3, 64787, 194361),
-(11, 10, 5, 5, 56, 280),
-(12, 11, 5, 3, 56, 168),
-(13, 11, 1, 2, 254, 508);
+INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `or_product_id`, `or_quantity`, `individual_price`, `total_price`, `delivery_date`) VALUES
+(1, 1, 1, 2, 254, 508, '0000-00-00'),
+(2, 1, 3, 1, 320, 320, '0000-00-00'),
+(10, 9, 4, 3, 64787, 194361, '0000-00-00'),
+(12, 11, 5, 3, 56, 168, '0000-00-00'),
+(13, 11, 1, 2, 254, 508, '0000-00-00'),
+(14, 12, 5, 4, 56, 224, '0000-00-00'),
+(16, 14, 1, 1, 254, 254, '0000-00-00'),
+(18, 16, 1, 1, 254, 254, '0000-00-00'),
+(20, 18, 5, 5, 56, 280, '0000-00-00'),
+(21, 18, 1, 3, 254, 762, '0000-00-00'),
+(24, 20, 3, 2, 320, 640, '0000-00-00'),
+(25, 20, 5, 1, 56, 56, '0000-00-00'),
+(26, 21, 5, 1, 56, 56, '0000-00-00'),
+(27, 22, 5, 1, 56, 56, '0000-00-00'),
+(28, 23, 5, 1, 56, 56, '0000-00-00'),
+(29, 24, 1, 1, 254, 254, '0000-00-00'),
+(30, 24, 4, 2, 64787, 129574, '0000-00-00'),
+(31, 24, 5, 2, 56, 112, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -164,7 +191,8 @@ CREATE TABLE `as_order_status` (
 --
 
 INSERT INTO `as_order_status` (`ors_id`, `status_name`, `default_status`) VALUES
-(1, 'Placed', 1);
+(1, 'Placed', 1),
+(2, 'Payment Received', 2);
 
 -- --------------------------------------------------------
 
@@ -188,10 +216,10 @@ CREATE TABLE `as_products` (
 --
 
 INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_price`, `offer_price`, `description`, `quantity`, `product_status`) VALUES
-(1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 6, 1),
-(3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 54, 1),
-(4, 2, 10, 74567, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 2, 1),
-(5, 5, 6, 78, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 46, 1);
+(1, 1, 3, 304, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 11, 1),
+(3, 1, 12, 360, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 51, 1),
+(4, 2, 10, 74567, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 11, 1),
+(5, 5, 6, 78, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 23, 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +300,8 @@ INSERT INTO `as_user` (`user_id`, `name`, `email`, `mobile_number`, `password`, 
 (10, 'Ajay', 'admin@gmail.com', 0, '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'A', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (11, 'Ajay R', 'ar@gmail.com', 0, '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
 (12, 'Arun', 'arun@gmail.com', 0, '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00'),
-(13, 'Ajay', 'ajay.raveendran@gmail.com', 2147483647, '$2y$10$wDexFCCeyx.T0HYKHEgGV.gQ2A8MkH.MURWATJf4MUZDSmL0Qsps.', 'U', 1, '2021-09-05 00:00:00', '2021-09-05 00:00:00');
+(13, 'Ajay', 'ajay.raveendran@gmail.com', 2147483647, '$2y$10$wDexFCCeyx.T0HYKHEgGV.gQ2A8MkH.MURWATJf4MUZDSmL0Qsps.', 'U', 1, '2021-09-05 00:00:00', '2021-09-05 00:00:00'),
+(14, 'ar@gmail.com', 'ajay.rr@gmail.com', 2147483647, '$2y$10$pofmdWWBC3Niss4w.G7Tn.2HiujuJA7e5TuKJmdvvpntdYYwZCETm', 'U', 1, '2021-09-17 00:00:00', '2021-09-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -326,7 +355,7 @@ ALTER TABLE `as_order_detail`
   ADD PRIMARY KEY (`or_detail_id`),
   ADD UNIQUE KEY `or_detail_id` (`or_detail_id`),
   ADD KEY `order_in_detail` (`order_id`),
-  ADD KEY `product_in_order` (`product_id`);
+  ADD KEY `product_in_order` (`or_product_id`);
 
 --
 -- Indexes for table `as_order_status`
@@ -379,7 +408,7 @@ ALTER TABLE `as_user_cart`
 -- AUTO_INCREMENT for table `as_address`
 --
 ALTER TABLE `as_address`
-  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ad_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `as_categories`
@@ -391,25 +420,25 @@ ALTER TABLE `as_categories`
 -- AUTO_INCREMENT for table `as_checkout`
 --
 ALTER TABLE `as_checkout`
-  MODIFY `ch_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ch_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `as_orders`
 --
 ALTER TABLE `as_orders`
-  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `or_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `as_order_detail`
 --
 ALTER TABLE `as_order_detail`
-  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `or_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `as_order_status`
 --
 ALTER TABLE `as_order_status`
-  MODIFY `ors_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ors_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `as_products`
@@ -433,13 +462,13 @@ ALTER TABLE `as_product_master`
 -- AUTO_INCREMENT for table `as_user`
 --
 ALTER TABLE `as_user`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `as_user_cart`
 --
 ALTER TABLE `as_user_cart`
-  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables
@@ -463,7 +492,7 @@ ALTER TABLE `as_orders`
 --
 ALTER TABLE `as_order_detail`
   ADD CONSTRAINT `order_in_detail` FOREIGN KEY (`order_id`) REFERENCES `as_orders` (`or_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_in_order` FOREIGN KEY (`product_id`) REFERENCES `as_products` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_in_order` FOREIGN KEY (`or_product_id`) REFERENCES `as_products` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `as_products`
