@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2021 at 08:22 AM
+-- Generation Time: Nov 22, 2021 at 09:22 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -281,7 +281,7 @@ CREATE TABLE `as_user` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile_number` int(15) NOT NULL,
+  `mobile_number` bigint(15) NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'U' COMMENT 'U= User, A= Admin, V= Vendor',
   `user_status` int(1) NOT NULL DEFAULT 1 COMMENT '1= Active, 0= Inactive',
@@ -301,7 +301,8 @@ INSERT INTO `as_user` (`user_id`, `name`, `email`, `mobile_number`, `password`, 
 (11, 'Ajay R', 'ar@gmail.com', 0, '$2y$10$URobmd53d75OXbVjqQ4ftuFHrVMJpO1YCcdPdOhX2GLMHeaoiL9vi', 'U', 1, '2021-05-16 00:00:00', '2021-05-19 02:05:32'),
 (12, 'Arun', 'arun@gmail.com', 0, '$2y$10$RGCE6YW6F1D7xHn2K2oDReuVZ73WTGucsiT8eeFDavJCHMQqqBsPu', 'V', 1, '2021-05-17 00:00:00', '2021-05-17 00:00:00'),
 (13, 'Ajay', 'ajay.raveendran@gmail.com', 2147483647, '$2y$10$wDexFCCeyx.T0HYKHEgGV.gQ2A8MkH.MURWATJf4MUZDSmL0Qsps.', 'U', 1, '2021-09-05 00:00:00', '2021-09-05 00:00:00'),
-(14, 'ar@gmail.com', 'ajay.rr@gmail.com', 2147483647, '$2y$10$pofmdWWBC3Niss4w.G7Tn.2HiujuJA7e5TuKJmdvvpntdYYwZCETm', 'U', 1, '2021-09-17 00:00:00', '2021-09-17 00:00:00');
+(14, 'ar@gmail.com', 'ajay.rr@gmail.com', 2147483647, '$2y$10$pofmdWWBC3Niss4w.G7Tn.2HiujuJA7e5TuKJmdvvpntdYYwZCETm', 'U', 1, '2021-09-17 00:00:00', '2021-09-17 00:00:00'),
+(15, 'Test Account', 'test@askme.in', 8987676788, '$2y$10$rfLOA4Bk5gJMCj9Go28eseKkJD3aK0zlODO9POPwNLshPJ6rWK7E6', 'U', 1, '2021-11-22 00:00:00', '2021-11-22 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -462,7 +463,7 @@ ALTER TABLE `as_product_master`
 -- AUTO_INCREMENT for table `as_user`
 --
 ALTER TABLE `as_user`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `as_user_cart`
