@@ -57,7 +57,7 @@
 
 
 
-
+  <script src="https://kit.fontawesome.com/c5110883ba.js" crossorigin="anonymous"></script>
   
  <script src='<?php echo base_url("assets/assets/js/jquery-3.6.0.min.js");?>'></script>
 <script src='<?php echo base_url("assets/assets/js/bootstrap.bundle.js");?>'></script>
@@ -67,14 +67,6 @@
   <script>
 
 
-$("#edit").click( function()
-   {
-     $(".editable").css("border", "1px solid black");
-     $(".editable").css("border", "1px solid black");
-     $(".editable").css("border", "1px solid black");
-
-   }
-);
 </script>
 
 
@@ -141,19 +133,7 @@ $controller = $this->router->fetch_class();
 ?>
 </body>
 <style>
-.editable
-{
-  border:none;
-}
-.editable:hover
-{
-  pointer-events: none;
 
-}
-.editable:focus {
-        outline: none;
-        box-shadow: none;
-}
 #errMsg
 {
   color:red;
