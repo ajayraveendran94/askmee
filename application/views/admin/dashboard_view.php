@@ -8,7 +8,7 @@
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15">New Booking</h5>
+                          <h5 class="font-15">Total Orders</h5>
                           <h2 class="mb-3 font-18">258</h2>
                           <p class="mb-0"><span class="col-green">10%</span> Increase</p>
                         </div>
@@ -52,10 +52,10 @@
                     <div class="row ">
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                         <div class="card-content">
-                          <h5 class="font-15">New Project</h5>
-                          <h2 class="mb-3 font-18">128</h2>
-                          <p class="mb-0"><span class="col-green">18%</span>
-                            Increase</p>
+                          <h5 class="font-15">Today's Sale</h5>
+                          <h2 class="mb-3 font-18">₹ 487</h2>
+                          <p class="mb-0"><span class="col-green"><script> document.write(new Date().toLocaleDateString()); </script></span>
+                             </p>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -91,7 +91,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-12 col-sm-12 col-lg-12">
               <div class="card ">
                 <div class="card-header">
@@ -177,8 +177,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <!-- <div class="row">
             <div class="col-12 col-sm-12 col-lg-4">
               <div class="card">
                 <div class="card-header">
@@ -468,9 +468,9 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 col-lg-12 col-xl-6">
+            <div class="col-md-6 col-lg-12 col-xl-6"> -->
               <!-- Support tickets -->
-              <div class="card">
+              <!-- <div class="card">
                 <div class="card-header">
                   <h4>Support Ticket</h4>
                   <form class="card-header-form">
@@ -528,9 +528,9 @@
                 </div>
                 <a href="javascript:void(0)" class="card-footer card-link text-center small ">View
                   All</a>
-              </div>
+              </div> -->
               <!-- Support tickets -->
-            </div>
+            <!-- </div>
             <div class="col-md-6 col-lg-12 col-xl-6">
               <div class="card">
                 <div class="card-header">
@@ -615,6 +615,6 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </section>
       </div>
