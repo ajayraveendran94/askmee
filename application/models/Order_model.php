@@ -115,7 +115,7 @@ class Order_model extends CI_Model{
 
     public function get_order_data($id){
         $this->db->reset_query();
-        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price, line_1, line_2, line_3, post, pin, user_id, delivery_date, or_detail_id');
+        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price, line_1, line_2, line_3, post, pin, user_id, delivery_date, or_detail_id, or_id');
         $this->db->join('as_orders', 'or_id = order_id ');
         $this->db->join('as_order_status', 'ors_id = status_id ');
         $this->db->join('as_address', 'ad_id = address_id');
@@ -139,6 +139,12 @@ class Order_model extends CI_Model{
         $this->db->join('as_user', 'user_id = ad_user_id');
         $query =$this->db->get();
         return $query->result();
+    }
+
+    function update_order($data, $id)
+    {
+        $this->db->reset_query();
+        $this->db->update('as_order_detail', $data, array('or_detail_id' => $id));
     }
 }
 ?>

@@ -52,6 +52,7 @@ $(".swal-6").click(function () {
 });
 
 $(".disable-prod").click(function () {
+  debugger;
   swal({
     title: 'Are you sure?',
     text: 'Do you want to disable the product!',
@@ -301,4 +302,39 @@ $(".swal-11").click(function () {
       // window.location.reload(true);
       // e.preventDefault();
     });
+});
+
+$('.ordSubmit').click(function(){
+  var statusDetails = {};
+  statusDetails['order_id'] = $(this).attr('orderId');
+  statusDetails['date'] = $('#date_'+statusDetails['order_id']).val();
+  statusDetails['status'] = $('#status_'+statusDetails['order_id']).val();
+  $.ajax({
+          data: statusDetails,
+          type: 'POST',
+          url: '../change_status',
+          success: function(response){
+            // swal('Done! User Successfully Updated!', {
+            //   icon: 'success',
+            // });
+          setTimeout(function(){ location.reload(); }, 1500);}
+        });
+});
+
+$('#changeAll').click(function(){
+  var statusDetails = {};
+  statusDetails['order_id'] = $('#order_id').val();
+  statusDetails['status'] = $('#orderStatus').val();
+  statusDetails['date'] = $('#deliveryDate').val();
+  $.ajax({
+          data: statusDetails,
+          type: 'POST',
+          url: '../change_whole_status',
+          success: function(response){
+            // swal('Done! User Successfully Updated!', {
+            //   icon: 'success',
+            // });
+            debugger;
+          setTimeout(function(){ location.reload(); }, 1500);}
+        });
 });

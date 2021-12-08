@@ -98,5 +98,32 @@ class Orderlist extends CI_Controller {
             $this->order_model->save_order_details($data);
         }  
     }
+
+     public function change_status()
+    {
+        $id = trim($this->input->post('order_id'));
+        $order_data = array(
+                        'status_id' => trim($this->input->post('status')),
+                        'delivery_date' => trim($this->input->post('date'))
+                    );
+        $result = $this->order_model->update_order($order_data, $id);
+        echo json_encode($result);
+    }
+
+     public function change_whole_status()
+    {
+        $or_id = trim($this->input->post('order_id'));
+        $order_data = array(
+                        'status_id' => trim($this->input->post('status')),
+                        'delivery_date' => trim($this->input->post('date'))
+                    );
+
+        $order_details = $this->order_model->get_order_data($or_id);
+        foreach ($order_details as $order) {
+          $id = trim($order["or_detail_id"]);
+          $this->order_model->update_order($order_data, $id);
+        }
+        echo 'Success';
+    }
     
 }

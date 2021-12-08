@@ -32,18 +32,22 @@
                         </thead>
                         <tbody>
                         <?php 
+                          $selected_ids = array();
                           foreach($orders as $row){
+                          if(!in_array($row['or_id'], $selected_ids)){
                         ?>
                           <tr>
                             <td class="text-center pt-2">
                               <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                  id="checkbox-<?php echo $row['or_id'] ?>">
+                                  id="checkbox-<?php echo $row['or_id']; ?>">
                                 <label for="checkbox-<?php echo $row['or_id'] ?>" class="custom-control-label">&nbsp;</label>
                               </div>
                             </td>
                             <td>
-                              <?php echo $row['or_id']; ?>
+                              <?php 
+                              array_push($selected_ids, $row['or_id']);
+                              echo $row['or_id']; ?>
                                 
                             </td>
                             <td>
@@ -60,10 +64,12 @@
                             </td>
                             <td>
                               <a href="<?php echo base_url('admin/orderlist/view/'.$row['or_id']); ?>" class="btn btn-warning">Details</a>
-                              <button id="statusChange" class="btn btn-danger">Change Status</button>
+                              <!-- <button id="statusChange" class="btn btn-danger">Change Status</button> -->
                             </td>
                           </tr>
-                          <?php } ?>
+                          <?php 
+                        }
+                        } ?>
                         </tbody>
                       </table>
                     </div>

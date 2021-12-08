@@ -16,6 +16,7 @@
                           <label>Ordered User Name</label>
                           <input type="text" class="form-control" name="user_name" value=" <?php echo($order[0]['name']); ?>" readonly>
                           <input type="hidden" class="form-control" name="user_id" value="<?php echo($order[0]['user_id']); ?>">
+                          <input type="hidden" name="order_id" id ="order_id" value="<?php echo $order[0]['order_id']; ?>">
                         </div>
                       </div>
                       <div class="col-6">
@@ -26,10 +27,16 @@
                       </div>
                     </div>
                      <div class="form-row">
-                      <div class="col-6">
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label>Ordered Date</label>
+                          <input id="orderedDate" type="date" class="form-control" name="user_name" value="<?php echo(date("Y-m-d", strtotime($order[0]['order_date']))); ?>" readonly>
+                        </div>
+                      </div>
+                      <div class="col-4">
                         <div class="form-group">
                           <label>Status</label>
-                          <select class="form-control" name="status" value="">
+                          <select class="form-control" id="orderStatus" value="">
                             <option value="<?php echo($order[0]['ors_id']); ?>"><?php echo($order[0]['status_name']); ?></option>
                             <?php foreach($status as $st){
                               if($st['ors_id'] != $order[0]['ors_id']){?>
@@ -39,18 +46,18 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-4">
                         <div class="form-group">
-                          <label>Ordered Date</label>
-                          <input id="deliveryDate" type="date" class="form-control" name="user_name" value="<?php echo(date("Y-m-d", strtotime($order[0]['order_date']))); ?>" readonly>
+                          <label>Delivery Date</label>
+                          <input id="deliveryDate" type="date" class="form-control" value="<?php echo($order[0]['delivery_date']); ?>">
                         </div>
                       </div>
                     </div> 
                   <div class="card-footer text-right">
                     <button class="btn btn-dark mr-1">
-                    <a href="<?php echo base_url('admin/orderlist');?>">Back</a>
+                    <a href="<?php echo base_url('admin/orderlist/list');?>">Back</a>
                     </button>
-                    <!-- <button class="btn btn-primary mr-1" type="submit">Submit</button> -->
+                    <button class="btn btn-primary mr-1" id="changeAll" >Change All Status</button>
                     <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
                   </div>
                 </div>
@@ -73,7 +80,8 @@
 
                         <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-<?php echo($count)?>"
                           aria-expanded="false">
-                          <h4><?php echo("Order No: ASK-".date("m-d-Y", strtotime($order[0]['order_date'])).'-'.$value['order_id']); ?> &nbsp;&nbsp;&nbsp; <b>More Details ↓ </b></h4>
+                          <h4><?php echo("Order No: ASK-".$order[0]['or_id'].'-'.$value['or_detail_id']); ?> &nbsp;&nbsp;&nbsp; <b>More Details ↓ </b></h4>
+                          <!-- date("m-d-Y", strtotime($order[0]['order_date'])) -->
                         </div>
 
                         <div class="accordion-body collapse" id="panel-body-<?php echo($count)?>" data-parent="#accordion">
@@ -81,7 +89,6 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="hidden" name="order_id" id ="order_id" value="<?php echo $value['order_id']; ?>">
                                 <input type="text" class="form-control" placeholder="Add title like Home/Office etc.." name="ad_title" value="<?php echo($value['product_name']); ?>" readonly>
                               </div>
                             </div>
@@ -110,7 +117,7 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Status</label>
-                                <select class="form-control" name="status" value="">
+                                <select id="status_<?php echo $value['or_detail_id']; ?>"class="form-control" name="status" value="">
                             <option value="<?php echo($value['ors_id']); ?>"><?php echo($value['status_name']); ?></option>
                             <?php foreach($status as $st){
                               if($st['ors_id'] != $value['ors_id']){?>
@@ -123,12 +130,12 @@
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Delivery Date</label>
-                                <input type="date" class="form-control" name="pin" value="<?php echo($value['delivery_date']); ?>">
+                                <input id="date_<?php echo $value['or_detail_id']; ?>" type="date" class="form-control" name="pin" value="<?php echo($value['delivery_date']); ?>">
                                 </div>
                               </div>
                           </div>
-                            <button orderId="<?php echo $value['or_detail_id']; ?>" class="btn btn-primary mr-1" id="ordSubmit">Submit</button>
-                            <button orderId="<?php echo $value['or_detail_id']; ?>" class="btn btn-danger mr-1" id="ordDelete">Delete</button>
+                            <button orderId="<?php echo $value['or_detail_id']; ?>" class="btn btn-primary mr-1 ordSubmit">Submit</button>
+                            <button orderId="<?php echo $value['or_detail_id']; ?>" class="btn btn-danger mr-1 ordDelete">Delete</button>
                         </div>
 
 
