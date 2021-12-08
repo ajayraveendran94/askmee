@@ -68,6 +68,7 @@ class Order_model extends CI_Model{
     function get_orders(){
         $this->db->reset_query();
         $this->db->select('or_id, total_amount, order_from_admin, order_date, name, status_name, ors_id');
+        $this->db->join('as_order_detail', 'or_id = order_id ');
         $this->db->join('as_order_status', 'ors_id = status_id ');
         $this->db->join('as_address', 'ad_id = address_id');
         $this->db->join('as_user', 'user_id = ad_user_id');
@@ -111,6 +112,27 @@ class Order_model extends CI_Model{
     //     $this->db->reset_query();
     //     $this->db->update('as_product_master', $data, array('id' => $id));
     // }
+
+    public function get_order_data($id){
+        $this->db->reset_query();
+        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price, line_1, line_2, line_3, post, pin, user_id, delivery_date, or_detail_id');
+        $this->db->join('as_orders', 'or_id = order_id ');
+        $this->db->join('as_order_status', 'ors_id = status_id ');
+        $this->db->join('as_address', 'ad_id = address_id');
+        $this->db->join('as_products', 'p_id = or_product_id ');
+        $this->db->join('as_product_master', 'id = master_product_id ');
+        //$this->db->join('as_product_images', 'or_product_id = or_product_id');
+        $this->db->join('as_user', 'user_id = ad_user_id');
+        $this->db->where('or_id', $id);
+        $query = $this->db->get('as_order_detail')->result_array();
+        // foreach($query as $i=>$product) {
+        //   $this->db->where('product_id', $product['p_id']);
+        //   $images_query = $this->db->get('as_product_images')->result_array();
+        //   $query[$i]['product_images'] = $images_query;
+        // }
+        return $query;
+    }
+
     public function get_all_address()
     {
         $this->db->from('as_address');

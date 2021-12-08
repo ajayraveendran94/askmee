@@ -48,6 +48,31 @@ class Orderlist extends CI_Controller {
         echo json_encode($data);
     }
     
+    public function view($page){
+        $order_data = $this->order_model->get_order_data($page);
+        $data['order'] = $order_data;
+        $status_data = $this->order_model->get_all_status();
+        $data['status'] = $status_data;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        //print_r($data);
+        $this->load->view('admin/order_details_view', $data);
+        $this->load->view('admin/templates/footer_admin');
+    }
+
+    public function status()
+    {
+        $order_data = $this->order_model->get_orders();
+        $order_status = $this->order_model->get_all_status();
+        //print_r($product_data[0]['p_id']);
+        $data['orders'] = $order_data;
+        $data['status'] = $order_status;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        $this->load->view('admin/statuslist_view', $data);
+        $this->load->view('admin/templates/footer_admin');
+    }
+
     public function place_order()
     {
         $order_array = array();
@@ -56,7 +81,6 @@ class Orderlist extends CI_Controller {
         $order_data = array(
                 'address_id' => $placed_order['address'],
                 'total_amount' => $placed_order['net_amount'],
-                'status_id' => 1,
                 'order_from_admin' => true,
                 'order_date' => date("Y-m-d H:i:s")
         );
@@ -67,6 +91,7 @@ class Orderlist extends CI_Controller {
                     'order_id' => $order_id,
                     'or_product_id' => $placed_order['order_product_id'][$i],
                     'or_quantity' => $placed_order['quantity'][$i],
+                    'status_id' => 1,
                     'individual_price' => $placed_order['offer_price'][$i],
                     'total_price' => $placed_order['offer_price'][$i] * $placed_order['quantity'][$i]
                 );

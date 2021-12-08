@@ -1,36 +1,4 @@
 <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-theme navbar-web shift">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="productlisting.html">All</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="productlisting.html">Vegetable</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Fruits</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Meats</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Fish</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productlisting.html">Egg</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
             <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -122,7 +90,7 @@
                                     <?php } ?>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo('<b>'.($key+1).'</b>. '.$value->line_1.','.$value->line_2.','.$value->line_3.','.$value->post.','.$value->district.','.$value->state.','.$value->contact_number_1.','.$value->contact_number_2) ?>
+                                        <?php echo('<b>'.($key+1).'</b>. '.$value->line_1.','.$value->line_2.' '.$value->line_3.' '.$value->post.' '.$value->district.' '.$value->state.' '.$value->contact_number_1.' '.$value->contact_number_2) ?>
                                         <input type = "hidden" name ="address_id" value = "<?php echo $value->line_1 ?>" />
                                         <input type = "hidden" name ="address_id" value = "<?php echo $value->line_2 ?>" />
                                         <input type = "hidden" name ="address_id" value = "<?php echo $value->line_3 ?>" />
@@ -145,7 +113,7 @@
                                     <div class="col-sm-12">
                                         <button type="button" class="btn btn-theme" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
-                                            Edit
+                                            Edit User Details
                                         </button>
                                         <button type="button" class="btn btn-theme" onclick="add_address_details();">
                                             Add New address

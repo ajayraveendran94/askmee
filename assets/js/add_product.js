@@ -6,6 +6,7 @@ function deleteImage() {
 }
 
 var totalFiles = [];
+var commission;
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
@@ -40,3 +41,28 @@ function handleFileSelect(evt) {
   
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+  $("#vendorPrice").keyup(function(e) {
+    if($('#productSelected :selected').attr('comPercent')){
+     commission = parseFloat($(this).val()) + ($(this).val() * parseFloat($('#productSelected :selected').attr('comPercent'))/100);
+    }
+    else if($('#productSelected :selected').attr('comAmount')){
+      commission = parseFloat($(this).val()) + parseFloat($('#productSelected :selected').attr('comAmount'));
+    }
+    else{
+      commission = parseFloat($(this).val());
+    }
+    $("#offerPrice").val(commission);  
+  });
+  $("#productSelected").change(function(){
+    if($('#productSelected :selected').attr('comPercent')){
+     commission = parseFloat($(this).val()) + ($(this).val() * parseFloat($('#productSelected :selected').attr('comPercent'))/100);
+    }
+    else if($('#productSelected :selected').attr('comAmount')){
+      commission = parseFloat($(this).val()) + parseFloat($('#productSelected :selected').attr('comAmount'));
+    }
+    else{
+      commission = parseFloat($(this).val());
+    }
+    $("#offerPrice").val(commission);
+  });

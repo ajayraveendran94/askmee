@@ -95,6 +95,7 @@ class Editproduct extends CI_Controller {
         $product_data = array(
             'description' => $this->input->post('product_description'),
             'offer_price' => $this->input->post('offer_price'),
+            'vendor_price' => $this->input->post('vendor_price'),
             'actual_price' => $this->input->post('actual_price'),
             'quantity' => $this->input->post('quantity')
         );

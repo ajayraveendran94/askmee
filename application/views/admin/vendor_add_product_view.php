@@ -13,11 +13,13 @@
                   <div class="card-body">
                    <div class="form-group">
                       <label>Product</label>
-                      <select class="form-control" name="product_name">
+                      <select class="form-control" name="product_name" id="productSelected">
+                        <!-- <input type="hidden" class="form-control" value="<?php echo($product_list[0]->com_amount);?>" id="comAmount">
+                        <input type="hidden" value="<?php echo($product_list[0]->com_percent);?>" class="form-control" id="comPercent"> -->
                         <?php 
                           foreach($product_list as $product)
                           {
-                              echo('<option value ="'.$product->id.'">'.$product->product_name.'</option>');
+                              echo('<option comPercent="'.$product->com_percent.'" comAmount="'.$product->com_amount.'" value ="'.$product->id.'">'.$product->product_name.'</option>');
                           }
                         ?>
                       </select>
@@ -55,7 +57,9 @@
                       </div>
                       <div class="form-group col-md-6">
                         <label>Offer Price</label>
-                        <input type="number" class="form-control" name="offer_price" required>
+                        <input type="hidden" id="offerPrice" class="form-control" name="offer_price" required>
+                        <input type="number" id="vendorPrice" name="vendor_price" class="form-control" required>
+
                       </div>
                     </div>
                     <div class="form-group">

@@ -7,9 +7,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="productlisting.html">All</a>
-                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#">All</a>
+                            </li> -->
                             <?php 
                             $count = 0;
                             foreach ($category as $row) {

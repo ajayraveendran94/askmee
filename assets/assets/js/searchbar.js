@@ -1,22 +1,3 @@
-// $(document).ready(function (e) {
-
-//     $('.search-panel .dropdown-menu').find('a').click(function (e) {
-//       e.preventDefault();
-//       var param = $(this).attr("href").replace("#", "");
-//       var concept = $(this).text();
-//       $('.search-panel span#search_concept').text(concept);
-//       $('.input-group #search_param').val(param);
-//     });
-//   });
-//   var a = document.getElementByTagName('a').item(0);
-//   $(a).on('keyup', function (evt) {
-//     console.log(evt);
-//     if (evt.keycode === 13) {
-
-//       alert('search?');
-//     }
-//   });
-
 $(document).ready(function(){
 $('.modal-backdrop').remove();
 $('.search-panel .dropdown-menu').find('a').click(function (e) {
@@ -47,7 +28,7 @@ function getProducts($search){
   
 function strInArray(str, strArray) {
   for (var j=0; j<strArray.length; j++) {
-    if ((strArray[j].product_name).match(str) && $return.length < 5) {
+    if ((strArray[j].product_name).match(new RegExp(str, "i")) && $return.length < 5) {
       var $h = (strArray[j].product_name).replace(str, '<strong>'+str+'</strong>');
       $return.push('<a href="'+$('#baseUrl').val()+"product/view_product/"+strArray[j].id+'"><li class="prediction-item"><span class="prediction-text">' + $h + '</span></li></a>');
     }

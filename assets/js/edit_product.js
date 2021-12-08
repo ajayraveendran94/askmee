@@ -121,6 +121,18 @@ function readURL(input, imgControlName) {
       }
     });
   });
+  $("#vendorPrice").keyup(function(e) {
+    if($('#productName').attr('comPercent')){
+     commission = parseFloat($(this).val()) + ($(this).val() * parseFloat($('#productName').attr('comPercent'))/100);
+    }
+    else if($('#productName').attr('comamount')){
+      commission = parseFloat($(this).val()) + parseFloat($('#productName').attr('comamount'));
+    }
+    else{
+      commission = parseFloat($(this).val());
+    }
+    $("#offerPrice").val(commission);
+  });
 //   $("#removeImage5").click(function(e) {
 //     e.preventDefault();
 //     $("#imag5").val("");

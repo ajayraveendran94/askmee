@@ -142,6 +142,9 @@
               <a href="#" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
               </a> 
+              <a href="<?php echo base_url('admin/login/logout'); ?>" class="dropdown-item has-icon"> <i class="far
+                    fa-user"></i> Logout
+              </a> 
               <!-- <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
                 Activities
               </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
@@ -232,7 +235,7 @@
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="<?php echo base_url('admin/orderlist');?>">New Order</a></li>
                 <li><a class="nav-link" href="<?php echo base_url('admin/orderlist/list');?>">Order Details</a></li>
-                <li><a class="nav-link" href="#">Vendor List</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/orderlist/status');?>">Order Status</a></li>
               </ul>
             </li>
              <?php  } ?>

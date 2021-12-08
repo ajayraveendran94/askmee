@@ -20,7 +20,7 @@
                               <input type="text" class="form-control" name="product_name" value="<?php echo($product[0]->product_name); ?>" readonly>
                           <?php } 
                           else {?>
-                           <input type="text" class="form-control" name="product_name" value="<?php echo($product[0]->product_name); ?>">
+                           <input type="text" class="form-control" id="productName" comAmount="<?php echo($product[0]->com_amount); ?>" comPercent="<?php echo($product[0]->com_percent); ?>"  name="product_name" value="<?php echo($product[0]->product_name); ?>">
                         <?php } ?>
                         </div>
                       </div>
@@ -55,15 +55,19 @@
                       </div>
                     </div>
                     <div class="form-row">
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-3">
                         <label>Actual Price</label>
                         <input type="number" name="actual_price" class="form-control" value="<?php echo($product[0]->actual_price); ?>">
                       </div>
-                      <div class="form-group col-md-4">
-                        <label>Offer Price</label>
-                        <input type="number" name="offer_price" class="form-control" value="<?php echo($product[0]->offer_price); ?>">
+                      <div class="form-group col-md-3">
+                        <label>Vendor Price</label>
+                        <input type="number" name="vendor_price" id="vendorPrice" class="form-control" value="<?php echo($product[0]->vendor_price); ?>">
                       </div>
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-3" hidden>
+                        <label>Commission Price</label>
+                        <input type="hidden" name="offer_price" id="offerPrice" class="form-control" value="<?php echo($product[0]->offer_price); ?>">
+                      </div>
+                      <div class="form-group col-md-3">
                         <label>Quantity</label>
                         <div class="input-group">
                           <input type="number" class="form-control" placeholder="Stock Quantity" name="quantity" value="<?php echo($product[0]->quantity); ?>">

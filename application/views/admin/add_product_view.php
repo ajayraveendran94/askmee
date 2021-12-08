@@ -27,6 +27,22 @@
                         ?>
                       </select>
                     </div>
+                    <div class="form-group">
+                      <label>Commission</label>
+                      <select class="form-control" name="product_commission">
+                        <?php 
+                          foreach($commission_name as $row)
+                          {
+                              if($row->com_percent){
+                                echo('<option value ="'.$row->com_id.'">'.$row->com_name.' ('.$row->com_percent.'%) </option>');
+                              }
+                              else{
+                                echo('<option value ="'.$row->com_id.'">'.$row->com_name.' (₹'.$row->com_amount.') </option>');
+                              }
+                          }
+                        ?>
+                      </select>
+                    </div>
                     <!-- <div class="form-group">
                       <label>Select Multiple</label>
                       <select class="form-control" multiple="" data-height="100%">

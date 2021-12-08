@@ -40,7 +40,8 @@ class Masterproduct_model extends CI_Model{
             $this->db->where_not_in('as_product_master.id', $ids);
         }
         //$this->db->order_by('product_name', 'asc');
-        $this->db->select('id, product_name, category_id');
+        $this->db->join('as_commission', 'com_id = commission_id');
+        $this->db->select('id, product_name, category_id, commission_id, com_amount, com_percent');
         $query = $this->db->get('as_product_master')->result();
         return $query;
     }
