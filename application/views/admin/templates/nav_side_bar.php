@@ -196,6 +196,7 @@
               <ul class="dropdown-menu">
               <?php if($user_type == 'A'){ ?>
                 <li><a class="nav-link" href="<?php echo base_url('admin/addproduct');?>">Add Product</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/productlist/master_product_list');?>">Master Product List</a></li>
                 <li><a class="nav-link" href="<?php echo base_url('admin/categorylist');?>">Category List</a></li>
              <?php } ?>
                 <li><a class="nav-link" href="<?php echo base_url('admin/addproduct/vendor_product');?>">Add Vendor Product</a></li>
@@ -239,6 +240,7 @@
               </ul>
             </li>
              <?php  } ?>
+             
             <!-- <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Apps</span></a>
               <ul class="dropdown-menu">

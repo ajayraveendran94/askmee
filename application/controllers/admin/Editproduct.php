@@ -38,6 +38,19 @@ class Editproduct extends CI_Controller {
         }
     }
 
+    public function edit_master_product(){
+        $this->load->model('masterproduct_model');
+        $id = $this->input->post('product_id');
+        $product_data =  array(
+                'product_name' => $this->input->post('product_name'),
+                'category_id' => $this->input->post('product_category'),
+                'commission_id' => $this->input->post('product_commission')
+        ); 
+        $update_data = $this->masterproduct_model->update_master_product($product_data, $id);
+        //$category_data = $this->category_model->get_categories();
+        header('Location: '.base_url('/admin/productlist/edit_master_product/'.$id));
+    }
+
     public function disableprod()
     {
         $id = trim($this->input->post('id'));
