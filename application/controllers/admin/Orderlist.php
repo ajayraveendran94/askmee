@@ -62,10 +62,8 @@ class Orderlist extends CI_Controller {
 
     public function status()
     {
-        $order_data = $this->order_model->get_orders();
         $order_status = $this->order_model->get_all_status();
         //print_r($product_data[0]['p_id']);
-        $data['orders'] = $order_data;
         $data['status'] = $order_status;
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
