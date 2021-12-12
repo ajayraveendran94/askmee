@@ -386,7 +386,7 @@ echo form_open('Profile/update_profile', $attributes);
                                                             </div><!-- /.modal-content -->
                                                         </div><!-- /.modal-dialog -->
                                                     </div>  
-        <script>
+        <script>     
             function myfunction()
                 {
        
@@ -444,8 +444,14 @@ function add_address_details()
 {
   
     $('#modal_form1').modal({backdrop: 'static', keyboard: false});
+    $("#form-detail-add").reset();
     $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
     $('.modal-title').text('Add Address Details'); // Set title to Bootstrap modal title
+}
+
+function getClear()
+{
+    $("#form-detail-add").trigger("reset");
 }
 
 function save3()
