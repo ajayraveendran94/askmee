@@ -62,13 +62,42 @@ class Orderlist extends CI_Controller {
 
     public function status()
     {
-        $order_status = $this->order_model->get_all_status();
+        $this->load->model('status_model');
+        $order_status = $this->status_model->get_all_status();
         //print_r($product_data[0]['p_id']);
         $data['status'] = $order_status;
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
         $this->load->view('admin/statuslist_view', $data);
         $this->load->view('admin/templates/footer_admin');
+    }
+    
+    public function create_new_status()
+    {
+        $this->load->model('status_model');
+        $status_data = array(
+                        'status_name' => trim($this->input->post('status_name'))
+                    );
+        $result = $this->status_model->save_status($status_data);
+        echo json_encode($result);
+
+    }
+
+    public function get_all_status(){
+        $result = $order_status = $this->order_model->get_all_status();
+        echo json_encode($result);
+    }
+
+    public function update_status()
+    {
+        $this->load->model('status_model');
+        $status_data = array(
+                        'status_name' => trim($this->input->post('status_name'))
+                    );
+        $status_id = trim($this->input->post('ors_id'));
+        $result = $this->status_model->update_status($status_data, $status_id);
+        echo json_encode($result);
+
     }
 
     public function place_order()

@@ -201,6 +201,7 @@
              <?php } ?>
                 <li><a class="nav-link" href="<?php echo base_url('admin/addproduct/vendor_product');?>">Add Vendor Product</a></li>
                 <li><a class="nav-link" href="<?php echo base_url('admin/productlist');?>">Product List</a></li>
+                <li><a class="nav-link" href="<?php echo base_url('admin/productlist/commission');?>">Commission Details</a></li>
               </ul>
             </li>
            <?php 
@@ -223,7 +224,7 @@
               </li>
             <?php  } 
             if($user_type == 'A'){
-              $user_controllers = ['order']; 
+              $user_controllers = ['orderlist']; 
               if(in_array($controller, $user_controllers)){
                 echo '<li class="dropdown active">';
               }

@@ -75,7 +75,6 @@ class Order_model extends CI_Model{
         $query = $this->db->get('as_orders')->result_array();
         return $query;
     }
-
     function get_all_status(){
         $this->db->reset_query();
         $query = $this->db->get('as_order_status')->result_array();

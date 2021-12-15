@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 08, 2021 at 06:03 PM
+-- Generation Time: Dec 15, 2021 at 07:09 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -54,7 +54,7 @@ INSERT INTO `as_address` (`ad_id`, `ad_user_id`, `ad_title`, `line_1`, `line_2`,
 (5, 13, 'Home', 'Kill bill P', 'Huila PO', '', 'Kottayam', '686500', 'Kottayam', 'Kerala', '2147483647', '0', 1),
 (7, 2, '', 'Nikhil M', 'Nikhil Nivas\nMannaradi', 'Valiyangadi', '', '676502', 'Malappuram', 'Kerala', '2147483647', '2147483647', 1),
 (8, 2, '', 'Ajay Raveendran', 'Vallari\nHauilai P O', '', '', '686001', 'Kottayam', 'Kerala', '09526032395', '2147483647', 1),
-(9, 2, '', 'Vishnu A', 'NEDUMATTATHIL (H)\nMaradu (P O)', 'Maronnu', '', '676504', 'Malappuram', 'Kerala', '9856453267', '9878675645', 1);
+(9, 2, '', 'Vishnu A', 'NEDUMATTATHIL (H)Maradu (P O)', 'Maronnu', '', '676504', 'Malappuram', 'Kerala', '9856453267', '9878675645', 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,21 @@ CREATE TABLE `as_commission` (
 
 INSERT INTO `as_commission` (`com_id`, `com_name`, `com_amount`, `com_percent`) VALUES
 (1, 'General', NULL, 5),
-(2, 'Minimum Amount', 35, NULL);
+(2, 'Minimum Amount', 35, NULL),
+(3, 'For Vegitables Only', 0, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `as_notifications`
+--
+
+CREATE TABLE `as_notifications` (
+  `not_id` int(20) NOT NULL,
+  `not_content` longtext NOT NULL,
+  `not_url` varchar(100) NOT NULL,
+  `not_is_read` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -176,8 +190,8 @@ CREATE TABLE `as_order_detail` (
 --
 
 INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `or_product_id`, `or_quantity`, `individual_price`, `total_price`, `delivery_date`, `status_id`) VALUES
-(1, 1, 1, 2, 254, 508, '2021-12-26', 1),
-(2, 1, 3, 1, 320, 320, '0000-00-00', 1),
+(1, 1, 1, 2, 254, 508, '2021-12-08', 2),
+(2, 1, 3, 1, 320, 320, '2021-12-08', 2),
 (10, 9, 4, 3, 64787, 194361, '0000-00-00', 1),
 (12, 11, 5, 3, 56, 168, '0000-00-00', 1),
 (13, 11, 1, 2, 254, 508, '0000-00-00', 1),
@@ -191,9 +205,9 @@ INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `or_product_id`, `or_
 (26, 21, 5, 1, 56, 56, '0000-00-00', 1),
 (27, 22, 5, 1, 56, 56, '0000-00-00', 1),
 (28, 23, 5, 1, 56, 56, '0000-00-00', 1),
-(29, 24, 1, 1, 254, 254, '0000-00-00', 1),
-(30, 24, 4, 2, 64787, 129574, '0000-00-00', 1),
-(31, 24, 5, 2, 56, 112, '0000-00-00', 1);
+(29, 24, 1, 1, 254, 254, '2021-12-02', 2),
+(30, 24, 4, 2, 64787, 129574, '2021-12-02', 2),
+(31, 24, 5, 2, 56, 112, '2021-12-02', 2);
 
 -- --------------------------------------------------------
 
@@ -213,7 +227,10 @@ CREATE TABLE `as_order_status` (
 
 INSERT INTO `as_order_status` (`ors_id`, `status_name`, `default_status`) VALUES
 (1, 'Placed', 1),
-(2, 'Payment Received', 2);
+(2, 'Payment Success', 2),
+(3, 'Order Shipped', 0),
+(4, 'Pickup For Delivery', 0),
+(5, 'Delivered', 0);
 
 -- --------------------------------------------------------
 
@@ -245,7 +262,8 @@ INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_pri
 (6, 6, 10, 38, 0, 21, 'Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.', 40, 1),
 (7, 7, 10, 190, 0, 165, 'Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.', 23, 1),
 (10, 13, 10, 50, 30, 65, 'lo', 42, 1),
-(11, 10, 10, 200, 175, 210, 'Descer', 20, 1);
+(11, 10, 10, 200, 175, 210, 'Descer', 20, 0),
+(12, 6, 6, 120, 105, 110.25, 'Carrot', 89, 1);
 
 -- --------------------------------------------------------
 
@@ -274,12 +292,12 @@ INSERT INTO `as_product_images` (`id`, `product_id`, `image_url`) VALUES
 (17, 4, 'Img_Lap1.jpg'),
 (18, 5, 'apple_2.jpg'),
 (19, 5, 'apple_1.jpg'),
-(20, 5, 'apple.jpg'),
 (21, 6, 'carrot_1.png'),
 (22, 6, 'carrot_1.png'),
 (23, 7, 'Kalanji.png'),
 (26, 10, 'carrot_1.png'),
-(27, 11, 'carrot_1.png');
+(27, 11, 'carrot_1.png'),
+(28, 12, 'carrot_1.png');
 
 -- --------------------------------------------------------
 
@@ -302,11 +320,11 @@ INSERT INTO `as_product_master` (`id`, `product_name`, `category_id`, `commissio
 (1, 'കരിമീൻ ', 3, 1),
 (2, 'Laptop', 5, 1),
 (5, 'Apple', 6, 1),
-(6, 'Carrot (1Kg)', 6, 1),
+(6, 'Carrot (2Kg)', 6, 1),
 (7, 'Kalanji (1 Kg)', 3, 1),
 (8, 'Realme A30', 5, 1),
 (10, 'Orange (2KG)', 6, 2),
-(13, 'Carrot (1 KG)', 6, 2);
+(13, 'Carrot (1 K.G)', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -417,6 +435,13 @@ ALTER TABLE `as_commission`
   ADD PRIMARY KEY (`com_id`);
 
 --
+-- Indexes for table `as_notifications`
+--
+ALTER TABLE `as_notifications`
+  ADD PRIMARY KEY (`not_id`),
+  ADD UNIQUE KEY `not_id` (`not_id`);
+
+--
 -- Indexes for table `as_orders`
 --
 ALTER TABLE `as_orders`
@@ -517,7 +542,7 @@ ALTER TABLE `as_checkout`
 -- AUTO_INCREMENT for table `as_commission`
 --
 ALTER TABLE `as_commission`
-  MODIFY `com_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `com_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `as_orders`
@@ -535,19 +560,19 @@ ALTER TABLE `as_order_detail`
 -- AUTO_INCREMENT for table `as_order_status`
 --
 ALTER TABLE `as_order_status`
-  MODIFY `ors_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ors_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `as_products`
 --
 ALTER TABLE `as_products`
-  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `as_product_images`
 --
 ALTER TABLE `as_product_images`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `as_product_master`
