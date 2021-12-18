@@ -48,6 +48,58 @@ class Orderlist extends CI_Controller {
         echo json_encode($data);
     }
     
+    public function view($page){
+        $order_data = $this->order_model->get_order_data($page);
+        $data['order'] = $order_data;
+        $status_data = $this->order_model->get_all_status();
+        $data['status'] = $status_data;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        //print_r($data);
+        $this->load->view('admin/order_details_view', $data);
+        $this->load->view('admin/templates/footer_admin');
+    }
+
+    public function status()
+    {
+        $this->load->model('status_model');
+        $order_status = $this->status_model->get_all_status();
+        //print_r($product_data[0]['p_id']);
+        $data['status'] = $order_status;
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/nav_side_bar');
+        $this->load->view('admin/statuslist_view', $data);
+        $this->load->view('admin/templates/footer_admin');
+    }
+    
+    public function create_new_status()
+    {
+        $this->load->model('status_model');
+        $status_data = array(
+                        'status_name' => trim($this->input->post('status_name'))
+                    );
+        $result = $this->status_model->save_status($status_data);
+        echo json_encode($result);
+
+    }
+
+    public function get_all_status(){
+        $result = $order_status = $this->order_model->get_all_status();
+        echo json_encode($result);
+    }
+
+    public function update_status()
+    {
+        $this->load->model('status_model');
+        $status_data = array(
+                        'status_name' => trim($this->input->post('status_name'))
+                    );
+        $status_id = trim($this->input->post('ors_id'));
+        $result = $this->status_model->update_status($status_data, $status_id);
+        echo json_encode($result);
+
+    }
+
     public function place_order()
     {
         $order_array = array();
@@ -56,7 +108,6 @@ class Orderlist extends CI_Controller {
         $order_data = array(
                 'address_id' => $placed_order['address'],
                 'total_amount' => $placed_order['net_amount'],
-                'status_id' => 1,
                 'order_from_admin' => true,
                 'order_date' => date("Y-m-d H:i:s")
         );
@@ -65,13 +116,41 @@ class Orderlist extends CI_Controller {
             //$individual_price = 201;
                 $data = array(
                     'order_id' => $order_id,
-                    'product_id' => $placed_order['order_product_id'][$i],
-                    'quantity' => $placed_order['quantity'][$i],
+                    'or_product_id' => $placed_order['order_product_id'][$i],
+                    'or_quantity' => $placed_order['quantity'][$i],
+                    'status_id' => 1,
                     'individual_price' => $placed_order['offer_price'][$i],
                     'total_price' => $placed_order['offer_price'][$i] * $placed_order['quantity'][$i]
                 );
             $this->order_model->save_order_details($data);
         }  
+    }
+
+     public function change_status()
+    {
+        $id = trim($this->input->post('order_id'));
+        $order_data = array(
+                        'status_id' => trim($this->input->post('status')),
+                        'delivery_date' => trim($this->input->post('date'))
+                    );
+        $result = $this->order_model->update_order($order_data, $id);
+        echo json_encode($result);
+    }
+
+     public function change_whole_status()
+    {
+        $or_id = trim($this->input->post('order_id'));
+        $order_data = array(
+                        'status_id' => trim($this->input->post('status')),
+                        'delivery_date' => trim($this->input->post('date'))
+                    );
+
+        $order_details = $this->order_model->get_order_data($or_id);
+        foreach ($order_details as $order) {
+          $id = trim($order["or_detail_id"]);
+          $this->order_model->update_order($order_data, $id);
+        }
+        echo 'Success';
     }
     
 }

@@ -14,12 +14,13 @@ class Category extends CI_Controller {
     }
 
     public function view($page){
-        //$this->load->model('addproduct_model');
         //$product_data = $this->productlist_model->get_product_data($page);
         $category_products = $this->productlist_model->get_category_data($page);
         $data['products'] = $category_products;
         //print_r($data);
         $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo navbar_helper_ex();
 		$this->load->view('product_list', $data);
 		$this->load->view('templates/footer');
     }

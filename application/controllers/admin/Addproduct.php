@@ -17,7 +17,9 @@ class Addproduct extends CI_Controller {
     {  
         if($this->session->userdata('user_type') == 'A'){
             $category_name = $this->addproduct_model->get_category();
+            $commission_name = $this->addproduct_model->get_commission();
             $data['category_name'] = $category_name;
+            $data['commission_name'] = $commission_name;
             $this->load->view('admin/templates/header');
             $this->load->view('admin/templates/nav_side_bar');
             $this->load->view('admin/add_product_view', $data);
@@ -79,7 +81,8 @@ class Addproduct extends CI_Controller {
                 'vendor_id' => $this->session->userdata('user_id'),
                 'offer_price' => $this->input->post('offer_price'),
                 'actual_price' => $this->input->post('actual_price'),
-                'quantity' => $this->input->post('quantity')
+                'quantity' => $this->input->post('quantity'),
+                'vendor_price' => $this->input->post('vendor_price')
 
             );
             $image_data = $_FILES['files']['name'];
@@ -101,10 +104,13 @@ class Addproduct extends CI_Controller {
         $this->load->model('masterproduct_model');
         $pr_id = $this->masterproduct_model->last_insert();
         $category_name = $this->masterproduct_model->get_category();
+        $commission_name = $this->addproduct_model->get_commission();
         $value['category_name'] = $category_name;
+        $value['commission_name'] = $commission_name;
         $product_data = array(
             'product_name' => $this->input->post('product_name'),
-            'category_id' => $this->input->post('product_category')
+            'category_id' => $this->input->post('product_category'),
+            'commission_id' => $this->input->post('product_commission')
         );
         $result= $this->masterproduct_model->save_product($product_data);
         if($result == 1){

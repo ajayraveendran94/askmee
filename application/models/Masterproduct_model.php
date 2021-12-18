@@ -12,11 +12,23 @@ class Masterproduct_model extends CI_Model{
         $query= $this->db->query('SELECT c_id, category_name, category_url FROM as_categories');
         $result = $query->result();
         return $result;
+    } 
+
+    function get_commission(){  
+        $query= $this->db->query('SELECT com_id, com_name, com_amount, com_percent FROM as_commission');
+        $result = $query->result();
+        return $result;
+    } 
+
+    function update_product($data, $id){
+        $this->db->reset_query();
+        $this->db->update('as_product_master', $data, array('id' => $id));
     }  
     
     function get_product(){  
-        $this->db->select('id, product_name, category_id, category_name');
+        $this->db->select('id, product_name, category_id, category_name, com_name, com_amount, com_percent');
         $this->db->join('as_categories', 'c_id = category_id');
+        $this->db->join('as_commission', 'com_id = commission_id');
         //$this->db->limit(4);
         //$this->db->join('brands', 'brand_id = prod_brand');
         $query = $this->db->get('as_product_master')->result_array();
@@ -26,6 +38,22 @@ class Masterproduct_model extends CI_Model{
         //   $query[$i]['product_images'] = $images_query;
         // }
         return $query;
+    } 
+    function get_master_data($id){  
+        // $this->db->select('id, product_name, category_id, category_name, com_name, com_amount, com_percent');
+        // $this->db->join('as_categories', 'c_id = category_id');
+        // $this->db->join('as_commission', 'com_id = commission_id');
+        // $query = $this->db->get('as_product_master.id', $id)->result_array();
+        // return $query;
+        $this->db->reset_query();
+        $this->db->select('*');
+        $this->db->from('as_product_master');
+        $this->db->where('as_product_master.id', $id);
+        $this->db->join('as_categories', 'c_id = category_id');
+        $this->db->join('as_commission', 'com_id = commission_id');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
     } 
     
     function get_all_vendor_products(){
@@ -40,7 +68,8 @@ class Masterproduct_model extends CI_Model{
             $this->db->where_not_in('as_product_master.id', $ids);
         }
         //$this->db->order_by('product_name', 'asc');
-        $this->db->select('id, product_name, category_id');
+        $this->db->join('as_commission', 'com_id = commission_id');
+        $this->db->select('id, product_name, category_id, commission_id, com_amount, com_percent');
         $query = $this->db->get('as_product_master')->result();
         return $query;
     }
@@ -57,7 +86,7 @@ class Masterproduct_model extends CI_Model{
         return $next->Auto_increment;
     }
 
-    function update_product($data, $id)
+    function update_master_product($data, $id)
     {
         $this->db->reset_query();
         $this->db->update('as_product_master', $data, array('id' => $id));

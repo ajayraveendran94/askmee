@@ -13,6 +13,12 @@ class User_model extends CI_Model{
         
     }
 
+    public function update_user($where,$data) 
+    {
+        $this->db->update('as_user',$data,$where);
+        return $this->db->affected_rows();
+    }
+
     public function check_user($email, $user_type)
     {
         $this->db->reset_query();

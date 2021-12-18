@@ -52,6 +52,7 @@ $(".swal-6").click(function () {
 });
 
 $(".disable-prod").click(function () {
+  debugger;
   swal({
     title: 'Are you sure?',
     text: 'Do you want to disable the product!',
@@ -301,4 +302,255 @@ $(".swal-11").click(function () {
       // window.location.reload(true);
       // e.preventDefault();
     });
+});
+function checkValidation(percentage, amount){
+  if(percentage.length > 0){
+    if(percentage < 100 && percentage > 0){
+      return true;
+    }
+    else{
+      return 'Percentage Should Be Greater than 0 & less than 100';
+    }
+  }
+  if(amount.length > 0){
+    if(amount > 0){
+      return true;
+    }
+    else{
+      return 'Amount should be Greater than 0';
+    }
+  }
+}
+$('.ordSubmit').click(function(){
+  var statusDetails = {};
+  statusDetails['order_id'] = $(this).attr('orderId');
+  statusDetails['date'] = $('#date_'+statusDetails['order_id']).val();
+  statusDetails['status'] = $('#status_'+statusDetails['order_id']).val();
+  $.ajax({
+          data: statusDetails,
+          type: 'POST',
+          url: '../change_status',
+          success: function(response){
+            // swal('Done! User Successfully Updated!', {
+            //   icon: 'success',
+            // });
+          setTimeout(function(){ location.reload(); }, 1500);}
+        });
+});
+
+$('#changeAll').click(function(){
+  var statusDetails = {};
+  statusDetails['order_id'] = $('#order_id').val();
+  statusDetails['status'] = $('#orderStatus').val();
+  statusDetails['date'] = $('#deliveryDate').val();
+  $.ajax({
+          data: statusDetails,
+          type: 'POST',
+          url: '../change_whole_status',
+          success: function(response){
+            // swal('Done! User Successfully Updated!', {
+            //   icon: 'success',
+            // });
+          setTimeout(function(){ location.reload(); }, 1500);}
+        });
+});
+$('#newStatus').click(function(){
+  if($('#statusName').val().length > 0){
+    $.ajax({
+          type: 'GET',
+          url: './get_all_status',
+          success: function(response){
+            var statusNameArray=[];
+            var allStatus = JSON.parse(response);
+            for (var key in allStatus) {
+              statusNameArray.push(allStatus[key]['status_name']);
+            }
+            if(statusNameArray.includes($('#statusName').val())){
+              swal('This Status Name Already Available', {
+                icon: 'error',
+              });
+            }
+            else{
+              var statusDetails = {};
+              statusDetails['status_name'] = $('#statusName').val();
+              $.ajax({
+                data: statusDetails,
+                type: 'POST',
+                url: './create_new_status',
+                success: function(response){
+                setTimeout(function(){ location.reload(); }, 1500);}
+              });
+            }
+          }
+    });
+  }
+  else{
+    swal('Enter valid name!', {
+              icon: 'error',
+            });
+  }
+});
+
+$('#newCommission').click(function(){
+  if($('#commissionPercent').val().length > 0 && $('#commissionAmount').val().length > 0){
+    swal('Please Select Either Amount OR Percentage!', {
+              icon: 'error',
+            });
+  }
+  else if($('#commissionName').val().length > 0){
+    var validation = checkValidation($('#commissionPercent').val(), $('#commissionAmount').val());
+    debugger;
+    if(validation == true){
+      $.ajax({
+          type: 'GET',
+          url: './get_all_commission',
+          success: function(response){
+            var statusNameArray=[];
+            var allStatus = JSON.parse(response);
+            for (var key in allStatus) {
+              statusNameArray.push(allStatus[key]['com_name']);
+            }
+            if(statusNameArray.includes($('#commissionName').val())){
+              swal('This Commission Name Already Available', {
+                icon: 'error',
+              });
+            }
+            else{
+              var commissionDetails = {};
+              commissionDetails['com_name'] = $('#commissionName').val();
+              commissionDetails['com_percent'] = $('#commissionPercent').val();
+              commissionDetails['com_amount'] = $('#commissionAmount').val();
+              $.ajax({
+                data: commissionDetails,
+                type: 'POST',
+                url: './create_new_commission',
+                success: function(response){
+                setTimeout(function(){ location.reload(); }, 100);}
+              });
+            }
+          }
+      });
+    }
+    else{
+      swal( validation, {
+              icon: 'error',
+            });
+    }
+  }
+  else{
+    swal('Enter valid Commission name!', {
+              icon: 'error',
+            });
+  }
+});
+
+$('.statusUpdateButton').click(function(){
+  $('#updateStatusName').val($(this).attr('statusValue'));
+  $('#updateStatusId').val($(this).attr('statusId'));
+});
+
+$('.commissionUpdateButton').click(function(){
+  $('#updateCommissionName').val($(this).attr('commissionValue'));
+  $('#updateCommissionId').val($(this).attr('commissionId'));
+  if($(this).attr('comAmount') == 0){
+    $('#updateCommissionAmount').val('');
+  }
+  if($(this).attr('comAmount') > 0){
+    $('#updateCommissionAmount').val($(this).attr('comAmount'));
+  }
+  if($(this).attr('comPercent') == 0){
+    $('#updateCommissionPercent').val('');
+  }
+  if($(this).attr('comPercent') > 0){
+    $('#updateCommissionPercent').val($(this).attr('comPercent'));
+  }
+});
+
+$('#updateStatus').click(function(){
+  if($('#updateStatusName').val().length > 0){
+    $.ajax({
+          type: 'GET',
+          url: './get_all_status',
+          success: function(response){
+            var statusNameArray=[];
+            var allStatus = JSON.parse(response);
+            for (var key in allStatus) {
+              statusNameArray.push(allStatus[key]['status_name']);
+            }
+            if(statusNameArray.includes($('#updateStatusName').val())){
+              swal('This Status Name Already Available', {
+                icon: 'error',
+              });
+            }
+            else{
+              var statusDetails = {};
+              statusDetails['status_name'] = $('#updateStatusName').val();
+              statusDetails['ors_id'] = $('#updateStatusId').val();
+              $.ajax({
+                data: statusDetails,
+                type: 'POST',
+                url: './update_status',
+                success: function(response){
+                  setTimeout(function(){ location.reload(); }, 100);}
+                });
+            }
+          }
+    });
+  }
+});
+
+$('#updateCommission').click(function(){
+  if($('#updateCommissionPercent').val().length > 0 && $('#updateCommissionAmount').val().length > 0){
+    swal('Please Select Either Amount OR Percentage!', {
+              icon: 'error',
+            });
+  }
+  else if($('#updateCommissionName').val().length > 0){
+    var validation = checkValidation($('#updateCommissionPercent').val(), $('#updateCommissionAmount').val());
+    debugger;
+    if(validation == true){
+      $.ajax({
+          type: 'GET',
+          url: './get_all_commission',
+          success: function(response){
+            var statusNameArray=[];
+            var allStatus = JSON.parse(response);
+            for (var key in allStatus) {
+              if(allStatus[key]['com_id'] != $('#updateCommissionId').val()){
+                statusNameArray.push(allStatus[key]['com_name']);
+              }
+            }
+            if(statusNameArray.includes($('#updateCommissionName').val())){
+              swal('This Commission Name Already Available', {
+                icon: 'error',
+              });
+            }
+            else{
+              var commissionDetails = {};
+              commissionDetails['com_name'] = $('#updateCommissionName').val();
+              commissionDetails['com_percent'] = $('#updateCommissionPercent').val();
+              commissionDetails['com_amount'] = $('#updateCommissionAmount').val();
+              commissionDetails['com_id'] = $('#updateCommissionId').val();
+              $.ajax({
+                data: commissionDetails,
+                type: 'POST',
+                url: './update_commission',
+                success: function(response){
+                setTimeout(function(){ location.reload(); }, 100);}
+              });
+            }
+          }
+      });
+    }
+    else{
+      swal( validation, {
+              icon: 'error',
+            });
+    }
+  }
+  else{
+    swal('Enter valid Commission name!', {
+              icon: 'error',
+            });
+  }
 });

@@ -22,7 +22,7 @@ class Productlist_model extends CI_Model{
         if ($current_user['user_type'] == 'V') {
             $this->db->where('as_products.vendor_id', $current_user['user_id']);
         }
-        $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name, name, vendor_id,as_categories.c_status');
+        $this->db->select('id, p_id, product_name, actual_price, offer_price, vendor_price, description, quantity, product_status, category_id, category_name, name, vendor_id,as_categories.c_status');
         $this->db->join('as_product_master', 'id = master_product_id');
         $this->db->join('as_categories', 'c_id = category_id');
         $this->db->join('as_user', 'user_id = vendor_id');
@@ -60,6 +60,7 @@ class Productlist_model extends CI_Model{
         $this->db->join('as_product_master', 'id = master_product_id', 'left');
         $this->db->join('as_user', 'user_id = vendor_id', 'left');
         $this->db->join('as_categories', 'as_categories.c_id = as_product_master.category_id', 'left');
+        $this->db->join('as_commission', 'as_commission.com_id = as_product_master.commission_id');
         $this->db->join('as_product_images', 'as_product_images.product_id = as_products.p_id', 'left');
         $query = $this->db->get();
         $result = $query->result();
@@ -77,7 +78,7 @@ class Productlist_model extends CI_Model{
         $this->db->from('as_product_master');
         $this->db->where('as_product_master.category_id', $c_id);
         $this->db->join('as_products', 'master_product_id = id AND product_status = 1', 'left');
-        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, description, quantity, product_status, category_name');
+        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, vendor_price, description, quantity, product_status, category_name');
         $this->db->join('as_categories', 'c_id = category_id');
         //$this->db->join('brands', 'brand_id = prod_brand');
         $query = $this->db->get()->result_array();
@@ -104,7 +105,7 @@ class Productlist_model extends CI_Model{
         $this->db->from('as_product_master');
         $this->db->where('as_product_master.id', $id);
         $this->db->join('as_products', 'master_product_id = id AND product_status = 1', 'left');
-        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, description, quantity, product_status, category_name');
+        $this->db->select('p_id, product_name, category_id, actual_price, offer_price, vendor_price, description, quantity, product_status, category_name');
         $this->db->join('as_categories', 'c_id = category_id');
         //$this->db->join('brands', 'brand_id = prod_brand');
         $query = $this->db->get()->result_array();

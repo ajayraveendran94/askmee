@@ -16,6 +16,7 @@ class Address_model extends CI_Model{
     {
     	
         $this->db->from('as_address');
+        $this->db->order_by("ad_id", "desc");
     	$this->db->where('ad_user_id',$data);
         $query =$this->db->get();
    		return $query->result();
@@ -25,4 +26,19 @@ class Address_model extends CI_Model{
         return $this->db->affected_rows();
     }
 
+    public function get_by_address_id($ad_id) {
+        $this->db->from('as_address');
+        $this->db->where('ad_id ', $ad_id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function address_detail_update($where, $data) {
+        $this->db->update('as_address',$data,$where);
+        return $this->db->affected_rows();
+    }
+    public function address_new($data){
+        $this->db->insert('as_address',$data);
+        return $this->db->insert_id();
+    }
 }

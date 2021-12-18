@@ -20,9 +20,17 @@ class Addproduct_model extends CI_Model{
         return $result;
     }  
     
+    function get_commission(){
+        $this->db->order_by('com_name', 'asc');
+        $query= $this->db->query('SELECT com_id, com_name, com_amount, com_percent FROM as_commission');
+        $result = $query->result();
+        return $result;
+    }  
+
     function get_product(){ 
 
        $this->db->where('product_status', 1);
+       $this->db->order_by('p_id', 'desc');
        $this->db->select('id, p_id, product_name, actual_price, offer_price, description, quantity, product_status, category_id, category_name');
         $this->db->join('as_product_master', 'id = master_product_id');
         $this->db->join('as_categories', 'c_id = category_id');

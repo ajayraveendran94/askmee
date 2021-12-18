@@ -14,11 +14,14 @@ class Order extends CI_Controller {
     }
 
     public function index(){
-        // $id = $_SESSION['user']['user_id'];
-        // $cart_data = $this->cart_model->get_cart($id);
-        // $data['cart_data'] = $cart_data;
+        $this->load->model('order_model');
+        $id = $_SESSION['user']['user_id'];
+        $order_data = $this->order_model->get_user_orders($id);
+        $data['order_data'] = $order_data;
         $this->load->view('templates/header');
-        // $this->load->view('checkout_view', $data);
+        $this->load->helper('navbar');
+        echo navbar_helper_ex();
+        $this->load->view('order_view', $data);
         $this->load->view('templates/footer');
     }
 
@@ -28,6 +31,8 @@ class Order extends CI_Controller {
         $data['cart_data'] = $this->cart_model->get_cart($id);
         $data['address'] = $this->address_model->get_user_address($id);
         $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo navbar_helper_ex();
         $this->load->view('checkout_view', $data);
         $this->load->view('templates/footer');
     }
@@ -57,7 +62,6 @@ class Order extends CI_Controller {
         $order_data_details = array(
                 'address_id' => $address_id,
                 'total_amount' => $total_price,
-                'status_id' => 1,
                 'order_from_admin' => false,
                 'order_date' => date("Y-m-d H:i:s")
         );
@@ -65,8 +69,9 @@ class Order extends CI_Controller {
         foreach($order_data as $data) {
             $single_order_data = array(
                     'order_id' => $order_id,
-                    'product_id' => $data['p_id'],
-                    'quantity' => $data['car_quantity'],
+                    'or_product_id' => $data['p_id'],
+                    'or_quantity' => $data['car_quantity'],
+                    'status_id' => 1,
                     'individual_price' => $data['offer_price'],
                     'total_price' => $data['offer_price'] * $data['car_quantity']
                 );
@@ -92,7 +97,6 @@ class Order extends CI_Controller {
         $order_data_details = array(
                 'address_id' => $address_id,
                 'total_amount' => $total_price,
-                'status_id' => 1,
                 'order_from_admin' => false,
                 'order_date' => date("Y-m-d H:i:s")
         );
@@ -100,8 +104,9 @@ class Order extends CI_Controller {
         foreach($order_data as $data) {
             $single_order_data = array(
                     'order_id' => $order_id,
-                    'product_id' => $data['p_id'],
-                    'quantity' => $data['ch_quantity'],
+                    'or_product_id' => $data['p_id'],
+                    'or_quantity' => $data['ch_quantity'],
+                    'status_id' => 1,
                     'individual_price' => $data['offer_price'],
                     'total_price' => $data['offer_price'] * $data['ch_quantity']
                 );

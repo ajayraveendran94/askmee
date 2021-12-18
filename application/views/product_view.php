@@ -78,7 +78,7 @@
                                         <div class="cart mt-4 align-items-center buy-btn-container">
                                             <input type="hidden" value=1 id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product_data[0]->quantity); ?>>
                                             <button id="addToCart" class="addToCartBtn btn btn-warning text-uppercase mr-2 px-4">Add to cart</button>
-                                            <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none">Go To Cart</a>
+                                            <a href="<?php echo base_url('/cart');?>" id="goToCart" class="d-none btn btn-warning text-uppercase mr-2 px-4">Go To Cart</a>
                                            <a href="<?php echo base_url('/buynow/view/'.$product_data[0]->p_id);?>" ><button class="btn bg-theme text-uppercase mr-2 px-4">Buy Now</button></a>
                                         </div>
                                        
