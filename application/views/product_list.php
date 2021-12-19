@@ -1,14 +1,27 @@
 <div class="container-fluid">
+    <?php if(count($products) > 0){?>
         <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -55px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?php echo $products[0]['category_name'];  ?></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo $products[0]['category_name'];  ?></li>
                 </ol>
             </nav>
             <hr>
-            <h4 class="page-title"><?php echo $products[0]['category_name'];  ?></h4>
+                <h4 class="page-title"><?php echo $products[0]['category_name'];  ?></h4>
         </div>
+    <?php } ?>
+    <?php if(count($products) == 0){  ?>
+        <br>
+                      <div class="card" style="text-align:center;">
+                          <div class="card-header">
+                              <h5> Sorry No category based product Found </h5>
+                          </div>
+                          <div class="card-body">
+                              <a class="btn btn-primary mr-1" href="<?php echo base_url();?>">Back</a>
+                         </div>
+                     </div>
+         <?php }?>
         <?php
 $count = 0;
 ?>
@@ -16,7 +29,8 @@ $count = 0;
                                     <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
                                 <?php } ?>
         <div class="row product-list py-0" style="margin-top: -50px;">
-            <?php 
+            <?php
+        if(count($products) > 0){ 
         if(isset($products[0]['p_id'])){
         foreach($products as $product) {
             // if($count % 4 == 0){
@@ -57,6 +71,7 @@ $count = 0;
             </div>
           <?php  }
         }
+    }
         ?>
             <!------------------------>
         </div>

@@ -15,8 +15,8 @@ class Editproduct extends CI_Controller {
 
     public function view($page){
         $this->load->model('addproduct_model');
-        $product_data = $this->productlist_model->get_product_data($page);
         $category_name = $this->addproduct_model->get_category();
+        $product_data = $this->productlist_model->get_product_data($page);
         $data['category_name'] = $category_name;
         $data['product'] = $product_data;
         $this->load->view('admin/templates/header');

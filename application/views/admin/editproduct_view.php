@@ -3,6 +3,7 @@
           <div class="section-body">
             <div class="row">
               <div class="col-12">
+            <?php if(count($product) > 0){?>
               <form method="post" action="<?php echo site_url('admin/editproduct/edit_product'); ?>" enctype="multipart/form-data">
                 <div class="card">
                   <div class="card-header">
@@ -133,6 +134,11 @@
                   </div>
                 </div>
               </form>
+             <?php } else {  ?>
+              <div class="card">
+                  <div class="card-header"><h5> Sorry No Porduct Found </h5>
+                  </div><div class="card-body"><a class="btn btn-primary mr-1" href="<?php echo base_url('admin/productlist');?>">Back</a></div></div>
+            <?php }?>
               </div>
             </div>
           </div>
