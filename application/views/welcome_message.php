@@ -20,7 +20,7 @@
         </div>
 
         <div class="text-center">
-            <img src='<?php echo base_url("assets/assets/img/PNG_2.png");?>' style="width: 45%;margin-top: 25px;margin-bottom: 25px;" alt="PNG2.jpg">
+            <img src='<?php echo base_url("assets/assets/img/PNG_2.png");?>' style="width: 60%;margin-top: 25px;margin-bottom: 25px;" alt="PNG2.jpg">
         </div>
         <h1 class="has-text-align-center" style="margin-bottom: 50px;">
             <span class="has-inline-color has-very-dark-gray-color">Shop by Category</span>

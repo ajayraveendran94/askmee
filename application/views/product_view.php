@@ -1,5 +1,5 @@
 <div class="container-fluid">
-            <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+            <div class="col-sm-12 col-md-12 col-lg-12 content-area"  style="margin-top:-30px;" >
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
@@ -15,46 +15,48 @@
 
         <div class="container-fluid mt-1 mb-1">
             <div class="">
-                <div class="col-sm-12 col-md-12 col-lg-12 content-area " style="padding-top:0">
+                <div class="col-sm-12 col-md-12 col-lg-12 content-area " style="padding-top:0;margin-top:-50px;">
                     <div class="">
                         <div class="row">
-                            <div class="col-md-6">
-
-                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <?php if(isset($product_data[0])){?>
-                                            <div class="carousel-item active">
+                            <div class="col-md-4">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                            <?php if(isset($product_data[0])){?>
+                                            <div class="carousel-item active easyzoom easyzoom--overlay">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[0]->product_name); ?>">
                                         </div>
                                         <?php } ?>
                                         <?php if(isset($product_data[1])){?>
-                                        <div class="carousel-item">
+                                        <div class="carousel-item easyzoom easyzoom--overlay">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[1]->product_name); ?>">
                                         </div>
                                         <?php } ?>
                                         <?php if(isset($product_data[2])){?>
-                                        <div class="carousel-item">
+                                        <div class="carousel-item easyzoom easyzoom--overlay">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[2]->product_name); ?>">
                                         </div>
                                         <?php } ?>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
-                            </div>
+                           </div>
+                           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                           <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                         </button>
+                          </div>
+                        </div>
 
                             <div class="col-md-6">
                                 <div class="product p-1">
                                     <div class="mb-3">
-                                        <h3 class="/text-uppercase mb-3"><?php echo($product_data[0]->product_name); ?></h3><hr>
+                                        <h4 class="/text-uppercase mb-3"><?php echo($product_data[0]->product_name); ?></h4><hr>
                                         <div class="price d-flex flex-row align-items-center">
                                             <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span
                                                     class="act-price">₹<?php echo($product_data[0]->offer_price); ?></span></h5>
@@ -98,25 +100,8 @@
     <div class="content-area">            
         <div class="d-flex flex-column bd-highlight mb-3">            
                 <h4 class="title-sub">Reviews and Ratings</h4>
-            <div class="p-2 bd-highlight">
-                <h4>Rate the product <hr></h4> 
-                <div class="star-rating">
-                    <span class="fa fa-star-o" data-rating="1"></span>
-                    <span class="fa fa-star-o" data-rating="2"></span>
-                    <span class="fa fa-star-o" data-rating="3"></span>
-                    <span class="fa fa-star-o" data-rating="4"></span>
-                    <span class="fa fa-star-o" data-rating="5"></span>
-                    <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                  </div>
-            </div>
         </div>
-        <div class="p-2 bd-highlight">
-            <h4>Review the product</h4>
-         <textarea class="form-control" rows="4" cols="4">         </textarea>
-        </div>
-        <div class="p-2 bd-highlight">
-          <button class="btn btn-theme">Submitt</button>
-        </div>
+        
       </div>
     <div class="content-area product-slider " style="padding-top:0">
 

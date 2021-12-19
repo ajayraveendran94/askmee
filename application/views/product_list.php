@@ -1,5 +1,5 @@
 <div class="container-fluid">
-        <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+        <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -55px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
@@ -15,7 +15,7 @@ $count = 0;
         <?php if(isset($_SESSION['user'])){?>
                                     <input type="hidden" id="user_id" value=<?php echo($_SESSION['user']['user_id']); ?>>
                                 <?php } ?>
-        <div class="row product-list py-0">
+        <div class="row product-list py-0" style="margin-top: -50px;">
             <?php 
         if(isset($products[0]['p_id'])){
         foreach($products as $product) {
