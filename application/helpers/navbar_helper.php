@@ -7,5 +7,12 @@
         $data['category'] = $category_name;
         $CI->load->view('templates/navbar',$data);
     }
+    function notification_helper_ex(){
+        $CI = get_instance();
+        $CI->load->model('notification_model');
+        $notification = $CI->notification_model->get_unread_notification();
+        $data['notification'] = $notification;
+        $CI->load->view('admin/templates/nav_side_bar',$data);
+    }
 }
 ?>

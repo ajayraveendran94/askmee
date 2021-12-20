@@ -21,7 +21,9 @@ class Addproduct extends CI_Controller {
             $data['category_name'] = $category_name;
             $data['commission_name'] = $commission_name;
             $this->load->view('admin/templates/header');
-            $this->load->view('admin/templates/nav_side_bar');
+            $this->load->helper('navbar');
+            echo notification_helper_ex();
+            //$this->load->view('admin/templates/nav_side_bar');
             $this->load->view('admin/add_product_view', $data);
             $this->load->view('admin/templates/footer_admin'); 
         }

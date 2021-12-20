@@ -39,6 +39,17 @@
     echo('<script src="'.base_url("assets/js/page/sweetalert.js").'"></script>');
     echo('<script src="'.base_url("assets/bundles/dropzonejs/min/dropzone.min.js").'"></script>');
   }
+  elseif($controller == 'report'){
+    echo('<script src="'.base_url("assets/bundles/datatables/datatables.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/js/page/datatables.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/dataTables.buttons.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/buttons.flash.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/jszip.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/pdfmake.min.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/vfs_fonts.js").'"></script>'); 
+    echo('<script src="'.base_url("assets/bundles/datatables/export-tables/buttons.print.min.js").'"></script>'); 
+  }
   ?>
   <!-- JS Libraies -->
   <!-- Page Specific JS File -->

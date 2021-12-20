@@ -43,7 +43,6 @@ $('#pinCode').on('input', function(){
 });
 
 $('#saveAddress').click(function(){
-    debugger;
   var addressData = {};
     addressData['user_id'] = $("#userId").val();
     addressData['line_1'] = $("#fullName").val();
