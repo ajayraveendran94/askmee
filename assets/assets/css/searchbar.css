@@ -1,277 +1,282 @@
 .btn-lg:hover {
-    color: rgb(255, 255, 255)
+	color: rgb(255, 255, 255);
 }
 
 .btn-light:hover {
-    background-color: #f8c146;
-    color: #fff;
+	background-color: #f8c146;
+	color: #fff;
 }
 
-.btn-cart:hover{
-    background-color: #ee610f;
-    color: #fff;
-
+.btn-cart:hover {
+	background-color: #ee610f;
+	color: #fff;
 }
 
 .btn-cart {
-    color: #000;
-    background-color: #f8f9fa;
-    border-color: #f8f9fa;
+	color: #000;
+	background-color: #f8f9fa;
+	border-color: #f8f9fa;
 }
 
 .input-text:focus {
-    box-shadow: 0px 0px 0px;
-    border-color: #f8c146;
-    outline: 0px
+	box-shadow: 0px 0px 0px;
+	border-color: #f8c146;
+	outline: 0px;
 }
 
 .form-control {
-    border: 1px solid #f8c146
+	border: 1px solid #f8c146;
 }
 
 .header_search {
-    height: 80px;
-    margin-top: 20px;
+	height: 80px;
+	margin-top: 20px;
 }
 
 .header_search_content {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 .header_search_form_container {
-    width: 100%;
-    height: 37px;
-    border-top: solid 1px #00000038;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    display: inline-flex;
+	width: 100%;
+	height: 37px;
+	border-top: solid 1px #00000038;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	display: inline-flex;
 }
 
 .header_search_form {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .header_search_input {
-    position: relative;
-    width: calc(100% - 130px);
-    line-height: 37px;
-    border: none !important;
-    outline: none !important;
-    padding-left: 10px;
-    color: #7f7f7f;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    height: 35px;
-    font-size: 14px;
+	position: relative;
+	width: calc(100% - 130px);
+	line-height: 37px;
+	border: none !important;
+	outline: none !important;
+	padding-left: 10px;
+	color: #7f7f7f;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	height: 35px;
+	font-size: 14px;
 }
 
 .header_search_input::-webkit-input-placeholder {
-    font-size: 13px !important;
-    font-weight: 300;
-    color: #a3a3a3 !important;
+	font-size: 13px !important;
+	font-weight: 300;
+	color: #a3a3a3 !important;
 }
 
 .header_search_input:-moz-placeholder {
-    font-size: 13px !important;
-    font-weight: 300;
-    line-height: 35px;
-    color: #a3a3a3 !important;
+	font-size: 13px !important;
+	font-weight: 300;
+	line-height: 35px;
+	color: #a3a3a3 !important;
 }
 
 .header_search_input:-ms-input-placeholder {
-    font-size: 13px !important;
-    font-weight: 300;
-    line-height: 35px;
-    color: #a3a3a3 !important;
+	font-size: 13px !important;
+	font-weight: 300;
+	line-height: 35px;
+	color: #a3a3a3 !important;
 }
 
 .header_search_input::input-placeholder {
-    font-size: 13px !important;
-    font-weight: 300;
-    line-height: 35px;
-    color: #a3a3a3 !important;
+	font-size: 13px !important;
+	font-weight: 300;
+	line-height: 35px;
+	color: #a3a3a3 !important;
 }
 
 #suggesstion-box {
-    position: absolute;
-    margin-top: 4px;
-    width: 100%;
+	position: absolute;
+	margin-top: 4px;
+	width: 100%;
 }
 
 #search-list {
-    float: left;
-    list-style: none;
-    margin-top: -3px;
-    padding: 0;
-    width: 100%;
-    position: absolute;
-    text-align: left;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    background: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	float: left;
+	list-style: none;
+	margin-top: -3px;
+	padding: 0;
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	background: #fff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #search-list li {
-    padding: 10px;
-    border-bottom: #f2f2f2 1px solid;
+	padding: 10px;
+	border-bottom: #f2f2f2 1px solid;
 }
 
 #search-list li:hover,
 #search-list li:focus {
-    background: #fafafa;
-    cursor: pointer;
+	background: #fafafa;
+	cursor: pointer;
 }
 
 #search-list li .itemname {
-    width: calc(100% - 54px);
-    overflow: hidden;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: 500;
-    text-transform: uppercase;
+	width: calc(100% - 54px);
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: 500;
+	text-transform: uppercase;
 }
 
 #search-list li .brandname {
-    text-transform: uppercase;
-    font-size: 11px;
-    color: #9ba7b7;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #9ba7b7;
 }
 
 .custom_dropdown {
-    width: 130px;
-    height: 35px;
-    float: left;
-    padding-left: 16px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background: rgba(13, 82, 214, 1);
-    color: #fff;
+	width: 130px;
+	height: 35px;
+	float: left;
+	padding-left: 16px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: rgba(13, 82, 214, 1);
+	color: #fff;
 }
 
 .catselect-css {
-    display: block;
-    padding: .6em 1.4em .5em 10px;
-    box-sizing: border-box;
-    margin: 0;
-    border: none;
-    height: 35px;
-    border-radius: 5px 0 0 5px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #fff;
-    background-image: url(https://termin.vivantes.de/assets/chevron-down.svg);
-    background-repeat: no-repeat, repeat;
-    background-position: right 10px top 50%, 0 0;
-    background-size: 19px;
-    background-color: #f3f3f3;
-    border: none;
-    border-right: 1px solid #cdcdcd;
-    font-family: 'Rubik', sans-serif;
-    line-height: 19px;
-    font-size: 14px;
+	display: block;
+	padding: 0.6em 1.4em 0.5em 10px;
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	height: 35px;
+	border-radius: 5px 0 0 5px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	background-image: url(https://termin.vivantes.de/assets/chevron-down.svg);
+	background-repeat: no-repeat, repeat;
+	background-position: right 10px top 50%, 0 0;
+	background-size: 19px;
+	background-color: #f3f3f3;
+	border: none;
+	border-right: 1px solid #cdcdcd;
+	font-family: "Rubik", sans-serif;
+	line-height: 19px;
+	font-size: 14px;
 }
 
 .catselect-css::-ms-expand {
-    display: none;
+	display: none;
 }
 
 .catselect-css:hover {
-    cursor: pointer
+	cursor: pointer;
 }
 
 .catselect-css:active {
-    background: #d8d8d8;
+	background: #d8d8d8;
 }
 
 .catselect-css option {
-    font-weight: normal;
-    background-color: #fff;
-    color: #000;
+	font-weight: normal;
+	background-color: #fff;
+	color: #000;
 }
-
 
 /* Support for rtl text, explicit support for Arabic and Hebrew */
 
 *[dir="rtl"] .catselect-css,
 :root:lang(ar) .catselect-css,
 :root:lang(iw) .catselect-css {
-    background-position: left .7em top 50%, 0 0;
-    padding: .6em .8em .5em 1.4em;
+	background-position: left 0.7em top 50%, 0 0;
+	padding: 0.6em 0.8em 0.5em 1.4em;
 }
 
 .s-icon {
-    width: 16px;
+	width: 16px;
 }
 
 .header_search_button {
-    position: absolute;
-    top: 0;
-    right: -2px;
-    width: 50px;
-    height: 35px;
-    background: #ffb649;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+	position: absolute;
+	top: 0;
+	right: -2px;
+	width: 50px;
+	height: 35px;
+	background: #ffb649;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .header_search_button:hover {
-    background: #fdba06;
+	background: #fdba06;
 }
 .output {
-  list-style: none;
-  width: 100%;
-  min-height: 0px;
-  border-top: 0 !important;
-  color: #767676;
-  font-size: .75em;
-  transition: min-height 0.2s;
-  position: absolute;
-  z-index: 5;
-  top: 35px;
-  overflow: hidden;
+	list-style: none;
+	width: 100%;
+	min-height: 0px;
+	border-top: 0 !important;
+	color: #767676;
+	font-size: 0.75em;
+	transition: min-height 0.2s;
+	position: absolute;
+	z-index: 5;
+	top: 35px;
+	overflow: hidden;
 }
 
-.output, #search-bar {
-  background: #fff;
-  border: 1px solid #767676;
+.output,
+#search-bar {
+	background: #fff;
+	border: 1px solid #767676;
+	z-index: 999;
 }
 
 .prediction-item {
-  padding: .5em .75em;
-  transition: color 0.2s, background 0.2s;
+	padding: 0.5em 0.75em;
+	transition: color 0.2s, background 0.2s;
 }
 
 .output:hover .focus {
-  background: #fff;
-  color: #767676;
+	background: #fff;
+	color: #767676;
 }
 
-.prediction-item:hover, .focus,
+.prediction-item:hover,
+.focus,
 .output:hover .focus:hover {
-  background: #ddd;
-  color: #333;
+	background: #ddd;
+	color: #333;
 }
 
 .prediction-item:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
-.height_full{
-    height: 100% !important;
+.height_full {
+	height: 100% !important;
 }
-.prediction-item strong { color: #333; }
-.prediction-item:hover strong { color: #000; }
+.prediction-item strong {
+	color: #333;
+}
+.prediction-item:hover strong {
+	color: #000;
+}

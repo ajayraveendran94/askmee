@@ -12,8 +12,15 @@ class Product extends CI_Controller {
     public function view($page){
         //$product_data = $this->productlist_model->get_product_data($page);
         $product_data = $this->productlist_model->get_product_data($page);
-        $category_products = $this->productlist_model->get_category_data($product_data[0]->c_id);
-        $data['products'] = $category_products;
+        if(!empty($product_data))
+        {
+            $category_products = $this->productlist_model->get_category_data($product_data[0]->c_id);
+            $data['products'] = $category_products;
+        }
+        // else
+        // {
+
+        // }
         $data['product_data'] = $product_data;
         $this->load->view('templates/header');
         $this->load->helper('navbar');

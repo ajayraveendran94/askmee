@@ -4,6 +4,7 @@
           <div class="section-body">
             <div class="row">
               <div class="col-12">
+              <?php if(count($order) > 0){?>
                 <div class="card">
                   <div class="card-header">
                     <h4>Order List</h4>

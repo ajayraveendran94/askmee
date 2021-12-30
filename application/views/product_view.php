@@ -8,11 +8,12 @@
                 </nav>
                 <hr>
             </div>
-        </div>
+</div>
+<?php if(count($product_data)>0){?>
         <!------------>
 
         <!-------------Product Section-->
-
+        
         <div class="container-fluid mt-1 mb-1">
             <div class="">
                 <div class="col-sm-12 col-md-12 col-lg-12 content-area " style="padding-top:0;margin-top:-50px;">
@@ -218,3 +219,8 @@
 
         </div>
     </div>
+<?php } else {  ?>
+                      <div class="card">
+                          <div class="card-header"><h5> Sorry No Product details Found </h5>
+                          </div><div class="card-body"><a class="btn btn-primary mr-1" href="<?php echo base_url();?>">Back</a></div></div>
+                    <?php }?>

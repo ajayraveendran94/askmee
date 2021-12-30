@@ -57,6 +57,7 @@ class Productlist_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('as_products');
         $this->db->where('as_products.p_id', $id);
+        $this->db->where('as_products.product_status', 1);
         $this->db->join('as_product_master', 'id = master_product_id', 'left');
         $this->db->join('as_user', 'user_id = vendor_id', 'left');
         $this->db->join('as_categories', 'as_categories.c_id = as_product_master.category_id', 'left');
@@ -64,12 +65,17 @@ class Productlist_model extends CI_Model{
         $this->db->join('as_product_images', 'as_product_images.product_id = as_products.p_id', 'left');
         $query = $this->db->get();
         $result = $query->result();
-        if($result[0]->product_status == 1){
-            return $result;
-        }
-        else{
-            return false;
-        }
+        return $result;
+        // if(empty($result))
+        // {
+        //     return false;
+        // }
+        // if($result[0]->product_status == 1){
+        //     return $result;
+        // }
+        // else{
+        //     return false;
+        // }
     }
 
     function get_category_data($c_id){
@@ -94,7 +100,10 @@ class Productlist_model extends CI_Model{
         $this->db->select('*');
         $this->db->where('c_id', $c_id);
         $query_1 = $this->db->get('as_categories')->result_array();
-           $query[0]['category_name'] = $query_1[0]['category_name']; 
+        if(!empty($query1))
+            {
+                $query[0]['category_name'] = $query_1[0]['category_name'];
+            } 
         }
         return $query;
     }

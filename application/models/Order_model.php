@@ -100,6 +100,21 @@ class Order_model extends CI_Model{
         }
         return $query;
     }
+
+    function get_order_details(){
+        $this->db->reset_query();
+        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
+        $this->db->join('as_orders', 'or_id = order_id ');
+        $this->db->join('as_order_status', 'ors_id = status_id ');
+        $this->db->join('as_address', 'ad_id = address_id');
+        $this->db->join('as_products', 'p_id = or_product_id ');
+        $this->db->join('as_product_master', 'id = master_product_id ');
+        //$this->db->join('as_product_images', 'or_product_id = or_product_id');
+        $this->db->join('as_user', 'user_id = ad_user_id');
+        //$this->db->where('user_id', $id);
+        $query = $this->db->get('as_order_detail')->result_array();
+        return $query;
+    }
     // function last_insert(){
     //     $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_product_master'");
     //     $next = $next->row(0);

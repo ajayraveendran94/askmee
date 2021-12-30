@@ -707,3 +707,15 @@ $(function () {
   // sticky header default set to true
   $("#sticky_header_setting").prop("checked", true);
 });
+
+function checkDate(){
+  var to_date = new Date(Date.parse($('#toDate').val()));
+  var from_date = new Date(Date.parse($('#fromDate').val()));
+  if(to_date > from_date){
+    return true;
+  }
+  else{
+    $('#dateAlert').show();
+    return false;
+  }
+}

@@ -4,6 +4,7 @@
           <div class="section-body">
             <div class="row">
               <div class="col-12">
+              <?php if(count($order) > 0){?>
              <!-- -->
                 <div class="card">
                   <div class="card-header">
@@ -144,6 +145,11 @@
                       </div>
                     </div>
                   </div>
+                  <?php } else {  ?>
+                      <div class="card">
+                          <div class="card-header"><h5> Sorry No Orders Found </h5>
+                          </div><div class="card-body"><a class="btn btn-primary mr-1" href="<?php echo base_url('admin/orderlist');?>">Back</a></div></div>
+                    <?php }?>
                 </div>
               </div>
           </div>

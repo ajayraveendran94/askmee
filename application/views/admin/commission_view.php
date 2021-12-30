@@ -7,7 +7,6 @@
                 <div class="card">
                   <div class="card-header">
                     <h4>Commission List</h4>
-
                   </div>
                   <div class="card-body">
                     <button style="margin-left: 50%;" class="btn btn-warning" data-toggle="modal" data-target="#newCommissionModal">New Commission</button>
@@ -28,7 +27,7 @@
                             <th>Commission Amount</th>
                             <th>Commission Percentage</th>
                             <!-- <th>Quantity</th> -->
-                            <th>Action</th> 
+                            <th hidden>Action</th> 
                           </tr>
                         </thead>
                         <tbody>
@@ -68,7 +67,7 @@
                                   echo("NA");
                                 }?>
                             </td>
-                            <td>
+                            <td hidden>
                               <button commissionId= "<?php echo $row['com_id']; ?>" commissionValue="<?php echo $row['com_name']; ?>" comAmount="<?php echo $row['com_amount']; ?>" comPercent="<?php echo $row['com_percent']; ?>" class="btn btn-danger commissionUpdateButton" data-toggle="modal" data-target="#commissionModal">Edit</button>
                             </td>
                           </tr>
