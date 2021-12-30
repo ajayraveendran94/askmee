@@ -30,13 +30,14 @@ class Report extends CI_Controller {
     }
 
     public function new_report()
-    {
-        $report_type = $this->input->post('report_type');  
-        $from_date = $this->input->post('from_date');
-        $to_date = $this->input->post('to_date');
-        if($report_type == 'sales_report'){
-            $sales_data['headers'] = ['Order Id', 'Order Date', 'User Name'];
-            $sales_data = $this->order_model->get_order_details();
+    {  
+        $filter_data['from_date'] = $this->input->post('from_date');
+        $filter_data['status'] = $this->input->post('to_date');
+        $filter_data['to_date'] = $this->input->post('to_date');
+        $filter_data['to_date'] = $this->input->post('to_date');
+        if($this->input->post('report_type') == 'sales_report'){
+            $sales_data['headers'] = ['Order Id', 'Order Date', 'Product','Quantity','Ordered By', 'Vendor Name', 'Order Status', 'Amount'];
+            $sales_data = $this->order_model->get_order_details($filter_data);
             $data['sales_data'] = $sales_data;
         }
         //print_r($data);

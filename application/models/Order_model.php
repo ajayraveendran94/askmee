@@ -101,7 +101,7 @@ class Order_model extends CI_Model{
         return $query;
     }
 
-    function get_order_details(){
+    function get_order_details($data){
         $this->db->reset_query();
         $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
         $this->db->join('as_orders', 'or_id = order_id ');
