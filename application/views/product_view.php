@@ -27,17 +27,17 @@
                             </div>
                             <div class="carousel-inner">
                             <?php if(isset($product_data[0])){?>
-                                            <div class="carousel-item active easyzoom easyzoom--overlay">
+                                            <div class="carousel-item active">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[0]->product_name); ?>">
                                         </div>
                                         <?php } ?>
                                         <?php if(isset($product_data[1])){?>
-                                        <div class="carousel-item easyzoom easyzoom--overlay">
+                                        <div class="carousel-item ">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[1]->product_name); ?>">
                                         </div>
                                         <?php } ?>
                                         <?php if(isset($product_data[2])){?>
-                                        <div class="carousel-item easyzoom easyzoom--overlay">
+                                        <div class="carousel-item ">
                                             <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[2]->product_name); ?>">
                                         </div>
                                         <?php } ?>

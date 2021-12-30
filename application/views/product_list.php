@@ -1,5 +1,5 @@
 <div class="container-fluid">
-        <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -55px;">
+        <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -30px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
