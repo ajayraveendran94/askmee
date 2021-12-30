@@ -36,7 +36,7 @@
                     <a href="<?php echo base_url('category/view/'.$row->c_id); ?>">
             <img src="<?php echo base_url('assets/images/categories/'.$row->category_url); ?>" width="70%" style="margin-bottom: 6%;" alt="PNG2.jpg">
           </a>
-          <h6><?php echo $row->category_name; ?></h6>
+          <h6><b><?php echo $row->category_name; ?></b></h6>
 
                 </div>
                 <?php } ?>

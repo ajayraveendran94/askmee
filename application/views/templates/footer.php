@@ -50,20 +50,23 @@
   <script src="https://kit.fontawesome.com/c5110883ba.js" crossorigin="anonymous"></script>
   
  <script src='<?php echo base_url("assets/assets/js/jquery-3.6.0.min.js");?>'></script>
+ <script src='<?php echo base_url("assets/assets/js/easyzoom.js");?>'></script>
 <script src='<?php echo base_url("assets/assets/js/bootstrap.bundle.js");?>'></script>
   <script src='<?php echo base_url("assets/assets/js/popper.min.js");?>'></script>
 <script src='<?php echo base_url("assets/assets/js/bootstrap.min.js");?>'></script>
   <script src='<?php echo base_url("assets/assets/js/searchbar.js");?>'></script>
-  <script src='<?php echo base_url("assets/assets/js/easyzoom.js");?>'></script>
-  <script src='<?php echo base_url("assets/assets/js/zoom.js");?>'></script>
+  <script src='<?php echo base_url("assets/assets/js/swiper.min.js");?>'></script>
+ 
+  <script src='<?php echo base_url("assets/assets/js/main.js");?>'></script>
   <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
 
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
-</script>
-
-
-
-<script>
 function filterFunction() {
       $.ajax({
          type: "GET",
