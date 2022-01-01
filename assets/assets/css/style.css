@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 html {
 	overflow-x: hidden;
 }
 body{
-    font-family: 'PT Sans';
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .search-bar {
@@ -195,11 +195,11 @@ h3 {
 	width: auto;
 	display: block;
 	text-align: center;
-	border-bottom: 2px solid #fda332;
 	margin: 15px auto 15px;
 	padding: 10px;
 	max-width: 238px;
 	font-size: 35px;
+	font-weight: 700;
 }
 
 .mydiv {
@@ -298,10 +298,10 @@ div {
 .bbb_deals {
 	width: 100%;
 	margin-right: 7%;
-	padding-top: 80px;
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-bottom: 34px;
+	padding-top: 18px;
+	padding-left: 18px;
+	padding-right: 18px;
+	padding-bottom: 18px;
 	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	margin: 20px 0px;
@@ -326,8 +326,7 @@ div {
 }
 
 .bbb_deals_image {
-    width: 100%
-    height:213px
+    width: 100%;
 }
 
 .bbb_deals_image img {
@@ -335,7 +334,7 @@ div {
 }
 
 .bbb_deals_content {
-	margin-top: 33px;
+	margin-top: 14px;
 }
 
 .bbb_deals_item_category a {
@@ -355,14 +354,14 @@ div {
 }
 
 .bbb_deals_item_name {
-	font-size: 24px;
-	font-weight: 400;
+	font-size: 20px;
+	font-weight: 500;
 	color: #000000;
 }
 
 .bbb_deals_item_price {
-	font-size: 22px;
-	font-weight: 500;
+	font-size: 24px;
+	font-weight: 700;
 	color: #6d6e73;
 }
 
@@ -401,8 +400,16 @@ div {
 	}
 	.bbb_deals_item_name,
 	.bbb_deals_item_price {
+		font-size: 14px;
+		font-weight: 600;
+	}
+    .sold_stars i{
+		font-size: 12px;
+	}
+    .page-title {
 		font-size: 20px;
 	}
+
 }
 
 .product-list {

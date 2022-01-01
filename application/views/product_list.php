@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <?php if(count($products) > 0){?>
-        <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -55px;">
+        <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="margin-top: -7px;">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
@@ -57,7 +57,7 @@ $count = 0;
                                             class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star"></i> <i class="fa fa-star"></i>
                                         <div class="bbb_deals_item_price ml-auto">₹<?php echo $product['offer_price']; ?></div>
-                                    </div><br>
+                                    </div>
                                     <a href="<?php echo base_url('/buynow/view/'.$product['p_id']);?>" class="btn btn-theme mb-1">Buy Now</a>
                                     <input type="hidden" value=1 id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product['quantity']); ?>>
                                     <button id="addToCart_<?php echo($product['p_id']); ?>" class="addToCartBtnNew btn btn-cart mb-1" productId=<?php echo($product['p_id']); ?>>Add to Cart</button>
