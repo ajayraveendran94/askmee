@@ -43,7 +43,7 @@
                       <div class="form-group col-md-4">
                        <label>Select Vendor (Optional)</label>
                        <select class="form-control" name="report_vendor">
-                         <option value="">---Select Option---</option>
+                         <option value=0>---Select Option---</option>
                          <?php foreach($vendor_data as $row){ ?>
                          <option value="<?php echo $row['user_id']; ?>"><?php echo($row['name'].' ('.$row['email'].')'); ?></option>
                        <?php } ?>

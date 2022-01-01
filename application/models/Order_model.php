@@ -102,8 +102,15 @@ class Order_model extends CI_Model{
     }
 
     function get_order_details($data){
+        $start_date = $data['from_date'];
+        $end_date = $data['to_date'];
         $this->db->reset_query();
-        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
+        $this->db->where("order_date BETWEEN '{$start_date}' AND '{$end_date}'");
+        if($data['vendor_id'] != 0){
+          $this->db->where('vendor_id', $data['vendor_id']);
+        }
+        $this->db->where('status_id', $data['status']);
+        $this->db->select('order_id, or_detail_id, user_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price, line_1, line_2, line_3, post, pin, district, state, contact_number_1');
         $this->db->join('as_orders', 'or_id = order_id ');
         $this->db->join('as_order_status', 'ors_id = status_id ');
         $this->db->join('as_address', 'ad_id = address_id');
@@ -115,17 +122,28 @@ class Order_model extends CI_Model{
         $query = $this->db->get('as_order_detail')->result_array();
         return $query;
     }
-    // function last_insert(){
-    //     $next = $this->db->query("SHOW TABLE STATUS LIKE 'as_product_master'");
-    //     $next = $next->row(0);
-    //     return $next->Auto_increment;
-    // }
 
-    // function update_product($data, $id)
-    // {
-    //     $this->db->reset_query();
-    //     $this->db->update('as_product_master', $data, array('id' => $id));
-    // }
+    function get_vendor_details($data){
+        $start_date = $data['from_date'];
+        $end_date = $data['to_date'];
+        $this->db->reset_query();
+        $this->db->where("order_date BETWEEN '{$start_date}' AND '{$end_date}'");
+        if($data['vendor_id'] != 0){
+          $this->db->where('vendor_id', $data['vendor_id']);
+        }
+        $this->db->where('status_id', $data['status']);
+        $this->db->select('order_id, or_detail_id, user_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
+        $this->db->join('as_orders', 'or_id = order_id ');
+        $this->db->join('as_order_status', 'ors_id = status_id ');
+        $this->db->join('as_products', 'p_id = or_product_id ');
+        $this->db->join('as_product_master', 'id = master_product_id ');
+        //$this->db->join('as_product_images', 'or_product_id = or_product_id');
+        $this->db->join('as_user', 'user_id = vendor_id');
+        //$this->db->where('user_id', $id);
+        $query = $this->db->get('as_order_detail')->result_array();
+        return $query;
+    }
+    
 
     public function get_order_data($id){
         $this->db->reset_query();
