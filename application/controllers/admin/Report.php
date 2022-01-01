@@ -32,18 +32,21 @@ class Report extends CI_Controller {
     public function new_report()
     {  
         $filter_data['from_date'] = $this->input->post('from_date');
-        $filter_data['status'] = $this->input->post('to_date');
+        $filter_data['status'] = $this->input->post('report_status');
         $filter_data['to_date'] = $this->input->post('to_date');
-        $filter_data['to_date'] = $this->input->post('to_date');
+        $filter_data['report_type'] = $this->input->post('report_type');
+        $filter_data['vendor_id'] = $this->input->post('report_vendor');
+        $data = null;
         if($this->input->post('report_type') == 'sales_report'){
-            $sales_data['headers'] = ['Order Id', 'Order Date', 'Product','Quantity','Ordered By', 'Vendor Name', 'Order Status', 'Amount'];
+            $data['headers'] = ['Order Id', 'Order Date', 'Product','Quantity','Ordered By', 'Address', 'Vendor Name', 'Order Status', 'Amount'];
             $sales_data = $this->order_model->get_order_details($filter_data);
             $data['sales_data'] = $sales_data;
+            $vendor_data = $this->order_model->get_vendor_details($filter_data);
+            $data['vendor_data'] = $vendor_data;
         }
-        //print_r($data);
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/nav_side_bar');
-        $this->load->view('admin/show_report_view');
+        $this->load->view('admin/show_report_view', $data);
         $this->load->view('admin/templates/footer_admin'); 
     }
 
