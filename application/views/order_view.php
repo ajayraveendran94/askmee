@@ -53,7 +53,25 @@
                                                    <p><strong>Price:</strong> ₹<?php echo($order['total_price']);?></p>
 
                                                     <dl class="small m-b-none mt-5">
-                                                        <dt><a href="#" id="rateing" class="rating-btn" target="_blank">Rating & Review</a></dt>
+                                                        <dt>
+                                                            <!-- <a href="#" id="rateing" class="rating-btn" target="_blank">Rating & Review</a> -->
+                                                            <button type="button" class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#exampleModal">Rating&Review</button>
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                <h4>Add a comment</h4>
+                                                                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                                <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                                <div class="text-center mt-4"> <button class="btn btn-theme">Send message <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </dt>
 
                                                     </dl>
                                                 </td>
