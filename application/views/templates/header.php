@@ -37,6 +37,7 @@ $controller = $this->router->fetch_class();
   <link href='<?php echo base_url("assets/assets/css/swiper.min.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/easyzoom.css");?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/assets/css/main.css");?>' rel="stylesheet">
+  <link href='<?php echo base_url("assets/assets/css/review.css");?>' rel="stylesheet">
   <link rel="icon" href="<?php echo base_url("assets/img/askmee.ico");?>" type="image/png">
   <title>askmee.in</title>
 </head>
