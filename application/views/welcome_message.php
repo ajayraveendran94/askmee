@@ -20,7 +20,7 @@
         </div>
 
         <div class="text-center">
-            <img src='<?php echo base_url("assets/assets/img/PNG_2.png");?>' style="width: 60%;margin-top: 25px;margin-bottom: 25px;" alt="PNG2.jpg">
+            <img src='<?php echo base_url("assets/assets/img/PNG_2.png");?>' style="width: 50%;margin-top: 25px;margin-bottom: 25px;" alt="PNG2.jpg">
         </div>
         <h1 class="has-text-align-center" style="margin-bottom: 50px;">
             <span class="has-inline-color has-very-dark-gray-color">Shop by Category</span>
@@ -43,15 +43,15 @@
             </div>
             <br>
             <br>
-            <center> <a href="#" class="btn btn-theme btn-md">MORE</a></center>
+            <center style="margin-top: -23px"> <a href="#" class="btn btn-theme btn-md">MORE</a></center>
         </div>
 
 
         <div class="container product-slider ">
 
-            <div class="row *category-grid" style="margin-top: 61px;justify-content: center;">
+            <div class="row *category-grid" style="margin-top: 35px;justify-content: center;">
 
-            <h1 class="has-text-align-center" style="margin-bottom: 50px;">
+            <h1 class="has-text-align-center" style="margin-bottom: 22px;">
                 <span class="has-inline-color has-very-dark-gray-color">Latest Products</span>
             </h1>
                <?php if(isset($_SESSION['user'])){?>

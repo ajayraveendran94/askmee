@@ -355,7 +355,7 @@ div {
 
 .bbb_deals_item_name {
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: 900;
 	color: #000000;
 }
 
@@ -409,7 +409,15 @@ div {
     .page-title {
 		font-size: 20px;
 	}
-
+	.line{
+		margin-left: 11px;
+	}
+    .breadcrumb{
+		margin-left: 10px;
+	}
+	.category-tiles{
+		margin-top: -25px;
+	}
 }
 
 .product-list {

@@ -7,7 +7,7 @@
                         <li class="breadcrumb-item active" aria-current="page"><?php echo $products[0]['category_name'];  ?></li>
                 </ol>
             </nav>
-            <hr>
+            <hr class="line" style="height: 0.5px">
                 <h4 class="page-title"><?php echo $products[0]['category_name'];  ?></h4>
         </div>
     <?php } ?>
@@ -56,7 +56,7 @@ $count = 0;
                                     <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i
                                             class="fa fa-star"></i> <i class="fa fa-star"></i> <i
                                             class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <div class="bbb_deals_item_price ml-auto">₹<?php echo $product['offer_price']; ?></div>
+                                        <div class="bbb_deals_item_price ml-auto" style="margin-bottom: 8px;">₹<?php echo $product['offer_price']; ?></div>
                                     </div>
                                     <a href="<?php echo base_url('/buynow/view/'.$product['p_id']);?>" class="btn btn-theme mb-1">Buy Now</a>
                                     <input type="hidden" value=1 id="quantity" placeholder="Quantity" style="width: 90px" min= 1 max= <?php echo($product['quantity']); ?>>

@@ -1,12 +1,12 @@
 <div class="container-fluid">
-            <div class="col-sm-12 col-md-12 col-lg-12 content-area"  style="margin-top:-30px;" >
+            <div class="col-sm-12 col-md-12 col-lg-12 content-area"  style="margin-top:-11px;" >
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Product-details</li>
                     </ol>
                 </nav>
-                <hr>
+                <hr style="height: 0.1px">
             </div>
 </div>
 <?php if(count($product_data)>0){?>
@@ -20,7 +20,7 @@
                     <div class="">
                         <div class="row">
                             <div class="col-md-4">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div id="carouselExampleIndicators" style="margin-top:26px"  class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -57,10 +57,10 @@
                             <div class="col-md-6">
                                 <div class="product p-1">
                                     <div class="mb-3">
-                                        <h4 class="/text-uppercase mb-3"><?php echo($product_data[0]->product_name); ?></h4><hr>
+                                        <h4 class="/text-uppercase mb-3" style="font-weight: 900;margin-top: 20px;"><?php echo($product_data[0]->product_name); ?></h4><hr>
                                         <div class="price d-flex flex-row align-items-center">
                                             <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span
-                                                    class="act-price">₹<?php echo($product_data[0]->offer_price); ?></span></h5>
+                                                    class="act-price" style= "font-weight: 900;" >₹<?php echo($product_data[0]->offer_price); ?></span></h5>
                                             <div class="ml-2">
                                                 <small class="dis-price">₹<?php echo($product_data[0]->actual_price); ?></small> <span class="dis-label"><?php echo round((($product_data[0]->actual_price - $product_data[0]->offer_price) / $product_data[0]->actual_price)*100); ?>%
                                                     OFF</span>
@@ -101,6 +101,8 @@
     <div class="content-area">            
         <div class="d-flex flex-column bd-highlight mb-3">            
                 <h4 class="title-sub">Reviews and Ratings</h4>
+
+                
         </div>
         
       </div>

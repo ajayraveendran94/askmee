@@ -81,7 +81,7 @@ $controller = $this->router->fetch_class();
     cursor: pointer;
     display: inline;
     position: absolute;
-    right: 29px;
+    right: 21px;
     margin-top: 7px;
 }
 
@@ -203,7 +203,7 @@ $controller = $this->router->fetch_class();
                     
 
                     <div class="col-sm-2 cart-mob">
-                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;">&nbsp
+                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;margin-left:27px;">&nbsp
                         <span class="sidenav-hamburger" onclick="openNav()">&#9776;</span>
                                   
 </div>
