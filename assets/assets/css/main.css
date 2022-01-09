@@ -70,3 +70,8 @@ h2 {
   transform: translate(-50%, -50%);
   max-width: 100%;
 }
+.total-prize{
+
+  font-size: 35px;
+  font-weight: 700;
+}

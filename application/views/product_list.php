@@ -18,7 +18,7 @@
                               <h5> Sorry No category based product Found </h5>
                           </div>
                           <div class="card-body">
-                              <a class="btn btn-primary mr-1" href="<?php echo base_url();?>">Back</a>
+                              <a class="btn btn-theme mr-1" href="<?php echo base_url();?>">Back</a>
                          </div>
                      </div>
          <?php }?>

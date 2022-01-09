@@ -93,8 +93,16 @@ table.shoping-cart-table tr td:last-child {
   padding: 10px 15px;
 }
 
+.cart-prize{
+  font-size: 23px;
+  font-weight: 700;
+}
 
+.font-bold{
+font-weight: 900;
+color: #000000;
 
+}
 
 .qty {
   width: 35px;

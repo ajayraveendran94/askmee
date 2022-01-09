@@ -31,7 +31,7 @@
                </div>
             <?php } ?>
                <div class="row">
-                  <button type="button" id="btn-address" class="btn btn-dark btn-sm" style="padding:7px 0; font-size:19px"><i class="fa fa-plus mx-2"></i>Add New Address</button>
+                  <button type="button" id="btn-address" class="btn btn-theme btn-sm" style="padding:7px 0; font-size:19px"><i class="fa fa-plus mx-2"></i>Add New Address</button>
                </div>
                <br>
                <hr>
@@ -110,7 +110,7 @@
                                  </td>
                                  <td class="desc" width="60%">
                                     <h5>
-                                       <a href="#" class="text-orange">
+                                       <a href="#" class="text-black">
                                        <?php echo $data['product_name']; ?>
                                        </a>
                                     </h5>
@@ -119,13 +119,13 @@
                                                         $total_price = $total_price + ($price * $quantity);
                                                         ?>
                                     <div class="m-t-sm">
-                                       <p class="mb-1"><s class="small text-muted">₹ <?php echo $data['actual_price'];?></s> ₹<?php echo $data['offer_price'];?></p>
+                                       <p class="mb-1 text-black"><s class="small text-muted">₹ <?php echo $data['actual_price'];?></s> ₹<?php echo $data['offer_price'];?></p>
                                     </div>
                                  </td>
                                  <td width="20%">
                                     <input type="number" min="1" max="10"  class="form-control mb-0"
                                        value="<?php echo $quantity; ?>" readonly>
-                                    <a href="#" class="btn btn-danger btn-sm mt-3 " style="min-width: 90px;" onclick="runDemo()"><i
+                                    <a href="#" class="btn btn-danger btn-sm mt-3 " style="min-width: 120px;" onclick="runDemo()"><i
                                        class="fa fa-trash"></i> Remove</a>
                                  </td>
                               </tr>
@@ -141,8 +141,8 @@
                   <div class="col-7">
                      <h4>Total</h4>
                   </div>
-                  <div class="col-5">
-                     <h4 class="font-bold" style="text-align: right;">Rs. <?php echo $total_price;?></h4>
+                  <div class="col-5 ">
+                     <h4 class="total-prize" style="text-align: right;margin-right: 6px;">₹<?php echo $total_price;?></h4>
                   </div>
                </div>
                <hr>

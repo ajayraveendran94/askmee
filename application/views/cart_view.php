@@ -37,14 +37,14 @@
                                                     </td>
                                                     <td class="desc" width="70%">
                                                         <h5>
-                                                            <a href="<?php echo base_url('product/view/'.$cart['p_id']); ?>" class="text-orange">
+                                                            <a href="<?php echo base_url('product/view/'.$cart['p_id']); ?>" class="text-black">
                                                                 <?php echo $cart['product_name']; ?>
                                                             </a>
                                                         </h5>
                                                         <div class="m-t-sm">
                                                             <p class="mb-1 cart-prize"><s
                                                                     class="small text-muted">₹<?php echo $cart['actual_price']; ?></s>
-                                                                &#x20B9;<?php echo $cart['offer_price']; ?></p>
+                                                                &#x20B9;<b><?php echo $cart['offer_price']; ?></b></p>
                                                             <input type="hidden" value="<?php echo $cart['actual_price']; ?>" class="prizetemp">
                                                         </div>
                                                     </td>

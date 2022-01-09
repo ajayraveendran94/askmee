@@ -198,7 +198,7 @@ h3 {
 	margin: 15px auto 15px;
 	padding: 10px;
 	max-width: 238px;
-	font-size: 35px;
+	font-size: 30px;
 	font-weight: 700;
 }
 
@@ -428,7 +428,10 @@ div {
 
 .product-link {
 	text-decoration: none;
+
 }
+
+
 
 /* Custom Styles */
 
@@ -445,6 +448,13 @@ a {
 	text-decoration: none !important;
 	color: #000000;
 }
+
+
+a:hover{
+	color: #000000;
+}
+
+
 
 .category-grid {
 	text-align: center;
@@ -512,7 +522,7 @@ a {
 .navbar-nav li a {
 	/*color: #ffffffc2 !important;*/
 	color: #fff !important;
-	font-size: 17px;
+	font-size: 14px;
 	font-weight: 700;
 }
 .navbar-nav li a:hover,
@@ -537,12 +547,31 @@ a {
 
 .text-black {
 	color: #000000;
-	font-size: 24px;
-	font-weight: 400;
+	font-size: 20px;
+	font-weight: 700;
 }
 .text-right {
 	text-align: right !important;
+	padding: 20px;
 }
+
+.carousel-custom {
+    display: inline-block;
+    width: 1.5rem;
+    height: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+    background-color: black;
+    border-radius: 56px;
+    padding: 13px;
+}
+
+
+
+
+
+
 
 @media only screen and (max-width: 600px) {
 	.content-area {

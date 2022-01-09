@@ -19,42 +19,35 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 content-area " style="padding-top:0;margin-top:-50px;">
                     <div class="">
                         <div class="row">
-                            <div class="col-md-4">
-                            <div id="carouselExampleIndicators" style="margin-top:26px"  class="carousel slide" data-bs-ride="carousel">
+                        <div class="col-md-4">
+                        <div id="carouselExampleNoRide" class="carousel slide is-static" data-bs-interval="false">
                             <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
-                            <?php if(isset($product_data[0])){?>
-                                            <div class="carousel-item active">
-                                            <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[0]->p_id.'/'.$product_data[0]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[0]->product_name); ?>">
-                                        </div>
-                                        <?php } ?>
-                                        <?php if(isset($product_data[1])){?>
-                                        <div class="carousel-item ">
-                                            <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[1]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[1]->product_name); ?>">
-                                        </div>
-                                        <?php } ?>
-                                        <?php if(isset($product_data[2])){?>
-                                        <div class="carousel-item ">
-                                            <img src="<?php echo base_url('/assets/images/newproducts/'.$product_data[2]->p_id.'/'.$product_data[1]->image_url); ?>" class="d-block w-100" alt="<?php echo($product_data[2]->product_name); ?>">
-                                        </div>
-                                        <?php } ?>
-                           </div>
-                           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                           <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                         </button>
-                          </div>
-                        </div>
-
-                            <div class="col-md-6">
+                                <div class="carousel-item active ">
+                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" alt="" class="d-block w-100 " alt="...">
+                                </div>
+                                <div class="carousel-item ">
+                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" class="d-block w-100 " alt="...">
+                                </div>
+                                <div class="carousel-item ">
+                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" class="d-block w-100 " alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon carousel-custom" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide="next">
+                                <span class="carousel-control-next-icon carousel-custom"   aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            </div>
+                           </div> 
+                            <div class="col-md-8">
                                 <div class="product p-1">
                                     <div class="mb-3">
                                         <h4 class="/text-uppercase mb-3" style="font-weight: 900;margin-top: 20px;"><?php echo($product_data[0]->product_name); ?></h4><hr>
@@ -133,7 +126,7 @@
                             </div>
                             <div class="pull-left" style="width:180px;">
                                 <div class="progress" style="height:9px; margin:8px 0;">
-                                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                  <div class="progress-bar progress-bar-success btn-theme" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
                                     <span class="sr-only">80% Complete (danger)</span>
                                   </div>
                                 </div>
@@ -146,7 +139,7 @@
                             </div>
                             <div class="pull-left" style="width:180px;">
                                 <div class="progress" style="height:9px; margin:8px 0;">
-                                  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                  <div class="progress-bar progress-bar-primary btn-theme" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
                                     <span class="sr-only">80% Complete (danger)</span>
                                   </div>
                                 </div>
@@ -159,7 +152,7 @@
                             </div>
                             <div class="pull-left" style="width:180px;">
                                 <div class="progress" style="height:9px; margin:8px 0;">
-                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                  <div class="progress-bar progress-bar-info btn-theme" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
                                     <span class="sr-only">80% Complete (danger)</span>
                                   </div>
                                 </div>
@@ -172,7 +165,7 @@
                             </div>
                             <div class="pull-left" style="width:180px;">
                                 <div class="progress" style="height:9px; margin:8px 0;">
-                                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                  <div class="progress-bar progress-bar-warning btn-theme" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
                                     <span class="sr-only">80% Complete (danger)</span>
                                   </div>
                                 </div>
@@ -185,7 +178,7 @@
                             </div>
                             <div class="pull-left" style="width:180px;">
                                 <div class="progress" style="height:9px; margin:8px 0;">
-                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                  <div class="progress-bar progress-bar-danger btn-theme" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
                                     <span class="sr-only">80% Complete (danger)</span>
                                   </div>
                                 </div>
@@ -406,10 +399,11 @@
             </div> -->
         
 
+
         </div>
     </div>
 <?php } else {  ?>
                       <div class="card">
                           <div class="card-header"><h5> Sorry No Product details Found </h5>
-                          </div><div class="card-body"><a class="btn btn-primary mr-1" href="<?php echo base_url();?>">Back</a></div></div>
+                          </div><div class="card-body"><a class="btn btn-theme mr-1" href="<?php echo base_url();?>">Back</a></div></div>
                     <?php }?>
