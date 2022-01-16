@@ -32,7 +32,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="desc" width="40%">
-                                                    <h5>
+                                                    <h5 class="text-black">
                                                         <a href="<?php echo base_url('product/view/'.$order['p_id']); ?>">
                                               <?php echo($order['product_name']); ?>
                                           </a>
@@ -50,7 +50,7 @@
                                                 </td>
                                                 
                                                 <td width="45%">
-                                                   <p><strong>Price:</strong> ₹<?php echo($order['total_price']);?></p>
+                                                   <p><strong>Price:</strong> ₹ <b><?php echo($order['total_price']);?></b></p>
 
                                                     <dl class="small m-b-none mt-5">
                                                         <dt>
@@ -90,8 +90,8 @@
                         <div class="col-md-3">
                             <div class="card">
                         <div class="ibox">
-                            <div class="ibox-title">
-                                <h5>Account</h5>
+                            <div class="ibox-title" style="margin-left:20px">
+                                <h5 class="text-black">Account</h5>
                             </div>
                             <div class="ibox-content">
                                 <ul class="list-group list-group-flush">

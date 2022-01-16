@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-sm-12">
-                <div class="card align-items-center" style="margin-top: 0px;">
+                <div class="card align-items-center text-center" style="margin-top: 0px;border:0px;">
                     <div class="circle-loader">
                     <div class="checkmark draw"></div>
                     </div>
