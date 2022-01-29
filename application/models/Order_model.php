@@ -83,7 +83,7 @@ class Order_model extends CI_Model{
 
     function get_user_orders($id){
         $this->db->reset_query();
-        $this->db->select('order_id, total_amount, order_from_admin, order_date, name, status_name, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
+        $this->db->select('order_id, or_detail_id, total_amount, order_from_admin, order_date, name, status_name, delivery_date, status_id, or_quantity, ors_id, p_id, or_product_id, master_product_id, product_name, total_price');
         $this->db->join('as_orders', 'or_id = order_id ');
         $this->db->join('as_order_status', 'ors_id = status_id ');
         $this->db->join('as_address', 'ad_id = address_id');
@@ -97,6 +97,9 @@ class Order_model extends CI_Model{
           $this->db->where('product_id', $product['p_id']);
           $images_query = $this->db->get('as_product_images')->result_array();
           $query[$i]['product_images'] = $images_query;
+          $this->db->where('ur_order_detail_id', $product['or_detail_id']);
+          $review_details = $this->db->get('as_user_reviews')->result_array();
+          $query[$i]['review_data'] = $review_details;
         }
         return $query;
     }

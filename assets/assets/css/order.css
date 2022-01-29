@@ -18,6 +18,10 @@ status {
     background-color: #ff8800;
 }
 
+.placed {
+    background-color: #0dcaf0;
+}
+
 #rateing {
     background-color: #ff8800;
     color: white;

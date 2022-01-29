@@ -1,5 +1,6 @@
 var totalAmount = 0;
 var singlePrice = 0;
+var userRating = 0;
 $("#selectProduct").click(function () {
 	var product = {};
 	product['id'] = $("#productName").val();
@@ -49,3 +50,8 @@ $("#selectProduct").click(function () {
 $("#productSubmit").click(function () {
 
 });
+
+$('input:radio').change(
+      function(){
+        userRating = this.value;
+      });

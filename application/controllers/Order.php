@@ -21,6 +21,7 @@ class Order extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->helper('navbar');
         echo navbar_helper_ex();
+        //print_r($data);
         $this->load->view('order_view', $data);
         $this->load->view('templates/footer');
     }
