@@ -20,8 +20,8 @@
                     <div class="">
                         <div class="row">
                         <div class="col-md-4">
-                        <div id="carouselExampleNoRide" class="carousel slide is-static" data-bs-interval="false">
-                            <div class="carousel-indicators">
+                        <div id="carouselExampleNoRide" class="carousel slide is-static"   style="margin-top: 32px"; data-bs-interval="false">
+                            <div class="carousel-indicators carousel-btn" style="margin-bottom: -2rem;">
                                 <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -50,7 +50,7 @@
                             <div class="col-md-8">
                                 <div class="product p-1">
                                     <div class="mb-3">
-                                        <h4 class="/text-uppercase mb-3" style="font-weight: 900;margin-top: 20px;"><?php echo($product_data[0]->product_name); ?></h4><hr>
+                                        <h4 class="/text-uppercase mb-3" style="font-weight: 900;margin-top: 30px;"><?php echo($product_data[0]->product_name); ?></h4><hr>
                                         <div class="price d-flex flex-row align-items-center">
                                             <h5 style="margin-bottom: 0;color: #626262;">M.R.P: <span
                                                     class="act-price" style= "font-weight: 900;" >₹<?php echo($product_data[0]->offer_price); ?></span></h5>

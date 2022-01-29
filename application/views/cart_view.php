@@ -79,9 +79,9 @@
                                     <span>
                                         Total
                                     </span>
-                                    <h2 class="font-bold">
+                                    <h4 class="font-bold">
                                         ₹<?php  echo $total_amount; ?>
-                                    </h2>
+                                    </h4>
 
                                     <hr>
                                     <!-- <span class="text-muted small">

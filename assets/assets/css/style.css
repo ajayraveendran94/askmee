@@ -67,9 +67,10 @@ body{
 
 .has-text-align-center {
 	text-align: center;
-	font-family: sans-serif;
+	font-family: ubuntu;
 	font-size: 30px;
 	line-height: 1.4;
+	font-weight: 900;
 }
 
 .foote {
@@ -184,7 +185,7 @@ h3 {
 }
 
 .content-area {
-	padding: 50px;
+	padding: 40px;
 	/* margin-right: 15px;
     margin-left: 15px; */
 }
@@ -198,7 +199,7 @@ h3 {
 	margin: 15px auto 15px;
 	padding: 10px;
 	max-width: 238px;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 700;
 }
 
@@ -354,13 +355,13 @@ div {
 }
 
 .bbb_deals_item_name {
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 900;
 	color: #000000;
 }
 
 .bbb_deals_item_price {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 700;
 	color: #6d6e73;
 }
@@ -547,7 +548,7 @@ a:hover{
 
 .text-black {
 	color: #000000;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 700;
 }
 .text-right {
@@ -557,17 +558,24 @@ a:hover{
 
 .carousel-custom {
     display: inline-block;
-    width: 1.5rem;
-    height: 3.5rem;
+    width: 0.2rem;
+    height: 3.0rem;
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 100%;
     background-color: black;
     border-radius: 56px;
-    padding: 13px;
+    padding: 9px;
 }
 
-
+.carousel-btn [data-bs-target]{
+    background-color: #000;
+	width: 10px;
+    height: 10px;
+	margin-right: 14px;
+	border-radius: 50%;
+	padding: 1px;
+}
 
 
 
