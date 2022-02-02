@@ -47,11 +47,11 @@ $("#selectProduct").click(function () {
 //     });
 // });
 
-$("#productSubmit").click(function () {
+// $("#productSubmit").click(function () {
 
-});
+// });
 
-$('input:radio').change(
-      function(){
-        userRating = this.value;
-      });
+// $('input:radio').change(
+//       function(){
+//         userRating = this.value;
+//       });

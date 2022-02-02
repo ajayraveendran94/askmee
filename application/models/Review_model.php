@@ -25,6 +25,11 @@ class Review_model extends CI_Model{
         $this->db->update('as_user_reviews', array('ur_enabled' => 0));
     }
 
+    function add_review($data){
+        $result = $this->db->insert('as_user_reviews',$data);
+        return $result;
+    }
+
     function enable_review($id){
         $this->db->reset_query();
         $this->db->update('as_user_reviews', array('ur_enabled' => 1));

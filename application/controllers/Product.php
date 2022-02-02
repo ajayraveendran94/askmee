@@ -25,6 +25,7 @@ class Product extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->helper('navbar');
         echo navbar_helper_ex();
+        //print_r($data['product_data']);
 		$this->load->view('product_view', $data);
 		$this->load->view('templates/footer');
     }

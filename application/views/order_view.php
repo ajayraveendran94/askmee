@@ -63,24 +63,36 @@
                                     <dl class="small m-b-none mt-5">
                                        <dt>
                                           <?php if(count($order['review_data']) > 0){?>
-                                             <button type="button" class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#exampleModal">Rating&Review</button>
-                                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                             <button type="button" class="btn btn-theme" data-bs-toggle="modal" data-bs-target="<?php echo('#exampleModalD_'.$order['review_data'][0]['ur_id']);?>">Rating&Review</button>
+                                          <div class="modal fade" id="<?php echo('exampleModalD_'.$order['review_data'][0]['ur_id']);?>" tabindex="-1" aria-labelledby="<?php echo('#exampleModalD_'.$order['review_data'][0]['ur_id'].'Label');?>" aria-hidden="true">
                                              <div class="modal-dialog">
                                                 <div class="modal-content">
                                                    <div class="modal-header">
                                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                    </div>
                                                    <div class="modal-body">
-                                                      <h4>Add a comment</h4>
-                                                      <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                                      <h4>Your Review</h4>
+                                                      <div class=""> 
+                                                         <?php 
+                                                         $rating = $order['review_data'][0]['ur_rating'];
+                                                         for ($i=0; $i < $rating; $i++) {
+                                                            echo('<span class="fa fa-star checked"></span>');
+                                                         }
+                                                         if($rating < 5){
+                                                           for ($j=0; $j < 5 - $rating; $j++) {
+                                                            echo('<span class="fa fa-star"></span>');
+                                                           } 
+                                                         }?>
+                                                      </div>
                                                       <div class="comment-area"> <textarea disabled="true" id="review" class="form-control" placeholder="what is your view?" rows="4"><?php echo($order['review_data'][0]['ur_review']);?></textarea> </div>
                                                    </div>
                                                 </div>
                                              </div>
                                           </div>
-                                          <?php } else{ ?>
-                                          <button type="button" class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#exampleModal">Rating&Review</button>
-                                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <?php } 
+                                          else{ ?>
+                                          <button type="button" class="btn btn-theme" data-bs-toggle="modal" data-bs-target="<?php echo('#exampleModal_'.$order['or_detail_id']);?>">Rating&Review</button>
+                                          <div class="modal fade" id="<?php echo('exampleModal_'.$order['or_detail_id']);?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                              <div class="modal-dialog">
                                                 <div class="modal-content">
                                                    <div class="modal-header">
@@ -88,9 +100,9 @@
                                                    </div>
                                                    <div class="modal-body">
                                                       <h4>Add a comment</h4>
-                                                      <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                                                      <div class="comment-area"> <textarea id="review" class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
-                                                      <div class="text-center mt-4"> <button class="btn btn-theme">Send message <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                                      <div class="rating"> <input type="radio" name="<?php echo('rating'.$order['or_detail_id']);?>" value="5" id="<?php echo('section_1'.$order['or_detail_id']);?>"><label for="<?php echo('section_1'.$order['or_detail_id']);?>">☆</label> <input type="radio" name="<?php echo('rating'.$order['or_detail_id']);?>" value="4" id="<?php echo('section_2'.$order['or_detail_id']);?>"><label for="<?php echo('section_2'.$order['or_detail_id']);?>">☆</label> <input type="radio" name="<?php echo('rating'.$order['or_detail_id']);?>" value="3" id="<?php echo('section_3'.$order['or_detail_id']);?>"><label for="<?php echo('section_3'.$order['or_detail_id']);?>">☆</label> <input type="radio" name="<?php echo('rating'.$order['or_detail_id']);?>" value="2" id="<?php echo('section_4'.$order['or_detail_id']);?>"><label for="<?php echo('section_4'.$order['or_detail_id']);?>">☆</label> <input type="radio" name="<?php echo('rating'.$order['or_detail_id']);?>" value="1" id="<?php echo('section_5'.$order['or_detail_id']);?>"><label for="<?php echo('section_5'.$order['or_detail_id']);?>">☆</label> </div>
+                                                      <div class="comment-area"> <textarea id="<?php echo('review'.$order['or_detail_id']);?>" class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                                      <div class="text-center mt-4"> <button id="<?php echo('button'.$order['or_detail_id']);?>" orDetailId="<?php echo($order['or_detail_id']);?>" class="hidden reviewSubmit btn btn-theme">Submit Review <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
                                                    </div>
                                                 </div>
                                              </div>

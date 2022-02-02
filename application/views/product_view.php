@@ -27,15 +27,18 @@
                                 <button type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
-                                <div class="carousel-item active ">
-                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" alt="" class="d-block w-100 " alt="...">
-                                </div>
-                                <div class="carousel-item ">
-                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" class="d-block w-100 " alt="...">
-                                </div>
-                                <div class="carousel-item ">
-                                <img src="http://localhost/askmee/./assets/images/newproducts/3/Karimeen.jpg" class="d-block w-100 " alt="...">
-                                </div>
+                                <?php foreach ($product_data as $key => $image) {
+                                    if($key == 0){?>
+                                        <div class="carousel-item active ">
+                                            <img src="<?php echo base_url('./assets/images/newproducts/'.$image->product_id.'/'.$image->image_url); ?>" alt="" class="d-block w-100 " alt="...">
+                                        </div>
+                                    <?php }
+                                    else{ ?>
+                                        <div class="carousel-item">
+                                            <img src="<?php echo base_url('./assets/images/newproducts/'.$image->product_id.'/'.$image->image_url); ?>" alt="" class="d-block w-100 " alt="...">
+                                        </div>
+                                    <?php }
+                                }?>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleNoRide" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon carousel-custom" aria-hidden="true"></span>

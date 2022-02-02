@@ -1,3 +1,4 @@
+var rating;
 $(".addToCartBtn").click(function(e) {
   var cartData = {};
   cartData['product_id'] = $("#product_id").val();
@@ -169,3 +170,31 @@ setTimeout(function() {
   $('#orderPlaced').html("<b style='color: #ea8a27;'>Congratulations!! </b> <br>Your Order Placed Successfully <br> <b>Expected Delivery: "+requiredDate.toDateString()+"</b> <br>");
   $('#backHome').removeClass('checkmark');
 }, 5000);
+
+$('.rating input:radio').change(
+      function(){
+        var orderDetailId = this.name.split('rating')[1];
+        rating = this.value;
+        $("#button"+orderDetailId).removeClass('hidden');
+  });
+
+$(".reviewSubmit").click(function(){
+  var reviewData = {}; 
+  var odDId = this.attributes['orDetailId'].value;
+  reviewData['order_detail_id'] = odDId;
+  reviewData['rating'] = rating;
+  reviewData['review'] = $('#review'+odDId).val();
+  $.ajax({
+        data: reviewData, 
+        type: 'POST',
+        url: 'order/save_review',
+        success: function(response){
+          if(response == "1"){ 
+            location.reload();
+          }
+          else{
+            alert("Error Try Again");
+          }
+        }
+      });
+});

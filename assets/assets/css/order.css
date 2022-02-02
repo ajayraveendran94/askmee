@@ -22,6 +22,12 @@ status {
     background-color: #0dcaf0;
 }
 
+.checked {
+  color: orange;
+}
+.hidden{
+    display: none;
+}
 #rateing {
     background-color: #ff8800;
     color: white;

@@ -37,7 +37,18 @@ class Order extends CI_Controller {
         $this->load->view('checkout_view', $data);
         $this->load->view('templates/footer');
     }
-    
+
+    public function save_review(){
+        $this->load->model('review_model');
+        $review_data = array(
+                'ur_order_detail_id' => trim($this->input->post('order_detail_id')),
+                'ur_rating' => trim($this->input->post('rating')),
+                'ur_review' => trim($this->input->post('review'))
+        );
+        $review = $this->review_model->add_review($review_data);
+        echo $review;
+    }
+
     public function quick_order(){
         $this->load->model('address_model');
         $this->load->model('checkout_model');
