@@ -78,6 +78,20 @@ class Productlist_model extends CI_Model{
         // }
     }
 
+    function get_review_data($id){
+        $this->db->reset_query();
+        $this->db->select('or_product_id, ur_order_detail_id, or_detail_id, or_id, order_id, ad_id, address_id, user_id, ad_user_id, ur_id, ur_review, ur_rating, name');
+        $this->db->from('as_order_detail');
+        $this->db->where('as_order_detail.or_product_id', $id);
+        $this->db->join('as_user_reviews', 'ur_order_detail_id = or_detail_id', 'left');
+        $this->db->join('as_orders', 'or_id = order_id', 'left');
+        $this->db->join('as_address', 'ad_id = address_id', 'left');
+        $this->db->join('as_user', 'user_id = ad_user_id', 'left');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
     function get_category_data($c_id){
         $this->db->reset_query();
         $this->db->select('*');

@@ -17,15 +17,45 @@ class Product extends CI_Controller {
             $category_products = $this->productlist_model->get_category_data($product_data[0]->c_id);
             $data['products'] = $category_products;
         }
+        $review_data = $this->productlist_model->get_review_data($page);
         // else
         // {
 
         // }
         $data['product_data'] = $product_data;
+        $data['reviews'] = $review_data;
         $this->load->view('templates/header');
         $this->load->helper('navbar');
         echo navbar_helper_ex();
-        //print_r($data['product_data']);
+        if(count($review_data) > 0){
+            $rating_1 = 0;
+            $rating_2 = 0;
+            $rating_3 = 0;
+            $rating_4 = 0;
+            $rating_5 = 0;
+            foreach($review_data as $review){
+              switch ($review->ur_rating){
+                case 1:
+                $rating_1 = $rating_1 + 1;
+                case 2:
+                $rating_2 = $rating_2 + 1;
+                case 3:
+                $rating_3 = $rating_3 + 1;
+                case 4:
+                $rating_4 = $rating_4 + 1;
+                case 5:
+                $rating_5 = $rating_5 + 1;
+              }  
+            }
+            $data['rating_1'] = $rating_1;
+            $data['rating_2'] = $rating_2;
+            $data['rating_3'] = $rating_3;
+            $data['rating_4'] = $rating_4;
+            $data['rating_5'] = $rating_5;
+            $data['average_rating'] = round((($rating_1 + (2 * $rating_2) + (3 * $rating_3) + (4 * $rating_4) + (5 * $rating_5)) / ($rating_1 + $rating_2 + $rating_3 + $rating_4 + $rating_5)), 2);
+            //print_r($data['reviews'][0]);
+        }
+        //print_r($data);
 		$this->load->view('product_view', $data);
 		$this->load->view('templates/footer');
     }

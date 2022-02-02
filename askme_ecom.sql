@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 15, 2021 at 07:09 PM
+-- Generation Time: Feb 02, 2022 at 07:46 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -121,7 +121,9 @@ CREATE TABLE `as_commission` (
 INSERT INTO `as_commission` (`com_id`, `com_name`, `com_amount`, `com_percent`) VALUES
 (1, 'General', NULL, 5),
 (2, 'Minimum Amount', 35, NULL),
-(3, 'For Vegitables Only', 0, 8);
+(3, 'For Vegitables Only', 0, 8),
+(4, 'Commission for Mobil', 1500, 0),
+(5, 'For Fruits', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -131,10 +133,18 @@ INSERT INTO `as_commission` (`com_id`, `com_name`, `com_amount`, `com_percent`) 
 
 CREATE TABLE `as_notifications` (
   `not_id` int(20) NOT NULL,
-  `not_content` longtext NOT NULL,
-  `not_url` varchar(100) NOT NULL,
+  `not_content` varchar(60) NOT NULL,
+  `not_url` varchar(60) NOT NULL,
+  `not_time` datetime NOT NULL,
   `not_is_read` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `as_notifications`
+--
+
+INSERT INTO `as_notifications` (`not_id`, `not_content`, `not_url`, `not_time`, `not_is_read`) VALUES
+(1, 'New order placed successfully', 'admin/orderlist/view/24', '2021-12-17 14:05:59', 0);
 
 -- --------------------------------------------------------
 
@@ -190,13 +200,13 @@ CREATE TABLE `as_order_detail` (
 --
 
 INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `or_product_id`, `or_quantity`, `individual_price`, `total_price`, `delivery_date`, `status_id`) VALUES
-(1, 1, 1, 2, 254, 508, '2021-12-08', 2),
-(2, 1, 3, 1, 320, 320, '2021-12-08', 2),
-(10, 9, 4, 3, 64787, 194361, '0000-00-00', 1),
+(1, 1, 1, 2, 254, 508, '2021-12-08', 3),
+(2, 1, 3, 1, 320, 320, '2021-12-08', 3),
+(10, 9, 4, 3, 64787, 194361, '2022-01-01', 5),
 (12, 11, 5, 3, 56, 168, '0000-00-00', 1),
 (13, 11, 1, 2, 254, 508, '0000-00-00', 1),
 (14, 12, 5, 4, 56, 224, '0000-00-00', 1),
-(16, 14, 1, 1, 254, 254, '0000-00-00', 1),
+(16, 14, 1, 1, 254, 254, '2022-01-13', 5),
 (18, 16, 1, 1, 254, 254, '0000-00-00', 1),
 (20, 18, 5, 5, 56, 280, '0000-00-00', 1),
 (21, 18, 1, 3, 254, 762, '0000-00-00', 1),
@@ -205,9 +215,9 @@ INSERT INTO `as_order_detail` (`or_detail_id`, `order_id`, `or_product_id`, `or_
 (26, 21, 5, 1, 56, 56, '0000-00-00', 1),
 (27, 22, 5, 1, 56, 56, '0000-00-00', 1),
 (28, 23, 5, 1, 56, 56, '0000-00-00', 1),
-(29, 24, 1, 1, 254, 254, '2021-12-02', 2),
-(30, 24, 4, 2, 64787, 129574, '2021-12-02', 2),
-(31, 24, 5, 2, 56, 112, '2021-12-02', 2);
+(29, 24, 1, 1, 254, 254, '2021-12-02', 5),
+(30, 24, 4, 2, 64787, 129574, '2021-12-02', 5),
+(31, 24, 5, 2, 56, 112, '2021-12-02', 5);
 
 -- --------------------------------------------------------
 
@@ -258,12 +268,13 @@ INSERT INTO `as_products` (`p_id`, `master_product_id`, `vendor_id`, `actual_pri
 (1, 1, 3, 304, 0, 254, 'The green chromide is a species of cichlid fish that is native to fresh and brackish water habitats in some parts in India such as Kerala, Goa, Chilika Lake in Odisha and Sri Lanka. The species was first described by Marcus Elieser Bloch in 1790', 11, 1),
 (3, 1, 12, 360, 0, 320, 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let', 51, 1),
 (4, 2, 10, 74567, 0, 64787, 'ThinkPad X1 Carbon - ThinkPads are unmistakable. While other OEMs focus on achieving the thinnest and lightest chassis, the perfect shade of rose gold to attract the masses, and nearly invisible bezels, Lenovo has given the ThinkPad family thoughtful updates that keep its original focus and also attempt to stay on top of the newest laptop design and use innovations.', 11, 1),
-(5, 5, 6, 78, 0, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 23, 1),
+(5, 5, 6, 78, 0, 56, '1KG Red apple raw fruit backgrounds, natural healthy organic fresh product', 26, 1),
 (6, 6, 10, 38, 0, 21, 'Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.', 40, 1),
 (7, 7, 10, 190, 0, 165, 'Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.', 23, 1),
 (10, 13, 10, 50, 30, 65, 'lo', 42, 1),
 (11, 10, 10, 200, 175, 210, 'Descer', 20, 0),
-(12, 6, 6, 120, 105, 110.25, 'Carrot', 89, 1);
+(12, 6, 6, 120, 105, 110.25, 'Carrot', 89, 1),
+(13, 14, 10, 100, 50, 52.5, 'derer', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -283,10 +294,8 @@ CREATE TABLE `as_product_images` (
 
 INSERT INTO `as_product_images` (`id`, `product_id`, `image_url`) VALUES
 (1, 1, 'Karimeen.jpg'),
-(2, 1, 'Karimeen_1.jpg'),
 (4, 1, 'Karimeen_EPS1234.jpg'),
 (9, 3, 'Karimeen.jpg'),
-(10, 3, 'Karimeen_1.jpg'),
 (12, 3, 'Karimeen_89.jpg'),
 (14, 4, 'Img_Lap2.jpg'),
 (17, 4, 'Img_Lap1.jpg'),
@@ -297,7 +306,10 @@ INSERT INTO `as_product_images` (`id`, `product_id`, `image_url`) VALUES
 (23, 7, 'Kalanji.png'),
 (26, 10, 'carrot_1.png'),
 (27, 11, 'carrot_1.png'),
-(28, 12, 'carrot_1.png');
+(28, 12, 'carrot_1.png'),
+(31, 13, 'mat_2.jpeg'),
+(32, 13, 'mat_1.jpeg'),
+(33, 13, 'mat_4.jpeg');
 
 -- --------------------------------------------------------
 
@@ -324,7 +336,8 @@ INSERT INTO `as_product_master` (`id`, `product_name`, `category_id`, `commissio
 (7, 'Kalanji (1 Kg)', 3, 1),
 (8, 'Realme A30', 5, 1),
 (10, 'Orange (2KG)', 6, 2),
-(13, 'Carrot (1 K.G)', 6, 1);
+(13, 'Carrot (1 K.G)', 6, 1),
+(14, 'Mat', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -349,7 +362,7 @@ CREATE TABLE `as_user` (
 --
 
 INSERT INTO `as_user` (`user_id`, `name`, `email`, `mobile_number`, `password`, `user_type`, `user_status`, `created_date`, `updated_date`) VALUES
-(2, 'Ajay Raveendran', 'ajay.r@gmail.com', 0, '$2y$10$dsqrWGuL9ZSG1DPNpS1QXu6PeJ3Y6zLBu1v8wOMwtbCiNuYZuDB7K', 'U', 1, '2021-05-16 00:00:00', '2021-08-26 00:00:00'),
+(2, ' Ajay Raveendran', 'ajay.r@gmail.com', 9997865400, '$2y$10$dsqrWGuL9ZSG1DPNpS1QXu6PeJ3Y6zLBu1v8wOMwtbCiNuYZuDB7K', 'U', 1, '2021-05-16 00:00:00', '2021-08-26 00:00:00'),
 (3, 'Akhil', 'akhil@gmail.com', 0, '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (6, 'Ajay', 'ajay@gmail.com', 0, '$2y$10$ltiub9LL0huIKywgsKXp3eNzIau0zq9AlzoLXQPyLm8EXf0ShVwmO', 'V', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
 (10, 'Ajay', 'admin@gmail.com', 0, '$2y$10$Ot65qYj0W5knWYc5QOnnFOz8MJTJjDTmCu2N3NxXyDUqx1gyMz9jK', 'A', 1, '2021-05-16 00:00:00', '2021-05-16 00:00:00'),
@@ -378,7 +391,7 @@ CREATE TABLE `as_user_cart` (
 
 INSERT INTO `as_user_cart` (`car_id`, `car_pr_id`, `car_user_id`, `car_quantity`) VALUES
 (75, 3, 2, 5),
-(76, 7, 2, 3);
+(76, 7, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -388,10 +401,23 @@ INSERT INTO `as_user_cart` (`car_id`, `car_pr_id`, `car_user_id`, `car_quantity`
 
 CREATE TABLE `as_user_reviews` (
   `ur_id` bigint(50) NOT NULL,
-  `ur_review` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `ur_review` text CHARACTER SET utf8 DEFAULT NULL,
   `ur_rating` bigint(1) NOT NULL,
-  `ur_user_id` bigint(20) UNSIGNED NOT NULL
+  `ur_order_detail_id` bigint(20) NOT NULL,
+  `ur_enabled` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `as_user_reviews`
+--
+
+INSERT INTO `as_user_reviews` (`ur_id`, `ur_review`, `ur_rating`, `ur_order_detail_id`, `ur_enabled`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique ex quis orci laoreet, sit amet placerat odio tincidunt. Quisque a laoreet neque. Etiam non tellus tortor. Praesent quis magna enim. Ut velit leo, molestie vitae nunc quis, euismod eleifend tortor. Donec tellus nisi, malesuada quis ultricies scelerisque, sollicitudin dignissim sapien. Quisque risus massa, aliquam posuere metus a, iaculis interdum lectus. Vivamus scelerisque ornare ', 4, 10, 1),
+(2, 'Very bad product', 1, 2, 1),
+(6, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique ex quis orci laoreet, sit amet placerat odio tincidunt. Quisque a laoreet neque. Etiam non tellus tortor. Praesent quis magna enim. Ut velit leo, molestie vitae nunc quis, euismod eleifend tortor. Donec tellus nisi, malesuada quis ultricies scelerisque, sollicitudin dignissim sapien. Quisque risus massa, aliquam posuere metus a, iaculis interdum lectus. Vivamus scelerisque ornare ', 4, 16, 1),
+(7, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique ex quis orci laoreet, sit amet placerat odio tincidunt. Quisque a laoreet neque. Etiam non tellus tortor. Praesent quis magna enim. Ut velit leo, molestie vitae nunc quis, euismod eleifend tortor. Donec tellus nisi, malesuada quis ultricies scelerisque, sollicitudin dignissim sapien. Quisque risus massa, aliquam posuere metus a, iaculis interdum lectus. Vivamus scelerisque ornare ', 1, 29, 1),
+(8, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique ex quis orci laoreet, sit amet placerat odio tincidunt. Quisque a laoreet neque. Etiam non tellus tortor. Praesent quis magna enim. Ut velit leo, molestie vitae nunc quis, euismod eleifend tortor. Donec tellus nisi, malesuada quis ultricies scelerisque, sollicitudin dignissim sapien. Quisque risus massa, aliquam posuere metus a, iaculis interdum lectus. Vivamus scelerisque ornare ', 3, 31, 1),
+(9, 'Very Bad product', 1, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -508,7 +534,7 @@ ALTER TABLE `as_user_cart`
 --
 ALTER TABLE `as_user_reviews`
   ADD PRIMARY KEY (`ur_id`),
-  ADD KEY `user_to_review` (`ur_user_id`);
+  ADD KEY `order_to_review` (`ur_order_detail_id`);
 
 --
 -- Indexes for table `as_user_review_images`
@@ -542,7 +568,7 @@ ALTER TABLE `as_checkout`
 -- AUTO_INCREMENT for table `as_commission`
 --
 ALTER TABLE `as_commission`
-  MODIFY `com_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `com_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `as_orders`
@@ -566,19 +592,19 @@ ALTER TABLE `as_order_status`
 -- AUTO_INCREMENT for table `as_products`
 --
 ALTER TABLE `as_products`
-  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `p_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `as_product_images`
 --
 ALTER TABLE `as_product_images`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `as_product_master`
 --
 ALTER TABLE `as_product_master`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `as_user`
@@ -596,7 +622,7 @@ ALTER TABLE `as_user_cart`
 -- AUTO_INCREMENT for table `as_user_reviews`
 --
 ALTER TABLE `as_user_reviews`
-  MODIFY `ur_id` bigint(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `ur_id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -653,7 +679,7 @@ ALTER TABLE `as_user_cart`
 -- Constraints for table `as_user_reviews`
 --
 ALTER TABLE `as_user_reviews`
-  ADD CONSTRAINT `user_to_review` FOREIGN KEY (`ur_user_id`) REFERENCES `as_user` (`user_id`);
+  ADD CONSTRAINT `order_to_review` FOREIGN KEY (`ur_order_detail_id`) REFERENCES `as_order_detail` (`or_detail_id`);
 
 --
 -- Constraints for table `as_user_review_images`

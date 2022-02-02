@@ -98,27 +98,24 @@
         <div class="d-flex flex-column bd-highlight mb-3">            
                 <h4 class="title-sub">Reviews and Ratings</h4>
                 <div class="container">
-    			
+    		<?php if(count($reviews)>0){ ?> 	
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="rating-block">
                             <h4>Average user rating</h4>
-                            <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                            <button type="button" class="btn btn-star btn-sm" aria-label="Left Align">
-                            <span><i class="fas fa-star"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-star btn-sm" aria-label="Left Align">
-                            <span><i class="fas fa-star"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-star btn-sm" aria-label="Left Align">
-                            <span><i class="fas fa-star"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                            <span><i class="fas fa-star"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                            <span><i class="fas fa-star"></i></span>
-                            </button>
+                            <h2 class="bold padding-bottom-7"><?php echo($average_rating);?> <small>/ 5</small></h2>
+                            <?php for($i=1; $i < 6; $i++){ 
+                                if($i <= round($average_rating)){ ?>
+                                    <button type="button" class="btn btn-star btn-sm" aria-label="Left Align">
+                                      <span><i class="fas fa-star"></i></span>
+                                    </button>
+                                <?php } 
+                                else{ ?>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                     <span><i class="fas fa-star"></i></span>
+                                     </button>
+                                <?php } 
+                            }?>
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -134,7 +131,7 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="pull-right" style="margin-left:10px;">1</div>
+                            <div class="pull-right" style="margin-left:10px;"><?php echo($rating_5);?></div>
                         </div>
                         <div class="pull-left">
                             <div class="pull-left" style="width:35px; line-height:1;">
@@ -147,7 +144,7 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="pull-right" style="margin-left:10px;">1</div>
+                            <div class="pull-right" style="margin-left:10px;"><?php echo($rating_4);?></div>
                         </div>
                         <div class="pull-left">
                             <div class="pull-left" style="width:35px; line-height:1;">
@@ -160,7 +157,7 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="pull-right" style="margin-left:10px;">0</div>
+                            <div class="pull-right" style="margin-left:10px;"><?php echo($rating_3);?></div>
                         </div>
                         <div class="pull-left">
                             <div class="pull-left" style="width:35px; line-height:1;">
@@ -173,7 +170,7 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="pull-right" style="margin-left:10px;">0</div>
+                            <div class="pull-right" style="margin-left:10px;"><?php echo($rating_2);?></div>
                         </div>
                         <div class="pull-left">
                             <div class="pull-left" style="width:35px; line-height:1;">
@@ -186,105 +183,51 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="pull-right" style="margin-left:10px;">0</div>
+                            <div class="pull-right" style="margin-left:10px;"><?php echo($rating_1);?></div>
                         </div>
                     </div>			
-                </div>			
-                
+                </div>			   
                 <div class="row">
                     <div class="col-sm-7">
                         <hr/>
                         <div class="review-block">
+                            <?php foreach ($reviews as $review) {
+                            if($review->ur_rating > 0){?>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                    <div class="review-block-name"><a href="#">nktailor</a></div>
-                                    <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+                                    <div class="review-block-name"><a href="#"><?php echo($review->name);?></a></div>
+                                    <!-- <div class="review-block-date">January 29, 2016<br/>1 day ago</div> -->
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="review-block-rate">
+                                        <?php for($i=1; $i < 6; $i++){ 
+                                         if($i <= $review->ur_rating){ ?>
                                         <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
                                         <span><i class="fas fa-star"></i></span>
                                         </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
+                                        <?php }
+                                        else{?>
                                         <button type="button" class="btn  btn-grey btn-xs" aria-label="Left Align">
                                         <span><i class="fas fa-star"></i></span>
                                         </button>
-                                        <button type="button" class="btn  btn-grey btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
+                                    <?php }
+                                   }?>
                                     </div>
-                                    <div class="review-block-title">this was nice in buy</div>
-                                    <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+                                    <!-- <div class="review-block-title">this was nice in buy</div> -->
+                                    <div class="review-block-description"><?php echo($review->ur_review);?></div>
                                 </div>
                             </div>
                             <hr/>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                    <div class="review-block-name"><a href="#">nktailor</a></div>
-                                    <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="review-block-rate">
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-grey btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn  btn-grey btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                    </div>
-                                    <div class="review-block-title">this was nice in buy</div>
-                                    <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                    <div class="review-block-name"><a href="#">nktailor</a></div>
-                                    <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="review-block-rate">
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-star btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn btn-grey btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                        <button type="button" class="btn  btn-grey btn-xs" aria-label="Left Align">
-                                        <span><i class="fas fa-star"></i></span>
-                                        </button>
-                                    </div>
-                                    <div class="review-block-title">this was nice in buy</div>
-                                    <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
-                                </div>
-                            </div>
+                        <?php } 
+                         }?>
                         </div>
                     </div>
                 </div>
-                
+               <?php } 
+               else{
+                echo('<div class="row"><b><h5>No Reviews Available</b></h5></div>');
+               }?> 
             </div> <!-- /container -->         
         </div>
         
