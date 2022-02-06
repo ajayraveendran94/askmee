@@ -204,7 +204,9 @@ $controller = $this->router->fetch_class();
                     
 
                     <div class="col-sm-2 cart-mob">
+                        <a href="<?php echo base_url('/cart'); ?>">
                         <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;margin-left:27px;">&nbsp
+                        </a>
                         <span class="sidenav-hamburger" onclick="openNav()">&#9776;</span>
                                   
 </div>
@@ -307,8 +309,8 @@ $controller = $this->router->fetch_class();
                     </div>
                 </div> <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Profile</a>
-                    <a href="#">Logout</a>
+                    <a href="<?php echo base_url('/profile'); ?>">Profile</a>
+                    <a href="<?php echo base_url('login/logout'); ?>">Logout</a>
                     </div> 
                         </div>
                 <!-- .end of site-branding -->

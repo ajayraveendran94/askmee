@@ -1,0 +1,659 @@
+[33mcommit b145773bf594220f8acba990e47d963104f69bd2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Feb 6 14:17:07 2022 +0530
+
+    Quick order bugs
+
+[33mcommit 05720f5b9fc4fe114347a844330b8344e2ed2edc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Feb 3 00:17:48 2022 +0530
+
+    Review Listing
+
+[33mcommit 8c64e229832f00461da07c0d0d598537aa542be0[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Feb 2 22:37:51 2022 +0530
+
+    Add review to orderd product
+
+[33mcommit 448b12b6dbb5340476c4082832f877f203efe6b1[m
+Merge: 584af5b 4b798a8
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Jan 29 13:53:38 2022 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit 584af5bed8309afb362cf53233c5f865da74a95f[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Jan 29 13:50:23 2022 +0530
+
+    Rating and review
+
+[33mcommit 4b798a8d0e38d0852943c5a2cd6b202f674cbdc5[m
+Merge: cddae1d 1c324fc
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sun Jan 16 19:54:10 2022 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit cddae1d857fe4710b89cc3bf5ac2c31ced0c14e4[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sun Jan 16 19:54:01 2022 +0530
+
+    Changes the alignments
+
+[33mcommit 1c324fcd24a290d885f9db6eaee123ab3bc8e149[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Jan 15 19:02:54 2022 +0530
+
+    Changes last
+
+[33mcommit 60f53f5c04e5686f27882dc27cfa01b70c0746aa[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sun Jan 9 22:35:40 2022 +0530
+
+    Alignments Issues are fixed
+
+[33mcommit b04b820ed450861804ff843d0cc15adb6c5c61a1[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Mon Jan 3 21:26:12 2022 +0530
+
+    review view is added
+
+[33mcommit 5aec03f986bc9d5b135803e5a79ccefbff58fb75[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Mon Jan 3 20:15:04 2022 +0530
+
+    alignment issues fixed ..
+
+[33mcommit f18d83305f2fb8c281359d69660fbfa257a24768[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sun Jan 2 17:46:53 2022 +0530
+
+    Added comment adding modal
+
+[33mcommit 4b6be9d9189fd1ddf53d59f129237b3e6e97f97b[m
+Merge: a1b8ae2 9bf9a70
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sat Jan 1 22:24:40 2022 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 9bf9a70160e2dabe7ec0314fe596085f9a30645d[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Jan 1 22:21:39 2022 +0530
+
+    Report export Complete
+
+[33mcommit a1b8ae25d9b6bdca32b69ce4e2d3a852b1905425[m
+Merge: c2ec469 5d6daa6
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sat Jan 1 20:44:57 2022 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit c2ec469874e05236253218d3599ca58494072e8f[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sat Jan 1 20:44:33 2022 +0530
+
+    changes the font  style and alignments
+
+[33mcommit 5d6daa6987bb38aaa29559f01e08f27fe345cbda[m
+Merge: e52be51 f23ef98
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Dec 30 23:40:18 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit e52be51536d6f1f0d68e2fe5d8ad02ddc06dd328[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Dec 30 23:39:15 2021 +0530
+
+    Reports new
+
+[33mcommit f23ef9805023e2299faa3bdc382f150b42f19915[m
+Merge: bf4390a ec16028
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Thu Dec 30 18:01:27 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit bf4390adace70163b47f087b0e3e813961965079[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Thu Dec 30 17:53:11 2021 +0530
+
+    Changes font family and added mobile view
+
+[33mcommit ec160280447e97705865c9e5f468725e4a22c6e1[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Dec 20 11:10:00 2021 +0530
+
+    Report section in admin
+
+[33mcommit f16633e1dcb261913fd7d1dba19b717a2f94354e[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Dec 19 11:26:11 2021 +0530
+
+    fix for Showing error when single item
+
+[33mcommit 4e11cb69a8d64b856ace6a5b20e14d72a79d20cd[m
+Merge: 0b77417 d379c08
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Dec 19 09:08:13 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 0b7741760ec31bfbd60af8132ea85a754315ce56[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Dec 19 09:06:02 2021 +0530
+
+    something
+
+[33mcommit d379c08d700e231824defc25e0b1e266eae52c54[m
+Merge: 0177314 aca6bfb
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sat Dec 18 16:00:34 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 01773149e7c1aedf7e6d15a27c4405c0427ba28d[m
+Author: AkhilBabu <akhilbabu868@gmail.com>
+Date:   Sat Dec 18 16:00:15 2021 +0530
+
+    alignment changes added
+
+[33mcommit aca6bfbf45e1463cc46609ccef311c7bfc71d884[m
+Merge: f9c7a43 9d09799
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Dec 15 23:42:26 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit f9c7a43f18f265aeb6ef1fb7f1300fb8dba9d29b[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Dec 15 23:41:29 2021 +0530
+
+    Commission and Status list admin
+
+[33mcommit 9d097991eca7a0571427055f542a5cde068f1a3e[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Dec 12 17:23:32 2021 +0530
+
+    new address changes
+
+[33mcommit 20849b75fce0661bb168995019a71fadbcfcfb80[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Dec 11 22:40:50 2021 +0530
+
+    Master product single exception
+
+[33mcommit 62b313b171333e222939eed26da9f069663e476d[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Fri Dec 10 02:14:57 2021 +0530
+
+    Status list
+
+[33mcommit f1acd2f6bbb2edbe4e481652cb93f7ca0534700e[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Fri Dec 10 01:52:24 2021 +0530
+
+    Master product CRUD
+
+[33mcommit cd2c489072ded6d9d3536e44b6992214a63e69f0[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Dec 9 00:32:53 2021 +0530
+
+    Order status edit from admin
+
+[33mcommit 724602d4f4908c2ee1462f2de813a0a624bdbc73[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Dec 8 22:34:57 2021 +0530
+
+    DB changes
+
+[33mcommit 813dbc109ccf82d5dfbd5c08737d2e79bcec314a[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Dec 8 22:29:13 2021 +0530
+
+    Admin new feature changes
+
+[33mcommit 3c9e17dc5eb981f5edc6fea590fe3d7d8c371cfb[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 22 13:53:38 2021 +0530
+
+    db changed new
+
+[33mcommit a26d8ebc1af5ff028b3f633545791ca00f36c1c2[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 22 12:53:28 2021 +0530
+
+    db changed
+
+[33mcommit 4082c7ee2ccb6aeb5f2d13b9220592ae779e36a0[m
+Merge: cdf13b9 3debad6
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 22 12:51:10 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit cdf13b92c65972c878cac6f58cd134532e0d6ced[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 22 12:49:43 2021 +0530
+
+    Changes in admin
+
+[33mcommit 3debad691bb048f20cafa1f9bcc022f217e6f56a[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Nov 22 01:56:04 2021 +0530
+
+    address update initial
+
+[33mcommit 26e4ed85305f01b2611ec141944b4306f59d95c0[m
+Merge: 7e99896 3e62783
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Nov 21 10:31:07 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 7e9989686b0485ef69589a037ef0935829c9fc21[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Nov 21 10:31:04 2021 +0530
+
+    changes started
+
+[33mcommit 3e6278345184755dcecc12b13f7102e418b361f0[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Nov 21 01:51:27 2021 +0530
+
+    UI changes upto order
+
+[33mcommit 65e2c055cf692d36a6e99e67a5b46764618a16a6[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Nov 20 10:56:03 2021 +0530
+
+    Checkout page changes
+
+[33mcommit 2c6d8fbe4b836e7531b95bceed45b2137980e325[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 8 17:29:40 2021 +0530
+
+    Product page changes
+
+[33mcommit a8feee57353297cf987e970a6c2e6b87b8fb0e10[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Nov 8 09:57:14 2021 +0530
+
+    All changes in new UI
+
+[33mcommit afc1dd08fdb0e2b34998878cde75aa8d2fb55baf[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Oct 31 21:45:05 2021 +0530
+
+    New UI final changes
+
+[33mcommit f7c4cd154c9eb0247ecb2e25ae1d70a0de89c9f8[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Oct 30 12:07:00 2021 +0530
+
+    New front page UI changes
+
+[33mcommit 789842dfddf25005eb886dd9af5a86da744be17f[m
+Merge: 127f2b0 ec1e8b0
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Oct 9 14:04:27 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit 127f2b083452b5209fbe5ca568075e6b16a7a615[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Oct 9 14:02:54 2021 +0530
+
+    Login page change
+
+[33mcommit ec1e8b083ef0a11c5effb9c4c76296b12ec40f53[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Sep 20 00:50:24 2021 +0530
+
+    profile page updated
+
+[33mcommit 1e3526bca68b1810ab46a2ff7b1155cd20a77e5c[m
+Merge: 9b9725b c5d5f63
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Sep 19 18:32:25 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 9b9725b3b62300fe2e2d2af12a71cf117dd74833[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Sep 19 18:32:18 2021 +0530
+
+    number validation fixed
+
+[33mcommit c5d5f63c954d42103acc6728ebe84e80125d132a[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sat Sep 18 00:42:56 2021 +0530
+
+    New design changes on login and signup
+
+[33mcommit 3f32f87e389d8c79f4e4d39b4d83f633da501bac[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Fri Sep 17 03:56:20 2021 +0530
+
+    User registeration and validation completed
+
+[33mcommit 5e21af3575ffec2cf75baf2be9c5a918be6c655f[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Sep 6 01:58:57 2021 +0530
+
+    Latest DB
+
+[33mcommit b02d3c2a44e822ca0767dc8ae3512f22488a0533[m
+Merge: 5a86628 f1fc411
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Sep 6 01:47:58 2021 +0530
+
+    Order Section Complete new
+
+[33mcommit 5a86628b15f7a9745d5d876df299cad9bb47b870[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Sep 6 01:44:37 2021 +0530
+
+    Order Section Complete
+
+[33mcommit f1fc411dfeca266877cebf7f357505795c2cf7a7[m
+Merge: f36fdb1 68fcffb
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Sep 5 16:49:43 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit f36fdb13d20c37e7b77b2966f0cc82f838f4004c[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sun Sep 5 16:47:24 2021 +0530
+
+    address update and user register
+
+[33mcommit 68fcffbfd76484e2c6ab12f65c0667d93533f919[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Fri Sep 3 02:11:05 2021 +0530
+
+    Single product view changes
+
+[33mcommit aec0704b4ac8afee682bbe8cfa7a87f2feafd02d[m
+Merge: 0e17ad0 425dd1c
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Aug 25 19:44:05 2021 +0530
+
+    :wq
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit 0e17ad0b3d7129373954bc73df6910750a0e85ac[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Aug 25 19:40:16 2021 +0530
+
+    Local changes
+
+[33mcommit faebd186ac429d69522bad75348a81eea7a092fa[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Aug 25 19:23:24 2021 +0530
+
+    :wq
+    registration page UI
+
+[33mcommit 425dd1c20fa402ec16af29a735db85912257de9a[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Wed Aug 25 00:28:07 2021 +0530
+
+    profile and vendor product update
+
+[33mcommit 7970275ecfd8d0c79230eaa8f8d6186b56b9c113[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Tue Aug 24 19:44:08 2021 +0530
+
+    Cart update details completed
+
+[33mcommit ce61851663b83b9247f28908944dc6e13aaa2808[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Fri Aug 20 22:51:02 2021 +0530
+
+    Cart view page functionalities
+
+[33mcommit 27e260dde163d0cd717d54441474ea8335731975[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Fri Aug 20 18:16:53 2021 +0530
+
+    Product Showing error for products with less than 3 image
+
+[33mcommit eb49afe5ff7771207ae4cdc9477d124c645dd711[m
+Merge: 0eadc49 c017336
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Aug 16 02:07:42 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee into main
+
+[33mcommit 0eadc4920bb055de5397aaa175b8a3df109f96a5[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Aug 16 02:04:04 2021 +0530
+
+    Add to cart from home page
+
+[33mcommit c01733685ae0fd9cdbf0712c8c8a09576e89fe47[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Aug 16 01:21:38 2021 +0530
+
+    Address update in user profile page
+
+[33mcommit 11b91333706a5c0444cff324b9243b9e51627eb8[m[33m ([m[1;32mdevelop[m[33m)[m
+Author: ajay raveendran <ajay.raveendran@rubyians.com>
+Date:   Sat Aug 14 23:12:05 2021 +0530
+
+    Bugs and changes on UI
+
+[33mcommit 5eb60cbeafaeeef5086f7c7b834707533b095348[m
+Author: ajay raveendran <ajay.raveendran@rubyians.com>
+Date:   Wed Aug 11 18:40:19 2021 +0530
+
+    Latest DB
+
+[33mcommit c07cc3aae9d379342ef5593f94e50e812b21c1e6[m
+Author: ajay raveendran <ajay.raveendran@rubyians.com>
+Date:   Wed Aug 11 17:01:09 2021 +0530
+
+    Cart section completed
+
+[33mcommit 5dd71d69835d9d459efd0e7aec9adea3a21abecb[m
+Merge: 0e762d6 cfc5917
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Aug 2 00:37:25 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 0e762d69f0156af112ec493de998e244066b1b80[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Aug 2 00:37:15 2021 +0530
+
+    productenble issue solved based on category
+
+[33mcommit cfc591785a3c6a25b42022d72f9f3719528546cd[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Aug 1 15:38:48 2021 +0530
+
+    Front page UI issue Fixed
+
+[33mcommit 80ab23e7dd0e6170ff15080d46447287e5dc109b[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Fri Jul 30 02:31:57 2021 +0530
+
+    user address color issue and refresh issue fixed
+
+[33mcommit c2458b9459317fad3bb4e229c95b4e390d2b6e60[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Fri Jul 30 02:01:35 2021 +0530
+
+    product enable and disable on category action
+
+[33mcommit 48d0661cffe88e80b5b1023ec2b6456b0d38efb5[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Jul 22 00:50:25 2021 +0530
+
+    Product list auto load after activate and decativate
+
+[33mcommit 4be205f09cbd3482ffcc79846b6f9a1ad82d3e01[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Thu Jul 22 00:40:10 2021 +0530
+
+    User list auto load after activate and decativate
+
+[33mcommit df85dea16c5d497fb1947c79452c482bee425c6a[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Wed Jul 21 23:49:33 2021 +0530
+
+    refresh fix
+
+[33mcommit 20f4f7afdc64ebc4179ca3d57717b429de61a813[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Tue Jul 20 21:01:20 2021 +0530
+
+    Userlist ,product and category reload fixded on inactive and active
+
+[33mcommit da748b41fd7301a92a4a04b6b3245baab738d72b[m
+Merge: 9eeb02b 6ad361c
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Tue Jul 20 20:53:10 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 6ad361c1e654740baf467e74f1cbec3b221275aa[m
+Merge: 4f7d8d9 ad0397e
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Jul 21 01:23:37 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 4f7d8d925d1e4dbffa73e54631132e9ffaf4decb[m
+Merge: 5e13bc0 f1bc0e9
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Jul 21 00:40:23 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit ad0397efd6e9f53ddaf8df4772e71478fb1cb99e[m
+Merge: 5e13bc0 f1bc0e9
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Jul 21 00:40:23 2021 +0530
+
+    Merge branch 'main' of https://github.com/ajayraveendran94/askmee
+
+[33mcommit 5e13bc06d568c10f2549e0d4fa03ed10ed2479dc[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Jul 21 00:32:56 2021 +0530
+
+    Listing Order UI completed
+
+[33mcommit f1bc0e98e613073a26a5e3809303d0a604adafc6[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Wed Jul 21 00:32:56 2021 +0530
+
+    Listing Order UI completed
+
+[33mcommit 9eeb02bcc57e982033a8342c9309cd736b953849[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Tue Jul 20 20:52:54 2021 +0530
+
+    Enable/Disable done for category and product admin pages
+
+[33mcommit 79530f1875fd88aea93ad64acecbe6378b92ba01[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Jul 19 01:47:05 2021 +0530
+
+    Order from admin complete
+
+[33mcommit ae689f8e892c941df8d64ff6666cfe492b076ffe[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Jul 18 01:33:33 2021 +0530
+
+    Order Place from admin side
+
+[33mcommit 0c63c248dd13519585d95e6e382ddc65d3360637[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Sat Jul 17 22:00:03 2021 +0530
+
+    edit address changes
+
+[33mcommit 79420b6acf8e78b11d17cba2eb7a925a86a1a7f8[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Mon Jul 12 01:41:19 2021 +0530
+
+    Place Order from admin start
+
+[33mcommit 21ebafc8fcd0628e53033c70c224d520c4974ea1[m
+Author: SHANJOY SHAJAN <shanjoys@gmail.com>
+Date:   Mon Jul 12 01:02:11 2021 +0530
+
+    listing addresses of users
+
+[33mcommit c303de5e4da34ff67d6ffb3b7336000784f91393[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Jul 11 14:08:25 2021 +0530
+
+    Latest DB added
+
+[33mcommit f7cbe1d3ee8c3502eff0d87a633c4ba238f0d8f1[m
+Author: ajayraveendran94 <ajayraveendran94@gmail.com>
+Date:   Sun Jul 11 13:06:04 2021 +0530
+
+    Vendor Concept
+
+[33mcommit bdc45ea0e9e95c5068dbdd8104071ed973cbd8a3[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Tue May 18 22:54:48 2021 +0530
+
+    User fetaure
+
+[33mcommit e65d511056f540f889c035fd54adb91ff5ef2dd0[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sun May 2 01:34:04 2021 +0530
+
+    Edit category full
+
+[33mcommit da66cdace41ce96460c95ff28af9a1a8e95594ac[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Thu Apr 29 01:35:50 2021 +0530
+
+    Category List
+
+[33mcommit 08685fb12ec163bf1fe1997a86b2be803ae9a3eb[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sat Apr 24 22:15:11 2021 +0530
+
+    Final Changes from server
+
+[33mcommit 495da3032d63ce87e947a0d07d45344555880f02[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sun Apr 4 22:35:09 2021 +0530
+
+    Product List With Edit product page
+
+[33mcommit 9b297c7f49042b8a8ee54bcf0633247318fdae4a[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sun Mar 28 16:30:39 2021 +0530
+
+    UI Initial commit
+
+[33mcommit 61fdade5aa3d4ee8a9a70d6e4d1e439f9ada4d8d[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sun Mar 28 13:04:43 2021 +0530
+
+    Product and category admin completed
+
+[33mcommit 31342be7e30fb9f7e36a5e689c4e16b2b50d7d04[m
+Author: unknown <ajayraveendran94@gmail.com>
+Date:   Sat Mar 27 02:53:47 2021 +0530
+
+    Initial Commit
+
+[33mcommit fc659ba96014974ad8520abae6360fd402273a69[m
+Author: ajayraveendran94 <43338352+ajayraveendran94@users.noreply.github.com>
+Date:   Sat Mar 27 02:48:29 2021 +0530
+
+    Initial commit
