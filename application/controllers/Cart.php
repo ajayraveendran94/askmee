@@ -17,8 +17,8 @@ class Cart extends CI_Controller {
         $id = $_SESSION['user']['user_id'];
         $cart_data = $this->cart_model->get_cart($id);
         $data['cart_data'] = $cart_data;
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
         $this->load->view('cart_view', $data);
         $this->load->view('templates/footer');

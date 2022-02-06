@@ -18,8 +18,8 @@ class Category extends CI_Controller {
         $category_products = $this->productlist_model->get_category_data($page);
         $data['products'] = $category_products;
         //print_r($data);
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
 		$this->load->view('product_list', $data);
 		$this->load->view('templates/footer');

@@ -29,9 +29,8 @@ class Welcome extends CI_Controller {
 		$cat_products = $this->addproduct_model->get_cat_product();
         $data['products'] = $products;
         $data['cat_products'] = $products;
-
-		$this->load->view('templates/header',$data);
-		$this->load->helper('navbar');
+        $this->load->helper('navbar');
+		echo header_helper_ex();
         echo navbar_helper_ex();
 		$this->load->view('welcome_message', $data);
 		$this->load->view('templates/footer');

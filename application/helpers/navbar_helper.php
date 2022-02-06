@@ -14,5 +14,12 @@
         $data['notification'] = $notification;
         $CI->load->view('admin/templates/nav_side_bar',$data);
     }
+    function header_helper_ex(){
+        $CI = get_instance();
+        $CI->load->model('addproduct_model');
+        $category_name = $CI->addproduct_model->get_category();
+        $data['category'] = $category_name;
+        $CI->load->view('templates/header',$data);
+    }
 }
 ?>

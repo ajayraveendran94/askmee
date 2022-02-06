@@ -18,8 +18,8 @@ class Order extends CI_Controller {
         $id = $_SESSION['user']['user_id'];
         $order_data = $this->order_model->get_user_orders($id);
         $data['order_data'] = $order_data;
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
         //print_r($data);
         $this->load->view('order_view', $data);
@@ -31,8 +31,8 @@ class Order extends CI_Controller {
         $id = $_SESSION['user']['user_id'];
         $data['cart_data'] = $this->cart_model->get_cart($id);
         $data['address'] = $this->address_model->get_user_address($id);
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
         $this->load->view('checkout_view', $data);
         $this->load->view('templates/footer');
@@ -55,7 +55,9 @@ class Order extends CI_Controller {
         $id = $_SESSION['user']['user_id'];
         $data['cart_data'] = $this->checkout_model->get_checkout($id);
         $data['address'] = $this->address_model->get_user_address($id);
-        $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo header_helper_ex();
+        echo navbar_helper_ex();
         $this->load->view('quick_order_view', $data);
         $this->load->view('templates/footer');
     }
@@ -90,7 +92,9 @@ class Order extends CI_Controller {
             $this->order_model->save_order_details($single_order_data);
             $this->cart_model->delete_user_cart($id);
         }
-        $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo header_helper_ex();
+        echo navbar_helper_ex();
         $this->load->view('order_complete_view');
         $this->load->view('templates/footer');
     }
@@ -125,7 +129,9 @@ class Order extends CI_Controller {
             $this->order_model->save_order_details($single_order_data);
             $this->checkout_model->delete_checkout($id);
         }
-        $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo header_helper_ex();
+        echo navbar_helper_ex();
         $this->load->view('order_complete_view');
         $this->load->view('templates/footer');
     }

@@ -98,7 +98,7 @@
         <div class="d-flex flex-column bd-highlight mb-3">            
                 <h4 class="title-sub">Reviews and Ratings</h4>
                 <div class="container">
-    		<?php if(count($reviews)>0){ ?> 	
+    		<?php if(count($reviews)>0 && $average_rating > 0){ ?> 	
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="rating-block">

@@ -35,8 +35,8 @@ class Profile extends CI_Controller {
         $data['user_data'] =$this->user_model->get_user_data($id);
         $data['cart_data'] = $cart_data;
         $data['address'] = $this->address_model->get_user_address( $id);
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
         $this->load->view('profile_view', $data);
         $this->load->view('templates/footer');

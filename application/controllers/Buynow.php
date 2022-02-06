@@ -16,7 +16,9 @@ class Buynow extends CI_Controller {
     public function view($id){
         $cart_data = $this->cart_model->get_product_data($id);
         $data['cart_data'] = $cart_data;
-        $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo header_helper_ex();
+        echo navbar_helper_ex();
         $this->load->view('buy_now_view', $data);
         $this->load->view('templates/footer');
     }

@@ -24,8 +24,8 @@ class Product extends CI_Controller {
         // }
         $data['product_data'] = $product_data;
         $data['reviews'] = $review_data;
-        $this->load->view('templates/header');
         $this->load->helper('navbar');
+        echo header_helper_ex();
         echo navbar_helper_ex();
         if(count($review_data) > 0){
             $rating_1 = 0;
@@ -52,7 +52,12 @@ class Product extends CI_Controller {
             $data['rating_3'] = $rating_3;
             $data['rating_4'] = $rating_4;
             $data['rating_5'] = $rating_5;
-            $data['average_rating'] = round((($rating_1 + (2 * $rating_2) + (3 * $rating_3) + (4 * $rating_4) + (5 * $rating_5)) / ($rating_1 + $rating_2 + $rating_3 + $rating_4 + $rating_5)), 2);
+            if($rating_1 + $rating_2 + $rating_3 + $rating_4 + $rating_5 > 0){
+                $data['average_rating'] = round((($rating_1 + (2 * $rating_2) + (3 * $rating_3) + (4 * $rating_4) + (5 * $rating_5)) / ($rating_1 + $rating_2 + $rating_3 + $rating_4 + $rating_5)), 2);
+            }
+            else{
+                $data['average_rating'] = 0;
+            }
             //print_r($data['reviews'][0]);
         }
         //print_r($data);
@@ -67,7 +72,9 @@ class Product extends CI_Controller {
             $category_products[$key]['category_name'] = $value['product_name'];
         }
         $data['products'] = $category_products;
-        $this->load->view('templates/header');
+        $this->load->helper('navbar');
+        echo header_helper_ex();
+        echo navbar_helper_ex();
         $this->load->view('product_list', $data);
         $this->load->view('templates/footer');
     }
