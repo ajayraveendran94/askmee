@@ -92,6 +92,7 @@ class Order_model extends CI_Model{
         //$this->db->join('as_product_images', 'or_product_id = or_product_id');
         $this->db->join('as_user', 'user_id = ad_user_id');
         $this->db->where('user_id', $id);
+        $this->db->order_by('order_id', 'desc');
         $query = $this->db->get('as_order_detail')->result_array();
         foreach($query as $i=>$product) {
           $this->db->where('product_id', $product['p_id']);

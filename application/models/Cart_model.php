@@ -32,6 +32,11 @@ class Cart_model extends CI_Model{
         $this->db->join('as_user', 'user_id = vendor_id');
         $this->db->where('p_id', $id);
         $query = $this->db->get('as_products')->result_array();
+        foreach($query as $i=>$product) {
+          $this->db->where('product_id', $product['p_id']);
+          $images_query = $this->db->get('as_product_images')->result_array();
+          $query[$i]['product_images'] = $images_query;
+        }
         return $query;
     } 
     

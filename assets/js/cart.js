@@ -66,6 +66,10 @@ $(".removeCart").click(function() {
       });
 });
 
+$(".removeOrder").click(function(){
+  location.reload();
+});
+
 $(".cartQuantity").on('change',function(e) { 
   var cartData = {};
   var productId = $(this).attr('Id');
