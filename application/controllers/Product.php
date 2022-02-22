@@ -34,17 +34,24 @@ class Product extends CI_Controller {
             $rating_4 = 0;
             $rating_5 = 0;
             foreach($review_data as $review){
-              switch ($review->ur_rating){
-                case 1:
-                $rating_1 = $rating_1 + 1;
-                case 2:
-                $rating_2 = $rating_2 + 1;
-                case 3:
-                $rating_3 = $rating_3 + 1;
-                case 4:
-                $rating_4 = $rating_4 + 1;
-                case 5:
-                $rating_5 = $rating_5 + 1;
+              if($review->ur_rating > 0){
+                switch ($review->ur_rating){
+                  case 1:
+                    $rating_1 = $rating_1 + 1;
+                    break;
+                  case 2:
+                    $rating_2 = $rating_2 + 1;
+                    break;
+                  case 3:
+                    $rating_3 = $rating_3 + 1;
+                    break;
+                  case 4:
+                    $rating_4 = $rating_4 + 1;
+                    break;
+                  case 5:
+                    $rating_5 = $rating_5 + 1;
+                    break;
+                }
               }  
             }
             $data['rating_1'] = $rating_1;
@@ -60,7 +67,7 @@ class Product extends CI_Controller {
             }
             //print_r($data['reviews'][0]);
         }
-        //print_r($data);
+        //print_r($review_data[0]->ur_rating);
 		$this->load->view('product_view', $data);
 		$this->load->view('templates/footer');
     }

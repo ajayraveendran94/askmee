@@ -221,7 +221,8 @@ class Productlist_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('as_product_master');
         if($c_id == 0){
-          $this->db->select('id, product_name');
+            $this->db->join('as_products', 'master_product_id = id AND product_status = 1', 'left');
+          $this->db->select('id, product_name, p_id');
         }
         else{
           $this->db->where('as_product_master.category_id', $c_id);

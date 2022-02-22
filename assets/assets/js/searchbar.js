@@ -10,11 +10,13 @@ $('.search-panel .dropdown-menu').find('a').click(function (e) {
 function getProducts($search){
   var searchData = {};
   searchData['category_id'] = $('#catSelect').val();
+  debugger;
   $.ajax({
         data: searchData, 
         type: 'POST',
         url: $('#baseUrl').val()+'product/get_product',
         success: function(response){
+          debugger;
           // var myArray = [];
           // $.each($.parseJSON(response), function (index, order) {
           //   myArray.push([order.product_name]);
