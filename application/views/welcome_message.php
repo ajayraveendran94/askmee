@@ -8,6 +8,12 @@
                 <div class="carousel-item" data-bs-interval="2000">
                     <img src='<?php echo base_url("assets/assets/img/BANNER_JPJ_2.jpg");?>' class="d-block w-100" alt="...">
                 </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src='<?php echo base_url("assets/assets/img/BANNER_JPJ_3.jpg");?>' class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src='<?php echo base_url("assets/assets/img/BANNER_JPJ_4.jpg");?>' class="d-block w-100" alt="...">
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
