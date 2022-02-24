@@ -60,7 +60,7 @@ $controller = $this->router->fetch_class();
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 17px;
   color: #000;
   display: block;
   transition: 0.3s;

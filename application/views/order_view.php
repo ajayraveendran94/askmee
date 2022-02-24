@@ -1,5 +1,5 @@
 <div class="container-fluid">
-   <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+   <div class="col-sm-12 col-md-12 col-lg-12 content-area" style="padding: 40px;">
       <nav aria-label="breadcrumb">
          <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -124,15 +124,17 @@
          <div class="col-md-3">
             <div class="card">
                <div class="ibox">
-                  <div class="ibox-title">
-                     <h5>Account</h5>
+                  <div class="ibox-title" style="margin-left: 10px;">
+                     <h5><b>Account</b></h5>
                   </div>
                   <div class="ibox-content">
                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="<?php echo base_url('/profile'); ?>"><i class="fa fa-user mx-2" aria-hidden="true"></i> Profile</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-cart-plus mx-2" aria-hidden="true"></i> Orders</a></li>
-                        <li class="list-group-item"><a href="<?php echo base_url('/cart'); ?>"><i class="fa fa-shopping-cart mx-2" aria-hidden="true"></i> Cart</a></li>
-                        <li class="list-group-item"><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out  mx-2" aria-hidden="true"></i> Logout</a></li>
+                        <li class="list-group-item"><a href="<?php echo base_url('/profile'); ?>">
+                        <span><img src="assets/assets/img/USER_profile.png" Style="width:75px"></span><b>Profile</b> </a></li>
+                        <li class="list-group-item"><a href="<?php echo base_url('/order'); ?>">
+                        <span><img src="assets/assets/img/Orders.png" Style="width:75px"></span><b>Orders</b> </a></li>
+                        <li class="list-group-item"><a href="<?php echo base_url('/cart'); ?>">
+                        <span><img src="assets/assets/img/Cart.png" Style="width:75px" ></span><b>Cart</b></a></li>
                      </ul>
                   </div>
                </div>

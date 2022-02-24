@@ -1,5 +1,5 @@
 <div class="container-fluid">
-            <div class="col-sm-12 col-md-12 col-lg-12 content-area  ">
+            <div class="col-sm-12 col-md-12 col-lg-12 content-area"  style="padding: 40px;">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -11,13 +11,13 @@
         </div>
         <!------------>
         <div class="content-area pt-0">
-            <div class="main-body">
+            <div class="main-body" style="padding: 40px;">
                 <div class="row gutters-sm">
                     <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="<?php echo base_url("assets/assets/img/PNG_LOGO_1.png");?>" alt="Admin"
+                                    <img src="<?php echo base_url("assets/assets/img/USER_profile.png");?>" alt="Admin"
                                         class="rounded-circle" width="150">
                                     <div class="mt-3">
                                         <h4><?php echo $user_data[0]->name ?></h4>
@@ -29,19 +29,16 @@
                         <div class="card mt-2">
                             <div class="ibox">
                                 <div class="ibox-title">
-                                    <h5>Account</h5>
+                                    <h5><b>Account</b></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <ul class="list-group list-group-flush">
-                                        <!-- <li class="list-group-item"><a href="userprofile.html"><i
-                                                    class="fa fa-user mx-2" aria-hidden="true"></i> Profile</a></li> -->
-                                        <li class="list-group-item"><a href="<?php echo base_url('/order'); ?>"><i class="fa fa-cart-plus mx-2"
-                                                    aria-hidden="true"></i> Orders</a></li>
-                                        <li class="list-group-item"><a href="<?php echo base_url('/cart'); ?>"><i
-                                                    class="fa fa-shopping-cart mx-2" aria-hidden="true"></i> Cart</a>
-                                        </li>
-                                        <li class="list-group-item"><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out  mx-2"
-                                                    aria-hidden="true"></i> Logout</a></li>
+
+                                        <li class="list-group-item"><a href="<?php echo base_url('/order'); ?>">
+                                        <span><img src="assets/assets/img/Orders.png" Style="width:75px"></span><b>Orders</b> </a></li>
+                                        <li class="list-group-item"><a href="<?php echo base_url('/cart'); ?>">
+                                        <span><img src="assets/assets/img/Cart.png" Style="width:75px" ></span><b>Cart</b></a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -168,15 +165,6 @@ echo form_open('Profile/update_profile', $attributes);
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                     
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
