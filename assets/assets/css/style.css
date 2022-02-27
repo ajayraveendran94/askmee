@@ -587,7 +587,12 @@ a:hover{
 	padding: 1px;
 }
 
-
+.content-area {
+	padding: 40px;
+	/* padding: 40px;
+	/* margin-right: 15px;
+    margin-left: 15px; */ 
+}
 
 
 

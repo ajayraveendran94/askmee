@@ -10,7 +10,7 @@
             </div>
         </div>
         <!------------>
-        <div class="content-area pt-0">
+        <div class="pt-0">
             <div class="main-body" style="padding: 40px;">
                 <div class="row gutters-sm">
                     <div class="col-md-4 mb-3">
