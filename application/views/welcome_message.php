@@ -79,7 +79,7 @@
                                             <a href="<?php echo base_url('product/view/'.$product['p_id']); ?>" class="product-link"> <?php echo $product['product_name']; ?></a>
                                         </div>
                                         <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <div class="bbb_deals_item_price ml-auto">₹ <?php echo $product['offer_price']; ?></div>
+                                            <div class="bbb_deals_item_price ml-auto" style="margin-bottom:-8px"  >₹ <?php echo $product['offer_price']; ?></div>
                                         </div><br>
                                         <a  id="buyNow" href="<?php echo base_url('/buynow/view/'.$product['p_id']);?>" class="btn btn-theme mb-1">Buy Now</a>
                                         <button id="addToCart_<?php echo($product['p_id']); ?>" class="addToCartBtnNew btn btn-cart mb-1" productId="<?php echo($product['p_id']); ?>">Add to Cart</button>
