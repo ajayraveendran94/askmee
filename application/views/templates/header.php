@@ -205,7 +205,9 @@ $controller = $this->router->fetch_class();
 
                     <div class="col-sm-2 cart-mob">
                         <a href="<?php echo base_url('/cart'); ?>">
-                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;margin-left:27px;">&nbsp
+                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: none;margin-left:27px;">
+                        <img src="<?php echo base_url("assets/assets/img/CART_Notification.png");?>" style="width: 50px;display: inline;margin-left:27px;">&nbsp
+                        &nbsp
                         </a>
                         <span class="sidenav-hamburger" onclick="openNav()">&#9776;</span>
                                   
@@ -263,7 +265,8 @@ $controller = $this->router->fetch_class();
                             <div class="col-md-4 col-sm-4">
                                 <a href="<?php echo base_url('/cart'); ?>">
                                     <div class="text-center" style="margin: 0 auto; margin-top: 7px;">
-                                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: inline;">
+                                        <img src="<?php echo base_url("assets/assets/img/PNG_ICON_1.png");?>" style="width: 50px;display: none;">
+                                        <img src="<?php echo base_url("assets/assets/img/CART_Notification.png");?>" style="width: 50px;display: inline;">
                                         <span class="text" style="display: inline;margin-left: -9px;">Cart</span>
                                     </div>
                                 </a> 
