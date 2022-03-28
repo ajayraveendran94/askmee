@@ -33,6 +33,7 @@ $count = 0;
         if(count($products) > 0){ 
         if(isset($products[0]['p_id'])){
         foreach($products as $product) {
+            if(isset($product['p_id'])){
             // if($count % 4 == 0){
             //     echo('<div class="row product-list">');
             // }
@@ -70,6 +71,7 @@ $count = 0;
                 </div>
             </div>
           <?php  }
+      }
         }
     }
         ?>
